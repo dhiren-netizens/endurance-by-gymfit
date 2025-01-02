@@ -448,6 +448,160 @@ Redux::set_section(
 );
 
 
+// About Us Page Settings
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'About', 'endurance' ),
+		'id'               => 'endurance_about_section',
+		'desc'             => esc_html__( 'About Options', 'endurance' ),
+		'customizer_width' => '400px',
+		'icon'             => 'el el-home',
+	),
+);
+
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'About Us', 'endurance' ),
+		'id'               => 'endurance_about_us',
+		'desc'             => esc_html__( 'About  Options', 'endurance' ),
+		'customizer_width' => '400px',
+		'subsection' => true,
+		'icon'             => 'el el-home',
+		'fields'           => array(
+			array(
+				'id'           => 'endurance_about_us_first_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'About Us Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload About Us Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/about-img.webp'
+				),
+			),
+			array(
+                'id'           => 'endurance_about_us_second_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'About Us Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload About Us Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/white-logo.webp'
+				),
+            ),
+			array(
+                'id'           => 'endurance_about_us_third_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'About Us Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload About Us Image', 'endurance' ),
+				'preview_size' => 'full',
+            ),
+			array(
+				'id'       => 'about_us_heading',
+				'type'     => 'editor',
+				'title'    => esc_html__( 'About Us Heading', 'endurance' ),
+				'subtitle' => esc_html__( 'Enter your Heading'),
+				'default'  => 'About Us'
+			),
+			array(
+			'id'       => 'about_us_Description',
+				'type'     => 'editor',
+				'title'    => esc_html__( 'About Us Description', 'endurance' ),
+				'subtitle' => esc_html__( 'Enter your Description'),
+				'default'  => 'Welcome to Endurance Unleashed, where we fuel the spirit of champions. Our mission is to equip you with the finest tools, gear, and resources to conquer your limits and achieve extraordinary feats. Embrace the thrill of pushing beyond boundaries, stay motivated through the toughest challenges, and track your progress as you embark on a relentless journey to greatness.'
+			),
+			
+        ),
+	)
+);
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Stand Out ', 'endurance' ),
+		'id'               => 'endurance_stand_out',
+		'desc'             => esc_html__( 'Stand Out Options', 'endurance' ),
+		'customizer_width' => '400px',
+		'subsection' => true,
+		'icon'             => 'el el-home',
+		'fields'           => array(
+			array(
+		    	'id'           => 'endurance_stand_out_line',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Stand Out Line Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Line Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/line-pettern.svg'
+				),
+		    ),
+		    array(
+			    'id'       => 'stand_out_with',
+				'type'     => 'editor',
+				'title'    => esc_html__( 'Stand Out With', 'endurance' ),
+				'subtitle' => esc_html__( 'Enter your Title'),
+				'default'  => 'Stand Out With'
+			),
+			array(
+			    'id'       => 'high_endurance',
+				'type'     => 'editor',
+				'title'    => esc_html__( 'High Endurance', 'endurance' ),
+				'subtitle' => esc_html__( 'Enter your Title'),
+				'default'  => 'High Endurance'
+			),
+			array(
+			    'id'       => 'high_endurance_description',
+				'type'     => 'editor',
+				'title'    => esc_html__( 'Description', 'endurance' ),
+				'subtitle' => esc_html__( 'Enter your Description'),
+				'default'  => 'We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.'
+			),
+			array(
+				'id'       => 'stand_out_button',
+				'type'     => 'switch',
+				'title'    => esc_html__( 'Display Get Started Button', 'endurance' ),
+				'default'  => true,
+				'on'       => 'Enabled',
+				'off'      => 'Disabled',
+			),
+			array(
+			    'id'       => 'stand_out_button_text',
+				'type'     => 'text',
+				'required' => array( 'stand_out_button', '=', true ),
+				'title'    => esc_html__( 'Button Text', 'endurance' ),
+				'default'  => 'Get Started'
+			),
+			array(
+			    'id'       => 'stand_out_button_url',
+				'type'     => 'text',
+				'required' => array( 'stand_out_button', '=', true ),
+				'title'    => esc_html__( 'Button URL', 'endurance' ),
+				'validate'  => 'url'
+			),
+			array(
+				'id'           => 'stand_out_with_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Stand Out Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Stnad Out Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/stand-with-img-2.webp'
+				),
+			),
+		),
+	),
+);
+
 if ( ! function_exists( 'compiler_action' ) ) {
 	/**
 	 * This is a test function that will let you see when the compiler hook occurs.
