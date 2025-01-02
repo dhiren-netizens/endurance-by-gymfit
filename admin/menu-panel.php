@@ -463,9 +463,8 @@ Redux::set_section(
 Redux::set_section(
 	$opt_name,
 	array(
-		'title'            => esc_html__( 'About Us', 'endurance' ),
+		'title'            => esc_html__( 'About Us Section', 'endurance' ),
 		'id'               => 'endurance_about_us',
-		'desc'             => esc_html__( 'About  Options', 'endurance' ),
 		'customizer_width' => '400px',
 		'subsection' => true,
 		'icon'             => 'el el-home',
@@ -476,7 +475,6 @@ Redux::set_section(
 				'url'          => true,
 				'title'        => esc_html__( 'About Us Image', 'endurance' ),
 				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload About Us Image', 'endurance' ),
 				'preview_size' => 'full',
 				'default' => array(
 					'url' => get_template_directory_uri() . '/assets/images/background/about-img.webp'
@@ -488,7 +486,6 @@ Redux::set_section(
 				'url'          => true,
 				'title'        => esc_html__( 'About Us Image', 'endurance' ),
 				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload About Us Image', 'endurance' ),
 				'preview_size' => 'full',
 				'default' => array(
 					'url' => get_template_directory_uri() . '/assets/images/white-logo.webp'
@@ -500,21 +497,18 @@ Redux::set_section(
 				'url'          => true,
 				'title'        => esc_html__( 'About Us Image', 'endurance' ),
 				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload About Us Image', 'endurance' ),
 				'preview_size' => 'full',
             ),
 			array(
 				'id'       => 'about_us_heading',
 				'type'     => 'editor',
-				'title'    => esc_html__( 'About Us Heading', 'endurance' ),
-				'subtitle' => esc_html__( 'Enter your Heading'),
+				'title'    => esc_html__( 'Heading', 'endurance' ),
 				'default'  => 'About Us'
 			),
 			array(
-			'id'       => 'about_us_Description',
+			    'id'       => 'about_us_Description',
 				'type'     => 'editor',
-				'title'    => esc_html__( 'About Us Description', 'endurance' ),
-				'subtitle' => esc_html__( 'Enter your Description'),
+				'title'    => esc_html__( 'Description', 'endurance' ),
 				'default'  => 'Welcome to Endurance Unleashed, where we fuel the spirit of champions. Our mission is to equip you with the finest tools, gear, and resources to conquer your limits and achieve extraordinary feats. Embrace the thrill of pushing beyond boundaries, stay motivated through the toughest challenges, and track your progress as you embark on a relentless journey to greatness.'
 			),
 			
@@ -524,9 +518,8 @@ Redux::set_section(
 Redux::set_section(
 	$opt_name,
 	array(
-		'title'            => esc_html__( 'Stand Out ', 'endurance' ),
+		'title'            => esc_html__( 'Stand Out Section', 'endurance' ),
 		'id'               => 'endurance_stand_out',
-		'desc'             => esc_html__( 'Stand Out Options', 'endurance' ),
 		'customizer_width' => '400px',
 		'subsection' => true,
 		'icon'             => 'el el-home',
@@ -537,7 +530,6 @@ Redux::set_section(
 				'url'          => true,
 				'title'        => esc_html__( 'Stand Out Line Image', 'endurance' ),
 				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Line Image', 'endurance' ),
 				'preview_size' => 'full',
 				'default' => array(
 					'url' => get_template_directory_uri() . '/assets/images/background/line-pettern.svg'
@@ -546,22 +538,19 @@ Redux::set_section(
 		    array(
 			    'id'       => 'stand_out_with',
 				'type'     => 'editor',
-				'title'    => esc_html__( 'Stand Out With', 'endurance' ),
-				'subtitle' => esc_html__( 'Enter your Title'),
+				'title'    => esc_html__( 'Heading', 'endurance' ),
 				'default'  => 'Stand Out With'
 			),
 			array(
 			    'id'       => 'high_endurance',
 				'type'     => 'editor',
-				'title'    => esc_html__( 'High Endurance', 'endurance' ),
-				'subtitle' => esc_html__( 'Enter your Title'),
+				'title'    => esc_html__( 'Heading', 'endurance' ),
 				'default'  => 'High Endurance'
 			),
 			array(
 			    'id'       => 'high_endurance_description',
 				'type'     => 'editor',
 				'title'    => esc_html__( 'Description', 'endurance' ),
-				'subtitle' => esc_html__( 'Enter your Description'),
 				'default'  => 'We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.'
 			),
 			array(
@@ -592,11 +581,45 @@ Redux::set_section(
 				'url'          => true,
 				'title'        => esc_html__( 'Stand Out Image', 'endurance' ),
 				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Stnad Out Image', 'endurance' ),
 				'preview_size' => 'full',
 				'default' => array(
 					'url' => get_template_directory_uri() . '/assets/images/background/stand-with-img-2.webp'
 				),
+			),
+		),
+	),
+);
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Our Mission Section', 'endurance' ),
+		'id'               => 'endurance_our_mission',
+		'customizer_width' => '400px',
+		'subsection' => true,
+		'icon'             => 'el el-home',
+		'fields'           => array(
+			array(
+		    	'id'           => 'endurance_our_mission',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/mission-img.webp'
+				),
+		    ),
+		    array(
+			    'id'       => 'endurance_our_mission',
+				'type'     => 'editor',
+				'title'    => esc_html__( 'Heading', 'endurance' ),
+				'default'  => 'Our Mission'
+			),
+			array(
+			    'id'       => 'endurance_mission_decription',
+				'type'     => 'editor',
+				'title'    => esc_html__( 'Description', 'endurance' ),
+				'default'  => 'We believe in the power of pushing boundaries, staying motivated through challenges, and tracking your progress as you embark on an unwavering journey to greatness.'
 			),
 		),
 	),
