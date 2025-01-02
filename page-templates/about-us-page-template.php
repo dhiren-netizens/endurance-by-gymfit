@@ -1,6 +1,6 @@
 <?php 
 /* Template Name: About Us Page Template */
-
+$theme_option = get_option('redux_demo');
 get_header();
 ?>
     <body>
@@ -36,19 +36,27 @@ get_header();
 						<div class="row gy-sm-5 gy-4 justify-content-center align-items-center">
 							<div class="col-lg-7 col-sm-10 order-lg-1 order-2">
 								<div class="image-wrapper d-flex justify-content-center wow fadeInLeft">
-									<img loading="lazy" src="assets/images/background/about-img.webp" alt="about-img" id="about_img1">
-									<img loading="lazy" src="assets/images/white-logo.webp" alt="white-logo" class="logo" id="about_img2">
-									<img loading="lazy" src="assets/images/background/strips.svg" alt="strips" class="strips">
+									<?php if(isset( $theme_option['endurance_about_us_first_img']['url'] ) && !empty( $theme_option['endurance_about_us_first_img']['url'] )) { ?>
+										<img src="<?php echo esc_url( $theme_option['endurance_about_us_first_img']['url'] ); ?>" alt="about-img" id="about_img1">
+									<?php } ?>
+									<?php if(isset( $theme_option['endurance_about_us_second_img']['url'] ) && !empty( $theme_option['endurance_about_us_second_img']['url'] )) { ?>
+										<img src="<?php echo esc_url( $theme_option['endurance_about_us_second_img']['url'] ); ?>" alt="white-logo" id="about_img2" class="logo">
+									<?php } ?>
+									<?php if(isset( $theme_option['endurance_about_us_third_img']['url'] ) && !empty( $theme_option['endurance_about_us_third_img']['url'] )) { ?>
+										<img src="<?php echo esc_url( $theme_option['endurance_about_us_third_img']['url'] ); ?>" alt="strips" id="strips"  class="strips">
+									<?php } ?>
 								</div>
 							</div>
 							<div class="col-lg-5 order-lg-2 order-1">
 								<div class="about_-ext text-lg-start text-center wow fadeInRight">
-									<div class="title">About Us</div>
-									<p>
-										Welcome to Endurance Unleashed, where we fuel the spirit of champions. Our mission is to equip you with the finest tools, gear, and resources to conquer your limits and achieve extraordinary feats. Embrace the thrill of pushing beyond boundaries, stay motivated through the toughest challenges, and track your progress as you embark on a relentless journey to greatness.
-										<br>
-										let's redefine the power of perseverance and triumph in the face of every obstacle. Unleash your full potential with Endurance.
-									</p>
+								    <?php if(isset( $theme_option['about_us_heading'] ) && !empty( $theme_option['about_us_heading'] )) { ?>
+									  <div class="title"><?php echo esc_html( $theme_option['about_us_heading'] ); ?></div>
+									<?php } ?>
+									<?php if(isset( $theme_option['about_us_Description'] ) && !empty( $theme_option['about_us_Description'] )) { ?>
+									  <p>
+									    <?php echo esc_html( $theme_option['about_us_Description'] ); ?>
+									  </p>
+									<?php } ?>
 								</div>
 							</div>
 						</div>
@@ -64,16 +72,34 @@ get_header();
 				<div class="stand-with-wrapper">
 					<div class="top-block wow fadeIn">
 						<div class="d-lg-flex justify-content-start d-block align-items-center text-lg-start text-center pb-sm-2 pb-0">
-							<h1 class="title p-0">Stand out with</h1>
-							<img loading="lazy" src="assets/images/background/line-pettern.svg" alt="Line" class="px-xl-5 px-4 mx-xl-5 mx-4 d-lg-block d-none">
+					    	<?php if(isset( $theme_option['stand_out_with'] ) && !empty( $theme_option['stand_out_with'] )) { ?>
+								    <h1 class="title p-0">
+									    <?php echo esc_html( $theme_option['stand_out_with'] ); ?>
+									</h1>
+							<?php } ?>  
+							<?php if(isset( $theme_option['endurance_stand_out_line']['url'] ) && !empty( $theme_option['endurance_stand_out_line']['url'] )) { ?>
+										<img src="<?php echo esc_url( $theme_option['endurance_stand_out_line']['url'] ); ?>" alt="Line" class="px-xl-5 px-4 mx-xl-5 mx-4 d-lg-block d-none">
+							<?php } ?>
 						</div>
-						<h1 class="title text-lg-end text-center">High Endurance</h1>
+						<?php if(isset( $theme_option['high_endurance'] ) && !empty( $theme_option['high_endurance'] )) { ?>
+								    <h1 class="title text-lg-end text-center">
+									    <?php echo esc_html( $theme_option['high_endurance'] ); ?>
+									</h1>
+						<?php } ?> 
 					</div>
 					<div class="row justify-content-end pb-lg-0 pb-4">
 						<div class="col-lg-7">
 							<div class="text-block d-lg-flex align-items-center text-lg-start text-center wow fadeInLeft">
-								<p class="mb-0 me-lg-3 mb-3">We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.</p>
-								<a href="#" class="btn_wrapper mx-lg-0 mx-auto">get started</a>
+							<?php if(isset( $theme_option['high_endurance_description'] ) && !empty( $theme_option['high_endurance'] )) { ?>
+							    <p class="mb-0 me-lg-3 mb-3">
+									    <?php echo esc_html( $theme_option['high_endurance_description'] ); ?>
+							    </p>
+						    <?php } ?> 
+							<?php if(isset( $theme_option['stand_out_button'] ) && 1 == $theme_option['stand_out_button'] && !empty( $theme_option['stand_out_button'] )) { ?>
+								    <a href="<?php echo esc_attr( $theme_option['stand_out_button_url'] ); ?>" class="btn_wrapper mx-lg-0 mx-auto">
+									    <?php echo esc_html( $theme_option['stand_out_button_text'] ); ?>
+							        </a>
+						    <?php } ?> 
 							</div>
 						</div>
 					</div>
@@ -81,7 +107,9 @@ get_header();
 			</div>
 			<div class="img-block img-block-2 wow fadeInUpBig">
 				<div class="image-wrapper">
-					<img loading="lazy" src="assets/images/background/stand-with-img-2.webp" alt="stand-with-img" class="d-block" id="stand_with_img">
+				     <?php if(isset( $theme_option['stand_out_with_img']['url'] ) && !empty( $theme_option['stand_out_with_img']['url'] )) { ?>
+						<img src="<?php echo esc_url( $theme_option['stand_out_with_img']['url'] ); ?>" alt="stand-with-img" class="d-block" id="stand_with_img">
+					<?php } ?>
 				</div>
 			</div>
 		</div>
@@ -104,7 +132,7 @@ get_header();
 						</div>
 						<div class="col-lg-6 col-sm-8">
 							<div class="image-wrapper wow fadeInRight">
-								<img loading="lazy" src="assets/images/background/mission-img.webp" alt="mission-img" id="mission_img">
+								<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/mission-img.webp" alt="mission-img" id="mission_img">
 							</div>
 						</div>
 					</div>
@@ -125,13 +153,13 @@ get_header();
 									<p>We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.</p>
 								</div>
 								<div class="image-wrapper d-lg-block d-none">
-									<img loading="lazy" src="assets/images/background/cta-appstore-img.svg" alt="cta-appstore-img">
+									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/cta-appstore-img.svg" alt="cta-appstore-img">
 								</div>
 							</div>
 							<div class="image-wrapper mockup mx-lg-0 mx-auto">
 								<div class="row justify-content-center">
 									<div class="col-xxl-10 col-lg-8 col-sm-10">
-										<img loading="lazy" src="assets/images/background/cta-mockup.webp" alt="cta-mockup" class="d-block mx-auto">
+										<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/cta-mockup.webp" alt="cta-mockup" class="d-block mx-auto">
 									</div>
 								</div>
 							</div>
@@ -149,13 +177,13 @@ get_header();
 					<div class="row gy-sm-5 gy-4 align-items-center justify-content-between">
 						<div class="col-lg-6 order-lg-1 order-2">
 							<div class="image-wrapper clientImg wow fadeInLeft">
-								<img loading="lazy" src="assets/images/clients/client-img.webp" alt="client-img" class="d-block mx-auto">
+								<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/clients/client-img.webp" alt="client-img" class="d-block mx-auto">
 								<div class="pettern image-wrapper">
-									<img loading="lazy" src="assets/images/background/client-pettern.svg" alt="client-pettern">
-									<img loading="lazy" src="assets/images/background/client-pettern.svg" alt="client-pettern">
-									<img loading="lazy" src="assets/images/background/client-pettern.svg" alt="client-pettern">
+									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/client-pettern.svg" alt="client-pettern">
+									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/client-pettern.svg" alt="client-pettern">
+									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/client-pettern.svg" alt="client-pettern">
 								</div>
-								<img loading="lazy" src="assets/images/background/strips.svg" alt="strips" class="strips">
+								<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/strips.svg" alt="strips" class="strips">
 							</div>
 						</div>
 						<div class="col-xxl-5 col-lg-6 order-lg-2 order-1">
@@ -171,13 +199,13 @@ get_header();
 												</div>
 												<div class="review">
 													<div class="image-wrapper pe-4">
-														<img loading="lazy" src="assets/images/background/review-img.webp" alt="review-img">
+														<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/review-img.webp" alt="review-img">
 													</div>
 													<div class="review-text">
 														<span>Angela Lipton</span>
 														<p class="mb-1">Google Reviews</p>
 														<div class="image-wrapper">
-															<img loading="lazy" src="assets/images/icon/stars.svg" alt="stars" width="126" height="22">
+															<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/stars.svg" alt="stars" width="126" height="22">
 														</div>
 													</div>
 												</div>
@@ -191,13 +219,13 @@ get_header();
 												</div>
 												<div class="review">
 													<div class="image-wrapper pe-4">
-														<img loading="lazy" src="assets/images/background/review-img-2.webp" alt="review-img-2">
+														<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/review-img-2.webp" alt="review-img-2">
 													</div>
 													<div class="review-text">
 														<span>Johnny depp</span>
 														<p class="mb-1">Person Reviews</p>
 														<div class="image-wrapper">
-															<img loading="lazy" src="assets/images/icon/stars.svg" alt="stars" width="126" height="22">
+															<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/stars.svg" alt="stars" width="126" height="22">
 														</div>
 													</div>
 												</div>
@@ -205,8 +233,8 @@ get_header();
 										</div>
 									</div>
 									<div class="btn-block pt-lg-0 pt-3">
-										<div class="button prev image-wrapper"><img loading="lazy" src="assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-left"></div>
-										<div class="button next image-wrapper"><img loading="lazy" src="assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-right"></div>
+										<div class="button prev image-wrapper"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-left"></div>
+										<div class="button next image-wrapper"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-right"></div>
 									</div>
 								</div>
 							</div>
@@ -226,7 +254,7 @@ get_header();
 						<div class="col-lg-3 col-sm-6">
 							<div class="team-block">
 								<div class="image-wrapper">
-									<img loading="lazy" src="assets/images/team/team-1.webp" alt="team-1">
+									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/team/team-1.webp" alt="team-1">
 								</div>
 								<div class="text-block text-center">
 									<span>Ivan Petrov</span>
@@ -237,7 +265,7 @@ get_header();
 						<div class="col-lg-3 col-sm-6">
 							<div class="team-block">
 								<div class="image-wrapper">
-									<img loading="lazy" src="assets/images/team/team-2.webp" alt="team-2">
+									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/team/team-2.webp" alt="team-2">
 								</div>
 								<div class="text-block text-center">
 									<span>Ekaterina Ivanova</span>
@@ -248,7 +276,7 @@ get_header();
 						<div class="col-lg-3 col-sm-6">
 							<div class="team-block">
 								<div class="image-wrapper">
-									<img loading="lazy" src="assets/images/team/team-3.webp" alt="team-3">
+									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/team/team-3.webp" alt="team-3">
 								</div>
 								<div class="text-block text-center">
 									<span>Sergey Mikhailov</span>
@@ -259,7 +287,7 @@ get_header();
 						<div class="col-lg-3 col-sm-6">
 							<div class="team-block">
 								<div class="image-wrapper">
-									<img loading="lazy" src="assets/images/team/team-4.webp" alt="team-4">
+									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/team/team-4.webp" alt="team-4">
 								</div>
 								<div class="text-block text-center">
 									<span>Olga Sokolova</span>
@@ -282,8 +310,8 @@ get_header();
 							<div class="title pb-3 text-lg-start text-center"><span>Read Our</span> Articles</div>
 							<p class="text-lg-start text-center">Unlock the secrets of endurance and elevate your performance with our insightful articles.</p>
 							<div class="btn-block">
-								<div class="button prev image-wrapper"><img loading="lazy" src="assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-left"></div>
-								<div class="button next image-wrapper"><img loading="lazy" src="assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-right"></div>
+								<div class="button prev image-wrapper"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-left"></div>
+								<div class="button next image-wrapper"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-right"></div>
 							</div>
 						</div>
 						<div class="col-lg-8">
@@ -291,7 +319,7 @@ get_header();
 								<div class="swiper-wrapper">
 									<div class="swiper-slide">
 										<div class="image-wrapper pb-4">
-											<img loading="lazy" src="assets/images/blog/blog-8.webp" alt="blog-8">
+											<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/blog-8.webp" alt="blog-8">
 										</div>
 										<p>Mastering Cardiovascular Fitness: Your Path to Endurance Excellence</p>
 										<div class="read d-flex gap-3 align-items-center justify-content-between">
@@ -301,7 +329,7 @@ get_header();
 									</div>
 									<div class="swiper-slide">
 										<div class="image-wrapper pb-4">
-											<img loading="lazy" src="assets/images/blog/blog-9.webp" alt="blog-9">
+											<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/blog-9.webp" alt="blog-9">
 										</div>
 										<p>Mastering Cardiovascular Fitness: Your Path to Endurance Excellence</p>
 										<div class="read d-flex gap-3 align-items-center justify-content-between">
@@ -320,11 +348,6 @@ get_header();
 
 	</main>
 	<!-- MAIN SECTIONS END'S FROM HERE -->
-
-    <!-- BACK TOP TOP BUTTON START FROM HERE -->
-	<a href="#!" id="button"><img loading="lazy" src="assets/images/icon/arrow-up.svg" width="22" height="22" alt="arrow-up"></a>
-	<!-- BACK TOP TOP BUTTON END'S FROM HERE -->
-
 
     <script>
 		/* ========= ABOUT US FLOATING IMAGES ========= */
