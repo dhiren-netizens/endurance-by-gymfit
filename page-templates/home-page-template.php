@@ -657,10 +657,6 @@ get_header();
     </main>
     <!-- MAIN SECTIONS END'S FROM HERE -->
 
-    <!-- BACK TOP TOP BUTTON START FROM HERE -->
-    <a href="#!" id="button"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-up.svg" width="22" height="22" alt="arrow-up"></a>
-    <!-- BACK TOP TOP BUTTON END'S FROM HERE -->
-
     <!-- VIDEO MODAL START FROM HERE -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">

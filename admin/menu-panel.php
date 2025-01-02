@@ -296,6 +296,7 @@ Redux::set_section(
                 'data'     => 'menus',
                 'title'    => esc_html__( 'Header Menu', 'endurance' ),
                 'desc'     => esc_html__( 'Select the header menu.', 'endurance' ),
+				'default'  => '13',
             ),
 			array(
 				'id'           => 'endurance_header_logo',
@@ -305,6 +306,9 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Header Logo', 'endurance' ),
 				'preview_size' => 'full',
+				'default'  => array(
+					'url' => get_template_directory_uri() . '/assets/images/logo.svg'
+				),
 			),
 			array(
 				'id'           => 'endurance_favicon',
@@ -314,12 +318,23 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Favicon', 'endurance' ),
 				'preview_size' => 'full',
+				'default'  => array(
+					'url' => get_template_directory_uri() . '/assets/images/favicon.svg'
+				),
 			),
 			array(
 				'id'       => 'endurance_display_contact_btn',
 				'type'     => 'switch',
 				'title'    => esc_html__( 'Display Contact us button', 'endurance' ),
 				'default'  => true,
+			),
+			array(
+				'id'       => 'endurance_enable_top_to_btn',
+				'type'     => 'switch',
+				'title'    => esc_html__( 'Want to display Top To Button?', 'endurance' ),
+				'default'  => true,
+				'on'       => 'Enabled',
+				'off'      => 'Disabled',
 			),
         ),
 	)
@@ -341,6 +356,7 @@ Redux::set_section(
                 'data'     => 'menus',
                 'title'    => esc_html__( 'Footer Menu', 'endurance' ),
                 'desc'     => esc_html__( 'Select the footer menu.', 'endurance' ),
+				'default'  => '14',
             ),
 			array(
 				'id'           => 'endurance_footer_logo',
@@ -350,12 +366,16 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Footer Logo', 'endurance' ),
 				'preview_size' => 'full',
+				'default'  => array(
+					'url' => get_template_directory_uri() . '/assets/images/footer-logo.svg'
+				),
 			),
 			array(
 				'id'       => 'endurance_copyright_content',
 				'type'     => 'editor',
 				'title'    => esc_html__( 'Copyright Text', 'endurance' ),
 				'subtitle' => esc_html__( 'Enter your copyright text'),
+				'default'  => 'Copyright © 2025. All rights reserved',
 			),
 			array(
 				'id'           => 'endurance_footer_bank_cards',
@@ -365,6 +385,9 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Bank Cards', 'endurance' ),
 				'preview_size' => 'full',
+				'default'  => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/visa-card.svg'
+				),
 			),
 			array(
 				'id'              => 'endurance_social_profiles',
@@ -372,6 +395,53 @@ Redux::set_section(
 				'title'           => esc_html__( 'Social Profiles', 'endurance' ),
 				'subtitle'        => esc_html__( 'Click an icon to activate it, drag and drop to change the icon order.', 'endurance' ),
 				'hide_widget_msg' => true,
+				'icons' => array(
+					array (
+						'id'         => 'facebook',
+						'icon'       => 'fa-facebook',
+						'enabled'    => true,
+						'name'       => __ ( 'Facebook', 'endurance' ),
+						'background' => '',
+						'color'      => 'rgb(59, 89, 152)',
+						'url'        => 'https://facebook.com',
+					),
+					array (
+						'id'         => 'instagram',
+						'icon'       => 'fa-instagram',
+						'enabled'    => true,
+						'name'       => __ ( 'Instagram', 'endurance' ),
+						'background' => '',
+						'color'      => 'rgb(63, 114, 155)',
+						'url'        => 'https://instagram.com',
+					),
+					array (
+						'id'         => 'twitter',
+						'icon'       => 'fa-twitter',
+						'enabled'    => true,
+						'name'       => __ ( 'Twitter', 'endurance' ),
+						'background' => '',
+						'color'      => 'rgb(0, 0, 0)',
+						'url'        => 'https://x.com',
+					),
+					array (
+						'id'         => 'youtube',
+						'icon'       => 'fa-youtube',
+						'enabled'    => true,
+						'name'       => __ ( 'Youtube', 'endurance' ),
+						'background' => '',
+						'color'      => 'rgb(229, 45, 39)',
+						'url'        => 'https://youtube.com',
+					),
+					array (
+						'id'         => 'linkedin',
+						'icon'       => 'fa-linkedin',
+						'enabled'    => true,
+						'name'       => __ ( 'LinkedIn', 'endurance' ),
+						'background' => '',
+						'color'      => 'rgb(9, 118, 180)',
+						'url'        => 'https://linkedin.com',
+					)
+				)
 			),
         ),
 	)

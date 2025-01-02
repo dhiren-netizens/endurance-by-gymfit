@@ -31,10 +31,11 @@ footer {
                 .icon-wrapper {
                     display: flex;
                     align-items: center;
-                    gap: 20px;
+                    gap: 30px;
 
                     .image-wrapper {
                         transition: all 0.3s ease;
+                        font-size: 22px;
                         
                         &:hover {
                             transform: scale(1.2);
