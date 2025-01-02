@@ -1,0 +1,32 @@
+/*
+============================================
+GALLERY SECTION CSS
+============================================
+*/ 
+.gallery-section {
+    .gallery-wrapper {
+        .image-wrapper {
+            overflow: hidden;
+            border-radius: 16px;
+            @media screen and (max-width:575px) {
+                max-width: 350px;
+                margin: auto;
+            }
+
+            &:hover {
+                img {
+                    transform: scale(1.2);
+                }
+            }
+
+            img {
+                transition: all 0.3s ease;
+            }
+        }
+    }
+}
+/*
+============================================
+GALLERY SECTION CSS
+============================================
+*/ 

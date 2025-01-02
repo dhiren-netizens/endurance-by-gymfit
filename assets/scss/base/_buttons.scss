@@ -1,0 +1,73 @@
+
+/*
+============================================
+COMMON BTN CSS
+============================================
+*/ 
+.btn_wrapper {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    width: max-content;
+    background: $Gradient;
+    background-size: 100% 100%;
+    font-family: $Secondary-font;
+    font-style: normal;
+    font-weight: $regular;
+    color: $White;
+    font-size: 14px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 18px 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px 0 rgba(#6D8DAD , 0.55);
+    position: relative;
+    transition: all 0.3s ease;
+
+    img {
+        margin-left: 24px;
+
+        @media screen and (max-width: 575px) {
+            margin-left: 15px;
+        }
+    }
+
+    &:hover {
+        // background: $Revert-gradient;
+        background-size: 100% 300%;
+    }
+
+    @media (max-width: 1399px){
+        font-size: 12px;
+    }
+
+    &.White-btn {
+        background: $White;
+        color: #F907FC;
+        outline: 10px solid rgba($Secondary-color , 0.40);
+
+        &:hover {
+            img {
+                animation: Scale 1.5s linear infinite;
+            }
+
+            @keyframes Scale {
+                0% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(0);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+COMMON BTN CSS
+============================================
+*/ 

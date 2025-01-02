@@ -1,0 +1,194 @@
+*,
+*::after,
+*::before {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: inherit;
+}
+
+
+/*
+============================================
+FONTS
+============================================
+*/ 
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Zen+Dots&display=swap');
+
+
+/*
+============================================
+BODY
+============================================
+*/ 
+body {
+    max-width: 1920px;
+    margin: auto !important;
+    box-sizing: border-box;
+    font-family: $Primary-font;
+    background: $White;
+    font-weight: 400;
+    position: relative;
+    overflow-x: hidden;
+
+    &.blur-body{
+        position: relative;
+        overflow: hidden;
+        &::after{
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: rgba(9, 30, 33, 0.80);
+            backdrop-filter: blur(11px);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &.no-scroll-y {
+        overflow: hidden;
+    }
+}
+
+
+/*
+============================================
+HEADER TAGS
+============================================
+*/ 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: $Secondary-font;
+    font-weight: 400;
+    color: $Secondary-color;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+button {
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    color: $Secondary-color;
+}
+
+a:hover {
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.image-wrapper{
+    line-height: 0;
+}
+
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #f7f4f4 inset !important;
+    box-shadow: 0 0 0 1000px #f7f4f4 inset !important;
+    -webkit-text-fill-color: $Secondary-color;
+}

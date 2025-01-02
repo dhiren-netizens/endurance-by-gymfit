@@ -1,0 +1,192 @@
+/*
+============================================
+STAND WITH SECTION START FROM HERE
+============================================
+*/
+.stand-with-section {
+
+    &.strips-2 {
+        &::after {
+            top: 65%;
+            right: 350px;
+            opacity: 0.8;
+
+            @media screen and (max-width:1399px) {
+                right: 150px;
+            }
+        }
+    }
+
+    .img-block {
+        &.img-block-2 {
+            .image-wrapper {
+                background-position: center;
+
+                @media screen and (min-width:992px) {
+                    margin-top: -100px;
+                }
+
+                img {
+                    @media screen and (max-width:991px) {
+                        display: block;
+                        width: 100%;
+                        max-width: 700px;
+                        margin: auto;
+                    }
+
+                    @media screen and (max-width:575px) {
+                        max-width: 350px;
+                    }
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+STAND WITH SECTION END'S FROM HERE
+============================================
+*/
+
+
+/*
+============================================
+MISSION SECTION END'S FROM HERE
+============================================
+*/
+.mission-section {
+    .mission-wrapper {
+        .image-wrapper {
+            position: relative;
+
+            @media screen and (max-width:575px) {
+                display: block;
+                width: 100%;
+                max-width: 350px;
+                margin: auto;
+            }
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                filter: blur(100px);
+                z-index: -1;
+
+                @media screen and (max-width:991px) {
+                    filter: blur(50px);
+                }
+            }
+
+            &::after {
+                width: 420px;
+                height: 180px;
+                background: #16CC3E;
+                left: 0;
+                top: 100px;
+
+                @media screen and (max-width:1399px) {
+                    width: 320px;
+                    height: 100px;
+                }
+
+                @media screen and (max-width:991px) {
+                    width: 220px;
+                    height: 80px;
+                }
+            }
+
+            &::before {
+                width: 345px;
+                height: 200px;
+                background: #234EE7;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%) rotate(-120deg);
+
+                @media screen and (max-width:1399px) {
+                    width: 245px;
+                    height: 100px;
+                }
+
+                @media screen and (max-width:991px) {
+                    width: 145px;
+                    height: 80px;
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+MISSION SECTION END'S FROM HERE
+============================================
+*/
+
+
+/*
+============================================
+TEAM SECTION END'S FROM HERE
+============================================
+*/
+.team-section {
+    .team-wrapper {
+
+        .team-block {
+            .image-wrapper {
+                margin-bottom: 15px;
+                position: relative;
+                overflow: hidden;
+    
+                @media screen and (max-width:575px) {
+                    display: block;
+                    max-width: 350px;
+                    margin: auto;
+                    margin-bottom: 15px;
+                }
+    
+                &::before {
+                    content: '';
+                    width: 100%;
+                    aspect-ratio: 1;
+                    background: url(../images/team/team-bg.svg) no-repeat;
+                    background-size: contain;
+                    background-position: bottom;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: -1;
+                }
+    
+                img {
+                    display: block;
+                    margin: auto;
+                    filter: grayscale(1);
+                    transition: all 0.5s ease;
+                }
+                &:hover img{
+                    filter: grayscale(0);
+                    transition: all 0.5s ease;
+                }
+            }
+    
+            .text-block {
+                span {
+                    font-weight: 600;
+                    color: $Secondary-color;
+                    font-size: 22px;
+                    line-height: 1;
+                }
+        
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+TEAM SECTION END'S FROM HERE
+============================================
+*/

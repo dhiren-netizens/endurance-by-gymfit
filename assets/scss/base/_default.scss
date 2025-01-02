@@ -1,0 +1,608 @@
+
+/*
+============================================
+PARAGRAPH CSS
+============================================
+*/ 
+p {
+    color: $Secondary-color;
+    margin: 0 0 30px;
+    text-transform: none;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.3;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @media screen and (max-width:1399px) {
+        margin-bottom: 20px;
+    }
+
+    @media screen and (max-width:991px) {
+        margin-bottom: 15px;
+    }
+
+    @media screen and (max-width:767px) {
+        font-size: 16px;
+    }
+
+    @media screen and (max-width:575px) {
+        font-size: 14px;
+    }
+}
+/*
+============================================
+PARAGRAPH CSS
+============================================
+*/ 
+
+
+/*
+============================================
+SECTION TITLE CSS
+============================================
+*/ 
+h1.title {
+    font-size: 68px;
+
+    @media (max-width: 1399px) {
+        font-size: 58px;
+    }
+
+    @media (max-width: 1199px) {
+        font-size: 52px;
+    }
+
+    @media (max-width: 991px) {
+        font-size: 40px;
+    }
+
+    @media (max-width: 767px) {
+        font-size: 32px;
+    }
+
+    @media (max-width: 575px) {
+        font-size: 26px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 22px;
+    }
+}
+
+.title {
+    font-family: $Secondary-font;
+    font-weight: $regular;
+    color: $Secondary-color;
+    font-size: 42px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    padding-bottom: 35px;
+
+    @media screen and (max-width:1399px) {
+        font-size: 32px;
+    }
+
+    @media screen and (max-width:1199px) {
+        font-size: 28px;
+    }
+
+    @media screen and (max-width:991px) {
+        font-size: 24px;
+        padding-bottom: 25px;
+    }
+
+    @media screen and (max-width:767px) {
+        font-size: 22px;
+    }
+
+    @media screen and (max-width:575px) {
+        font-size: 20px;
+        padding-bottom: 15px;
+    }
+
+    span {
+        font-size: 26px;
+
+        @media screen and (max-width:1399px) {
+            font-size: 22px;
+        }
+
+        @media screen and (max-width:1199px) {
+            font-size: 18px;
+        }
+    }
+}
+
+p.blog-title {
+    font-weight: 600;
+    color: rgba($Secondary-color , 0.80);
+    font-size: 22px;
+    margin-bottom: 20px;
+
+    @media screen and (max-width:1399px) {
+        font-size: 18px;
+    }
+
+    @media screen and (max-width:1199px) {
+        font-size: 16px;
+    }
+
+    &.big {
+        font-size: 38px;
+
+        @media screen and (max-width:1399px) {
+            font-size: 34px;
+        }
+
+        @media screen and (max-width:1199px) {
+            font-size: 28px;
+        }
+
+        @media screen and (max-width:991px) {
+            font-size: 24px;
+        }
+
+        @media screen and (max-width:575px) {
+            font-size: 20px;
+        }
+    }
+}
+
+.titles {
+    font-family: $Primary-font;
+    font-weight: 600;
+    color: #F907FC;
+    font-size: 20px;
+    line-height: 1;
+    text-transform: capitalize;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #E6E6E6;
+}
+/*
+============================================
+SECTION TITLE CSS
+============================================
+*/ 
+
+
+/*
+============================================
+SECTION GAP CSS
+============================================
+*/ 
+.default-padding {
+    padding: 65px 0;
+
+    @media screen and (max-width:1399px) {
+        padding: 40px 0;
+    }
+
+    @media screen and (max-width:991px) {
+        padding: 30px 0;
+    }
+
+    @media screen and (max-width:575px) {
+        padding: 20px 0;
+    }
+}
+/*
+============================================
+SECTION GAP CSS
+============================================
+*/ 
+
+
+/*
+============================================
+BREADCRUMBS BUTTON CSS
+============================================
+*/ 
+.breadcrumbs-section {
+    padding-bottom: 70px;
+    position: relative;
+
+    @media screen and (max-width:1199px) {
+        padding-bottom: 50px;
+    }
+
+    @media screen and (max-width:575px) {
+        padding-bottom: 40px;
+    }
+
+    &::before {
+        content: '';
+        width: 100%;
+        height: 200%;
+        background: url(../images/background/breadcrumbs-img.webp) no-repeat;
+        background-size: cover;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    .breadcrumbs-block {
+        display: flex;
+        width: 100%;
+        max-width: max-content;
+        padding: 2px;
+        border: 1px solid $White;
+        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 100%);
+        border-radius: 89px;
+        align-items: center;
+        .item {
+            position: relative;
+            padding: 7px 20px;
+            font-size: 16px;
+            line-height: 1.5;
+            text-transform: capitalize;
+            transition: all 0.3s ease;
+            border-right: 1px solid rgba($Secondary-color , 0.15);
+
+            &.active {
+                background: $Gradient;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                border: none;
+            }
+        }
+
+        a:hover {
+            color: #F907FC;
+        }
+    }
+}
+/*
+============================================
+BREADCRUMBS BUTTON CSS
+============================================
+*/
+
+
+/*
+============================================
+BLOG SECTION READ CSS
+============================================
+*/     
+.read {
+    a {
+        font-family: $Secondary-font;
+        font-weight: 400;
+        background: linear-gradient(90deg, rgba(248,99,250,1) 0%, rgba(249,7,252,1) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: rgba(0, 0, 0, 0);
+        font-size: 22px;
+        line-height: 1;
+        transition: all 0.3s ease;
+
+        @media screen and (max-width:1399px) {
+            font-size: 20px;
+        }
+
+        @media screen and (max-width:1199px) {
+            font-size: 18px;
+        }
+
+        &:hover {
+            background: linear-gradient(90deg, rgba(248,99,250,0.7) 0%, rgba(249,7,252,0.5) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: rgba(0, 0, 0, 0);
+        }
+    }
+
+    p {
+        font-size: 16px;
+        color: rgba($Secondary-color , 0.40);
+        text-transform: uppercase;
+        margin-bottom: 0;
+
+        @media screen and (max-width:1199px) {
+            font-size: 14px;
+        }
+    }
+}
+/*
+============================================
+BLOG SECTION READ CSS
+============================================
+*/ 
+
+
+/*
+============================================
+BACK TOP BUTTON CSS
+============================================
+*/ 
+#button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    background: $Gradient;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: -1;
+
+    @media screen and (max-width:991px) {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+    }
+
+    &.show {
+        opacity: 1;
+        z-index: 9;
+    }
+}
+/*
+============================================
+BACK TOP BUTTON CSS
+============================================
+*/ 
+
+
+/*
+============================================
+SCROLL BAR
+============================================
+*/ 
+::-webkit-scrollbar, 
+::-webkit-scrollbar-width {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb, 
+::-webkit-scrollbar-color {
+    background: $Primary-color;
+}
+::-webkit-scrollbar-track {
+    background: $White;
+}
+/*
+============================================
+SCROLL BAR
+============================================
+*/ 
+
+
+/*
+============================================
+COMMON FORM CSS
+============================================
+*/ 
+.fill-up-form {
+    form {
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+
+            .image-wrapper {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(180deg, rgba(5,246,249,1) -100%, rgba(249,7,252,1) 100%);
+                border-radius: 9px;
+                box-shadow: 0 4px 24px 0 rgba(#6D8DAD , 0.50);
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+
+                @media screen and (max-width:480px) {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 5px;
+                }
+            }
+            
+            .user-input {
+                width: 100%;
+                background: linear-gradient(90deg, rgba(255,255,255,0.40) 0%, rgba(231,231,231,0.40) 100%);
+                border: 2px solid $White;
+                border-radius: 12px;
+                box-shadow: 0 8px 18px 0 rgba(#6D8DAD , 0.10), inset 0 4px 14px 0 rgba(#CAB6B6 , 0.25);
+                color: $Secondary-color;
+                font-size: 16px;
+                line-height: 1;
+                padding: 15px 24px;
+                outline: none;
+                resize: none;
+
+                @media screen and (max-width:480px) {
+                    font-size: 14px;
+                    padding: 10px 20px;
+                }
+                
+                &::placeholder {
+                    color: rgba($Secondary-color , 0.40);
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 1;
+
+                    @media screen and (max-width:480px) {
+                        font-size: 14px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+/*
+============================================
+COMMON FORM CSS
+============================================
+*/ 
+
+
+textarea {
+    resize: none;
+}
+
+.swiper-wrapper {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-color {
+    background: $Primary-color;
+}
+
+::-webkit-scrollbar-track {
+    background: $White;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-width {
+    width: 5px;
+}
+
+#pricing {
+    display: block;
+    padding-top: 100px;
+    margin-top: -100px;
+    
+    @media screen and (max-width:767px) {
+        padding-top: 50px;
+        margin-top: -50px;
+    }
+}
+
+
+/*
+============================================
+PAGE LOADER CSS
+============================================
+*/ 
+.page_loader{
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background: $White;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        animation: loader 5s linear infinite;
+    }
+
+    @keyframes loader {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
+/*
+============================================
+PAGE LOADER CSS
+============================================
+*/ 
+
+
+/*
+============================================
+SWIPER BUTTON CSS
+============================================
+*/
+.btn-block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @media screen and (max-width:991px) {
+        justify-content: center;
+    }
+
+    .button {
+        background: $White;
+        padding: 15px;
+        border: 1px solid rgba(#F907FC , 0.12);
+        border-radius: 50%;
+        
+        @media screen and (max-width:575px) {
+            padding: 10px;
+        }
+    }
+
+    .prev {
+        img {
+            transform: rotate(180deg);
+        }
+    }
+}
+/*
+============================================
+SWIPER BUTTON CSS
+============================================
+*/ 
+
+
+/*
+============================================
+MODAL CSS
+============================================
+*/ 
+.modal {
+    .modal-dialog {
+        max-width: 800px;
+
+        @media screen and (max-width:767px) {
+            max-width: 500px;
+        }
+
+        @media screen and (max-width:575px) {
+            max-width: 100%;
+        }
+
+        .modal-content {
+            .modal-body {
+                .btn-close {
+                    box-shadow: none;
+                }
+                video {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+MODAL CSS
+============================================
+*/
+
+
+/*
+============================================
+BACKGROUND STRIPS LINES CSS
+============================================
+*/
+img.strips {
+    width: 120%;
+    height: 120%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+/*
+============================================
+BACKGROUND STRIPS LINES CSS
+============================================
+*/

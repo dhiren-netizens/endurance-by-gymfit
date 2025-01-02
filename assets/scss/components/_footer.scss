@@ -1,0 +1,116 @@
+/*
+============================================
+FOOTER CSS START FROM HERE
+============================================
+*/ 
+footer {
+    .footer-wrapper {
+        padding: 50px 0 30px;
+        background: rgba($Secondary-color , 0.80);
+
+        .footer-block {
+            .top-block {
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid rgba($White , 0.25);
+
+                @media screen and (max-width:575px) {
+                    flex-direction: column;
+                }
+
+                .logo {
+                    @media screen and (max-width:575px) {
+                        max-width: 130px;
+                    }
+                }
+
+                .icon-wrapper {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+
+                    .image-wrapper {
+                        transition: all 0.3s ease;
+                        
+                        &:hover {
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+            }
+
+            .footer-content {
+                ul {
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 45px;
+
+                    @media screen and (max-width:1399px) {
+                        gap: 30px;
+                    }
+
+                    @media screen and (max-width:991px) {
+                        gap: 20px;
+                    }
+
+                    li {
+                        a {
+                            color: rgba($White , 0.40);
+                            font-size: 18px;
+                            line-height: 1;
+                            text-transform: uppercase;
+                            transition: all 0.3s ease;
+
+                            @media screen and (max-width:1399px) {
+                                font-size: 16px;
+                            }
+
+                            &:hover {
+                                color: $White;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright {
+        padding: 10px;
+        background: $Secondary-color;
+
+        @media screen and (max-width:991px) {
+            padding-bottom: 70px;
+        }
+
+        p {
+            color: rgba($White , 0.50);
+            font-size: 16px;
+            line-height: 1;
+            margin-bottom: 0;
+
+            @media screen and (max-width:575px) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    &.error-page {
+        .copyright {
+            padding: 10px !important;
+        }
+    }
+    .icon-wrapper a.icon.image-wrapper i {
+        color: #fff !important;
+    }
+}
+/*
+============================================
+FOOTER CSS END'S FROM HERE
+============================================
+*/ 

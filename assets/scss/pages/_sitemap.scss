@@ -1,0 +1,53 @@
+/*
+============================================
+SITEMAP SECTION CSS
+============================================
+*/
+.sitemap-section {
+    .sitemap-wrapper {
+        .sitemap-block {
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    flex-wrap: wrap;
+
+                    &::before {
+                        content: url(../images/icon/gradient-arrow.svg);
+                        width: 24px;
+                        height: 24px;
+                    }
+
+                    .sub-menu {
+                        width: 100%;
+                        padding-left: 50px;
+                    }
+
+                    a {
+                        color: $Secondary-color;
+                        font-size: 20px;
+                        line-height: 1.2;
+
+                        @media screen and (max-width:991px) {
+                            font-size: 18px;
+                        }
+
+                        &:hover {
+                            color: $Primary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+SITEMAP SECTION CSS
+============================================
+*/ 

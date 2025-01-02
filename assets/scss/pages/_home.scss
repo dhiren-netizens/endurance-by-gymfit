@@ -1,0 +1,1444 @@
+/*
+============================================
+BANNER SECTION START FROM HERE
+============================================
+*/
+.banner-wrapper {
+    position: relative;
+
+    &::after,
+    &::before {
+        content: '';
+        position: absolute;
+        filter: blur(100px);
+        border-radius: 50%;
+        z-index: -1;
+
+        @media (max-width: 1399px) {
+            filter: blur(70px);
+        }
+
+        @media (max-width: 575px) {
+            display: none;
+        }
+    }
+
+    &::after {
+        width: 140px;
+        height: 140px;
+        background-color: #16CC3E;
+        bottom: 0;
+        left: 0;
+
+        @media (max-width: 1399px) {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    &::before {
+        width: 180px;
+        height: 180px;
+        background-color: #234EE7;
+        top: 0;
+        right: 0;
+
+        @media (max-width: 1399px) {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    .strips {
+        width: 125%;
+        height: 125%;
+        top: -15%;
+    }
+
+    .imgBlock {
+        position: relative;
+        background-image: url(../images/background/banner-pettern.svg), url(../images/background/strips.svg);
+        background-repeat: no-repeat;
+        background-position: 0px;
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            filter: blur(120px);
+            border-radius: 50%;
+            z-index: -1;
+
+            @media (max-width: 1199px) {
+                filter: blur(60px);
+            }
+
+            @media (max-width: 480px) {
+                filter: blur(30px);
+            }
+        }
+
+        &::after {
+            width: 470px;
+            height: 470px;
+            background-color: rgba(#16CC3E, 0.50);
+            filter: blur(120px);
+            left: 50%;
+            bottom: 75px;
+
+            @media (max-width: 1399px) {
+                width: 300px;
+                height: 300px;
+            }
+
+            @media (max-width: 1199px) {
+                width: 200px;
+                height: 200px;
+            }
+
+            @media (max-width: 575px) {
+                display: none;
+            }
+        }
+
+        &::before {
+            width: 500px;
+            height: 400px;
+            background-color: rgba(#234EE7, 0.50);
+            left: 200px;
+
+            @media (max-width: 1399px) {
+                width: 300px;
+                height: 300px;
+            }
+
+            @media (max-width: 1199px) {
+                width: 200px;
+                height: 200px;
+            }
+
+            @media (max-width: 575px) {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            @media (max-width: 480px) {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        .members {
+            font-family: $Secondary-font;
+            font-weight: $regular;
+            color: $White;
+            font-size: 14px;
+            line-height: 1;
+            position: absolute;
+            bottom: 150px;
+            left: 0;
+
+            @media (max-width: 1399px) {
+                bottom: 100px;
+            }
+        }
+
+        .btn_wrapper {
+
+            @media screen and (min-width: 992px) {
+                position: absolute;
+                bottom: 150px;
+                right: 40px;
+
+                @media (max-width: 1399px) {
+                    bottom: 100px;
+                }
+
+                @media (max-width: 1199px) {
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+BANNER SECTION END'S FROM HERE
+============================================
+*/
+
+
+/*
+============================================
+SUCCESS SECTION START FROM HERE
+============================================
+*/
+.success-section {
+    .success-wrapper {
+        .success-box {
+            height: 100%;
+            border-radius: 18px;
+            position: relative;
+
+            @media screen and (max-width:575px) {
+                max-width: 350px;
+                margin: auto;
+            }
+
+            &.icon-box {
+                padding: 30px;
+
+                @media screen and (max-width:767px) {
+                    padding: 20px;
+                }
+
+                .box-text {
+                    padding: 0;
+                }
+            }
+
+            &.first-box {
+                background: linear-gradient(180deg, rgba(22, 204, 62, 1) 0%, rgba(4, 144, 35, 1) 100%);
+
+                &.opacity-box {
+                    background: $Opacity-gradient;
+                }
+            }
+
+            &.last-box {
+                background: $Gradient;
+
+                &.opacity-box {
+                    background: $Opacity-gradient-2;
+                }
+            }
+
+            .image-wrapper {
+
+                &.icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: end;
+                    padding-bottom: 25px;
+                }
+
+                .box-img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+
+            .box-text {
+                padding: 30px;
+
+                @media screen and (max-width:767px) {
+                    padding: 20px;
+                }
+
+                &.position {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                }
+
+                span {
+                    display: block;
+                    font-family: $Secondary-font;
+                    font-weight: $regular;
+                    text-transform: uppercase;
+                    line-height: 1;
+
+                    &.white {
+                        color: $White;
+                        font-size: 40px;
+                        padding-bottom: 15px;
+
+                        @media screen and (max-width:1399px) {
+                            font-size: 30px;
+                        }
+
+                        @media screen and (max-width:1199px) {
+                            font-size: 24px;
+                        }
+
+                        @media screen and (max-width:767px) {
+                            font-size: 20px;
+                        }
+                    }
+
+                    &.gradient {
+                        font-size: 34px;
+                        background: $Gradient;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+
+                        @media screen and (max-width:1399px) {
+                            font-size: 24px;
+                        }
+
+                        @media screen and (max-width:1199px) {
+                            font-size: 22px;
+                        }
+
+                        @media screen and (max-width:767px) {
+                            font-size: 18px;
+                        }
+                    }
+
+                    &.gradient-2 {
+                        background: linear-gradient(180deg, rgba(22, 204, 62, 1) 0%, rgba(4, 144, 35, 1) 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                }
+
+                p {
+                    color: $White;
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+SUCCESS SECTION END'S FROM HERE
+============================================
+*/
+
+
+/*
+============================================
+ABOUT SECTION START FROM HERE
+============================================
+*/
+.about-section {
+    .about-wrapper {
+        .image-wrapper {
+            // background: url(../images/background/strips.svg) no-repeat;
+            // background-size: contain;
+            position: relative;
+
+            @media screen and (max-width:575px) {
+                max-width: 320px;
+                margin: auto;
+            }
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                z-index: -2;
+                top: 50%;
+                transform: translateY(-50%);
+                filter: blur(80px);
+
+                @media screen and (max-width:575px) {
+                    filter: blur(40px);
+                }
+            }
+
+            &::after {
+                width: 420px;
+                height: 180px;
+                background-color: #16CC3E;
+                left: 0;
+
+                @media screen and (max-width:575px) {
+                    width: 220px;
+                    height: 80px;
+                }
+            }
+
+            &::before {
+                width: 340px;
+                height: 200px;
+                background-color: #234EE7;
+                right: 50px;
+                transform: translateY(-50%) rotate(120deg);
+
+                @media screen and (max-width:575px) {
+                    width: 140px;
+                    height: 100px;
+                }
+            }
+
+            .logo {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+            }
+        }
+    }
+}
+/*
+============================================
+ABOUT SECTION END'S FROM HERE
+============================================
+*/
+
+
+/*
+============================================
+CTA SECTION START FROM HERE
+============================================
+*/
+.cta-section {
+    background: url(../images/background/cta-line.svg) no-repeat;
+    background-size: contain;
+    background-position: top center;
+
+    @media screen and (max-width:575px) {
+        background-image: none;
+    }
+
+    .cta-wrapper {
+        .cta-text {
+            padding: 50px 100px 200px 50px;
+            border-radius: 28px;
+            background: radial-gradient(119.23% 119.23% at 50% -19.23%, #05F6F9 0%, #F907FC 100%), #D9D9D9;
+            transform: perspective(1000px) rotateX(-25deg);
+            @media screen and (max-width:1399px) {
+                padding: 50px 100px 150px 50px;
+            }
+
+            @media screen and (max-width:767px) {
+                padding: 50px 50px 100px;
+            }
+
+            @media screen and (max-width:575px) {
+                padding: 30px 30px 100px;
+            }
+
+            @media screen and (max-width:480px) {
+                padding: 30px 30px 80px;
+            }
+
+            .title,
+            p {
+                color: $White;
+            }
+        }
+
+        .mockup {
+            margin-top: -200px;
+            position: relative;
+            margin-bottom: -90px;
+            @media screen and (max-width:1399px) {
+                margin-top: -150px;
+            }
+
+            @media screen and (max-width:767px) {
+                margin-top: -100px;
+                margin-bottom: -40px;
+            }
+
+            @media screen and (max-width:575px) {
+                max-width: 320px;
+            }
+
+            @media screen and (max-width:480px) {
+                margin-top: -80px;
+            }
+        }
+    }
+}
+/*
+============================================
+CTA SECTION END'S FROM HERE
+============================================
+*/
+
+
+/*
+============================================
+NOTICE SECTION START FROM HERE
+============================================
+*/
+.notice-section {
+    overflow: hidden;
+
+    .notice {
+        position: relative;
+        height: 200px;
+
+        @media screen and (max-width:575px) {
+            height: 150px;
+        }
+
+        @media screen and (max-width:480px) {
+            height: 100px;
+        }
+
+        .notice-slide {
+            width: calc(100% + 50px);
+            margin-left: -20px;
+            background: linear-gradient(90deg, rgba(22, 204, 62, 1) 0%, rgba(22, 204, 62, 1) 32%, rgba(35, 78, 231, 1) 66%, rgba(35, 78, 231, 1) 100%);
+            box-shadow: 0px 10px 32px rgba(65, 121, 234, .28);
+            padding: 20px 0;
+            display: flex;
+            transform: translateY(-50%) skew(0deg, -4deg);
+            position: absolute;
+            top: 50%;
+            left: 0;
+
+            @media screen and (max-width:991px) {
+                padding: 15px 0;
+                transform: translateY(-50%) skew(0deg, -6deg);
+            }
+
+            @media screen and (max-width:480px) {
+                padding: 10px 0;
+            }
+            
+            &:last-child {
+                transform: translateY(-50%) skew(0deg, 4deg);
+                background: linear-gradient(270deg, rgba(22, 204, 62, 1) 0%, rgba(22, 204, 62, 1) 32%, rgba(35, 78, 231, 1) 66%, rgba(35, 78, 231, 1) 100%);
+
+                @media screen and (max-width:991px) {
+                    transform: translateY(-50%) skew(0deg, 6deg);
+                }
+
+                img {
+                    animation: marquee2 15s linear infinite;
+                }
+            }
+
+            img {
+                animation: marquee1 15s linear infinite;
+                margin-right: 20px;
+            }
+        }
+
+        @keyframes marquee1 {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(-100%, 0);
+            }
+        }
+
+        @keyframes marquee2 {
+            0% {
+                transform: translate(-100%, 0);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+    }
+}
+/*
+============================================
+NOTICE SECTION END'S FROM HERE
+============================================
+*/
+
+
+/*
+============================================
+STAND WITH SECTION START FROM HERE
+============================================
+*/
+.stand-with-section {
+    &.strips {
+        background: url(../images/background/strips.svg) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 580px;
+            height: 340px;
+            background: #234EE7;
+            position: absolute;
+            top: 50%;
+            right: 150px;
+            transform: translateY(-50%);
+            filter: blur(150px);
+            z-index: -1;
+
+            @media screen and (max-width:1399px) {
+                width: 380px;
+                height: 240px;
+                right: 100px;
+            }
+
+            @media screen and (max-width:991px) {
+                right: auto;
+                left: 50%;
+                transform: translate(-50% , -50%);
+            }
+
+            @media screen and (max-width:767px) {
+                width: 280px;
+                height: 140px;
+                filter: blur(100px);
+            }
+
+            @media screen and (max-width:480px) {
+                filter: blur(60px);
+            }
+        }
+
+        &::before {
+            content: '';
+            width: 560px;
+            height: 230px;
+            background: #16CC3E;
+            position: absolute;
+            top: 50%;
+            left: 150px;
+            transform: translateY(-50%);
+            filter: blur(150px);
+            z-index: -1;
+
+            @media screen and (max-width:1399px) {
+                width: 360px;
+                height: 130px;
+            }
+
+            @media screen and (max-width:991px) {
+                display: none;
+            }
+        }
+    }
+
+    .stand-with-wrapper {
+        .text-block {
+            position: relative;
+            z-index: 1;
+
+            span {
+                display: block;
+                font-family: $Secondary-font;
+                font-weight: $regular;
+                color: $Secondary-color;
+                font-size: 19px;
+                line-height: 1;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+
+                @media screen and (max-width:575px) {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .img-block {
+        .image-wrapper {
+            position: relative;
+            background-image: url(../images/background/stand-with-pettern.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center 30px;
+
+            @media screen and (min-width:992px) {
+                margin-top: -150px;
+            }
+
+            .btn_wrapper {
+                position: absolute;
+                bottom: 100px;
+                right: 100px;
+
+                @media screen and (max-width:1199px) {
+                    right: 0;
+                }
+
+                @media screen and (max-width:991px) {
+                    position: static;
+                }
+            }
+        }
+
+        &.img-block-2 {
+            .image-wrapper {
+                background-position: center;
+
+                @media screen and (min-width:992px) {
+                    margin-top: -100px;
+                }
+
+                &::after {
+                    left: 150px;
+                }
+                
+                &::before {
+                    top: auto;
+                    bottom: 50px;
+                    right: 200px;
+                }
+
+                img {
+                    @media screen and (max-width:991px) {
+                        display: block;
+                        width: 100%;
+                        max-width: 700px;
+                        margin: auto;
+                    }
+
+                    @media screen and (max-width:575px) {
+                        max-width: 350px;
+                    }
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+STAND WITH SECTION END'S FROM HERE
+============================================
+*/
+
+
+/*
+============================================
+PRICING SECTION END'S FROM HERE
+============================================
+*/
+.pricing-section {
+    background: url(../images/background/pricing-paper-texture.webp) no-repeat;
+    background-position: center;
+    .content {
+        @media screen and (max-width:1199px) {
+            overflow-x: auto;
+            padding: 25px 0;
+        }
+    }
+    ::-webkit-scrollbar,
+    ::-webkit-scrollbar-height {
+        height: 5px;
+    }
+    .pricing-wrapper {
+        @media screen and (max-width:1199px) {
+            width: 1116px;
+        }
+
+        @media screen and (max-width:575px) {
+            width: 856px;
+        }
+
+        @media screen and (max-width:480px) {
+            width: 806px;
+        }
+
+        .option-wrapper {
+            .nav {
+                width: 100%;
+                max-width: max-content;
+                padding: 6px;
+                background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 100%);
+                border: 1px solid $White;
+                border-radius: 33px;
+                box-shadow: 0 13px 36px 0 rgba(#6D8DAD, 0.21), inset 0 4px 14px 0 rgba(#CAB6B6 , 0.25);
+
+                @media screen and (max-width:480px) {
+                    padding: 5px;
+                }
+
+                .nav-item {
+                    .nav-link {
+                        background: transparent;
+                        padding: 16px 34px;
+                        border-radius: 48px;
+                        font-family: $Secondary-font;
+                        font-weight: 400;
+                        color: rgba($Secondary-color , 0.45);
+                        font-size: 14px;
+                        line-height: 1;
+                        text-transform: uppercase;
+                        transition: all 0.3s ease;
+
+                        @media screen and (max-width:1399px) {
+                            font-size: 12px;
+                            padding: 15px 30px;
+                        }
+
+                        @media screen and (max-width:575px) {
+                            padding: 10px 20px;
+                            font-size: 10px;
+                        }
+
+                        &.active {
+                            background: $Gradient;
+                            color: $White;
+                        }
+                    }
+                }
+            }
+
+            .options {
+                ul {
+                    li {
+                        font-weight: 500;
+                        color: $Secondary-color;
+                        font-size: 20px;
+                        line-height: 1.5;
+                        padding-left: 35px;
+                        padding-bottom: 24px;
+                        margin-bottom: 24px;
+                        border-bottom: 1px solid #E6E6E6;
+                        position: relative;
+
+                        @media screen and (max-width:575px) {
+                            font-size: 16px;
+                            padding-left: 0;
+                            padding-bottom: 10px;
+                            margin-bottom: 10px;
+                        }
+
+                        &::after {
+                            content: '';
+                            width: 8px;
+                            height: 8px;
+                            background: linear-gradient(90deg, rgba(22,204,62,1) 0%, rgba(22,204,62,1) 32%, rgba(35,78,231,1) 66%, rgba(35,78,231,1) 100%);
+                            position: absolute;
+                            top: 10px;
+                            left: 14px;
+
+                            @media screen and (max-width:575px) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                .price {
+                    display: block;
+                    font-family: $Secondary-font;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 1;
+                    text-transform: uppercase;
+                    background: linear-gradient(180deg, rgb(5, 246, 249) -80%, rgb(249, 7, 252) 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: rgba(0, 0, 0, 0);
+
+                    @media screen and (max-width:575px) {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+
+        .pricing-block {
+            position: relative;
+
+            &::before {
+                content: '';
+                width: 100%;
+                height: 60px;
+                background: #ebeffc;
+                border-radius: 48px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+
+                @media screen and (max-width:1399px) {
+                    height: 56px;
+                }
+
+                @media screen and (max-width:575px) {
+                    height: 44px;
+                }
+
+                @media screen and (max-width:480px) {
+                    height: 42px;
+                }
+            }
+
+            .pricing-plan {
+                position: relative;
+
+                .title {
+                    padding: 20px;
+                    background: #EBEFFC;
+                    border-radius: 48px;
+                    color: rgba($Secondary-color , 0.45);
+                    font-size: 20px;
+                    line-height: 1;
+                    text-align: center;
+                    transition: all 0.5s ease;
+
+                    @media screen and (max-width:1399px) {
+                        font-size: 16px;
+                    }
+
+                    @media screen and (max-width:575px) {
+                        padding: 15px;
+                        font-size: 14px;
+                    }
+
+                    @media screen and (max-width:480px) {
+                        font-size: 12px;
+                    }
+                }
+
+                ul {
+                    li {
+                        padding-bottom: 24px;
+                        margin-bottom: 24px;
+                        line-height: 0;
+                        border-bottom: 1px solid #E6E6E6;
+                        transition: all 0.5s ease;
+
+                        @media screen and (max-width:575px) {
+                            padding-bottom: 10px;
+                            margin-bottom: 10px;
+                        }
+
+                        img {
+                            display: block;
+                            margin: auto;
+
+                            @media screen and (max-width:575px) {
+                                width: 24px;
+                                height: 24px;
+                            }
+                        }
+                    }
+                }
+
+                .pricing {
+                    text-align: center;
+
+                    span {
+                        display: block;
+                        font-family: $Secondary-font;
+                        font-weight: 400;
+                        color: $Secondary-color;
+                        font-size: 24px;
+                        line-height: 1;
+                        margin-bottom: 5px;
+
+                        @media screen and (max-width:1399px) {
+                            font-size: 18px;
+                        }
+
+                        @media screen and (max-width:575px) {
+                            font-size: 16px;
+                        }
+
+                        &.free {
+                            background: linear-gradient(180deg, rgb(5, 246, 249) -80%, rgb(249, 7, 252) 100%);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: rgba(0, 0, 0, 0);
+                        }
+                    }
+
+                    p {
+                        font-size: 16px;
+
+                        @media screen and (max-width:575px) {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .btn_wrapper {
+                    opacity: 0;
+                    z-index: -1;
+                    transition: all 0.5s ease;
+
+                    @media screen and (max-width:575px) {
+                        padding: 10px 20px;
+                        font-size: 10px;
+                        border-radius: 8px;
+                    }
+                }
+                
+                &::after {
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    background: url(../images/background/pricing-bg.svg), $White;
+                    background-repeat: no-repeat;
+                    background-position: top;
+                    border: 1px solid #F907FC;
+                    border-radius: 28px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50% , -50%);
+                    z-index: -1;
+                    opacity: 0;
+                    transition: all 0.5s ease;
+                    overflow: hidden;
+                        
+                    @media screen and (max-width:575px) {
+                        border-radius: 14px;
+                    }
+                }
+ 
+                &:hover {
+                    .title {
+                        background: linear-gradient(180deg, rgb(5, 246, 249) -80%, rgb(249, 7, 252) 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: rgba(0, 0, 0, 0);
+                    }
+                    ul {
+                        li {
+                            border-color: transparent;
+                        }
+                    }
+                    &::after {
+                        height: calc(100% + 50px);
+                        opacity: 1;
+                        
+                        @media screen and (max-width:575px) {
+                            height: calc(100% + 30px);
+                            border-radius: 14px;
+                        }
+                    }
+                    &::before {
+                        opacity: 1;
+                    }
+                    .btn_wrapper {
+                        opacity: 1;
+                        z-index: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+PRICING SECTION END'S FROM HERE
+============================================
+*/
+
+
+/*
+============================================
+SPECIAL SECTION END'S FROM HERE
+============================================
+*/
+.special-section {
+    background: url(../images/background/special-line.svg) no-repeat;
+    background-size: 100% 100%;
+    background-position: 0 center;
+
+    @media screen and (max-width:991px) {
+        background-image: none;
+    }
+
+    .special-wrapper {
+        .special-block {
+            padding: 35px;
+            border-radius: 20px;
+            background-image: url(../images/background/special-pettern.svg), $Gradient;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            overflow: hidden;
+
+            @media screen and (max-width:480px) {
+                padding: 20px;
+            }
+            
+            &.second-box {
+                background-image: url(../images/background/special-pettern-2.svg), linear-gradient(180deg, rgb(22, 204, 62) 0%, rgb(4, 144, 35) 100%);
+                background-position: top;
+            }
+
+            span {
+                display: block;
+                font-family: $Secondary-font;
+                font-weight: 400;
+                color: $White;
+                font-size: 34px;
+                line-height: 1;
+                margin-bottom: 10px;
+
+                @media screen and (max-width:1399px) {
+                    font-size: 26px;
+                }
+
+                @media screen and (max-width:575px) {
+                    font-size: 22px;
+                }
+
+                &.tags {
+                    font-size: 28px;
+                    margin-bottom: 0;
+
+                    @media screen and (max-width:1399px) {
+                        font-size: 22px;
+                    }
+
+                    @media screen and (max-width:575px) {
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            p {
+                color: $White;
+            }
+
+            .image-wrapper {
+                margin-right: -35px;
+                margin-left: -35px;
+
+                @media screen and (max-width:480px) {
+                    margin-right: -20px;
+                    margin-left: -20px;
+                }
+
+                img {
+                    display: block;
+                    margin: auto;
+
+                    @media screen and (max-width:575px) {
+                        width: 100%;
+                        max-width: 350px;
+                    }
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+SPECIAL SECTION END'S FROM HERE
+============================================
+*/
+
+
+/*
+============================================
+CLIENT SECTION END'S FROM HERE
+============================================
+*/
+.client-section {
+    overflow: hidden;
+
+    .client-wrapper {
+        .clientImg {
+            position: relative;
+
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                z-index: -2;
+                top: 50%;
+                transform: translateY(-50%);
+                filter: blur(80px);
+
+                @media screen and (max-width:575px) {
+                    filter: blur(40px);
+                }
+            }
+
+            &::after {
+                width: 420px;
+                height: 180px;
+                background-color: #16CC3E;
+                left: 0;
+
+                @media screen and (max-width:575px) {
+                    width: 220px;
+                    height: 80px;
+                }
+            }
+
+            &::before {
+                width: 340px;
+                height: 200px;
+                background-color: #234EE7;
+                right: 50px;
+                transform: translateY(-50%) rotate(120deg);
+
+                @media screen and (max-width:575px) {
+                    width: 140px;
+                    height: 100px;
+                }
+            }
+
+            > img {
+                @media screen and (max-width:575px) {
+                    width: 100%;
+                    max-width: 320px;
+                    margin: auto;
+                }
+            }
+
+            .pettern {
+                position: absolute;
+                width: 100%;
+                aspect-ratio: 1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50% , -50%);
+                z-index: -1;
+                overflow: hidden;
+
+                img {
+                    display: block;
+                    margin: auto;
+                    animation: marquee-slide 10s linear infinite;
+                }
+
+                @keyframes marquee-slide {
+                    0% {
+                        transform: translate(0, 0);
+                    }
+                    100% {
+                        transform: translate(0, -100%);
+                    }
+                }
+            }
+        }
+
+        .client-text {
+            .title {
+                font-size: 34px;
+
+                @media screen and (max-width:1399px) {
+                    font-size: 28px;
+                }
+
+                @media screen and (max-width:991px) {
+                    font-size: 24px;
+                }
+
+                @media screen and (max-width:575px) {
+                    font-size: 20px;
+                }
+            }
+
+            .ClientSwiper {
+                position: relative;
+
+                .swiper-slide {
+                    height: auto;
+                }
+
+                .review-block {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    @media screen and (max-width:991px) {
+                        text-align: center;
+                    }
+                }
+                
+                .review {
+                    display: flex;
+                    align-items: center;
+                    @media screen and (max-width:991px) {
+                        text-align: left;
+                        justify-content: center;
+                    }
+                    img {
+                        @media screen and (max-width:575px) {
+                            max-width: 60px;
+                        }
+                    }
+
+                    .review-text {
+                        span {
+                            display: block;
+                            font-weight: 600;
+                            color: $Secondary-color;
+                            font-size: 22px;
+                            line-height: 1;
+
+                            @media screen and (max-width:480px) {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+
+                .btn-block {
+                    @media screen and (min-width:992px) {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        z-index: 2;
+                    }
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+CLIENT SECTION END'S FROM HERE
+============================================
+*/
+
+
+/*
+============================================
+BLOG SECTION END'S FROM HERE
+============================================
+*/
+.blog-section {
+    .blog-wrapper {
+        .blog-block {
+
+            @media screen and (max-width:575px) {
+                display: block;
+                max-width: 350px;
+                margin: auto;
+            }
+
+            .image-wrapper {
+                border-radius: 18px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            img {
+                display: block;
+                width: 100%;  
+                position: relative; 
+                transition: all 0.3s ease;
+            }
+            
+            &:hover {
+                img {
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+BLOG SECTION END'S FROM HERE
+============================================
+*/
+
+
+/*
+============================================
+INSTAGRAM SECTION END'S FROM HERE
+============================================
+*/
+.instagram-section {
+    .instagram-wrapper {
+        position: relative;
+        overflow: hidden;
+
+        .image-wrapper {
+            position: relative;
+
+            img {
+                display: block;
+                width: 100%;
+            }
+
+            .img-block {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+
+                img {
+                    &.img-3 {
+                        margin-left: -150px;
+
+                        @media screen and (max-width:1399px) {
+                            margin-left: -100px;
+                        }
+
+                        @media screen and (max-width:991px) {
+                            margin-left: -50px;
+                        }
+
+                        @media screen and (max-width:480px) {
+                            margin-left: -20px;
+                        }
+                    }
+                    &.img-6 {
+                        margin-left: 150px;
+                        animation-direction: unset;
+
+                        @media screen and (max-width:1399px) {
+                            margin-left: 100px;
+                        }
+
+                        @media screen and (max-width:991px) {
+                            margin-left: 50px;
+                        }
+
+                        @media screen and (max-width:480px) {
+                            margin-left: 20px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .text-block {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50% , -50%);
+            z-index: 1;
+
+            p {
+                font-size: 20px;
+                margin-bottom: 0;
+
+                @media screen and (max-width:991px) {
+                    font-size: 18px;
+                }
+
+                @media screen and (max-width:767px) {
+                    font-size: 16px;
+                }
+
+                @media screen and (max-width:480px) {
+                    font-size: 14px;
+                }
+            }
+
+            a {
+                font-family: $Secondary-font;
+                font-weight: 400;
+                font-size: 62px;
+                line-height: 1;
+                background: linear-gradient(270deg, rgba(22,204,62,1) 0%, rgba(22,204,62,1) 32%, rgba(35,78,231,1) 66%, rgba(35,78,231,1) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: rgba(0, 0, 0, 0);
+
+                @media screen and (max-width:1399px) {
+                    font-size: 52px;
+                }
+
+                @media screen and (max-width:991px) {
+                    font-size: 42px;
+                }
+
+                @media screen and (max-width:767px) {
+                    font-size: 32px;
+                }
+
+                @media screen and (max-width:480px) {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+/*
+============================================
+INSTAGRAM SECTION END'S FROM HERE
+============================================
+*/
