@@ -36,14 +36,14 @@ get_header();
 						<div class="row gy-sm-5 gy-4 justify-content-center align-items-center">
 							<div class="col-lg-7 col-sm-10 order-lg-1 order-2">
 								<div class="image-wrapper d-flex justify-content-center wow fadeInLeft">
-									<?php if(isset( $theme_option['endurance_about_us_first_img']['url'] ) && !empty( $theme_option['endurance_about_us_first_img']['url'] )) { ?>
-										<img src="<?php echo esc_url( $theme_option['endurance_about_us_first_img']['url'] ); ?>" alt="about-img" id="about_img1">
+									<?php if(isset( $theme_option['endurance_about_us_img']['url'] ) && !empty( $theme_option['endurance_about_us_img']['url'] )) { ?>
+										<img src="<?php echo esc_url( $theme_option['endurance_about_us_img']['url'] ); ?>" alt="about-img" id="about_img1">
 									<?php } ?>
-									<?php if(isset( $theme_option['endurance_about_us_second_img']['url'] ) && !empty( $theme_option['endurance_about_us_second_img']['url'] )) { ?>
-										<img src="<?php echo esc_url( $theme_option['endurance_about_us_second_img']['url'] ); ?>" alt="white-logo" id="about_img2" class="logo">
+									<?php if(isset( $theme_option['endurance_about_us_white_img']['url'] ) && !empty( $theme_option['endurance_about_us_white_img']['url'] )) { ?>
+										<img src="<?php echo esc_url( $theme_option['endurance_about_us_white_img']['url'] ); ?>" alt="white-logo" id="about_img2" class="logo">
 									<?php } ?>
-									<?php if(isset( $theme_option['endurance_about_us_third_img']['url'] ) && !empty( $theme_option['endurance_about_us_third_img']['url'] )) { ?>
-										<img src="<?php echo esc_url( $theme_option['endurance_about_us_third_img']['url'] ); ?>" alt="strips" id="strips"  class="strips">
+									<?php if(isset( $theme_option['endurance_about_us_strips_img']['url'] ) && !empty( $theme_option['endurance_about_us_strips_img']['url'] )) { ?>
+										<img src="<?php echo esc_url( $theme_option['endurance_about_us_strips_img']['url'] ); ?>" alt="strips" id="strips"  class="strips">
 									<?php } ?>
 								</div>
 							</div>

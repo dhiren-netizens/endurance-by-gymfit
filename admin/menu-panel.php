@@ -456,7 +456,7 @@ Redux::set_section(
 		'id'               => 'endurance_about_section',
 		'desc'             => esc_html__( 'About Options', 'endurance' ),
 		'customizer_width' => '400px',
-		'icon'             => 'el el-home',
+		'icon'             => 'el el-adult',
 	),
 );
 
@@ -470,7 +470,7 @@ Redux::set_section(
 		'icon'             => 'el el-home',
 		'fields'           => array(
 			array(
-				'id'           => 'endurance_about_us_first_img',
+				'id'           => 'endurance_about_us_img',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'About Us Image', 'endurance' ),
@@ -481,10 +481,10 @@ Redux::set_section(
 				),
 			),
 			array(
-                'id'           => 'endurance_about_us_second_img',
+                'id'           => 'endurance_about_us_white_img',
 				'type'         => 'media',
 				'url'          => true,
-				'title'        => esc_html__( 'About Us Image', 'endurance' ),
+				'title'        => esc_html__( 'White Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
 				'default' => array(
@@ -492,10 +492,10 @@ Redux::set_section(
 				),
             ),
 			array(
-                'id'           => 'endurance_about_us_third_img',
+                'id'           => 'endurance_about_us_strips_img',
 				'type'         => 'media',
 				'url'          => true,
-				'title'        => esc_html__( 'About Us Image', 'endurance' ),
+				'title'        => esc_html__( 'Strips Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
             ),
@@ -599,7 +599,7 @@ Redux::set_section(
 		'icon'             => 'el el-home',
 		'fields'           => array(
 			array(
-		    	'id'           => 'endurance_our_mission',
+		    	'id'           => 'endurance_our_mission_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Image', 'endurance' ),
@@ -620,6 +620,41 @@ Redux::set_section(
 				'type'     => 'editor',
 				'title'    => esc_html__( 'Description', 'endurance' ),
 				'default'  => 'We believe in the power of pushing boundaries, staying motivated through challenges, and tracking your progress as you embark on an unwavering journey to greatness.'
+			),
+		),
+	),
+);
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Smart App Section', 'endurance' ),
+		'id'               => 'endurance_smart_app',
+		'customizer_width' => '400px',
+		'subsection' => true,
+		'icon'             => 'el el-screen',
+		'fields'           => array(
+			array(
+		    	'id'           => 'endurance_smart_app_store_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-appstore-img.svg'
+				),
+		    ),
+		    array(
+			    'id'       => 'endurance_samrt_app_heading',
+				'type'     => 'editor',
+				'title'    => esc_html__( 'Heading', 'endurance' ),
+				'default'  => 'Smart App For all'
+			),
+			array(
+			    'id'       => 'endurance_smart_app_decription',
+				'type'     => 'editor',
+				'title'    => esc_html__( 'Description', 'endurance' ),
+				'default'  => 'We are the ultimate destination for those seeking to push their boundaries.'
 			),
 		),
 	),
