@@ -110,3 +110,11 @@ $theme_option = get_option('redux_demo');
 		</div>
 	</header>
 	<!-- HEADER END'S FROM HERE -->
+
+	<!-- LOADER START HERE -->
+    <div class="page_loader">
+		<?php if(isset( $theme_option['endurance_page_loader_image']['url'] ) && !empty( $theme_option['endurance_page_loader_image']['url'] )) { ?>
+			<img src="<?php echo esc_url( $theme_option['endurance_page_loader_image']['url'] ); ?>" alt="Logo" loading="lazy">
+		<?php } ?>
+    </div>
+    <!-- LOADER END HERE -->

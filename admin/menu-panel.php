@@ -288,7 +288,7 @@ Redux::set_section(
 		'id'               => 'endurance_header',
 		'desc'             => esc_html__( 'Header Options', 'endurance' ),
 		'customizer_width' => '400px',
-		'icon'             => 'el el-home',
+		'icon'             => 'el el-website',
 		'fields'           => array(
             array(
                 'id'       => 'endurance_header_menu',
@@ -336,6 +336,27 @@ Redux::set_section(
 				'on'       => 'Enabled',
 				'off'      => 'Disabled',
 			),
+			array(
+				'id'       => 'endurance_page_loader',
+				'type'     => 'switch',
+				'title'    => esc_html__( 'Want to display Page Loader?', 'endurance' ),
+				'default'  => true,
+				'on'       => 'Enabled',
+				'off'      => 'Disabled',
+			),
+			array(
+				'id'           => 'endurance_page_loader_image',
+				'type'         => 'media',
+				'url'          => true,
+				'required' => array( 'endurance_page_loader', '=', true ),
+				'title'        => esc_html__( 'Page Loader Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default'  => array(
+					'url' => get_template_directory_uri() . '/assets/images/transformation.webp'
+				),
+			),
         ),
 	)
 );
@@ -348,7 +369,7 @@ Redux::set_section(
 		'id'               => 'endurance_footer',
 		'desc'             => esc_html__( 'Footer Options', 'endurance' ),
 		'customizer_width' => '400px',
-		'icon'             => 'el el-home',
+		'icon'             => 'el el-th',
 		'fields'           => array(
             array(
                 'id'       => 'endurance_footer_menu',
@@ -447,6 +468,673 @@ Redux::set_section(
 	)
 );
 
+// Home Page Settings
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Home', 'endurance' ),
+		'id'               => 'endurance_home_section',
+		'customizer_width' => '400px',
+		'icon'             => 'el el-home',
+	),
+);
+
+// Banner Section - Home Page Settings
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Banner Section', 'endurance' ),
+		'id'               => 'endurance_banner_section',
+		'customizer_width' => '400px',
+		'subsection' => true,
+		'icon'             => 'el el-home',
+		'fields'           => array(
+			array(
+				'id'       => 'endurance_banner_data',
+				'type'     => 'section',
+				'title'    => esc_html__( 'Banner Section Text & Image', 'endurance' ),
+				'indent'   => true, // Indent all options below until the next 'section' option is set.
+			),
+			array(
+                'id'           => 'endurance_banner_background_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Background Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/strips.svg'
+				),
+            ),
+			array(
+                'id'           => 'endurance_banner_line_pattern_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Line Pattern Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/banner-pettern.svg'
+				),
+            ),
+			array(
+				'id'          => 'endurance_banner_background_color1',
+				'type'        => 'color',
+				'title'       => esc_html__( 'Background Color 1', 'endurance' ),
+				'default'     => '#234ee7',
+				'transparent' => false,
+				'validate'    => 'color',
+			),
+			array(
+				'id'          => 'endurance_banner_background_color2',
+				'type'        => 'color',
+				'title'       => esc_html__( 'Background Color 2', 'endurance' ),
+				'default'     => '#16cc3e',
+				'transparent' => false,
+				'validate'    => 'color',
+			),
+			array(
+				'id'          => 'endurance_banner_title',
+				'type'        => 'text',
+				'title'       => esc_html__( 'Title', 'endurance' ),
+				'placeholder' => array(
+					'box1' => 'Enter your banner title 1',
+					'box2' => 'Enter your banner title 2',
+				),
+				'data'        => array(
+					'box1' => '',
+					'box2' => '',
+				),
+				'default' => array(
+					'box1' => 'BE UNSTOPPABLE',
+					'box2' => 'Embrace Endurance',
+				)
+			),
+			array(
+                'id'           => 'endurance_banner_pattern_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Pattern Image (Between the title)', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/line-pettern.svg'
+				),
+            ),
+			array(
+				'id'       => 'endurance_banner_description',
+				'type'     => 'textarea',
+				'title'    => esc_html__( 'Description', 'endurance' ),
+				'validate' => 'no_html',
+				'default'  => 'We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.',
+			),
+			array(
+                'id'           => 'endurance_banner_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/banner-img.webp'
+				),
+            ),
+			array(
+				'id'       => 'endurance_banner_members_text',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Members Text', 'endurance' ),
+				'default'  => 'members',
+			),
+			array(
+                'id'           => 'endurance_banner_members_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Members Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/members.webp'
+				),
+            ),
+			array(
+				'id'     => 'endurance_banner_data_end',
+				'type'   => 'section',
+				'indent' => false, // Indent all options below until the next 'section' option is set.
+			),
+			array(
+				'id'       => 'endurance_banner_tutorial_button',
+				'type'     => 'section',
+				'title'    => esc_html__( 'Watch Tutorial Button', 'endurance' ),
+				'indent'   => true, // Indent all options below until the next 'section' option is set.
+			),
+			array(
+				'id'       => 'endurance_banner_tutorial_text',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Tutorial Button Text', 'endurance' ),
+				'default'  => 'Watch Tutorial',
+			),
+			array(
+                'id'           => 'endurance_banner_tutorial_play_btn_icon',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Watch Tutorial Play Button Icon', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/btn-arrow.svg'
+				),
+            ),
+			array(
+				'id'     => 'endurance_banner_tutorial_button_end',
+				'type'   => 'section',
+				'indent' => false, // Indent all options below until the next 'section' option is set.
+			),
+			array(
+				'id'       => 'endurance_banner_gt_button',
+				'type'     => 'section',
+				'title'    => esc_html__( 'Get Started Button', 'endurance' ),
+				'indent'   => true, // Indent all options below until the next 'section' option is set.
+			),
+			array(
+				'id'       => 'endurance_gt_text',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Banner Button Text', 'endurance' ),
+				'default'  => 'Get Started',
+			),
+			array(
+				'id'       => 'endurance_gt_link',
+				'type'     => 'text',
+				'validate'  => 'url',
+				'title'    => esc_html__( 'Banner Button Link', 'endurance' ),
+				'default'  => '#',
+			),
+			array(
+				'id'     => 'endurance_banner_gt_button_end',
+				'type'   => 'section',
+				'indent' => false, // Indent all options below until the next 'section' option is set.
+			),			
+        ),
+	)
+);
+
+// Gear Up For Success Section - Home Page Settings
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Gear Up Section', 'endurance' ),
+		'id'               => 'endurance_gear_up_section',
+		'customizer_width' => '400px',
+		'subsection' => true,
+		'icon'             => 'el el-home',
+		'fields'           => array(
+			// Learn From the best
+			array(
+				'id'       => 'endurance_gear_up_learn_data',
+				'type'     => 'section',
+				'title'    => esc_html__( 'Learn From The Best', 'endurance' ),
+				'indent'   => true, // Indent all options below until the next 'section' option is set.
+			),
+			array(
+                'id'           => 'endurance_gear_up_learn_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/success-1.webp'
+				),
+            ),
+			array(
+				'id'          => 'endurance_gear_up_learn_title',
+				'type'        => 'text',
+				'title'       => esc_html__( 'Title', 'endurance' ),
+				'placeholder' => 'Enter your title ',
+				'default' => 'Learn From The Best',
+			),
+			array(
+				'id'       => 'endurance_gear_up_learn_description',
+				'type'     => 'textarea',
+				'title'    => esc_html__( 'Description', 'endurance' ),
+				'validate' => 'no_html',
+				'default'  => 'Fuel your drive with unwavering motivation. Embrace the power of perseverance for endless possibilities.',
+			),
+			array(
+				'id'             => 'endurance_gear_up_learn_color',
+				'type'           => 'color_gradient',
+				'title'          => esc_html__( 'Gradient Color', 'endurance' ),
+				'gradient-type'  => true,
+				'gradient-reach' => true,
+				'gradient-angle' => true,
+				'preview'        => true,
+				'default'        => array(
+					'from'           => '#16cc3e',
+					'to'             => '#049023',
+					'gradient-reach' => array(
+						'to'   => 100,
+						'from' => 0,
+					),
+				),
+			),
+			array(
+				'id'     => 'endurance_gear_up_learn_data_end',
+				'type'   => 'section',
+				'indent' => false, // Indent all options below until the next 'section' option is set.
+			),
+			// Track your progress
+			array(
+				'id'       => 'endurance_gear_up_track_data',
+				'type'     => 'section',
+				'title'    => esc_html__( 'Track Your Progress', 'endurance' ),
+				'indent'   => true, // Indent all options below until the next 'section' option is set.
+			),
+			array(
+                'id'           => 'endurance_gear_up_track_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/success-icon.svg'
+				),
+            ),
+			array(
+				'id'          => 'endurance_gear_up_track_title',
+				'type'        => 'text',
+				'title'       => esc_html__( 'Title', 'endurance' ),
+				'placeholder' => 'Enter your title ',
+				'default' => 'Track Your Progress',
+			),
+			array(
+				'id'             => 'endurance_gear_up_track_color',
+				'type'           => 'color_gradient',
+				'title'          => esc_html__( 'Gradient Color', 'endurance' ),
+				'gradient-type'  => true,
+				'gradient-reach' => true,
+				'gradient-angle' => true,
+				'preview'        => true,
+				'default'        => array(
+					'from'           => '#05f6f933',
+					'to'             => '#f907fc33',
+					'gradient-reach' => array(
+						'to'   => 100,
+						'from' => 0,
+					),
+				),
+			),
+			array(
+				'id'             => 'endurance_gear_up_track_title_color',
+				'type'           => 'color_gradient',
+				'title'          => esc_html__( 'Title Gradient Color', 'endurance' ),
+				'gradient-type'  => true,
+				'gradient-reach' => true,
+				'gradient-angle' => true,
+				'preview'        => true,
+				'default'        => array(
+					'from'           => '#05f6f9',
+					'to'             => '#f907fc',
+					'gradient-reach' => array(
+						'to'   => 100,
+						'from' => -80,
+					),
+				),
+			),
+			array(
+				'id'     => 'endurance_gear_up_track_data_end',
+				'type'   => 'section',
+				'indent' => false, // Indent all options below until the next 'section' option is set.
+			),
+			// Improve With Routine
+			array(
+				'id'       => 'endurance_gear_up_improve_data',
+				'type'     => 'section',
+				'title'    => esc_html__( 'Improve With Routine', 'endurance' ),
+				'indent'   => true, // Indent all options below until the next 'section' option is set.
+			),
+			array(
+                'id'           => 'endurance_gear_up_improve_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/success-icon-2.svg'
+				),
+            ),
+			array(
+				'id'          => 'endurance_gear_up_improve_title',
+				'type'        => 'text',
+				'title'       => esc_html__( 'Title', 'endurance' ),
+				'placeholder' => 'Enter your title ',
+				'default' => 'Improve With Routine',
+			),
+			array(
+				'id'             => 'endurance_gear_up_improve_color',
+				'type'           => 'color_gradient',
+				'title'          => esc_html__( 'Gradient Color', 'endurance' ),
+				'gradient-type'  => true,
+				'gradient-reach' => true,
+				'gradient-angle' => true,
+				'preview'        => true,
+				'default'        => array(
+					'from'           => '#16cc3e33',
+					'to'             => '#04902333',
+					'gradient-reach' => array(
+						'to'   => 100,
+						'from' => 0,
+					),
+				),
+			),
+			array(
+				'id'             => 'endurance_gear_up_improve_title_color',
+				'type'           => 'color_gradient',
+				'title'          => esc_html__( 'Title Gradient Color', 'endurance' ),
+				'gradient-type'  => true,
+				'gradient-reach' => true,
+				'gradient-angle' => true,
+				'preview'        => true,
+				'default'        => array(
+					'from'           => '#16cc3e',
+					'to'             => '#049023',
+					'gradient-reach' => array(
+						'to'   => 100,
+						'from' => -80,
+					),
+				),
+			),
+			array(
+				'id'     => 'endurance_gear_up_improve_data_end',
+				'type'   => 'section',
+				'indent' => false, // Indent all options below until the next 'section' option is set.
+			),
+			// Stay Movtivated
+			array(
+				'id'       => 'endurance_gear_up_motivated_data',
+				'type'     => 'section',
+				'title'    => esc_html__( 'Stay Movtivated', 'endurance' ),
+				'indent'   => true, // Indent all options below until the next 'section' option is set.
+			),
+			array(
+                'id'           => 'endurance_gear_up_motivated_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/success-2.webp'
+				),
+            ),
+			array(
+				'id'          => 'endurance_gear_up_motivated_title',
+				'type'        => 'text',
+				'title'       => esc_html__( 'Title', 'endurance' ),
+				'placeholder' => 'Enter your title ',
+				'default' => 'Stay Movtivated.',
+			),
+			array(
+				'id'       => 'endurance_gear_up_motivated_description',
+				'type'     => 'textarea',
+				'title'    => esc_html__( 'Description', 'endurance' ),
+				'validate' => 'no_html',
+				'default'  => 'Fuel your drive with unwavering motivation. Embrace the power of perseverance for endless possibilities.',
+			),
+			array(
+				'id'             => 'endurance_gear_up_motivated_color',
+				'type'           => 'color_gradient',
+				'title'          => esc_html__( 'Gradient Color', 'endurance' ),
+				'gradient-type'  => true,
+				'gradient-reach' => true,
+				'gradient-angle' => true,
+				'preview'        => true,
+				'default'        => array(
+					'from'           => '#05f6f9',
+					'to'             => '#f907fc',
+					'gradient-reach' => array(
+						'to'   => 100,
+						'from' => -80,
+					),
+				),
+			),
+			array(
+				'id'     => 'endurance_gear_up_motivated_data_end',
+				'type'   => 'section',
+				'indent' => false, // Indent all options below until the next 'section' option is set.
+			),
+        ),
+	)
+);
+
+// About Us Section - Home Page Settings
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'About Us Section', 'endurance' ),
+		'id'               => 'endurance_about_us_section',
+		'customizer_width' => '400px',
+		'subsection' => true,
+		'icon'             => 'el el-home',
+		'fields'           => array(
+			array(
+                'id'           => 'endurance_about_us_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/about-img.webp'
+				),
+            ),
+			array(
+                'id'           => 'endurance_about_us_logo_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Logo Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/white-logo.webp'
+				),
+            ),
+			array(
+                'id'           => 'endurance_about_us_background_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Background Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/strips.svg'
+				),
+            ),
+			array(
+				'id'          => 'endurance_about_us_title',
+				'type'        => 'text',
+				'title'       => esc_html__( 'Title', 'endurance' ),
+				'placeholder' => 'Enter your title ',
+				'default' => 'About Us',
+			),
+			array(
+				'id'       => 'endurance_about_us_description',
+				'type'     => 'textarea',
+				'title'    => esc_html__( 'Description', 'endurance' ),
+				'validate' => 'no_html',
+				'default'  => 'Welcome to Endurance Unleashed, where we fuel the spirit of champions. Our mission is to equip you with the finest tools, gear, and resources to conquer your limits and achieve extraordinary feats. Embrace the thrill of pushing beyond boundaries, stay motivated through the toughest challenges, and track your progress as you embark on a relentless journey to greatness.let\'s redefine the power of perseverance and triumph in the face of every obstacle. Unleash your full potential with Endurance.',
+			),
+			array(
+				'id'          => 'endurance_about_us_background_color1',
+				'type'        => 'color',
+				'title'       => esc_html__( 'Background Color 1', 'endurance' ),
+				'default'     => '#234ee7',
+				'transparent' => false,
+				'validate'    => 'color',
+			),
+			array(
+				'id'          => 'endurance_about_us_background_color2',
+				'type'        => 'color',
+				'title'       => esc_html__( 'Background Color 2', 'endurance' ),
+				'default'     => '#16cc3e',
+				'transparent' => false,
+				'validate'    => 'color',
+			),
+			array(
+				'id'       => 'endurance_about_us_gt_text',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Button Text', 'endurance' ),
+				'default'  => 'Get Started',
+			),
+			array(
+				'id'       => 'endurance_about_us_gt_link',
+				'type'     => 'text',
+				'validate'  => 'url',
+				'title'    => esc_html__( 'Button Link', 'endurance' ),
+				'default'  => site_url() . '/about-us',
+			),
+        ),
+	)
+);
+
+// Smart App Section - Home Page Settings
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Smart App Section', 'endurance' ),
+		'id'               => 'endurance_smart_app_section',
+		'customizer_width' => '400px',
+		'subsection' => true,
+		'icon'             => 'el el-home',
+		'fields'           => array(
+			array(
+				'id'          => 'endurance_smart_app_title',
+				'type'        => 'text',
+				'title'       => esc_html__( 'Title', 'endurance' ),
+				'placeholder' => 'Enter your title ',
+				'default' => 'Smart App For All',
+			),
+			array(
+				'id'       => 'endurance_smart_app_description',
+				'type'     => 'textarea',
+				'title'    => esc_html__( 'Description', 'endurance' ),
+				'validate' => 'no_html',
+				'default'  => 'We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.',
+			),
+			array(
+                'id'           => 'endurance_smart_app_download_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Download Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-appstore-img.svg'
+				),
+            ),
+			array(
+                'id'           => 'endurance_smart_app_mobile_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Mobile Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-mockup.webp'
+				),
+            ),
+			array(
+                'id'           => 'endurance_smart_app_line_background_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Line Background Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-line.svg'
+				),
+            ),
+			array(
+				'id'             => 'endurance_smart_app_background_color',
+				'type'           => 'color_gradient',
+				'title'          => esc_html__( 'Background Color', 'endurance' ),
+				'gradient-type'  => 'radial',
+				'gradient-reach' => true,
+				'gradient-angle' => true,
+				'preview'        => true,
+				'default'        => array(
+					'gradient-type'  => 'radial',
+					'from'           => '#05F6F9',
+					'to'             => '#F907FC',
+					'gradient-reach' => array(
+						'to'   => 100,
+						'from' => 0,
+					),
+				),
+			),
+        ),
+	)
+);
+
+// Marquee Notice Section - Home Page Settings
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Marquee Notice Section', 'endurance' ),
+		'id'               => 'endurance_marquee_notice_section',
+		'customizer_width' => '400px',
+		'subsection' => true,
+		'icon'             => 'el el-home',
+		'fields'           => array(
+			array(
+				'id'             => 'endurance_marquee_notice_color',
+				'type'           => 'color_gradient',
+				'title'          => esc_html__( 'Notice Slide Gradient Color', 'endurance' ),
+				'gradient-type'  => true,
+				'gradient-reach' => true,
+				'gradient-angle' => true,
+				'preview'        => true,
+				'default'        => array(
+					'from'           => '#16cc3e',
+					'to'             => '#234ee7',
+					'gradient-angle' => '90',
+					'gradient-reach' => array(
+						'to'   => 100,
+						'from' => 0,
+					),
+				),
+			),
+			array(
+                'id'           => 'endurance_marquee_notice_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Marquee Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/marquee-icon.svg'
+				),
+            ),
+        ),
+	)
+);
 
 // About Us Page Settings
 Redux::set_section(
