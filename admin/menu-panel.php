@@ -1332,6 +1332,17 @@ Redux::set_section(
 					'url' => get_template_directory_uri() . '/assets/images/background/cta-appstore-img.svg'
 				),
 		    ),
+			array(
+		    	'id'           => 'endurance_smart_app_bg_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-mockup.webp'
+				),
+		    ),
 		    array(
 			    'id'       => 'endurance_samrt_app_heading',
 				'type'     => 'editor',
