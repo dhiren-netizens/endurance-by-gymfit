@@ -98,6 +98,26 @@ if (!is_admin()) {
                 background: linear-gradient(270deg, <?php echo esc_attr( $theme_option['endurance_marquee_notice_color']['from'] ) . ' '; echo esc_attr( $theme_option['endurance_marquee_notice_color']['gradient-reach']['from'] ) . '%'; ?>, <?php echo esc_attr( $theme_option['endurance_marquee_notice_color']['from'] ) . ' '; ?> 32%, <?php echo esc_attr( $theme_option['endurance_marquee_notice_color']['to'] ) . ' '; ?> 66%, <?php echo esc_attr( $theme_option['endurance_marquee_notice_color']['to'] ) . ' '; echo esc_attr( $theme_option['endurance_marquee_notice_color']['gradient-reach']['to'] ). '%'; ?>);
             <?php } ?>
         }
+        .stand-with-section.strips {
+            <?php if( isset( $theme_option['endurance_general_background_image'] ) && !empty( $theme_option['endurance_general_background_image'] )) { ?>
+                background-image: url(<?php echo esc_url($theme_option['endurance_general_background_image']['url']); ?>), url(<?php echo esc_url($theme_option['endurance_general_background_image']['url']); ?>);
+            <?php } ?>
+        }
+        .stand-with-section .img-block .image-wrapper{
+            <?php if( isset( $theme_option['stand_out_with_pettern'] ) && !empty( $theme_option['stand_out_with_pettern'] )) { ?>
+                background-image: url(<?php echo esc_url($theme_option['stand_out_with_pettern']['url']); ?>), url(<?php echo esc_url($theme_option['stand_out_with_pettern']['url']); ?>);
+            <?php } ?>
+        }
+        .mission-section .mission-wrapper .image-wrapper::before{
+            <?php if( isset( $theme_option['endurance_banner_background_color1'] ) && !empty( $theme_option['endurance_banner_background_color1'] )) { ?>
+                background-color: <?php echo esc_attr($theme_option['endurance_banner_background_color1']); ?>;
+            <?php } ?>
+        }
+        .mission-section .mission-wrapper .image-wrapper::after{
+            <?php if( isset( $theme_option['endurance_banner_background_color2'] ) && !empty( $theme_option['endurance_banner_background_color2'] )) { ?>
+                background-color: <?php echo esc_attr($theme_option['endurance_banner_background_color2']); ?>;
+            <?php } ?>
+        }
     </style>
     <?php
 }

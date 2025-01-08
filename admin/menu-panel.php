@@ -1136,7 +1136,7 @@ Redux::set_section(
 	)
 );
 
-// About Us Page Settings
+//About Us Page Settings 
 Redux::set_section(
 	$opt_name,
 	array(
@@ -1147,7 +1147,7 @@ Redux::set_section(
 		'icon'             => 'el el-adult',
 	),
 );
-
+//About us section - About Us Page Settings 
 Redux::set_section(
 	$opt_name,
 	array(
@@ -1180,14 +1180,6 @@ Redux::set_section(
 				),
             ),
 			array(
-                'id'           => 'endurance_about_us_strips_img',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Strips Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-            ),
-			array(
 				'id'       => 'about_us_heading',
 				'type'     => 'editor',
 				'title'    => esc_html__( 'Heading', 'endurance' ),
@@ -1203,6 +1195,7 @@ Redux::set_section(
         ),
 	)
 );
+//Stand Out section - About Us Page Settings 
 Redux::set_section(
 	$opt_name,
 	array(
@@ -1212,17 +1205,6 @@ Redux::set_section(
 		'subsection' => true,
 		'icon'             => 'el el-home',
 		'fields'           => array(
-			array(
-		    	'id'           => 'endurance_stand_out_line',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Stand Out Line Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/line-pettern.svg'
-				),
-		    ),
 		    array(
 			    'id'       => 'stand_out_with',
 				'type'     => 'editor',
@@ -1242,28 +1224,6 @@ Redux::set_section(
 				'default'  => 'We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.'
 			),
 			array(
-				'id'       => 'stand_out_button',
-				'type'     => 'switch',
-				'title'    => esc_html__( 'Display Get Started Button', 'endurance' ),
-				'default'  => true,
-				'on'       => 'Enabled',
-				'off'      => 'Disabled',
-			),
-			array(
-			    'id'       => 'stand_out_button_text',
-				'type'     => 'text',
-				'required' => array( 'stand_out_button', '=', true ),
-				'title'    => esc_html__( 'Button Text', 'endurance' ),
-				'default'  => 'Get Started'
-			),
-			array(
-			    'id'       => 'stand_out_button_url',
-				'type'     => 'text',
-				'required' => array( 'stand_out_button', '=', true ),
-				'title'    => esc_html__( 'Button URL', 'endurance' ),
-				'validate'  => 'url'
-			),
-			array(
 				'id'           => 'stand_out_with_img',
 				'type'         => 'media',
 				'url'          => true,
@@ -1274,9 +1234,21 @@ Redux::set_section(
 					'url' => get_template_directory_uri() . '/assets/images/background/stand-with-img-2.webp'
 				),
 			),
+			array(
+				'id'           => 'stand_out_with_pettern',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Stand Out Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/stand-with-pettern.svg'
+				),
+			),
 		),
 	),
 );
+//Our Mission section - About Us Page Settings 
 Redux::set_section(
 	$opt_name,
 	array(
@@ -1312,6 +1284,7 @@ Redux::set_section(
 		),
 	),
 );
+//Smart App section - About Us Page Settings 
 Redux::set_section(
 	$opt_name,
 	array(
@@ -1358,6 +1331,64 @@ Redux::set_section(
 		),
 	),
 );
+//Client Review Section - About Us Page Settings 
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Client Review Section', 'endurance' ),
+		'id'               => 'endurance_client_review',
+		'customizer_width' => '400px',
+		'subsection' => true,
+		'icon'             => 'el el-screen',
+		'fields'           => array(
+			array(
+		    	'id'           => 'endurance_client_review_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/clients/client-img.webp'
+				),
+		    ),
+			array(
+		    	'id'           => 'endurance_repater_logo_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/client-pettern.svg'
+				),
+		    ),
+		),
+	),
+);
+
+//Team section - About Us Page Settings 
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Team Section', 'endurance' ),
+		'id'               => 'endurance_team',
+		'customizer_width' => '400px',
+		'subsection' => true,
+		'icon'             => 'el el-screen',
+		'fields'           => array(
+			array(
+		    	'id'           => 'endurance_team_repeater',
+				'type'         => 'repeater',
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'full_width'     => 'true',
+				'preview_size' => 'full',
+				
+		    ),
+		),
+	),
+);
+
 
 if ( ! function_exists( 'compiler_action' ) ) {
 	/**

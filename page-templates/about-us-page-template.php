@@ -42,8 +42,8 @@ get_header();
 									<?php if(isset( $theme_option['endurance_about_us_white_img']['url'] ) && !empty( $theme_option['endurance_about_us_white_img']['url'] )) { ?>
 										<img src="<?php echo esc_url( $theme_option['endurance_about_us_white_img']['url'] ); ?>" alt="white-logo" id="about_img2" class="logo">
 									<?php } ?>
-									<?php if(isset( $theme_option['endurance_about_us_strips_img']['url'] ) && !empty( $theme_option['endurance_about_us_strips_img']['url'] )) { ?>
-										<img src="<?php echo esc_url( $theme_option['endurance_about_us_strips_img']['url'] ); ?>" alt="strips" id="strips"  class="strips">
+									<?php if(isset( $theme_option['endurance_general_background_image']['url'] ) && !empty( $theme_option['endurance_general_background_image']['url'] )) { ?>
+										<img src="<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>" alt="strips" id="strips"  class="strips">
 									<?php } ?>
 								</div>
 							</div>
@@ -77,8 +77,8 @@ get_header();
 									    <?php echo esc_html( $theme_option['stand_out_with'] ); ?>
 									</h1>
 							<?php } ?>  
-							<?php if(isset( $theme_option['endurance_stand_out_line']['url'] ) && !empty( $theme_option['endurance_stand_out_line']['url'] )) { ?>
-										<img src="<?php echo esc_url( $theme_option['endurance_stand_out_line']['url'] ); ?>" alt="Line" class="px-xl-5 px-4 mx-xl-5 mx-4 d-lg-block d-none">
+							<?php if(isset( $theme_option['endurance_general_pattern_image']['url'] ) && !empty( $theme_option['endurance_general_pattern_image']['url'] )) { ?>
+										<img src="<?php echo esc_url( $theme_option['endurance_general_pattern_image']['url'] ); ?>" alt="Line" class="px-xl-5 px-4 mx-xl-5 mx-4 d-lg-block d-none">
 							<?php } ?>
 						</div>
 						<?php if(isset( $theme_option['high_endurance'] ) && !empty( $theme_option['high_endurance'] )) { ?>
@@ -95,9 +95,9 @@ get_header();
 									    <?php echo esc_html( $theme_option['high_endurance_description'] ); ?>
 							    </p>
 						    <?php } ?> 
-							<?php if(isset( $theme_option['stand_out_button'] ) && 1 == $theme_option['stand_out_button'] && !empty( $theme_option['stand_out_button'] )) { ?>
-								    <a href="<?php echo esc_attr( $theme_option['stand_out_button_url'] ); ?>" class="btn_wrapper mx-lg-0 mx-auto">
-									    <?php echo esc_html( $theme_option['stand_out_button_text'] ); ?>
+							<?php if(isset( $theme_option['endurance_general_gt_button'] ) && 1 == $theme_option['endurance_general_gt_button'] && !empty( $theme_option['endurance_general_gt_button'] )) { ?>
+								    <a href="<?php echo esc_attr( $theme_option['endurance_general_gt_link'] ); ?>" class="btn_wrapper mx-lg-0 mx-auto">
+									    <?php echo esc_html( $theme_option['endurance_general_gt_text'] ); ?>
 							        </a>
 						    <?php } ?> 
 							</div>
@@ -187,15 +187,25 @@ get_header();
 				<div class="client-wrapper">
 					<div class="row gy-sm-5 gy-4 align-items-center justify-content-between">
 						<div class="col-lg-6 order-lg-1 order-2">
-							<div class="image-wrapper clientImg wow fadeInLeft">
-								<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/clients/client-img.webp" alt="client-img" class="d-block mx-auto">
-								<div class="pettern image-wrapper">
-									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/client-pettern.svg" alt="client-pettern">
-									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/client-pettern.svg" alt="client-pettern">
-									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/client-pettern.svg" alt="client-pettern">
-								</div>
-								<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/strips.svg" alt="strips" class="strips">
-							</div>
+						    	<div class="image-wrapper clientImg wow fadeInLeft">
+							        <?php if(isset( $theme_option['endurance_client_review_img']['url'] ) && !empty( $theme_option['endurance_client_review_img']['url'] )) { ?>
+							    		<img loading="lazy"  src="<?php echo esc_url( $theme_option['endurance_client_review_img']['url'] ); ?>" alt="client-img" class="d-block mx-auto">
+									<?php } ?>
+									<div class="pettern image-wrapper">
+										<?php if(isset( $theme_option['endurance_repater_logo_img']['url'] ) && !empty( $theme_option['endurance_repater_logo_img']['url'] )) { ?>
+											<img loading="lazy"  src="<?php echo esc_url( $theme_option['endurance_repater_logo_img']['url'] ); ?>" alt="client-pettern">
+										<?php } ?>
+										<?php if(isset( $theme_option['endurance_repater_logo_img']['url'] ) && !empty( $theme_option['endurance_repater_logo_img']['url'] )) { ?>
+											<img loading="lazy"  src="<?php echo esc_url( $theme_option['endurance_repater_logo_img']['url'] ); ?>" alt="client-pettern">
+										<?php } ?>
+										<?php if(isset( $theme_option['endurance_repater_logo_img']['url'] ) && !empty( $theme_option['endurance_repater_logo_img']['url'] )) { ?>
+											<img loading="lazy"  src="<?php echo esc_url( $theme_option['endurance_repater_logo_img']['url'] ); ?>" alt="client-pettern">
+										<?php } ?>
+									</div>
+								    <?php if(isset( $theme_option['endurance_general_background_image']['url'] ) && !empty( $theme_option['endurance_general_background_image']['url'] )) { ?>
+							    		<img loading="lazy"  src="<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>" alt="strips" class="strips">
+									<?php } ?>
+							 </div>
 						</div>
 						<div class="col-xxl-5 col-lg-6 order-lg-2 order-1">
 							<div class="client-text wow fadeInRight">
