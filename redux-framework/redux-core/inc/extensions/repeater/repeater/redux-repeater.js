@@ -313,9 +313,9 @@
 					a       = $( this ).next( '.redux-repeaters-add' );
 					relName = a.attr( 'data-name' );
 
-					bracket = relName.indexOf( '[' );
+					bracket = relName ? relName.indexOf( '[' ) : "";
 
-					optName = relName.substring( 0, bracket );
+					optName = relName ? relName.substring( 0, bracket ) : "";
 
 					if ( 'function' === typeof reduxRepeaterAccordionBeforeActivate ) {
 						reduxRepeaterAccordionBeforeActivate( $( this ), el, event, optName );
