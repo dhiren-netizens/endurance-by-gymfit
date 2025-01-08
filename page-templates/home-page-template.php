@@ -2,14 +2,9 @@
 /* Template Name: Home Page Template */
 
 get_header();
+$theme_option = get_option('redux_demo');
 ?>
     <body>
-
-    <!-- LOADER START HERE -->
-    <div class="page_loader">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/transformation.webp" alt="img" loading="lazy">
-    </div>
-    <!-- LOADER END HERE -->
 
     <!-- MAIN SECTIONS START FROM HERE -->
     <main class="main_wrapper">
@@ -17,22 +12,35 @@ get_header();
         <!-- BANNER SECTION START FROM HERE -->
         <div class="default-padding">
             <div class="banner-wrapper">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/background/strips.svg" alt="strips" class="strips">
+                <?php if(isset( $theme_option['endurance_banner_background_image']['url'] ) && !empty( $theme_option['endurance_banner_background_image']['url'] )) { ?>
+                    <img src="<?php echo esc_url( $theme_option['endurance_banner_background_image']['url'] ); ?>" alt="strips" class="strips">
+                <?php } ?>
                 <div class="container">
                     <div class="banner-block wow fadeInDown">
                         <div class="textBlock">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="d-lg-flex d-block align-items-center text-lg-start text-center pb-sm-2 pb-0">
-                                        <h1 class="title p-0">BE UNSTOPPABLE</h1>
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/background/line-pettern.svg" alt="Line" class="ps-3 d-lg-block d-none" loading="lazy">
+                                        <?php if(isset( $theme_option['endurance_banner_title']['box1'] ) && !empty( $theme_option['endurance_banner_title']['box1'] )) { ?>
+                                            <h1 class="title p-0"><?php echo esc_html( $theme_option['endurance_banner_title']['box1'] ); ?></h1>
+                                        <?php } ?>
+                                        <?php if(isset( $theme_option['endurance_banner_pattern_image']['url'] ) && !empty( $theme_option['endurance_banner_pattern_image']['url'] )) { ?>
+                                        <img src="<?php echo esc_url( $theme_option['endurance_banner_pattern_image']['url'] ); ?>" alt="Line" class="ps-3 d-lg-block d-none" loading="lazy">
+                                        <?php } ?>
                                     </div>
-                                    <h1 class="title text-lg-end text-center">Embrace Endurance</h1>
+                                    <?php if(isset( $theme_option['endurance_banner_title']['box2'] ) && !empty( $theme_option['endurance_banner_title']['box2'] )) { ?>
+                                        <h1 class="title text-lg-end text-center"><?php echo esc_html( $theme_option['endurance_banner_title']['box2'] ); ?></h1>
+                                    <?php } ?>
                                 </div>
                                 <div class="col-lg-8">
                                     <div class="d-flex flex-lg-row flex-column-reverse align-items-center text-lg-start text-center">
-                                        <a href="#" class="btn_wrapper">get started</a>
-                                        <p class="ps-lg-4 p-0 mb-lg-0 mb-3">We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.</p>
+                                        <?php $endurance_gt_link = isset( $theme_option['endurance_gt_link'] ) ? $theme_option['endurance_gt_link'] : '#';
+                                        if(isset( $theme_option['endurance_gt_text'] ) && !empty( $theme_option['endurance_gt_text'] )) { ?>
+                                            <a href="<?php echo esc_attr( $endurance_gt_link ); ?>" class="btn_wrapper"><?php echo esc_html( $theme_option['endurance_gt_text'] ); ?></a>
+                                        <?php } ?>
+                                        <?php if(isset( $theme_option['endurance_banner_description'] ) && !empty( $theme_option['endurance_banner_description'] )) { ?>
+                                            <p class="ps-lg-4 p-0 mb-lg-0 mb-3"><?php echo esc_html( $theme_option['endurance_banner_description'] ); ?></p>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -40,15 +48,25 @@ get_header();
                     </div>
                 </div>
                 <div class="imgBlock pt-lg-0 pt-sm-5 pt-4">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/background/banner-img.webp" alt="banner" class="bannerImg wow fadeInLeftBig">
+                    <?php if(isset( $theme_option['endurance_banner_image']['url'] ) && !empty( $theme_option['endurance_banner_image']['url'] )) { ?>
+                        <img src="<?php echo esc_url( $theme_option['endurance_banner_image']['url'] ); ?>" alt="banner" class="bannerImg wow fadeInLeftBig">
+                    <?php } ?>
                     <div class="container position-relative wow fadeInUp">
                         <div class="members d-lg-flex d-none align-items-center">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/background/members.webp" alt="Members" class="pe-2">
-                            members
+                            <?php if(isset( $theme_option['endurance_banner_members_image']['url'] ) && !empty( $theme_option['endurance_banner_members_image']['url'] )) { ?>
+                                <img src="<?php echo esc_url( $theme_option['endurance_banner_members_image']['url'] ); ?>" alt="Members" class="pe-2">
+                            <?php } ?>
+                            <?php if(isset( $theme_option['endurance_banner_members_text'] ) && !empty( $theme_option['endurance_banner_members_text'] )) {
+                                echo esc_html( $theme_option['endurance_banner_members_text'] );
+                            } ?>
                         </div>
                         <a href="#!" data-bs-toggle="modal" data-bs-target="#myModal" class="btn_wrapper White-btn ms-lg-auto mx-auto mt-lg-0 mt-3">
-                            watch tutorial
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/btn-arrow.svg" alt="Arrow">
+                            <?php if(isset( $theme_option['endurance_banner_tutorial_text'] ) && !empty( $theme_option['endurance_banner_tutorial_text'] )) {
+                                echo esc_html( $theme_option['endurance_banner_tutorial_text'] );
+                            } ?>
+                            <?php if(isset( $theme_option['endurance_banner_tutorial_play_btn_icon']['url'] ) && !empty( $theme_option['endurance_banner_tutorial_play_btn_icon']['url'] )) { ?>
+                                <img src="<?php echo esc_url( $theme_option['endurance_banner_tutorial_play_btn_icon']['url'] ); ?>" alt="Arrow">
+                            <?php } ?>
                         </a>
                     </div>
                 </div>
@@ -66,11 +84,17 @@ get_header();
                             <div class="col-lg-4 col-sm-6 order-2">
                                 <div class="success-box first-box wow fadeIn">
                                     <div class="image-wrapper">
-                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/success-1.webp" alt="success-1" class="box_img">
+                                        <?php if(isset( $theme_option['endurance_gear_up_learn_image']['url'] ) && !empty( $theme_option['endurance_gear_up_learn_image']['url'] )) { ?>
+                                            <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_learn_image']['url'] ); ?>" alt="success-1" class="box_img">
+                                        <?php } ?>
                                     </div>
                                     <div class="box-text position">
-                                        <span class="white">Learn From The Best</span>
-                                        <p>Fuel your drive with unwavering motivation. Embrace the power of perseverance for endless possibilities.</p>
+                                        <?php if(isset( $theme_option['endurance_gear_up_learn_title'] ) && !empty( $theme_option['endurance_gear_up_learn_title'] )) { ?>
+                                            <span class="white"><?php echo esc_html( $theme_option['endurance_gear_up_learn_title'] ); ?></span>
+                                        <?php }
+                                        if(isset( $theme_option['endurance_gear_up_learn_description'] ) && !empty( $theme_option['endurance_gear_up_learn_description'] )) { ?>
+                                            <p><?php echo esc_html( $theme_option['endurance_gear_up_learn_description'] ); ?></p>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -79,20 +103,28 @@ get_header();
                                     <div class="col-lg-12 col-sm-6">
                                         <div class="success-box last-box opacity-box icon-box">
                                             <div class="image-wrapper icon">
-                                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/success-icon.svg" alt="success-icon">
+                                                <?php if(isset( $theme_option['endurance_gear_up_track_image']['url'] ) && !empty( $theme_option['endurance_gear_up_track_image']['url'] )) { ?>
+                                                    <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_track_image']['url'] ); ?>" alt="success-icon">
+                                                <?php } ?>
                                             </div>
                                             <div class="box-text">
-                                                <span class="gradient">Track your progress</span>
+                                                <?php if(isset( $theme_option['endurance_gear_up_track_title'] ) && !empty( $theme_option['endurance_gear_up_track_title'] )) { ?>
+                                                    <span class="gradient"><?php echo esc_html( $theme_option['endurance_gear_up_track_title'] ); ?></span>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-sm-6">
                                         <div class="success-box first-box opacity-box icon-box">
                                             <div class="image-wrapper icon icon-2">
-                                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/success-icon-2.svg" alt="success-icon">
+                                                <?php if(isset( $theme_option['endurance_gear_up_improve_image']['url'] ) && !empty( $theme_option['endurance_gear_up_improve_image']['url'] )) { ?>
+                                                    <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_improve_image']['url'] ); ?>" alt="success-icon">
+                                                <?php } ?>
                                             </div>
                                             <div class="box-text">
-                                                <span class="gradient gradient-2">Improve with routine</span>
+                                                <?php if(isset( $theme_option['endurance_gear_up_improve_title'] ) && !empty( $theme_option['endurance_gear_up_improve_title'] )) { ?>
+                                                    <span class="gradient gradient-2"><?php echo esc_html( $theme_option['endurance_gear_up_improve_title'] ); ?></span>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                     </div>
@@ -101,11 +133,17 @@ get_header();
                             <div class="col-lg-4 col-sm-6 order-3">
                                 <div class="success-box last-box wow fadeIn">
                                     <div class="image-wrapper">
-                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/success-2.webp" alt="success-2" class="box_img">
+                                        <?php if(isset( $theme_option['endurance_gear_up_motivated_image']['url'] ) && !empty( $theme_option['endurance_gear_up_motivated_image']['url'] )) { ?>
+                                            <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_motivated_image']['url'] ); ?>" alt="success-2" class="box_img">
+                                        <?php } ?>
                                     </div>
                                     <div class="box-text position">
-                                        <span class="white">Stay Motivated.</span>
-                                        <p>Fuel your drive with unwavering motivation. Embrace the power of perseverance for endless possibilities.</p>
+                                        <?php if(isset( $theme_option['endurance_gear_up_motivated_title'] ) && !empty( $theme_option['endurance_gear_up_motivated_title'] )) { ?>
+                                            <span class="white"><?php echo esc_html( $theme_option['endurance_gear_up_motivated_title'] ); ?></span>
+                                        <?php }
+                                        if(isset( $theme_option['endurance_gear_up_motivated_description'] ) && !empty( $theme_option['endurance_gear_up_motivated_description'] )) { ?>
+                                            <p><?php echo esc_html( $theme_option['endurance_gear_up_motivated_description'] ); ?></p>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -124,20 +162,31 @@ get_header();
                         <div class="row gy-sm-5 gy-4 justify-content-center align-items-center">
                             <div class="col-lg-7 col-sm-10 order-lg-1 order-2">
                                 <div class="image-wrapper d-flex justify-content-center wow fadeInLeft">
-                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/about-img.webp" alt="about-img" id="about_img1">
-                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/white-logo.webp" alt="white-logo" class="logo" id="about_img2">
-                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/strips.svg" alt="strips" class="strips">
+                                    <?php if(isset( $theme_option['endurance_about_us_image']['url'] ) && !empty( $theme_option['endurance_about_us_image']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_about_us_image']['url'] ); ?>" alt="about-img" id="about_img1">
+                                    <?php }
+                                    if(isset( $theme_option['endurance_about_us_logo_image']['url'] ) && !empty( $theme_option['endurance_about_us_logo_image']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_about_us_logo_image']['url'] ); ?>" alt="white-logo" class="logo" id="about_img2">
+                                    <?php }
+                                    if(isset( $theme_option['endurance_about_us_background_image']['url'] ) && !empty( $theme_option['endurance_about_us_background_image']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_about_us_background_image']['url'] ); ?>" alt="strips" class="strips">
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="col-lg-5 order-lg-2 order-1">
                                 <div class="about-text text-lg-start text-center wow fadeInRight">
-                                    <div class="title">About Us</div>
-                                    <p>
-                                        Welcome to Endurance Unleashed, where we fuel the spirit of champions. Our mission is to equip you with the finest tools, gear, and resources to conquer your limits and achieve extraordinary feats. Embrace the thrill of pushing beyond boundaries, stay motivated through the toughest challenges, and track your progress as you embark on a relentless journey to greatness.
-                                        <br>
-                                        let's redefine the power of perseverance and triumph in the face of every obstacle. Unleash your full potential with Endurance.
-                                    </p>
-                                    <a href="about-us.html" class="btn_wrapper mx-lg-0 mx-auto">get started</a>
+                                    <?php if(isset( $theme_option['endurance_about_us_title'] ) && !empty( $theme_option['endurance_about_us_title'] )) { ?>
+                                        <div class="title"><?php echo esc_html( $theme_option['endurance_about_us_title'] ); ?></div>
+                                    <?php } 
+                                    if(isset( $theme_option['endurance_about_us_description'] ) && !empty( $theme_option['endurance_about_us_description'] )) { ?>
+                                        <p>
+                                            <?php echo esc_html( $theme_option['endurance_about_us_description'] ); ?>
+                                        </p>
+                                    <?php } ?>
+                                    <?php $endurance_about_us_gt_link = isset( $theme_option['endurance_about_us_gt_link'] ) ? $theme_option['endurance_about_us_gt_link'] : '#';
+                                    if(isset( $theme_option['endurance_about_us_gt_text'] ) && !empty( $theme_option['endurance_about_us_gt_text'] )) { ?>
+                                        <a href="<?php echo esc_attr( $endurance_about_us_gt_link ); ?>" class="btn_wrapper mx-lg-0 mx-auto"><?php echo esc_html( $theme_option['endurance_about_us_gt_text'] ); ?></a>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -155,17 +204,25 @@ get_header();
                         <div class="col-lg-10">
                             <div class="cta-text text-lg-start text-center d-flex align-items-center gap-4">
                                 <div>
-                                    <div class="title pb-1">Smart App For all</div>
-                                    <p>We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.</p>
+                                    <?php if(isset( $theme_option['endurance_smart_app_title'] ) && !empty( $theme_option['endurance_smart_app_title'] )) { ?>
+                                        <div class="title pb-1"><?php echo esc_html( $theme_option['endurance_smart_app_title'] ); ?></div>
+                                    <?php } 
+                                    if(isset( $theme_option['endurance_smart_app_description'] ) && !empty( $theme_option['endurance_smart_app_description'] )) { ?>
+                                        <p><?php echo esc_html( $theme_option['endurance_smart_app_description'] ); ?></p>
+                                    <?php } ?>
                                 </div>
                                 <div class="image-wrapper d-lg-block d-none">
-                                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/cta-appstore-img.svg" alt="cta-appstore-img">
+                                    <?php if(isset( $theme_option['endurance_smart_app_download_image']['url'] ) && !empty( $theme_option['endurance_smart_app_download_image']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_smart_app_download_image']['url'] ); ?>" alt="cta-appstore-img">
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="image-wrapper mockup mx-lg-0 mx-auto">
                                 <div class="row justify-content-center">
                                     <div class="col-xxl-10 col-lg-8 col-sm-10">
-                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/cta-mockup.webp" alt="cta-mockup" class="d-block mx-auto">
+                                        <?php if(isset( $theme_option['endurance_smart_app_mobile_image']['url'] ) && !empty( $theme_option['endurance_smart_app_mobile_image']['url'] )) { ?>
+                                            <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_smart_app_mobile_image']['url'] ); ?>" alt="cta-mockup" class="d-block mx-auto">
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -180,14 +237,18 @@ get_header();
         <div class="notice-section default-padding wow fadeIn">
             <div class="notice">
                 <div class="notice-slide">
-                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/marquee-icon.svg" alt="marquee-icon">
-                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/marquee-icon.svg" alt="marquee-icon">
-                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/marquee-icon.svg" alt="marquee-icon">
+                    <?php if(isset( $theme_option['endurance_marquee_notice_image']['url'] ) && !empty( $theme_option['endurance_marquee_notice_image']['url'] )) { ?>
+                        <img loading="lazy" src="<?php echo esc_url($theme_option['endurance_marquee_notice_image']['url']); ?>" alt="marquee-icon">
+                        <img loading="lazy" src="<?php echo esc_url($theme_option['endurance_marquee_notice_image']['url']); ?>" alt="marquee-icon">
+                        <img loading="lazy" src="<?php echo esc_url($theme_option['endurance_marquee_notice_image']['url']); ?>" alt="marquee-icon">
+                    <?php } ?>
                 </div>
                 <div class="notice-slide">
-                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/marquee-icon.svg" alt="marquee-icon">
-                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/marquee-icon.svg" alt="marquee-icon">
-                    <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/marquee-icon.svg" alt="marquee-icon">
+                    <?php if(isset( $theme_option['endurance_marquee_notice_image']['url'] ) && !empty( $theme_option['endurance_marquee_notice_image']['url'] )) { ?>
+                        <img loading="lazy" src="<?php echo esc_url($theme_option['endurance_marquee_notice_image']['url']); ?>" alt="marquee-icon">
+                        <img loading="lazy" src="<?php echo esc_url($theme_option['endurance_marquee_notice_image']['url']); ?>" alt="marquee-icon">
+                        <img loading="lazy" src="<?php echo esc_url($theme_option['endurance_marquee_notice_image']['url']); ?>" alt="marquee-icon">
+                    <?php } ?>
                 </div>
             </div>
         </div>

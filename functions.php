@@ -182,7 +182,7 @@ require get_template_directory() . '/inc/customizer.php';
 
 require get_template_directory() . '/redux-framework/redux-framework.php';
 
-//require get_template_directory() . '/redux-framework/sample/sample-config.php';
+// require get_template_directory() . '/redux-framework/sample/sample-config.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -350,3 +350,11 @@ function webp_is_displayable($result, $path) {
 }
 
 add_filter('file_is_displayable_image', 'webp_is_displayable', 10, 2);
+
+
+function endurance_enqueue_dynamic_css() {
+    // Include dynamic CSS file
+    require get_template_directory() . '/style.php';
+}
+
+add_action('wp_head', 'endurance_enqueue_dynamic_css');
