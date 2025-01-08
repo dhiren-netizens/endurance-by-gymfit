@@ -122,17 +122,20 @@ get_header();
 					<div class="row gy-4 align-items-center justify-content-lg-between justify-content-center">
 						<div class="col-lg-5">
 							<div class="text-block text-lg-start text-center wow fadeInLeft">
-								<div class="title">Our Mission</div>
-								<p class="mb-0">
-									We believe in the power of pushing boundaries, staying motivated through challenges, and tracking your progress as you embark on an unwavering journey to greatness. Our mission goes beyond mere physical training – it's about redefining the very essence of perseverance and triumph in the face of every obstacle.
-									<br>
-									With a relentless focus on your success, we are committed to creating a community that supports, inspires, and uplifts.
-								</p>
+								<?php if(isset( $theme_option['endurance_our_mission'] ) && !empty( $theme_option['endurance_our_mission'] )) { ?>
+									<div class="title"><?php echo esc_html( $theme_option['endurance_our_mission'] ); ?></div>
+								<?php } ?>  
+
+								<?php if(isset( $theme_option['endurance_mission_decription'] ) && !empty( $theme_option['endurance_mission_decription'] )) { ?>
+									<p class="mb-0"><?php echo esc_html( $theme_option['endurance_mission_decription'] ); ?></p>
+								<?php } ?>  
 							</div>
 						</div>
 						<div class="col-lg-6 col-sm-8">
 							<div class="image-wrapper wow fadeInRight">
-								<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/mission-img.webp" alt="mission-img" id="mission_img">
+							<?php if(isset( $theme_option['endurance_our_mission_image']['url'] ) && !empty( $theme_option['endurance_our_mission_image']['url'] )) { ?>
+						         <img loading="lazy"  src="<?php echo esc_url( $theme_option['endurance_our_mission_image']['url'] ); ?>" alt="mission-img" id="mission_img">
+					        <?php } ?>
 							</div>
 						</div>
 					</div>
@@ -149,17 +152,25 @@ get_header();
 						<div class="col-lg-10">
 							<div class="cta-text text-lg-start text-center d-flex align-items-center gap-4">
 								<div>
-									<div class="title pb-1">Smart App For all</div>
-									<p>We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.</p>
+									<?php if(isset( $theme_option['endurance_samrt_app_heading'] ) && !empty( $theme_option['endurance_samrt_app_heading'] )) { ?>
+										<div class="title pb-1"><?php echo esc_html( $theme_option['endurance_samrt_app_heading'] ); ?></div>
+									<?php } ?>
+									<?php if(isset( $theme_option['endurance_smart_app_decription'] ) && !empty( $theme_option['endurance_smart_app_decription'] )) { ?>
+								    	<p><?php echo esc_html( $theme_option['endurance_smart_app_decription'] ); ?></p>
+								    <?php } ?>    
 								</div>
 								<div class="image-wrapper d-lg-block d-none">
-									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/cta-appstore-img.svg" alt="cta-appstore-img">
+									<?php if(isset( $theme_option['endurance_smart_app_store_image']['url'] ) && !empty( $theme_option['endurance_smart_app_store_image']['url'] )) { ?>
+							    		<img loading="lazy"  src="<?php echo esc_url( $theme_option['endurance_smart_app_store_image']['url'] ); ?>" alt="cta-appstore-img">
+									<?php } ?>
 								</div>
 							</div>
 							<div class="image-wrapper mockup mx-lg-0 mx-auto">
 								<div class="row justify-content-center">
 									<div class="col-xxl-10 col-lg-8 col-sm-10">
-										<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/cta-mockup.webp" alt="cta-mockup" class="d-block mx-auto">
+										<?php if(isset( $theme_option['endurance_smart_app_bg_image']['url'] ) && !empty( $theme_option['endurance_smart_app_bg_image']['url'] )) { ?>
+											<img loading="lazy"  src="<?php echo esc_url( $theme_option['endurance_smart_app_bg_image']['url'] ); ?>" alt="cta-mockup" class="d-block mx-auto">
+										<?php } ?>
 									</div>
 								</div>
 							</div>
