@@ -296,7 +296,7 @@ Redux::set_section(
                 'data'     => 'menus',
                 'title'    => esc_html__( 'Header Menu', 'endurance' ),
                 'desc'     => esc_html__( 'Select the header menu.', 'endurance' ),
-				'default'  => '13',
+				'default'  => '31',
             ),
 			array(
 				'id'           => 'endurance_header_logo',
@@ -377,7 +377,7 @@ Redux::set_section(
                 'data'     => 'menus',
                 'title'    => esc_html__( 'Footer Menu', 'endurance' ),
                 'desc'     => esc_html__( 'Select the footer menu.', 'endurance' ),
-				'default'  => '14',
+				'default'  => '32',
             ),
 			array(
 				'id'           => 'endurance_footer_logo',
@@ -1457,6 +1457,13 @@ Redux::set_section(
 // );
 
 // Gallery Page Settings
+$gallery_images_ids = get_option( 'endurance_gallery_images' );
+if ( is_array( $gallery_images_ids ) && !empty( $gallery_images_ids ) ) {
+	$gallery_images_ids = implode( ',', $gallery_images_ids );
+} else {
+	$gallery_images_ids = '';
+}
+$gallery_images = $gallery_images_ids;
 Redux::set_section(
 	$opt_name,
 	array(
@@ -1470,13 +1477,7 @@ Redux::set_section(
 				'type'     => 'gallery',
 				'title'    => esc_html__( 'Add/Edit Gallery Images', 'endurance' ),
 				'desc'     => esc_html__( 'Upload Images', 'endurance' ),
-				'default'  => array(
-					'url' => array(
-						get_template_directory_uri() . '/assets/images/background/about-img.webp',
-						get_template_directory_uri() . '/assets/images/background/about-img.webp',
-						get_template_directory_uri() . '/assets/images/background/about-img.webp',
-					),
-            	),
+				'default' => $gallery_images,
 			),			
         ),
 	)

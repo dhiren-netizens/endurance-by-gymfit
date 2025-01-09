@@ -492,6 +492,7 @@ PAGE LOADER CSS
     display: flex;
     justify-content: center;
     align-items: center;
+    top: 0;
 
     img{
         animation: loader 5s linear infinite;
@@ -604,5 +605,22 @@ img.strips {
 /*
 ============================================
 BACKGROUND STRIPS LINES CSS
+============================================
+*/
+
+/*
+============================================
+BLOG PAGE START CSS
+============================================
+*/
+.blog-wrapper {
+    .col-lg-4.col-md-4:nth-child(2), .col-lg-4.col-md-4:nth-child(3) {
+        height: 50%;
+    }
+}
+
+/*
+============================================
+BLOG PAGE END CSS
 ============================================
 */
