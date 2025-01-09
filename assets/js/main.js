@@ -313,7 +313,6 @@ if ($(".comming-wrapper").length > "0") {
 					hours = Math.floor((distance % day) / hour),
 					minutes = Math.floor((distance % hour) / minute),
 					seconds = Math.floor((distance % minute) / second);
-
 				document.getElementById("days").innerText = String(days).padStart(2, "0");
 				document.getElementById("hours").innerText = String(hours).padStart(2, "0");
 				document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");

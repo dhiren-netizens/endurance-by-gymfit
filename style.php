@@ -118,6 +118,46 @@ if (!is_admin()) {
                 background-color: <?php echo esc_attr($theme_option['endurance_banner_background_color2']); ?>;
             <?php } ?>
         }
+        .contact-section.details-section{
+            <?php if( isset( $theme_option['endurance_call_us_bg_img'] ) && !empty( $theme_option['endurance_call_us_bg_img'] )) { ?>
+                background-image: url(<?php echo esc_url($theme_option['endurance_call_us_bg_img']['url']); ?>), url(<?php echo esc_url($theme_option['endurance_call_us_bg_img']['url']); ?>);
+            <?php } ?>
+        }
+        .error-wrapper .wrapper::before{
+            <?php if( isset( $theme_option['endurance_banner_background_color1'] ) && !empty( $theme_option['endurance_banner_background_color1'] )) { ?>
+                background-color: <?php echo esc_attr($theme_option['endurance_banner_background_color1']); ?>;
+            <?php } ?>
+        }
+        .error-wrapper .wrapper::after{
+            <?php if( isset( $theme_option['endurance_banner_background_color2'] ) && !empty( $theme_option['endurance_banner_background_color2'] )) { ?>
+                background-color: <?php echo esc_attr($theme_option['endurance_banner_background_color2']); ?>;
+            <?php } ?>
+        }
+        .error-wrapper .wrapper{
+            <?php if( isset( $theme_option['endurance_general_background_image'] ) && !empty( $theme_option['endurance_general_background_image'] )) { ?>
+                background-image: url(<?php echo esc_url($theme_option['endurance_general_background_image']['url']); ?>), url(<?php echo esc_url($theme_option['endurance_general_background_image']['url']); ?>);
+            <?php } ?>
+        }
+        .error-wrapper::before{
+            <?php if( isset( $theme_option['endurance_coming_soon_bg2'] ) && !empty( $theme_option['endurance_coming_soon_bg2'] )) { ?>
+                background-image: url(<?php echo esc_url($theme_option['endurance_coming_soon_bg2']['url']); ?>), url(<?php echo esc_url($theme_option['endurance_coming_soon_bg2']['url']); ?>);
+            <?php } ?>
+        }
+        .error-wrapper::after{
+            <?php if( isset( $theme_option['endurance_coming_soon_bg1'] ) && !empty( $theme_option['endurance_coming_soon_bg1'] )) { ?>
+                background-image: url(<?php echo esc_url($theme_option['endurance_coming_soon_bg1']['url']); ?>), url(<?php echo esc_url($theme_option['endurance_coming_soon_bg1']['url']); ?>);
+            <?php } ?>
+        }
+        .fill-up-form form .form-group input[type="submit"]:before{
+            background-image:url('assets/images/icon/search-icon.svg');
+            content: "";
+            position:absolute;
+        }
+        .error-wrapper{
+            <?php if( isset( $theme_option['endurance_404_line_bg_img'] ) && !empty( $theme_option['endurance_404_line_bg_img'] )) { ?>
+                background-image: url(<?php echo esc_url($theme_option['endurance_404_line_bg_img']['url']); ?>), url(<?php echo esc_url($theme_option['endurance_404_line_bg_img']['url']); ?>);
+            <?php } ?>
+        }
     </style>
     <?php
 }

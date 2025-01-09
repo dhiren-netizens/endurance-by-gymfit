@@ -14,20 +14,6 @@ get_header();
 	<!-- MAIN SECTIONS START FROM HERE -->
 	<main class="main_wrapper">
 
-		<!-- BREADCRUMBS SECTION START FROM HERE -->
-		<div class="default-padding">
-			<div class="breadcrumbs-section">
-				<div class="container">
-					<div class="breadcrumbs-title title text-lg-start text-center pb-3">About us</div>
-					<div class="breadcrumbs-block mx-lg-0 mx-auto">
-						<a href="index.html" class="item">Home</a>
-						<span class="item active">About Us</span>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- BREADCRUMBS SECTION END'S FROM HERE -->
-
 		<!-- ABOUT SECTION START FROM HERE -->
 		<div class="default-padding">
 			<div class="about-section">

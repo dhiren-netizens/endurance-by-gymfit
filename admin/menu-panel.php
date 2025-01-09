@@ -1140,7 +1140,7 @@ Redux::set_section(
 Redux::set_section(
 	$opt_name,
 	array(
-		'title'            => esc_html__( 'About', 'endurance' ),
+		'title'            => esc_html__( 'About Us', 'endurance' ),
 		'id'               => 'endurance_about_section',
 		'desc'             => esc_html__( 'About Options', 'endurance' ),
 		'customizer_width' => '400px',
@@ -1389,6 +1389,339 @@ Redux::set_section(
 	),
 );
 
+//Contact Us Page Settings
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Contact Us', 'endurance' ),
+		'id'               => 'endurance_contact_us_section',
+		'desc'             => esc_html__( 'Contact Us Options', 'endurance' ),
+		'customizer_width' => '400px',
+		'icon'             => 'el el-envelope',
+		'fields'           => array(
+			array(
+				'id'           => 'endurance_call_us_bg_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Background Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/contact-lines.svg'
+				),
+			),
+			array(
+				'id'           => 'endurance_write_us',
+				'type'         => 'editor',
+				'title'        => esc_html__( 'Heading', 'endurance' ),
+				'default'  => 'Write Us'
+			),
+			array(
+				'id'           => 'location_geocode',
+				'type'         => 'google_maps',
+				'title'        => esc_html__( 'Google Maps', 'your-textdomain-here' ),
+				'subtitle'     => esc_html__( 'This map is set using only latitude and longitude with a zoom factor of 7.  When setting a Google map using lat/long, address information will not be returned.', 'your-textdomain-here' ),
+				'full_width'   => true,
+				'show_api_key' => true,
+				'default'      => array(
+					'latitude'  => 38.8976758,
+					'longitude' => - 77.03648229999999,
+					'zoom'      => 7,
+				),
+			),
+		),
+	),
+);
+
+//Contact Information section - Contact Us Page Settings
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Conatct Inforamtion Section', 'endurance' ),
+		'id'               => 'endurance_conatct_info',
+		'customizer_width' => '400px',
+		'subsection' => true,
+		'icon'             => 'el el-inbox',
+		'fields'           => array(
+			array(
+				'id'           => 'endurance_call_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Call Us Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/call.svg'
+				),
+			),
+			array(
+                'id'           => 'endurance_mail_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Mail Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/mail.svg'
+				),
+            ),
+			array(
+				'id'       => 'call_us_heading',
+				'type'     => 'editor',
+				'title'    => esc_html__( 'Call Us Heading', 'endurance' ),
+				'default'  => 'Call Us'
+			),
+			array(
+				'id'       => 'mail_heading',
+				'type'     => 'editor',
+				'title'    => esc_html__( 'E-mail Heading', 'endurance' ),
+				'default'  => 'Email'
+			),
+			array(
+				'id'       => 'endurance_call_us_link',
+				'type'     => 'text',
+				// 'validate'  => 'url',
+				'title'    => esc_html__( 'Business Inquiry  Link', 'endurance' ),
+				'default'  => '+1256(7852)551',
+			),
+			array(
+				'id'       => 'endurance_bussiness_inquiry',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Business Inquiry Text', 'endurance' ),
+				'default'  => 'Business Inquiry :',
+			),
+			array(
+				'id'       => 'endurance_call_us_customer_link',
+				'type'     => 'text',
+				// 'validate'  => 'url',
+				'title'    => esc_html__( 'Customer Number Link', 'endurance' ),
+				'default'  => '+1256(7852)551',
+			),
+			array(
+				'id'       => 'endurance_coustomer_support',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Customer Support Text', 'endurance' ),
+				'default'  => 'Customer Support :',
+			),
+			array(
+				'id'       => 'endurance_bussiness_email',
+				'type'     => 'text',
+				// 'validate'  => 'url',
+				'title'    => esc_html__( 'Business Inquiry  Mail Link', 'endurance' ),
+				'default'  => 'businessinfo@gymfit.email',
+			),
+			array(
+				'id'       => 'endurance_bussiness_inquiry_mail_text',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Business Inquiry Mail Text', 'endurance' ),
+				'default'  => 'Business Inquiry :',
+			),
+			array(
+				'id'       => 'endurance_customer_email_link',
+				'type'     => 'text',
+				// 'validate'  => 'url',
+				'title'    => esc_html__( 'Customer Emial Support Link', 'endurance' ),
+				'default'  => 'customer@gymfit.email',
+			),
+			array(
+				'id'       => 'endurance_coustomer_support_email',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Customer Support Email Text', 'endurance' ),
+				'default'  => 'Customer Support :',
+			),
+        ),
+	)
+);
+
+//Coming Soon Page Seetings
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Coming Soon', 'endurance' ),
+		'id'               => 'endurance_coming_soon_section',
+		'desc'             => esc_html__( 'Coming Soon Page Options', 'endurance' ),
+		'customizer_width' => '400px',
+		'icon'             => 'el el-check-empty',
+		'fields'           => array(
+			array(
+				'id'           => 'endurance_coming_soon',
+				'type'         => 'text',
+				'title'        => esc_html__( 'Heading', 'endurance' ),
+				'default'  => 'Coming Soon'
+			),
+			array(
+				'id'           => 'endurance_day_number',
+				'type'         => 'text',
+				'title'        => esc_html__( 'Day Number', 'endurance' ),
+				'default'  => '12'
+			),
+			array(
+				'id'           => 'endurance_day_text',
+				'type'         => 'text',
+				'title'        => esc_html__( 'Day Text', 'endurance' ),
+				'default'  => 'Day'
+			),
+			array(
+				'id'           => 'endurance_hours_number',
+				'type'         => 'text',
+				'title'        => esc_html__( 'Hours Number', 'endurance' ),
+				'default'  => '12'
+			),
+			array(
+				'id'           => 'endurance_hours_text',
+				'type'         => 'text',
+				'title'        => esc_html__( 'Hours Text', 'endurance' ),
+				'default'  => 'Hours'
+			),
+			array(
+				'id'           => 'endurance_minutes_number',
+				'type'         => 'text',
+				'title'        => esc_html__( 'Minutes Number', 'endurance' ),
+				'default'  => '50'
+			),
+			array(
+				'id'           => 'endurance_minutes_text',
+				'type'         => 'text',
+				'title'        => esc_html__( 'Minutes Text', 'endurance' ),
+				'default'  => 'Minutes'
+			),
+			array(
+				'id'           => 'endurance_second_number',
+				'type'         => 'text',
+				'title'        => esc_html__( 'Second Number', 'endurance' ),
+				'default'  => '40'
+			),
+			array(
+				'id'           => 'endurance_second_text',
+				'type'         => 'text',
+				'title'        => esc_html__( 'Second Text', 'endurance' ),
+				'default'  => 'Second'
+			),
+			array(
+				'id'           => 'endurance_star_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Star Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/star-icon.svg'
+				),
+			),
+			array(
+				'id'           => 'endurance_coming_soon_bg1',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Background Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/error-img-1.webp'
+				),
+			),
+			array(
+				'id'           => 'endurance_coming_soon_bg2',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Background Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/error-img-2.webp'
+				),
+			),
+			array(
+				'id'           => 'endurance_join_waiting_text',
+				'type'         => 'text',
+				'title'        => esc_html__( 'Join Waiting Text', 'endurance' ),
+				'default'  => 'Join Waiting List'
+			),
+			array(
+				'id'           => 'endurance_mail_text',
+				'type'         => 'text',
+				'title'        => esc_html__( 'mail Text', 'endurance' ),
+				'default'  => 'You’ll get instant notification through mail'
+			),
+		),
+	),
+);
+
+//404 Page Settings
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( '404 Page', 'endurance' ),
+		'id'               => 'endurance_404_page',
+		'desc'             => esc_html__( '404 Page Options', 'endurance' ),
+		'customizer_width' => '400px',
+		'icon'             => 'el el-error',
+		'fields'           => array(
+			array(
+				'id'           => 'endurance_404_description',
+				'type'         => 'text',
+				'title'        => esc_html__( 'Description', 'endurance' ),
+				'default'  => 'The page you’re looking for is exercising so try again or...'
+			),
+			array(
+				'id'           => 'endurance_404_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( '404 Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/error-img.webp'
+				),
+			),
+			array(
+				'id'           => 'endurance_404_line_bg_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( '404 Background Line Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/error-page-lines.svg'
+				),
+			),
+			array(
+				'id'           => 'endurance_404_background_image1',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( '404 Background Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/error-img-1.webp'
+				),
+			),
+			array(
+				'id'           => 'endurance_404_background_image2',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( '404 Background Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/error-img-2.webp'
+				),
+			),
+			array(
+				'id'       => 'endurance_back_home',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Back To Home Text', 'endurance' ),
+				'default'  => 'Back To Home',
+			),
+			array(
+				'id'       => 'endurance_back_to_home_link',
+				'type'     => 'text',
+				'validate'  => 'url',
+				'title'    => esc_html__( 'Back To Home Button Link', 'endurance' ),
+				'default'  => '#',
+			),
+		),
+	),
+);
 
 if ( ! function_exists( 'compiler_action' ) ) {
 	/**

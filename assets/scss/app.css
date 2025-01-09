@@ -665,7 +665,7 @@ COMMON FORM CSS
   position: absolute;
   top: 50%;
   right: 10px;
-  transform: translateY(-50%);
+  transform: translateY(-83%);
 }
 @media screen and (max-width: 480px) {
   .fill-up-form form .form-group .image-wrapper {
