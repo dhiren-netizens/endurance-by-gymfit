@@ -8,30 +8,30 @@ if (!is_admin()) {
     ?>
     <style>
         .banner-wrapper .imgBlock{
-            <?php if(( isset( $theme_option['endurance_banner_line_pattern_image']['url'] ) && !empty( $theme_option['endurance_banner_line_pattern_image']['url'] )) && ( isset( $theme_option['endurance_banner_background_image']['url'] ) && !empty( $theme_option['endurance_banner_background_image']['url'] ))) { ?>
-                background-image: url(<?php echo esc_url($theme_option['endurance_banner_line_pattern_image']['url']); ?>), url(<?php echo esc_url($theme_option['endurance_banner_background_image']['url']); ?>);
+            <?php if(( isset( $theme_option['endurance_banner_line_pattern_image']['url'] ) && !empty( $theme_option['endurance_banner_line_pattern_image']['url'] )) && ( isset( $theme_option['endurance_general_background_image']['url'] ) && !empty( $theme_option['endurance_general_background_image']['url'] ))) { ?>
+                background-image: url(<?php echo esc_url($theme_option['endurance_banner_line_pattern_image']['url']); ?>), url(<?php echo esc_url($theme_option['endurance_general_background_image']['url']); ?>);
             <?php } ?>
         }
         .banner-wrapper .imgBlock:before {
-            <?php if( isset( $theme_option['endurance_banner_background_color1'] ) && !empty( $theme_option['endurance_banner_background_color1'] )) { ?>
-                background-color: <?php echo esc_attr($theme_option['endurance_banner_background_color1']); ?>;
+            <?php if( isset( $theme_option['endurance_general_background_color1'] ) && !empty( $theme_option['endurance_general_background_color1'] )) { ?>
+                background-color: <?php echo esc_attr($theme_option['endurance_general_background_color1']); ?>;
                 opacity: 0.5;
             <?php } ?>
         }
         .banner-wrapper .imgBlock:after {
-            <?php if( isset( $theme_option['endurance_banner_background_color2'] ) && !empty( $theme_option['endurance_banner_background_color2'] )) { ?>
-                background-color: <?php echo esc_attr($theme_option['endurance_banner_background_color2']); ?>;
+            <?php if( isset( $theme_option['endurance_general_background_color2'] ) && !empty( $theme_option['endurance_general_background_color2'] )) { ?>
+                background-color: <?php echo esc_attr($theme_option['endurance_general_background_color2']); ?>;
                 opacity: 0.5;
             <?php } ?>
         }
         .banner-wrapper:before {
-            <?php if( isset( $theme_option['endurance_banner_background_color1'] ) && !empty( $theme_option['endurance_banner_background_color1'] )) { ?>
-                background-color: <?php echo esc_attr($theme_option['endurance_banner_background_color1']); ?>;
+            <?php if( isset( $theme_option['endurance_general_background_color1'] ) && !empty( $theme_option['endurance_general_background_color1'] )) { ?>
+                background-color: <?php echo esc_attr($theme_option['endurance_general_background_color1']); ?>;
             <?php } ?>
         }
         .banner-wrapper:after {
-            <?php if( isset( $theme_option['endurance_banner_background_color2'] ) && !empty( $theme_option['endurance_banner_background_color2'] )) { ?>
-                background-color: <?php echo esc_attr($theme_option['endurance_banner_background_color2']); ?>;
+            <?php if( isset( $theme_option['endurance_general_background_color2'] ) && !empty( $theme_option['endurance_general_background_color2'] )) { ?>
+                background-color: <?php echo esc_attr($theme_option['endurance_general_background_color2']); ?>;
             <?php } ?>
         }
         .success-section .success-wrapper .success-box.first-box {
@@ -67,13 +67,13 @@ if (!is_admin()) {
             <?php } ?>
         }
         .about-section .about-wrapper .image-wrapper:before {
-            <?php if( isset( $theme_option['endurance_banner_background_color1'] ) && !empty( $theme_option['endurance_banner_background_color1'] )) { ?>
-                background-color: <?php echo esc_attr($theme_option['endurance_banner_background_color1']); ?>;
+            <?php if( isset( $theme_option['endurance_general_background_color1'] ) && !empty( $theme_option['endurance_general_background_color1'] )) { ?>
+                background-color: <?php echo esc_attr($theme_option['endurance_general_background_color1']); ?>;
             <?php } ?>
         }
         .about-section .about-wrapper .image-wrapper:after {
-            <?php if( isset( $theme_option['endurance_banner_background_color2'] ) && !empty( $theme_option['endurance_banner_background_color2'] )) { ?>
-                background-color: <?php echo esc_attr($theme_option['endurance_banner_background_color2']); ?>;
+            <?php if( isset( $theme_option['endurance_general_background_color2'] ) && !empty( $theme_option['endurance_general_background_color2'] )) { ?>
+                background-color: <?php echo esc_attr($theme_option['endurance_general_background_color2']); ?>;
             <?php } ?>
         }
         .cta-section {
@@ -96,6 +96,38 @@ if (!is_admin()) {
         .notice-section .notice .notice-slide:last-child {
             <?php if( isset( $theme_option['endurance_marquee_notice_color'] ) && !empty( $theme_option['endurance_marquee_notice_color'] ) && is_array( $theme_option['endurance_marquee_notice_color'] )) { ?>
                 background: linear-gradient(270deg, <?php echo esc_attr( $theme_option['endurance_marquee_notice_color']['from'] ) . ' '; echo esc_attr( $theme_option['endurance_marquee_notice_color']['gradient-reach']['from'] ) . '%'; ?>, <?php echo esc_attr( $theme_option['endurance_marquee_notice_color']['from'] ) . ' '; ?> 32%, <?php echo esc_attr( $theme_option['endurance_marquee_notice_color']['to'] ) . ' '; ?> 66%, <?php echo esc_attr( $theme_option['endurance_marquee_notice_color']['to'] ) . ' '; echo esc_attr( $theme_option['endurance_marquee_notice_color']['gradient-reach']['to'] ). '%'; ?>);
+            <?php } ?>
+        }
+        .stand-with-section.strips:after, .client-section .client-wrapper .clientImg:before {
+            <?php if( isset( $theme_option['endurance_general_background_color1'] ) && !empty( $theme_option['endurance_general_background_color1'] )) { ?>
+                background-color: <?php echo esc_attr($theme_option['endurance_general_background_color1']); ?>;
+            <?php } ?>
+        }
+        .stand-with-section.strips:before, .client-section .client-wrapper .clientImg:after {
+            <?php if( isset( $theme_option['endurance_general_background_color2'] ) && !empty( $theme_option['endurance_general_background_color2'] )) { ?>
+                background-color: <?php echo esc_attr($theme_option['endurance_general_background_color2']); ?>;
+            <?php } ?>
+        }
+        .stand-with-section .img-block .image-wrapper {
+            <?php if( isset( $theme_option['endurance_stand_out_line_pattern_image']['url'] ) && !empty( $theme_option['endurance_stand_out_line_pattern_image']['url'] )) { ?>
+                background-image: url(<?php echo esc_url($theme_option['endurance_stand_out_line_pattern_image']['url']); ?>);
+            <?php } ?>
+        }
+        .special-section .special-wrapper .special-block {
+            <?php if( (isset( $theme_option['endurance_special_addons_box1_color'] ) && !empty( $theme_option['endurance_special_addons_box1_color'] ) && is_array( $theme_option['endurance_special_addons_box1_color'] )) && (isset( $theme_option['endurance_special_addons_box1_pattern_image']['url'] ) && !empty( $theme_option['endurance_special_addons_box1_pattern_image']['url'] ) ) ) { ?>
+                background-image: url(<?php echo esc_attr( $theme_option['endurance_special_addons_box1_pattern_image']['url'] ); ?>),linear-gradient(<?php echo esc_attr( $theme_option['endurance_special_addons_box1_color']['gradient-angle']) . 'deg'; ?>, <?php echo esc_attr( $theme_option['endurance_special_addons_box1_color']['from'] ) . ' '; echo esc_attr( $theme_option['endurance_special_addons_box1_color']['gradient-reach']['from'] ) . '%'; ?>, <?php echo esc_attr( $theme_option['endurance_special_addons_box1_color']['to'] ) . ' '; echo esc_attr( $theme_option['endurance_special_addons_box1_color']['gradient-reach']['to'] ) . '%'; ?>)
+            <?php } ?>
+        }
+        .special-section .special-wrapper .special-block.second-box {
+            <?php if( (isset( $theme_option['endurance_special_addons_box2_color'] ) && !empty( $theme_option['endurance_special_addons_box2_color'] ) && is_array( $theme_option['endurance_special_addons_box2_color'] )) && (isset( $theme_option['endurance_special_addons_box2_pattern_image']['url'] ) && !empty( $theme_option['endurance_special_addons_box2_pattern_image']['url'] ) ) ) { ?>
+                background-image: url(<?php echo esc_attr( $theme_option['endurance_special_addons_box2_pattern_image']['url'] ); ?>),linear-gradient(<?php echo esc_attr( $theme_option['endurance_special_addons_box2_color']['gradient-angle']) . 'deg'; ?>, <?php echo esc_attr( $theme_option['endurance_special_addons_box2_color']['from'] ) . ' '; echo esc_attr( $theme_option['endurance_special_addons_box2_color']['gradient-reach']['from'] ) . '%'; ?>, <?php echo esc_attr( $theme_option['endurance_special_addons_box2_color']['to'] ) . ' '; echo esc_attr( $theme_option['endurance_special_addons_box2_color']['gradient-reach']['to'] ) . '%'; ?>)
+            <?php } ?>
+        }
+        .special-section {
+            <?php if( isset( $theme_option['endurance_special_addons_section_background_image']['url'] ) && !empty( $theme_option['endurance_special_addons_section_background_image']['url'] )) { ?>
+                background: url(<?php echo esc_url($theme_option['endurance_special_addons_section_background_image']['url']); ?>) no-repeat;
+                background-size: 100% 100%;
+                background-position: 0 center;
             <?php } ?>
         }
         .stand-with-section.strips {

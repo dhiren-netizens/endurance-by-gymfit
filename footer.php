@@ -23,7 +23,7 @@ $theme_option = get_option('redux_demo');
 			<div class="container">
 				<div class="footer-block">
 					<div class="top-block">
-						<a href="index.html" class="logo image-wrapper">
+						<a href="<?php echo esc_url( home_url() ); ?>" class="logo image-wrapper">
 						<?php if(isset( $theme_option['endurance_footer_logo']['url'] ) && !empty( $theme_option['endurance_footer_logo']['url'] )) { ?>
 							<img src="<?php echo esc_url( $theme_option['endurance_footer_logo']['url'] ); ?>" alt="Logo">
 						<?php } ?>

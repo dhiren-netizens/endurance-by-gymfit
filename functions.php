@@ -192,12 +192,25 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 function generate_site_nav_menu_item($term_id, $title, $url, $parent_id = 0) {
-    wp_update_nav_menu_item($term_id, 0, array(
-        'menu-item-title'   => sprintf(__('%s', 'text_domain'), $title),
-        'menu-item-url'     => home_url('/' . $url),
-        'menu-item-status'  => 'publish',
-        'menu-item-parent-id' => $parent_id, // Add parent ID here
-    ));
+	$page = get_page_by_path($url);
+	if ($page) {
+		$menu_item_id = wp_update_nav_menu_item($term_id, 0, array(
+			'menu-item-object-id' => $page->ID,
+			'menu-item-object'    => 'page',
+			'menu-item-type'      => 'post_type',
+			'menu-item-title'     => $title,
+			'menu-item-status'    => 'publish',
+			'menu-item-parent-id' => $parent_id,
+		));
+	} else {
+		$menu_item_id = wp_update_nav_menu_item($term_id, 0, array(
+			'menu-item-title'   => sprintf(__('%s', 'text_domain'), $title),
+			'menu-item-url'     => home_url('/' . $url),
+			'menu-item-status'  => 'publish',
+			'menu-item-parent-id' => $parent_id, // Add parent ID here
+		));
+	}
+	return $menu_item_id;
 }
 
 function generate_site_nav_menu($menu_name, $menu_items_array, $location_target) {
@@ -253,9 +266,75 @@ add_action( 'after_setup_theme', 'my_after_setup_theme');
  *
  */
 function my_after_switch_theme() {
-/**
- * Setup the site navigation
- */    
+
+	/**
+	 * Add a default pages
+	 */
+	$default_pages = array(
+		array(
+			'slug' => 'home',
+			'title' => 'Home',
+			'template' => 'page-templates/home-page-template.php'
+		),
+		array(
+			'slug' => 'about-us',
+			'title' => 'About Us',
+			'template' => 'page-templates/about-us-page-template.php'
+		),
+		array(
+			'slug' => 'gallery',
+			'title' => 'Gallery',
+			'template' => 'page-templates/gallery-page-template.php'
+		),
+		array(
+			'slug' => 'contact-us',
+			'title' => 'Contact Us',
+			'template' => 'page-templates/contact-us-page-template.php'
+		),
+		array(
+			'slug' => '404',
+			'title' => '404',
+			'template' => 'page-templates/404-page-template.php'
+		),
+		array(
+			'slug' => 'coming-soon',
+			'title' => 'Coming Soon',
+			'template' => 'page-templates/coming-soon-page-template.php'
+		),
+		array(
+			'slug' => 'sitemap',
+			'title' => 'Sitemap',
+			'template' => 'page-templates/sitemap-page-template.php'
+		),
+		array(
+			'slug' => 'blogs',
+			'title' => 'Blogs',
+			'template' => ''
+		),
+	);
+	foreach ($default_pages as $page) {
+		// Check if the page already exists
+		$existing_page = get_page_by_path($page['slug']);
+		if (!$existing_page) {
+			wp_insert_post(array(
+				'post_title' => $page['title'],
+				'post_type' => 'page',
+				'post_name' => $page['slug'],
+				'comment_status' => 'closed',
+				'ping_status' => 'closed',
+				'post_content' => '',
+				'meta_input' => array(
+					'_wp_page_template' => $page['template']
+				),
+				'post_status' => 'publish',
+				'post_author' => 1,
+				'menu_order' => 0
+			));
+		}
+	}
+	/**
+	 * Setup the site navigation
+	 */    
 	$run_menu_maker_once = get_option('menu_check');
 
 	if ( ! $run_menu_maker_once ){
@@ -265,15 +344,16 @@ function my_after_switch_theme() {
 		$primary_menu_items = array(
 			'Home'  =>  'home',
 			'About Us' =>  'about-us',       
-			'Pricing'  =>  'pricing',
+			'Pricing'  =>  '#pricing',
 			'Gallery'   =>  'gallery',
 			'Blogs'    =>  'blogs',
 			'Contact Us'    =>  'contact-us',
-			'Pages'    =>  array(
-				'404'    =>  '404',
-				'Coming Soon'    =>  'coming-soon',
-				'Sitemap'    =>  'sitemap',
-			),
+			'Pages'    =>  '#',
+		);
+		$primary_menu_items['Pages'] = array(
+			'404' => '404',
+			'Coming Soon' => 'coming-soon',
+			'Sitemap' => 'sitemap',
 		);
 		generate_site_nav_menu( 'Primary Menu', $primary_menu_items, 'primary' );
 
@@ -291,6 +371,64 @@ function my_after_switch_theme() {
         );
         generate_site_nav_menu( 'Secondary', $secondary_menu_items, 'secondary' );
 		
+	}
+
+	/**
+	 * Add gallery images to the uploads folder
+	 */
+
+	$image_urls = array(
+		get_template_directory_uri(). '/assets/images/gallery/gallery-1.webp',
+		get_template_directory_uri(). '/assets/images/gallery/gallery-2.webp',
+		get_template_directory_uri(). '/assets/images/gallery/gallery-3.webp',
+		get_template_directory_uri(). '/assets/images/gallery/gallery-4.webp',
+		get_template_directory_uri(). '/assets/images/gallery/gallery-5.webp',
+		get_template_directory_uri(). '/assets/images/gallery/gallery-6.webp',
+		get_template_directory_uri(). '/assets/images/gallery/gallery-7.webp',
+		get_template_directory_uri(). '/assets/images/gallery/gallery-8.webp',
+		get_template_directory_uri(). '/assets/images/gallery/gallery-9.webp',
+	);
+
+	$upload_dir = wp_upload_dir();
+	$attachment_ids = array();
+
+	foreach ($image_urls as $image_url) {
+		$image_data = file_get_contents( $image_url );
+
+		$filename = basename( $image_url );
+
+		if ( wp_mkdir_p( $upload_dir['path'] ) ) {
+		$file = $upload_dir['path'] . '/' . $filename;
+		} else {
+		$file = $upload_dir['basedir'] . '/' . $filename;
+		}
+
+		file_put_contents( $file, $image_data );
+
+		$wp_filetype = wp_check_filetype( $filename, null );
+
+		$attachment = array(
+		'post_mime_type' => $wp_filetype['type'],
+		'post_title' => sanitize_file_name( $filename ),
+		'post_content' => '',
+		'post_status' => 'inherit'
+		);
+
+		// Check if the file already exists in the media library
+		$attachment_id = attachment_url_to_postid($upload_dir['url'] . '/' . $filename);
+		if (!$attachment_id) {
+			$attachment_id = wp_insert_attachment( $attachment, $file );
+			require_once( ABSPATH . 'wp-admin/includes/image.php' );
+			$attach_data = wp_generate_attachment_metadata( $attachment_id, $file );
+
+			// Remove unwanted sizes
+			unset($attach_data['sizes']['thumbnail']);
+			unset($attach_data['sizes']['medium']);
+
+			wp_update_attachment_metadata( $attachment_id, $attach_data );
+			$attachment_ids[] = $attachment_id;
+			update_option('endurance_gallery_images', $attachment_ids);
+		}
 	}
 }
 add_action( 'after_switch_theme', 'my_after_switch_theme');

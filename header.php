@@ -67,7 +67,7 @@ $theme_option = get_option('redux_demo');
 			<nav class="navbar navbar-expand-xxxl">
 				
 				<!-- Logo -->
-				<a class="navbar-brand logo lh-0" href="index.html">
+				<a class="navbar-brand logo lh-0" href="<?php echo esc_url( home_url() ); ?>">
 					<?php if(isset( $theme_option['endurance_header_logo']['url'] ) && !empty( $theme_option['endurance_header_logo']['url'] )) { ?>
 						<img src="<?php echo esc_url( $theme_option['endurance_header_logo']['url'] ); ?>" alt="Logo">
 					<?php } ?>
@@ -101,7 +101,7 @@ $theme_option = get_option('redux_demo');
 					<?php
 					if(isset( $theme_option['endurance_display_contact_btn'] ) && !empty( $theme_option['endurance_display_contact_btn'] )) {
 						if( 1 == $theme_option['endurance_display_contact_btn'] ) { ?>
-							<a href="contact-us.html" class="btn_wrapper d-lg-flex d-none">Contact us</a>
+							<a href="<?php echo esc_url( home_url(). '/contact-us/' ); ?>" class="btn_wrapper d-lg-flex d-none">Contact us</a>
 						<?php }
 					}
 					?>
@@ -111,6 +111,21 @@ $theme_option = get_option('redux_demo');
 	</header>
 	<!-- HEADER END'S FROM HERE -->
 
+	<!-- BREADCRUMBS SECTION START FROM HERE -->
+	<?php if( !is_front_page() ) { ?>
+	<div class="default-padding pt-0">
+		<div class="breadcrumbs-section">
+			<div class="container">
+				<div class="breadcrumbs-title title text-lg-start text-center pb-3"><?php echo esc_html( get_the_title() ); ?></div>
+				<div class="breadcrumbs-block mx-lg-0 mx-auto">
+					<a href="<?php echo esc_url( home_url() ); ?>" class="item">home</a>
+					<span class="item active"><?php echo esc_html( get_the_title() ); ?></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php } ?>
+	<!-- BREADCRUMBS SECTION END'S FROM HERE -->
 	<!-- LOADER START HERE -->
     <div class="page_loader">
 		<?php if(isset( $theme_option['endurance_page_loader_image']['url'] ) && !empty( $theme_option['endurance_page_loader_image']['url'] )) { ?>
