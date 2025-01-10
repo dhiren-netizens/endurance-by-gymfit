@@ -252,7 +252,8 @@ function my_after_setup_theme() {
      */
     register_nav_menus( array(
         'primary'   => __('Primary', 'endurance'),
-		'secondary' => __('Secondary', 'endurance')
+		'secondary' => __('Secondary', 'endurance'),
+		'sitemap'   => __('Sitemap', 'endurance')
     ) );   
    
 }
@@ -266,6 +267,69 @@ add_action( 'after_setup_theme', 'my_after_setup_theme');
  *
  */
 function my_after_switch_theme() {
+
+	/* Add a default Testimonails Reviews posts
+	*/
+   $default_posts = array(
+	   array(
+		   'slug' => 'angela-lipton',
+		   'title' => 'Angela Lipton',
+		   'content' => 'Endurance Training Coach',
+		   'image' => get_template_directory_uri() . '/assets/images/background/review-img.webp'
+	   ),
+	   array(
+		   'slug' => 'johnny-depp',
+		   'title' => 'Johnny Depp',
+		   'content' => 'Cardio Conditioning Specialist',
+		   'image' => get_template_directory_uri() . '/assets/images/background/review-img-2.webp'
+	   ),
+   );
+   foreach ($default_posts as $post) {
+	   // Check if the post already exists
+	   $existing_post = get_page_by_path($post['slug'], OBJECT, 'meet-our-team');
+	   if (!$existing_post) {
+		   $post_id = wp_insert_post(array(
+			   'post_title' => $post['title'],
+			   'post_type' => 'testimonial-reviews',
+			   'post_name' => $post['slug'],
+			   'post_content' => $post['content'],
+			   'comment_status' => 'closed',
+			   'ping_status' => 'closed',
+			   'post_status' => 'publish',
+			   'post_author' => 1,
+			   'menu_order' => 0
+		   ));
+
+		   // Add featured image
+		   $image_url = $post['image'];
+		   $image_data = file_get_contents($image_url);
+		   $filename = basename($image_url);
+		   $upload_dir = wp_upload_dir();
+
+		   if (wp_mkdir_p($upload_dir['path'])) {
+			   $file = $upload_dir['path'] . '/' . $filename;
+		   } else {
+			   $file = $upload_dir['basedir'] . '/' . $filename;
+		   }
+
+		   file_put_contents($file, $image_data);
+
+		   $wp_filetype = wp_check_filetype($filename, null);
+
+		   $attachment = array(
+			   'post_mime_type' => $wp_filetype['type'],
+			   'post_title' => sanitize_file_name($filename),
+			   'post_content' => '',
+			   'post_status' => 'inherit'
+		   );
+
+		   $attachment_id = wp_insert_attachment($attachment, $file, $post_id);
+		   require_once(ABSPATH . 'wp-admin/includes/image.php');
+		   $attach_data = wp_generate_attachment_metadata($attachment_id, $file);
+		   wp_update_attachment_metadata($attachment_id, $attach_data);
+		   set_post_thumbnail($post_id, $attachment_id);
+	   }
+   }
 
 	/**
 	 * Add a default pages
@@ -340,6 +404,25 @@ function my_after_switch_theme() {
 	if ( ! $run_menu_maker_once ){
 		/**
 		 * Header Menu
+		 */    
+		$primary_menu_items = array(
+			'Home'  =>  'home',
+			'About Us' =>  'about-us',       
+			'Pricing'  =>  '#pricing',
+			'Gallery'   =>  'gallery',
+			'Blogs'    =>  'blogs',
+			'Contact Us'    =>  'contact-us',
+			'Pages'    =>  '#',
+		);
+		$primary_menu_items['Pages'] = array(
+			'404' => '404',
+			'Coming Soon' => 'coming-soon',
+			'Sitemap' => 'sitemap',
+		);
+		generate_site_nav_menu( 'Primary Menu', $primary_menu_items, 'primary' );
+
+    	/**
+		 * Site Map Menu
 		 */    
 		$primary_menu_items = array(
 			'Home'  =>  'home',
@@ -496,3 +579,50 @@ function endurance_enqueue_dynamic_css() {
 }
 
 add_action('wp_head', 'endurance_enqueue_dynamic_css');
+
+
+// Testimonial custom post type
+function endurance_custom_post_types() {
+  
+	$labels = array(
+		'name'                => _x( 'Testimonial Review', 'Post Type General Name', 'endurance' ),
+		'singular_name'       => _x( 'Testimonial Review', 'Post Type Singular Name', 'endurance' ),
+		'menu_name'           => __( 'Testimonial Review', 'endurance' ),
+		'parent_item_colon'   => __( 'Parent Testimonial Review', 'endurance' ),
+		'all_items'           => __( 'All Testimonial Reviews', 'endurance' ),
+		'view_item'           => __( 'View Testimonial Review', 'endurance' ),
+		'add_new_item'        => __( 'Add New Testimonial Review', 'endurance' ),
+		'add_new'             => __( 'Add New', 'endurance' ),
+		'edit_item'           => __( 'Edit Testimonial Review', 'endurance' ),
+		'update_item'         => __( 'Update Testimonial Review', 'endurance' ),
+		'search_items'        => __( 'Search Testimonial Review', 'endurance' ),
+		'not_found'           => __( 'Not Found', 'endurance' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'endurance' ),
+	);
+				
+	$args = array(
+		'label'               => __( 'testimonial-reviews', 'endurance' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+		'menu_icon' 		  => 'dashicons-groups',
+		'hierarchical'        => true,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 4,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+		'show_in_rest' 		  => true,
+	
+	);
+		
+	// Registering your Custom Post Type
+	register_post_type( 'testimonial-reviews', $args );
+	
+}
+add_action( 'init', 'endurance_custom_post_types');
