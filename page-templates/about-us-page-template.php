@@ -256,51 +256,28 @@ get_header();
 		<div class="team-section default-padding wow fadeInUp">
 			<div class="container">
 				<div class="team-wrapper">
-					<div class="title text-center">Meet our team</div>
-					<div class="row">
-						<div class="col-lg-3 col-sm-6">
-							<div class="team-block">
-								<div class="image-wrapper">
-									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/team/team-1.webp" alt="team-1">
-								</div>
-								<div class="text-block text-center">
-									<span>Ivan Petrov</span>
-									<p>Endurance Training Coach</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-sm-6">
-							<div class="team-block">
-								<div class="image-wrapper">
-									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/team/team-2.webp" alt="team-2">
-								</div>
-								<div class="text-block text-center">
-									<span>Ekaterina Ivanova</span>
-									<p>Cardio Conditioning Specialist</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-sm-6">
-							<div class="team-block">
-								<div class="image-wrapper">
-									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/team/team-3.webp" alt="team-3">
-								</div>
-								<div class="text-block text-center">
-									<span>Sergey Mikhailov</span>
-									<p>Stamina Enhancement Trainer</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-sm-6">
-							<div class="team-block">
-								<div class="image-wrapper">
-									<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/team/team-4.webp" alt="team-4">
-								</div>
-								<div class="text-block text-center">
-									<span>Olga Sokolova</span>
-									<p>Long-Distance Fitness Instructor</p>
-								</div>
-							</div>
+					<?php if(isset( $theme_option['endurance_general_team_title'] ) && !empty( $theme_option['endurance_general_team_title'] )) { ?>
+						<div class="title text-center"><?php echo esc_html( $theme_option['endurance_general_team_title'] ); ?></div>
+					<?php } ?>
+						<?php $meet_our_team_posts = new WP_Query( array( 'post_type' => 'meet-our-team', 'post_status' => 'publish', 'posts_per_page' => -1, 'orderby' => 'date', 'order' => 'ASC', ) ); ?>
+						<div class="row">
+							<?php if ( $meet_our_team_posts->have_posts() ) : ?>
+								<?php while ( $meet_our_team_posts->have_posts() ) : $meet_our_team_posts->the_post(); ?>
+									<div class="col-lg-3 col-sm-6">
+										<div class="team-block">
+											<div class="image-wrapper">
+												<?php if ( has_post_thumbnail() ) { 
+													the_post_thumbnail( get_the_ID(), 'full' );
+												} ?>
+											</div>
+											<div class="text-block text-center">
+												<span><?php the_title(); ?></span>
+												<?php the_content(); ?>
+											</div>
+										</div>
+									</div>
+								<?php endwhile;
+                            endif; ?>
 						</div>
 					</div>
 				</div>
@@ -309,49 +286,60 @@ get_header();
 		<!-- TEAM SECTION END'S FROM HERE -->
 
 		<!-- BLOG SECTION START FROM HERE -->
-		<div class="blog-section default-padding">
-			<div class="container">
-				<div class="blog-wrapper wow fadeInUp">
-					<div class="row gy-lg-0 gy-4">
-						<div class="col-lg-4">
-							<div class="title pb-3 text-lg-start text-center"><span>Read Our</span> Articles</div>
-							<p class="text-lg-start text-center">Unlock the secrets of endurance and elevate your performance with our insightful articles.</p>
-							<div class="btn-block">
-								<div class="button prev image-wrapper"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-left"></div>
-								<div class="button next image-wrapper"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-right"></div>
-							</div>
-						</div>
-						<div class="col-lg-8">
-							<div class="swiper BlogSwiper">
-								<div class="swiper-wrapper">
-									<div class="swiper-slide">
-										<div class="image-wrapper pb-4">
-											<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/blog-8.webp" alt="blog-8">
-										</div>
-										<p>Mastering Cardiovascular Fitness: Your Path to Endurance Excellence</p>
-										<div class="read d-flex gap-3 align-items-center justify-content-between">
-											<a href="blog-details.html">Read Now</a>
-											<p>14th August, 2023</p>
-										</div>
-									</div>
-									<div class="swiper-slide">
-										<div class="image-wrapper pb-4">
-											<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/blog-9.webp" alt="blog-9">
-										</div>
-										<p>Mastering Cardiovascular Fitness: Your Path to Endurance Excellence</p>
-										<div class="read d-flex gap-3 align-items-center justify-content-between">
-											<a href="blog-details.html">Read Now</a>
-											<p>14th August, 2023</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- BLOG SECTION END'S FROM HERE -->
+        <div class="blog-section default-padding">
+            <div class="container">
+                <div class="blog-wrapper wow fadeInUp">
+                    <div class="row gy-lg-0 gy-4">
+                        <div class="col-lg-4">
+                            <?php if(isset( $theme_option['endurance_general_articles_title'] ) && !empty( $theme_option['endurance_general_articles_title'] )) { ?>
+                                <div class="title pb-3 text-lg-start text-center"><?php echo  $theme_option['endurance_general_articles_title']; ?></div>
+                            <?php }
+                            if(isset( $theme_option['endurance_general_articles_description'] ) && !empty( $theme_option['endurance_general_articles_description'] )) { ?>
+                                <p class="text-lg-start text-center"><?php echo esc_html( $theme_option['endurance_general_articles_description'] ); ?></p>
+                            <?php } ?>
+                            <div class="btn-block">
+                                <div class="button prev image-wrapper">
+                                    <?php if(isset( $theme_option['endurance_general_articles_left_arrow_icon']['url'] ) && !empty( $theme_option['endurance_general_articles_left_arrow_icon']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_left_arrow_icon']['url'] ); ?>" width="24" height="24" alt="arrow-left">
+                                    <?php } ?>
+                                </div>
+                                <div class="button next image-wrapper">
+                                    <?php if(isset( $theme_option['endurance_general_articles_right_arrow_icon']['url'] ) && !empty( $theme_option['endurance_general_articles_right_arrow_icon']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_right_arrow_icon']['url'] ); ?>" width="24" height="24" alt="arrow-right">
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                        <?php $blog_posts = new WP_Query( array( 'post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => -1 ) ); ?>
+                        <div class="col-lg-8">
+                            <div class="swiper BlogSwiper">
+                                <div class="swiper-wrapper">
+                                    <?php if ( $blog_posts->have_posts() ) : ?>
+                                        <?php while ( $blog_posts->have_posts() ) : $blog_posts->the_post(); ?>
+                                            <div class="swiper-slide">
+                                                <div class="blog-block">
+                                                    <div class="image-wrapper pb-4">
+                                                        <?php if ( has_post_thumbnail() ) { 
+                                                            the_post_thumbnail( get_the_ID(), 'full' );
+                                                        } ?>
+                                                    </div>
+                                                    <p class="blog-title"><?php the_title(); ?></p>
+                                                    <div class="read d-flex gap-3 align-items-center justify-content-between">
+                                                        <a href="<?php the_permalink(); ?>"><?php echo esc_html__( 'Read more', 'endurance' ) ?></a>
+                                                        <p><?php the_date(); ?></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php endwhile;
+                                    endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- BLOG SECTION END'S FROM HERE -->
 
 	</main>
 	<!-- MAIN SECTIONS END'S FROM HERE -->

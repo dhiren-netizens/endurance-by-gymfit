@@ -160,6 +160,14 @@ function endurance_by_gymfit_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'endurance_by_gymfit_scripts' );
 
+function admin_side_endurance_by_gymfit_scripts() {
+	wp_enqueue_style( 'endurance-admin-main-style', get_template_directory_uri() . '/admin/admin-main.css', array(), _S_VERSION );
+	wp_enqueue_style( 'endurance-select2-style', get_template_directory_uri() . '/assets/vendors/select2/css/select2.css', array(), _S_VERSION );
+	wp_enqueue_script( 'endurance-select2-script', get_template_directory_uri() . '/assets/vendors/select2/js/select2.js', array('jquery'), _S_VERSION, true );
+	wp_enqueue_script( 'endurance-admin-main-script', get_template_directory_uri() . '/admin/admin-main.js', array('jquery'), _S_VERSION, true );	
+}
+add_action( 'admin_enqueue_scripts', 'admin_side_endurance_by_gymfit_scripts' );
+
 /**
  * Implement the Custom Header feature.
  */
@@ -332,6 +340,82 @@ function my_after_switch_theme() {
 			));
 		}
 	}
+
+	/**
+	 * Add a default meet our team posts
+	 */
+	$default_posts = array(
+		array(
+			'slug' => 'ivan-petrov',
+			'title' => 'Ivan Petrov',
+			'content' => 'Endurance Training Coach',
+			'image' => get_template_directory_uri() . '/assets/images/team/team-1.webp'
+		),
+		array(
+			'slug' => 'ekaterina-ivanova',
+			'title' => 'Ekaterina Ivanova',
+			'content' => 'Cardio Conditioning Specialist',
+			'image' => get_template_directory_uri() . '/assets/images/team/team-2.webp'
+		),
+		array(
+			'slug' => 'sergey-mikhailov',
+			'title' => 'Sergey Mikhailov',
+			'content' => 'Stamina Enhancement Trainer',
+			'image' => get_template_directory_uri() . '/assets/images/team/team-3.webp'
+		),
+		array(
+			'slug' => 'olga-sokolova',
+			'title' => 'Olga Sokolova',
+			'content' => 'Long-Distance Fitness Instructor',
+			'image' => get_template_directory_uri() . '/assets/images/team/team-4.webp'
+		),
+	);
+	foreach ($default_posts as $post) {
+		// Check if the post already exists
+		$existing_post = get_page_by_path($post['slug'], OBJECT, 'meet-our-team');
+		if (!$existing_post) {
+			$post_id = wp_insert_post(array(
+				'post_title' => $post['title'],
+				'post_type' => 'meet-our-team',
+				'post_name' => $post['slug'],
+				'post_content' => $post['content'],
+				'comment_status' => 'closed',
+				'ping_status' => 'closed',
+				'post_status' => 'publish',
+				'post_author' => 1,
+				'menu_order' => 0
+			));
+
+			// Add featured image
+			$image_url = $post['image'];
+			$image_data = file_get_contents($image_url);
+			$filename = basename($image_url);
+			$upload_dir = wp_upload_dir();
+
+			if (wp_mkdir_p($upload_dir['path'])) {
+				$file = $upload_dir['path'] . '/' . $filename;
+			} else {
+				$file = $upload_dir['basedir'] . '/' . $filename;
+			}
+
+			file_put_contents($file, $image_data);
+
+			$wp_filetype = wp_check_filetype($filename, null);
+
+			$attachment = array(
+				'post_mime_type' => $wp_filetype['type'],
+				'post_title' => sanitize_file_name($filename),
+				'post_content' => '',
+				'post_status' => 'inherit'
+			);
+
+			$attachment_id = wp_insert_attachment($attachment, $file, $post_id);
+			require_once(ABSPATH . 'wp-admin/includes/image.php');
+			$attach_data = wp_generate_attachment_metadata($attachment_id, $file);
+			wp_update_attachment_metadata($attachment_id, $attach_data);
+			set_post_thumbnail($post_id, $attachment_id);
+		}
+	}
 	/**
 	 * Setup the site navigation
 	 */    
@@ -496,3 +580,126 @@ function endurance_enqueue_dynamic_css() {
 }
 
 add_action('wp_head', 'endurance_enqueue_dynamic_css');
+
+/*
+* Creating a function to create our CPT
+*/
+  
+function endurance_custom_post_types() {
+  
+	// Meet our team CPT
+	$labels = array(
+		'name'                => _x( 'Meet Our Team', 'Post Type General Name', 'endurance' ),
+		'singular_name'       => _x( 'Meet Our Team', 'Post Type Singular Name', 'endurance' ),
+		'menu_name'           => __( 'Meet Our Team', 'endurance' ),
+		'parent_item_colon'   => __( 'Parent Team', 'endurance' ),
+		'all_items'           => __( 'All Teams', 'endurance' ),
+		'view_item'           => __( 'View Teams', 'endurance' ),
+		'add_new_item'        => __( 'Add New Team', 'endurance' ),
+		'add_new'             => __( 'Add New', 'endurance' ),
+		'edit_item'           => __( 'Edit Team', 'endurance' ),
+		'update_item'         => __( 'Update Team', 'endurance' ),
+		'search_items'        => __( 'Search Team', 'endurance' ),
+		'not_found'           => __( 'Not Found', 'endurance' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'endurance' ),
+	);
+				
+	$args = array(
+		'label'               => __( 'meet-our-team', 'endurance' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+		'menu_icon' 		  => 'dashicons-groups',
+		'hierarchical'        => true,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 4,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+		'show_in_rest' 		  => true,
+	
+	);
+		
+	// Registering your Custom Post Type
+	register_post_type( 'meet-our-team', $args );
+
+
+	//Pricing Plans CPT
+	$labels = array(
+		'name'                => _x( 'Pricing Plan', 'Post Type General Name', 'endurance' ),
+		'singular_name'       => _x( 'Pricing Plan', 'Post Type Singular Name', 'endurance' ),
+		'menu_name'           => __( 'Pricing Plan', 'endurance' ),
+		'parent_item_colon'   => __( 'Parent Plan', 'endurance' ),
+		'all_items'           => __( 'All Plans', 'endurance' ),
+		'view_item'           => __( 'View Plans', 'endurance' ),
+		'add_new_item'        => __( 'Add New Plan', 'endurance' ),
+		'add_new'             => __( 'Add New', 'endurance' ),
+		'edit_item'           => __( 'Edit Plan', 'endurance' ),
+		'update_item'         => __( 'Update Plan', 'endurance' ),
+		'search_items'        => __( 'Search Plan', 'endurance' ),
+		'not_found'           => __( 'Not Found', 'endurance' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'endurance' ),
+	);
+				
+	$args = array(
+		'label'               => __( 'pricing-plan', 'endurance' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+		'menu_icon' 		  => 'dashicons-money-alt',
+		'hierarchical'        => true,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 4,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+		'show_in_rest' 		  => true,
+	
+	);
+		
+	// Registering your Custom Post Type
+	register_post_type( 'pricing-plan', $args );
+	
+}
+add_action( 'init', 'endurance_custom_post_types');
+
+
+function pricing_plan_meta_box() {
+    add_meta_box('pricing_plan_metabox', 'Pricing Plan', 'display_pricing_plan_meta_box', 'pricing-plan', 'normal', 'high');
+}
+add_action('add_meta_boxes', 'pricing_plan_meta_box');
+
+function display_pricing_plan_meta_box($post) {
+    $custom_text = get_post_meta($post->ID, 'custom_text', true); ?>
+	<label>Select Pricing Plan </label>
+    <select class="endurance_pricing_plan_select" multiple="true" style="width: 500px;"> 
+		<option value="weekly">Weekly</option>
+		<option value="monthly">Monthly</option>
+		<option value="quaterly">Quaterly</option>
+		<option value="annually">Annually</option>
+	</select>
+	<div class="accordion">
+	</div>
+	<?php
+}
+
+function save_pricing_plan_meta_box_data($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+        return;
+    if ($parent_id = wp_is_post_revision($post_id))
+        $post_id = $parent_id;
+    if (isset($_POST['custom_text'])) {
+        update_post_meta($post_id, 'custom_text', $_POST['custom_text']);
+    }
+}
+add_action('save_post', 'save_pricing_plan_meta_box_data');

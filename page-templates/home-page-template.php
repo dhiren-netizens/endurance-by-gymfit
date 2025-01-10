@@ -660,40 +660,47 @@ $theme_option = get_option('redux_demo');
                 <div class="blog-wrapper wow fadeInUp">
                     <div class="row gy-lg-0 gy-4">
                         <div class="col-lg-4">
-                            <div class="title pb-3 text-lg-start text-center"><span>Read Our</span> Articles</div>
-                            <p class="text-lg-start text-center">Unlock the secrets of endurance and elevate your performance with our insightful articles.</p>
+                            <?php if(isset( $theme_option['endurance_general_articles_title'] ) && !empty( $theme_option['endurance_general_articles_title'] )) { ?>
+                                <div class="title pb-3 text-lg-start text-center"><?php echo  $theme_option['endurance_general_articles_title']; ?></div>
+                            <?php }
+                            if(isset( $theme_option['endurance_general_articles_description'] ) && !empty( $theme_option['endurance_general_articles_description'] )) { ?>
+                                <p class="text-lg-start text-center"><?php echo esc_html( $theme_option['endurance_general_articles_description'] ); ?></p>
+                            <?php } ?>
                             <div class="btn-block">
-                                <div class="button prev image-wrapper"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-left"></div>
-                                <div class="button next image-wrapper"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-right"></div>
+                                <div class="button prev image-wrapper">
+                                    <?php if(isset( $theme_option['endurance_general_articles_left_arrow_icon']['url'] ) && !empty( $theme_option['endurance_general_articles_left_arrow_icon']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_left_arrow_icon']['url'] ); ?>" width="24" height="24" alt="arrow-left">
+                                    <?php } ?>
+                                </div>
+                                <div class="button next image-wrapper">
+                                    <?php if(isset( $theme_option['endurance_general_articles_right_arrow_icon']['url'] ) && !empty( $theme_option['endurance_general_articles_right_arrow_icon']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_right_arrow_icon']['url'] ); ?>" width="24" height="24" alt="arrow-right">
+                                    <?php } ?>
+                                </div>
                             </div>
                         </div>
+                        <?php $blog_posts = new WP_Query( array( 'post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => -1 ) ); ?>
                         <div class="col-lg-8">
                             <div class="swiper BlogSwiper">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="blog-block">
-                                            <div class="image-wrapper pb-4">
-                                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/blog-8.webp" alt="blog-8">
+                                    <?php if ( $blog_posts->have_posts() ) : ?>
+                                        <?php while ( $blog_posts->have_posts() ) : $blog_posts->the_post(); ?>
+                                            <div class="swiper-slide">
+                                                <div class="blog-block">
+                                                    <div class="image-wrapper pb-4">
+                                                        <?php if ( has_post_thumbnail() ) { 
+                                                            the_post_thumbnail( get_the_ID(), 'full' );
+                                                        } ?>
+                                                    </div>
+                                                    <p class="blog-title"><?php the_title(); ?></p>
+                                                    <div class="read d-flex gap-3 align-items-center justify-content-between">
+                                                        <a href="<?php the_permalink(); ?>"><?php echo esc_html__( 'Read more', 'endurance' ) ?></a>
+                                                        <p><?php the_date(); ?></p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <p class="blog-title">Mastering Cardiovascular Fitness: Your Path to Endurance Excellence</p>
-                                            <div class="read d-flex gap-3 align-items-center justify-content-between">
-                                                <a href="blog-details.html">Read Now</a>
-                                                <p>14th August, 2023</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="blog-block">
-                                            <div class="image-wrapper pb-4">
-                                                <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/blog-9.webp" alt="blog-9">
-                                            </div>
-                                            <p class="blog-title">Mastering Cardiovascular Fitness: Your Path to Endurance Excellence</p>
-                                            <div class="read d-flex gap-3 align-items-center justify-content-between">
-                                                <a href="blog-details.html">Read Now</a>
-                                                <p>14th August, 2023</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        <?php endwhile;
+                                    endif; ?>
                                 </div>
                             </div>
                         </div>
