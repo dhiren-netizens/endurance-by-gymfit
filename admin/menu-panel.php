@@ -635,6 +635,18 @@ Redux::set_section(
 				'type'   => 'section',
 				'indent' => false, // Indent all options below until the next 'section' option is set.
 			),
+			array(
+				'id'       => 'endurance_testimonial',
+				'type'     => 'section',
+				'title'    => esc_html__( 'Testimonial Reviews', 'endurance' ),
+				'indent'   => true, // Indent all options below until the next 'section' option is set.
+			),
+			array(
+				'id'       => 'endurance_testimonial_heading',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Our Happy Client', 'endurance' ),
+				'default'  => 'Our Happy Client',
+			),
         ),
 	)
 );
