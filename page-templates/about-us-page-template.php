@@ -138,24 +138,24 @@ get_header();
 						<div class="col-lg-10">
 							<div class="cta-text text-lg-start text-center d-flex align-items-center gap-4">
 								<div>
-									<?php if(isset( $theme_option['endurance_samrt_app_heading'] ) && !empty( $theme_option['endurance_samrt_app_heading'] )) { ?>
-										<div class="title pb-1"><?php echo esc_html( $theme_option['endurance_samrt_app_heading'] ); ?></div>
+									<?php if(isset( $theme_option['endurance_general_smart_app_title'] ) && !empty( $theme_option['endurance_general_smart_app_title'] )) { ?>
+										<div class="title pb-1"><?php echo esc_html( $theme_option['endurance_general_smart_app_title'] ); ?></div>
 									<?php } ?>
-									<?php if(isset( $theme_option['endurance_smart_app_decription'] ) && !empty( $theme_option['endurance_smart_app_decription'] )) { ?>
-								    	<p><?php echo esc_html( $theme_option['endurance_smart_app_decription'] ); ?></p>
+									<?php if(isset( $theme_option['endurance_general_smart_app_description'] ) && !empty( $theme_option['endurance_general_smart_app_description'] )) { ?>
+								    	<p><?php echo esc_html( $theme_option['endurance_general_smart_app_description'] ); ?></p>
 								    <?php } ?>    
 								</div>
 								<div class="image-wrapper d-lg-block d-none">
-									<?php if(isset( $theme_option['endurance_smart_app_store_image']['url'] ) && !empty( $theme_option['endurance_smart_app_store_image']['url'] )) { ?>
-							    		<img loading="lazy"  src="<?php echo esc_url( $theme_option['endurance_smart_app_store_image']['url'] ); ?>" alt="cta-appstore-img">
+									<?php if(isset( $theme_option['endurance_general_smart_app_download_image']['url'] ) && !empty( $theme_option['endurance_general_smart_app_download_image']['url'] )) { ?>
+							    		<img loading="lazy"  src="<?php echo esc_url( $theme_option['endurance_general_smart_app_download_image']['url'] ); ?>" alt="cta-appstore-img">
 									<?php } ?>
 								</div>
 							</div>
 							<div class="image-wrapper mockup mx-lg-0 mx-auto">
 								<div class="row justify-content-center">
 									<div class="col-xxl-10 col-lg-8 col-sm-10">
-										<?php if(isset( $theme_option['endurance_smart_app_bg_image']['url'] ) && !empty( $theme_option['endurance_smart_app_bg_image']['url'] )) { ?>
-											<img loading="lazy"  src="<?php echo esc_url( $theme_option['endurance_smart_app_bg_image']['url'] ); ?>" alt="cta-mockup" class="d-block mx-auto">
+										<?php if(isset( $theme_option['endurance_general_smart_app_mobile_image']['url'] ) && !empty( $theme_option['endurance_general_smart_app_mobile_image']['url'] )) { ?>
+											<img loading="lazy"  src="<?php echo esc_url( $theme_option['endurance_general_smart_app_mobile_image']['url'] ); ?>" alt="cta-mockup" class="d-block mx-auto">
 										<?php } ?>
 									</div>
 								</div>

@@ -371,3 +371,10 @@ $(window).on('load', function () {
 //         image.style.transform = `translate(${offsetX * 20}px, ${offsetY * 20}px)`;
 //     });
 // });
+$(document).ready(function () {
+	$('.stars a').on('click', function() {
+		$('.stars .star-rate, .stars a').removeClass('active');	
+		$(this).addClass('active');
+		$('.stars .star-rate').addClass('active');
+	});
+});

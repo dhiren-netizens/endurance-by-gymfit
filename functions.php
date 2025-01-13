@@ -774,7 +774,7 @@ function endurance_custom_post_types() {
 		'label'               => __( 'testimonial-reviews', 'endurance' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-		'menu_icon' 		  => 'dashicons-groups',
+		'menu_icon' 		  => 'dashicons-testimonial',
 		'hierarchical'        => true,
 		'public'              => true,
 		'show_ui'             => true,

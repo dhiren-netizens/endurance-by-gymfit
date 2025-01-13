@@ -204,24 +204,24 @@ $theme_option = get_option('redux_demo');
                         <div class="col-lg-10">
                             <div class="cta-text text-lg-start text-center d-flex align-items-center gap-4">
                                 <div>
-                                    <?php if(isset( $theme_option['endurance_smart_app_title'] ) && !empty( $theme_option['endurance_smart_app_title'] )) { ?>
-                                        <div class="title pb-1"><?php echo esc_html( $theme_option['endurance_smart_app_title'] ); ?></div>
+                                    <?php if(isset( $theme_option['endurance_general_smart_app_title'] ) && !empty( $theme_option['endurance_general_smart_app_title'] )) { ?>
+                                        <div class="title pb-1"><?php echo esc_html( $theme_option['endurance_general_smart_app_title'] ); ?></div>
                                     <?php } 
-                                    if(isset( $theme_option['endurance_smart_app_description'] ) && !empty( $theme_option['endurance_smart_app_description'] )) { ?>
-                                        <p><?php echo esc_html( $theme_option['endurance_smart_app_description'] ); ?></p>
+                                    if(isset( $theme_option['endurance_general_smart_app_description'] ) && !empty( $theme_option['endurance_general_smart_app_description'] )) { ?>
+                                        <p><?php echo esc_html( $theme_option['endurance_general_smart_app_description'] ); ?></p>
                                     <?php } ?>
                                 </div>
                                 <div class="image-wrapper d-lg-block d-none">
-                                    <?php if(isset( $theme_option['endurance_smart_app_download_image']['url'] ) && !empty( $theme_option['endurance_smart_app_download_image']['url'] )) { ?>
-                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_smart_app_download_image']['url'] ); ?>" alt="cta-appstore-img">
+                                    <?php if(isset( $theme_option['endurance_general_smart_app_download_image']['url'] ) && !empty( $theme_option['endurance_general_smart_app_download_image']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_smart_app_download_image']['url'] ); ?>" alt="cta-appstore-img">
                                     <?php } ?>
                                 </div>
                             </div>
                             <div class="image-wrapper mockup mx-lg-0 mx-auto">
                                 <div class="row justify-content-center">
                                     <div class="col-xxl-10 col-lg-8 col-sm-10">
-                                        <?php if(isset( $theme_option['endurance_smart_app_mobile_image']['url'] ) && !empty( $theme_option['endurance_smart_app_mobile_image']['url'] )) { ?>
-                                            <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_smart_app_mobile_image']['url'] ); ?>" alt="cta-mockup" class="d-block mx-auto">
+                                        <?php if(isset( $theme_option['endurance_general_smart_app_mobile_image']['url'] ) && !empty( $theme_option['endurance_general_smart_app_mobile_image']['url'] )) { ?>
+                                            <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_smart_app_mobile_image']['url'] ); ?>" alt="cta-mockup" class="d-block mx-auto">
                                         <?php } ?>
                                     </div>
                                 </div>
@@ -618,11 +618,21 @@ $theme_option = get_option('redux_demo');
                                                     </div>
                                                     <div class="review-text">
                                                         <span><?php the_title(); ?></span>
-                                                        <?php $review_title = get_post_meta( get_the_ID(), 'Person Review'); 
-                                                        print_r($review_title); ?>
-                                                        <p class="mb-1">Google Reviews</p>
+                                                      <p class="mb-1">  <?php $review_title = get_post_meta( get_the_ID(), 'review_name'); 
+                                                        print_r($review_title[0]); ?></p>
+                                                        <!-- <p class="mb-1">Google Reviews</p> -->
                                                         <div class="image-wrapper">
-                                                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/stars.svg" alt="stars" width="126" height="22">
+                                                        <?php
+                                                            $start_rating = get_post_meta(get_the_ID(), 'star_rating'); // Get the star rating as a single value
+                                                            $max_stars = 5; // Define the maximum number of stars
+                                                            ?>
+                                                            <p class="stars">
+                                                                <span class="star-rate">
+                                                                    <?php for ($i = 1; $i <= $max_stars; $i++): ?>
+                                                                        <a class="star-<?php echo $i; ?> <?php echo ($i <= $start_rating[0]) ? 'active' : ''; ?>"></a>
+                                                                    <?php endfor; ?>
+                                                                </span>
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -632,8 +642,16 @@ $theme_option = get_option('redux_demo');
                                     endif; ?>
                                     </div>
                                     <div class="btn-block pt-lg-0 pt-3">
-                                        <div class="button prev image-wrapper"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-left"></div>
-                                        <div class="button next image-wrapper"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-right"></div>
+                                        <div class="button prev image-wrapper">                            
+                                             <?php if(isset( $theme_option['endurance_general_articles_left_arrow_icont']['url'] ) && !empty( $theme_option['endurance_general_articles_left_arrow_icont']['url'] )) { ?>
+                                              <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_left_arrow_icont']['url'] ); ?>" width="24" height="24" alt="arrow-left">
+                                             <?php } ?> 
+                                        </div>
+                                        <div class="button next image-wrapper"> 
+                                            <?php if(isset( $theme_option['endurance_general_articles_right_arrow_icont']['url'] ) && !empty( $theme_option['endurance_general_articles_right_arrow_icont']['url'] )) { ?>
+                                               <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_right_arrow_icont']['url'] ); ?>" width="24" height="24" alt="arrow-right">
+                                            <?php } ?> 
+                                        </div>
                                     </div>
                                 </div>
                             </div>

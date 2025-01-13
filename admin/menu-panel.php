@@ -647,6 +647,104 @@ Redux::set_section(
 				'title'    => esc_html__( 'Our Happy Client', 'endurance' ),
 				'default'  => 'Our Happy Client',
 			),
+			array(
+                'id'           => 'endurance_general_articles_left_arrow_icont',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Left Arrow Icon', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-left.svg'
+				),
+            ),
+			array(
+                'id'           => 'endurance_general_articles_right_arrow_icont',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Right Arrow Icon', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-right.svg'
+				),
+            ),
+			array(
+				'id'       => 'endurance_smart_app_Section',
+				'title'    => esc_html__( 'Smart App Section', 'endurance' ),
+			    'type'     => 'section',
+				'indent'   => true, 
+			),
+			array(
+				'id'          => 'endurance_general_smart_app_title',
+				'type'        => 'text',
+				'title'       => esc_html__( 'Title', 'endurance' ),
+				'placeholder' => 'Enter your title ',
+				'default' => 'Smart App For All',
+			),
+			array(
+				'id'       => 'endurance_general_smart_app_description',
+				'type'     => 'textarea',
+				'title'    => esc_html__( 'Description', 'endurance' ),
+				'validate' => 'no_html',
+				'default'  => 'We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.',
+			),
+			array(
+				'id'           => 'endurance_general_smart_app_download_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Download Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-appstore-img.svg'
+				),
+			),
+			array(
+				'id'           => 'endurance_general_smart_app_mobile_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Mobile Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-mockup.webp'
+				),
+			),
+			array(
+				'id'           => 'endurance_general_smart_app_line_background_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Line Background Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-line.svg'
+				),
+			),
+			array(
+				'id'             => 'endurance_general_smart_app_background_color',
+				'type'           => 'color_gradient',
+				'title'          => esc_html__( 'Background Color', 'endurance' ),
+				'gradient-type'  => 'radial',
+				'gradient-reach' => true,
+				'gradient-angle' => true,
+				'preview'        => true,
+				'default'        => array(
+					'gradient-type'  => 'radial',
+					'from'           => '#05F6F9',
+					'to'             => '#F907FC',
+					'gradient-reach' => array(
+						'to'   => 100,
+						'from' => 0,
+					),
+				),
+		    ),
         ),
 	)
 );
@@ -1059,87 +1157,6 @@ Redux::set_section(
 	)
 );
 
-// Smart App Section - Home Page Settings
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'Smart App Section', 'endurance' ),
-		'id'               => 'endurance_smart_app_section',
-		'customizer_width' => '400px',
-		'subsection' => true,
-		'icon'             => 'el el-laptop',
-		'fields'           => array(
-			array(
-				'id'          => 'endurance_smart_app_title',
-				'type'        => 'text',
-				'title'       => esc_html__( 'Title', 'endurance' ),
-				'placeholder' => 'Enter your title ',
-				'default' => 'Smart App For All',
-			),
-			array(
-				'id'       => 'endurance_smart_app_description',
-				'type'     => 'textarea',
-				'title'    => esc_html__( 'Description', 'endurance' ),
-				'validate' => 'no_html',
-				'default'  => 'We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.',
-			),
-			array(
-                'id'           => 'endurance_smart_app_download_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Download Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/cta-appstore-img.svg'
-				),
-            ),
-			array(
-                'id'           => 'endurance_smart_app_mobile_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Mobile Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/cta-mockup.webp'
-				),
-            ),
-			array(
-                'id'           => 'endurance_smart_app_line_background_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Line Background Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/cta-line.svg'
-				),
-            ),
-			array(
-				'id'             => 'endurance_smart_app_background_color',
-				'type'           => 'color_gradient',
-				'title'          => esc_html__( 'Background Color', 'endurance' ),
-				'gradient-type'  => 'radial',
-				'gradient-reach' => true,
-				'gradient-angle' => true,
-				'preview'        => true,
-				'default'        => array(
-					'gradient-type'  => 'radial',
-					'from'           => '#05F6F9',
-					'to'             => '#F907FC',
-					'gradient-reach' => array(
-						'to'   => 100,
-						'from' => 0,
-					),
-				),
-			),
-        ),
-	)
-);
 
 // Marquee Notice Section - Home Page Settings
 Redux::set_section(
@@ -1442,44 +1459,6 @@ Redux::set_section(
 	)
 );
 
-// Our Happy Clients Section - Home Page Settings
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'Our Happy Clients Section', 'endurance' ),
-		'id'               => 'endurance_happy_clients_section',
-		'customizer_width' => '400px',
-		'subsection' => true,
-		'icon'             => 'el el-group',
-		'fields'           => array(
-			array(
-                'id'           => 'endurance_happy_clients_section_background_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Background Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/client-pettern.svg'
-				),
-            ),
-			array(
-                'id'           => 'endurance_happy_clients_section_client_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Client Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/clients/client-img.webp'
-				),
-            ),
-        ),
-	)
-);
-
 
 // Gallery Page Settings
 $gallery_images_ids = get_option( 'endurance_gallery_images' );
@@ -1591,7 +1570,6 @@ Redux::set_section(
 				'title'    => esc_html__( 'Description', 'endurance' ),
 				'default'  => 'Welcome to Endurance Unleashed, where we fuel the spirit of champions. Our mission is to equip you with the finest tools, gear, and resources to conquer your limits and achieve extraordinary feats. Embrace the thrill of pushing beyond boundaries, stay motivated through the toughest challenges, and track your progress as you embark on a relentless journey to greatness.'
 			),
-			
         ),
 	)
 );
@@ -1681,88 +1659,6 @@ Redux::set_section(
 				'title'    => esc_html__( 'Description', 'endurance' ),
 				'default'  => 'We believe in the power of pushing boundaries, staying motivated through challenges, and tracking your progress as you embark on an unwavering journey to greatness.'
 			),
-		),
-	),
-);
-//Smart App section - About Us Page Settings 
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'Smart App Section', 'endurance' ),
-		'id'               => 'endurance_smart_app',
-		'customizer_width' => '400px',
-		'subsection' => true,
-		'icon'             => 'el el-screen',
-		'fields'           => array(
-			array(
-		    	'id'           => 'endurance_smart_app_store_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/cta-appstore-img.svg'
-				),
-		    ),
-			array(
-		    	'id'           => 'endurance_smart_app_bg_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/cta-mockup.webp'
-				),
-		    ),
-		    array(
-			    'id'       => 'endurance_samrt_app_heading',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Heading', 'endurance' ),
-				'default'  => 'Smart App For all'
-			),
-			array(
-			    'id'       => 'endurance_smart_app_decription',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Description', 'endurance' ),
-				'default'  => 'We are the ultimate destination for those seeking to push their boundaries.'
-			),
-		),
-	),
-);
-//Client Review Section - About Us Page Settings 
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'Client Review Section', 'endurance' ),
-		'id'               => 'endurance_client_review',
-		'customizer_width' => '400px',
-		'subsection' => true,
-		'icon'             => 'el el-heart',
-		'fields'           => array(
-			array(
-		    	'id'           => 'endurance_client_review_img',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/clients/client-img.webp'
-				),
-		    ),
-			array(
-		    	'id'           => 'endurance_repater_logo_img',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/client-pettern.svg'
-				),
-		    ),
 		),
 	),
 );

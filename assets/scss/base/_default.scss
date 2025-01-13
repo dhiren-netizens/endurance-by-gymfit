@@ -605,3 +605,46 @@ img.strips {
 BACKGROUND STRIPS LINES CSS
 ============================================
 */
+.stars {
+    a {
+        display: inline-block;
+        padding-right: 4px;
+        text-decoration: none;
+        margin: 0;
+
+        &:after {
+            position: relative;
+            font-size: 18px;
+            font-family: 'FontAwesome', serif;
+            display: block;
+            content: "\f005"; // FontAwesome star icon
+            color: #9e9e9e;
+        }
+
+        &:hover {
+            &:after {
+                color: #16cc3e !important;
+            }
+        }
+
+        &.active {
+            &:after {
+                color: #16cc3e;
+            }
+        }
+    }
+
+    .star-rate {
+        font-size: 0; // trick to remove inline-element's margin
+    }
+
+    &.active {
+        a.active ~ a:after {
+            color: #d9d9d9;
+        }
+
+        a:after {
+            color: #16cc3e;
+        }
+    }
+}
