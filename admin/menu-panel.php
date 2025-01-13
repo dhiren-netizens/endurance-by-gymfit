@@ -1468,58 +1468,6 @@ Redux::set_section(
 	)
 );
 
-// Redux::set_section( 
-//     $opt_name,
-//     array(
-//         'title' => esc_html__('Repeater Field', 'endurance' ),
-//         'icon'  => 'el-icon-thumbs-up',
-//         'fields' => array(
-//             array(
-//                 'id'             => 'repeater-field-id',
-//                 'type'           => 'repeater',
-//                 'title'          => esc_html__( 'Title', 'endurance' ),
-//                 'subtitle'       => esc_html__( '', 'endurance' ),
-//                 'desc'           => esc_html__( '', 'endurance' ),
-// 				'static' => 2,
-//                 'fields'         => array(
-//                     array(
-//                         'id'          => 'title_field',
-//                         'type'        => 'text',
-//                         'placeholder' => esc_html__( 'Title', 'endurance' ),
-//                     ),
-//                     array(
-//                         'id'          => 'text_field',
-//                         'type'        => 'text',
-//                         'placeholder' => esc_html__( 'Text Field', 'endurance' ),
-//                     ),
-//                     array(
-//                         'id'      => 'select_field',
-//                         'type'    => 'select',
-//                         'title'   => esc_html__( 'Select Field', 'endurance' ),
-//                         'options' => array(
-//                             '1'      => esc_html__( 'Option 1', 'endurance' ),
-//                             '2'      => esc_html__( 'Option 2', 'endurance' ),
-//                             '3'      => esc_html__( 'Option 3', 'endurance' ),
-//                         ),
-//                         'placeholder' => esc_html__( 'Listing Field', 'endurance' ),
-//                     ),
-//                 ),
-// 				'default'        => array( // Define the default values for two items
-//                     array(
-//                         'title_field'   => esc_html__( 'Title 1', 'endurance' ),
-//                         'text_field'    => esc_html__( 'Text Field 1', 'endurance' ),
-//                         'select_field'  => '1', // Option 1
-//                     ),
-//                     array(
-//                         'title_field'   => esc_html__( 'Title 2', 'endurance' ),
-//                         'text_field'    => esc_html__( 'Text Field 2', 'endurance' ),
-//                         'select_field'  => '2', // Option 2
-//                     ),
-//                 ),
-//             ),
-//         ),
-//     )
-// );
 
 // Gallery Page Settings
 $gallery_images_ids = get_option( 'endurance_gallery_images' );
@@ -1595,7 +1543,7 @@ Redux::set_section(
 		'id'               => 'endurance_about_us',
 		'customizer_width' => '400px',
 		'subsection' => true,
-		'icon'             => 'el el-home',
+		'icon'             => 'el el-info-circle',
 		'fields'           => array(
 			array(
 				'id'           => 'endurance_about_us_img',
@@ -1643,7 +1591,7 @@ Redux::set_section(
 		'id'               => 'endurance_stand_out',
 		'customizer_width' => '400px',
 		'subsection' => true,
-		'icon'             => 'el el-home',
+		'icon'             => 'el el-hand-up',
 		'fields'           => array(
 		    array(
 			    'id'       => 'stand_out_with',
@@ -1696,7 +1644,7 @@ Redux::set_section(
 		'id'               => 'endurance_our_mission',
 		'customizer_width' => '400px',
 		'subsection' => true,
-		'icon'             => 'el el-home',
+		'icon'             => 'el el-idea',
 		'fields'           => array(
 			array(
 		    	'id'           => 'endurance_our_mission_image',
@@ -1779,7 +1727,7 @@ Redux::set_section(
 		'id'               => 'endurance_client_review',
 		'customizer_width' => '400px',
 		'subsection' => true,
-		'icon'             => 'el el-screen',
+		'icon'             => 'el el-heart',
 		'fields'           => array(
 			array(
 		    	'id'           => 'endurance_client_review_img',
@@ -1802,28 +1750,6 @@ Redux::set_section(
 				'default' => array(
 					'url' => get_template_directory_uri() . '/assets/images/background/client-pettern.svg'
 				),
-		    ),
-		),
-	),
-);
-
-//Team section - About Us Page Settings 
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'Team Section', 'endurance' ),
-		'id'               => 'endurance_team',
-		'customizer_width' => '400px',
-		'subsection' => true,
-		'icon'             => 'el el-screen',
-		'fields'           => array(
-			array(
-		    	'id'           => 'endurance_team_repeater',
-				'type'         => 'repeater',
-				'title'        => esc_html__( 'Image', 'endurance' ),
-				'full_width'     => 'true',
-				'preview_size' => 'full',
-				
 		    ),
 		),
 	),
@@ -1881,7 +1807,7 @@ Redux::set_section(
 		'id'               => 'endurance_conatct_info',
 		'customizer_width' => '400px',
 		'subsection' => true,
-		'icon'             => 'el el-inbox',
+		'icon'             => 'el el-info-circle',
 		'fields'           => array(
 			array(
 				'id'           => 'endurance_call_img',
@@ -2158,6 +2084,31 @@ Redux::set_section(
 				'validate'  => 'url',
 				'title'    => esc_html__( 'Back To Home Button Link', 'endurance' ),
 				'default'  => '#',
+			),
+		),
+	),
+);
+
+//Site Map Seeting
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Site Map', 'endurance' ),
+		'id'               => 'endurance_site_map_section',
+		'desc'             => esc_html__( 'Site Map Page Options', 'endurance' ),
+		'customizer_width' => '400px',
+		'icon'             => 'el el-network',
+		'fields'           => array(
+			array(
+				'id'           => 'endurance_site_map_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Site Map Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/sitemap-img.webp'
+				),
 			),
 		),
 	),

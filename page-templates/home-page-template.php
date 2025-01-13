@@ -597,21 +597,29 @@ $theme_option = get_option('redux_demo');
                         </div>
                         <div class="col-xxl-5 col-lg-6 order-lg-2 order-1">
                             <div class="client-text wow fadeInRight">
-                                <div class="title text-lg-start text-center">Our Happy Clients</div>
+                                <?php if(isset( $theme_option['endurance_testimonial_heading'] ) && !empty( $theme_option['endurance_testimonial_heading'] )) { ?>
+                                   <div class="title text-lg-start text-center"><?php echo esc_html( $theme_option['endurance_testimonial_heading'] ); ?></div>
+                                <?php } ?>
+                                <?php $testimonials_posts = new WP_Query( array( 'post_type' => 'testimonial-reviews', 'post_status' => 'publish', 'posts_per_page' => -1 ) ); ?>
                                 <div class="swiper ClientSwiper">
                                     <div class="swiper-wrapper">
+                                        <?php if ( $testimonials_posts->have_posts() ) : ?>
+                                         <?php while ( $testimonials_posts->have_posts() ) : $testimonials_posts->the_post(); ?>
                                         <div class="swiper-slide">
                                             <div class="review-block">
                                                 <div class="text pb-4">
-                                                    <p class="mb-3">As an avid fitness enthusiast, I've always sought a platform that could help me push beyond my limits and unlock my true potential. Joining Endurance Unleashes Premium subscription has been a game-changer for me! From the moment I signed up, I knew I was in for an extraordinary journey.</p>
-                                                    <p>The mission to fuel the spirit of champions resonates deeply with me. The abundance of finely curated tools, top-notch gear.</p>
+                                                    <p class="mb-3"><?php the_content(); ?></p>
                                                 </div>
                                                 <div class="review">
                                                     <div class="image-wrapper pe-4">
-                                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/review-img.webp" alt="review-img">
+                                                        <?php if ( has_post_thumbnail() ) { 
+                                                            the_post_thumbnail( get_the_ID(), 'full' );
+                                                        } ?>
                                                     </div>
                                                     <div class="review-text">
-                                                        <span>Angela Lipton</span>
+                                                        <span><?php the_title(); ?></span>
+                                                        <?php $review_title = get_post_meta( get_the_ID(), 'Person Review'); 
+                                                        print_r($review_title); ?>
                                                         <p class="mb-1">Google Reviews</p>
                                                         <div class="image-wrapper">
                                                             <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/stars.svg" alt="stars" width="126" height="22">
@@ -620,26 +628,8 @@ $theme_option = get_option('redux_demo');
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="swiper-slide">
-                                            <div class="review-block">
-                                                <div class="text pb-4">
-                                                    <p class="mb-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum suscipit voluptate aliquam officia voluptatem! Minus dolorem tempora optio quisquam odio. Minima temporibus molestias aspernatur neque veniam ducimus, placeat ratione eligendi!</p>
-                                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores minima voluptatum dignissimos vitae repudiandae non vel sint, accusamus excepturi atque dicta, sunt eligendi molestias asperiores sapiente quis provident animi tenetur.</p>
-                                                </div>
-                                                <div class="review">
-                                                    <div class="image-wrapper pe-4">
-                                                        <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/review-img-2.webp" alt="review-img-2">
-                                                    </div>
-                                                    <div class="review-text">
-                                                        <span>Johnny depp</span>
-                                                        <p class="mb-1">Person Reviews</p>
-                                                        <div class="image-wrapper">
-                                                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/stars.svg" alt="stars" width="126" height="22">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php endwhile;
+                                    endif; ?>
                                     </div>
                                     <div class="btn-block pt-lg-0 pt-3">
                                         <div class="button prev image-wrapper"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-left"></div>

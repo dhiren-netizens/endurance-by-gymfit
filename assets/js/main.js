@@ -47,14 +47,14 @@ $(document).ready(function () {
 		e.preventDefault();
 		$("html, body").animate({ scrollTop: 0 }, "300");
 	});
-	$('ul.sub-menu').addClass('dropdown-menu');
-	$('ul.sub-menu.dropdown-menu').parent().addClass('dropdown');
-	$('ul.sub-menu.dropdown-menu').parent().addClass('dropdown-toggle');
-	$('.dropdown-toggle > a::after').css('content', '');
-	$('ul.sub-menu.dropdown-menu > li > a').addClass('dropdown-item');
+	$('header ul.sub-menu').addClass('dropdown-menu');
+	$('header ul.sub-menu.dropdown-menu').parent().addClass('dropdown');
+	$('header ul.sub-menu.dropdown-menu').parent().addClass('dropdown-toggle');
+	$('header .dropdown-toggle > a::after').css('content', '');
+	$('header ul.sub-menu.dropdown-menu > li > a').addClass('dropdown-item');
 
-	$('.sub-menu.dropdown-menu').parent().on('click', function() {
-		$('.sub-menu.dropdown-menu').toggleClass('show');
+	$('header .sub-menu.dropdown-menu').parent().on('click', function() {
+		$('header .sub-menu.dropdown-menu').toggleClass('show');
 	});
 });
 
@@ -71,7 +71,7 @@ $(document).ready(function () {
 	$(".closeBtn").click(function () {
 		$("header").removeClass("active");
 		$("body").removeClass("no-scroll-y");
-		$(".dropdown ul").slideUp().removeClass("active");
+		$("header .dropdown ul").slideUp().removeClass("active");
 	});
 	$('.tabActive li a:not(.dropdown-toggle)').click(function(){
 		$("body").removeClass("no-scroll-y");

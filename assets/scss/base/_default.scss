@@ -389,13 +389,17 @@ COMMON FORM CSS
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: linear-gradient(180deg, rgba(5,246,249,1) -100%, rgba(249,7,252,1) 100%);
+                background:#f907fc url(https://www.netizensstore.com/gymfit_theme/html/endurance/assets/images/icon/search-icon.svg);
                 border-radius: 9px;
                 box-shadow: 0 4px 24px 0 rgba(#6D8DAD , 0.50);
                 position: absolute;
-                top: 50%;
+                top: 11px;
                 right: 10px;
-                transform: translateY(-50%);
+                transform: none;
+                font-size: 0;
+                border: none;
+                background-repeat: no-repeat;
+                background-position: center;
 
                 @media screen and (max-width:480px) {
                     width: 30px;
