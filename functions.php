@@ -799,31 +799,85 @@ add_action( 'init', 'endurance_custom_post_types');
 
 
 function pricing_plan_meta_box() {
-    add_meta_box('pricing_plan_metabox', 'Pricing Plan', 'display_pricing_plan_meta_box', 'pricing-plan', 'normal', 'high');
+    add_meta_box('pricing_plan_metabox', 'Pricing Plan', 'display_pricing_plan_meta_box', 'pricing-plan');
 }
 add_action('add_meta_boxes', 'pricing_plan_meta_box');
 
 function display_pricing_plan_meta_box($post) {
-    $custom_text = get_post_meta($post->ID, 'custom_text', true); ?>
-	<label>Select Pricing Plan </label>
-    <select class="endurance_pricing_plan_select" multiple="true" style="width: 500px;"> 
-		<option value="weekly">Weekly</option>
-		<option value="monthly">Monthly</option>
-		<option value="quaterly">Quaterly</option>
-		<option value="annually">Annually</option>
-	</select>
-	<div class="accordion">
-	</div>
-	<?php
+    // Add nonce for security
+    wp_nonce_field('pricing_plan_nonce_action', 'pricing_plan_nonce');
+
+    $endurance_pricing_plan_select = get_post_meta($post->ID, 'endurance_pricing_plan_select', true);
+    $selected_plans = is_array($endurance_pricing_plan_select) ? $endurance_pricing_plan_select : [];
+
+    // Retrieve saved prices
+    $endurance_pricing_plan_price = get_post_meta($post->ID, 'endurance_pricing_plan_price', true);
+    $saved_prices = is_array($endurance_pricing_plan_price) ? $endurance_pricing_plan_price : [];
+
+    ?>
+    <label>Select Pricing Plan </label>
+    <select name="endurance_pricing_plan_select[]" class="endurance_pricing_plan_select" id="endurance_pricing_plan_select" multiple="true" style="width: 500px;"> 
+        <option value="weekly" <?php selected(in_array('weekly', $selected_plans)); ?>>Weekly</option>
+        <option value="monthly" <?php selected(in_array('monthly', $selected_plans)); ?>>Monthly</option>
+        <option value="quarterly" <?php selected(in_array('quarterly', $selected_plans)); ?>>Quarterly</option>
+        <option value="annually" <?php selected(in_array('annually', $selected_plans)); ?>>Annually</option>
+    </select>
+    
+    <div class="accordion">
+        <?php foreach ($selected_plans as $plan) : ?>
+            <div class="accordion-item">
+                <div class="accordion-item-header"><?php echo esc_html(ucfirst($plan)); ?></div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        <div class="endurance_pricing_plan_price">
+                            <label>Price: </label>
+                            <input type="number" name="endurance_pricing_plan_price[<?php echo esc_attr($plan); ?>][price]" value="<?php echo esc_attr($saved_prices[$plan]['price'] ?? 0); ?>" min="0" required> / <?php echo esc_html(ucfirst($plan)); ?> <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <?php
 }
 
-function save_pricing_plan_meta_box_data($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+add_action('save_post', 'save_pricing_plan_meta_box_data', 10, 2);
+
+function save_pricing_plan_meta_box_data($post_id, $post) {
+    // Check if our nonce is set.
+    if (!isset($_POST['pricing_plan_nonce'])) {
         return;
-    if ($parent_id = wp_is_post_revision($post_id))
-        $post_id = $parent_id;
-    if (isset($_POST['custom_text'])) {
-        update_post_meta($post_id, 'custom_text', $_POST['custom_text']);
     }
+    // Verify that the nonce is valid.
+    if (!wp_verify_nonce($_POST['pricing_plan_nonce'], 'pricing_plan_nonce_action')) {
+        return;
+    }
+    // Check for autosave.
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    // Check the post type
+    if ('pricing-plan' == $post->post_type) {
+        // Sanitize and save the selected plans
+        if (isset($_POST['endurance_pricing_plan_select'])) {
+            $selected_plans = array_map('sanitize_text_field', $_POST['endurance_pricing_plan_select']);
+            update_post_meta($post_id, 'endurance_pricing_plan_select', $selected_plans);
+        } else {
+            // If no plans are selected, delete the meta
+            delete_post_meta($post_id, 'endurance_pricing_plan_select');
+        }
+
+        // Sanitize and save the prices
+        if (isset($_POST['endurance_pricing_plan_price'])) {
+            $pricing_plan_price = array_map(function($price) {
+                return [
+                    'price' => isset($price['price']) ? floatval($price['price']) : 0
+                ];
+            }, $_POST['endurance_pricing_plan_price']);
+            update_post_meta($post_id, 'endurance_pricing_plan_price', $pricing_plan_price);
+        } else {
+			// If no prices are set, delete the meta
+			delete_post_meta($post_id, 'endurance_pricing_plan_price');
+		}
+	}
 }
-add_action('save_post', 'save_pricing_plan_meta_box_data');
