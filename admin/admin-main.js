@@ -1,115 +1,46 @@
 jQuery(".endurance_pricing_plan_select").select2({
     placeholder: "Please select the pricing plans..."
 });
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
     // Initialize Select2
     jQuery('.endurance_pricing_plan_select').select2();
 
-    // Function to update accordion items based on selected options
+    // Function to update accordion items
     function updateAccordion() {
-        // Clear existing accordion items
-        jQuery(".accordion").empty();
+        // Get selected options
+        const selectedOptions = jQuery(".endurance_pricing_plan_select option:selected");
 
-        // Add new accordion items for selected options
-        jQuery(".endurance_pricing_plan_select option:selected").each(function() {
-            var data = jQuery(this).text();
-            
-            // Check if the option is already added
-            var isAlreadyAdded = jQuery(".accordion-item-header").filter(function() {
-                return jQuery(this).text() === data;
-            }).length > 0;
+        // Loop through selected options
+        selectedOptions.each(function () {
+            const data = jQuery(this).text();
 
-            // If an option is selected and not already added, append a new accordion item
-            if (data != '' && !isAlreadyAdded) {
+            // Check if the accordion item already exists
+            if (jQuery(".accordion-item-header:contains('" + data + "')").length === 0) {
                 jQuery(".accordion").append(`
                     <div class="accordion-item">
                         <div class="accordion-item-header">${data}</div>
                         <div class="accordion-item-body">
                             <div class="accordion-item-body-content">
-                                Content for ${data}<br><br>
                                 <div class="endurance_pricing_plan_price">
                                     <label>Price: </label>
-                                    <input type="number" name="endurance_pricing_plan_price[${data}][price]" id="endurance_pricing_plan_price[${data}][price]" class="endurance_pricing_plan_price[${data}][price]" value="" min="0" required> / ${data} <br><br>
+                                    <input type="number" name="endurance_pricing_plan_price[${data}][price]" class="endurance_pricing_plan_price_input" required>
+                                    / ${data} <br><br>
                                 </div>
                             </div>
                         </div>
                     </div>
                 `);
-                
-                // Add dynamic checkbox
-                jQuery(".accordion-item-body-content").last().append(`
-                    <div class="dynamic-checkbox">
-                        <div class="features_list">
-                            <label>Features: </label>
-                            <div class="endurance_feature_Workouts">
-                                <label><input type="checkbox" name="endurance_pricing_plan[${data}][workouts]" checked="checked">Workouts</label>
-                                <button type="button" class="remove-checkbox" data-dynamic-value="Workouts">Remove</button>
-                            </div>
-                            <div class="endurance_feature_Progress_Tracking">
-                                <label><input type="checkbox" name="endurance_pricing_plan[${data}][progress_tracking]" checked="checked">Progress Tracking</label>
-                                <button type="button" class="remove-checkbox" data-dynamic-value="Progress_Tracking">Remove</button>
-                            </div>
-                            <div class="endurance_feature_Nutritional_Guidance">
-                                <label><input type="checkbox" name="endurance_pricing_plan[${data}][nutritional_guidance]" checked="checked">Nutritional Guidance</label>
-                                <button type="button" class="remove-checkbox" data-dynamic-value="Nutritional_Guidance">Remove</button>
-                            </div>
-                            <div class="endurance_feature_One_on_One_Coaching">
-                                <label><input type="checkbox" name="endurance_pricing_plan[${data}][one_on_one_coaching]" checked="checked">One-on-One Coaching</label>
-                                <button type="button" class="remove-checkbox" data-dynamic-value="One_on_One_Coaching">Remove</button>
-                            </div>
-                            <div class="endurance_feature_Priority_Event_Registration">
-                                <label><input type="checkbox" name="endurance_pricing_plan[${data}][priority_event_registration]" checked="checked">Priority Event Registration</label>
-                                <button type="button" class="remove-checkbox" data-dynamic-value="Priority_Event_Registration">Remove</button>
-                            </div>
-                            <div class="endurance_feature_Bonus_Workshops_Seminars">
-                                <label><input type="checkbox" name="endurance_pricing_plan[${data}][bonus_workshops_seminars]" checked="checked">Bonus Workshops/Seminars</label>
-                                <button type="button" class="remove-checkbox" data-dynamic-value="Bonus_Workshops_Seminars">Remove</button>
-                            </div>
-                            <div class="endurance_feature_Personalized_Support">
-                                <label><input type ="checkbox" name="endurance_pricing_plan[${data}][personalized_support]" checked="checked">Personalized Support</label>
-                                <button type="button" class="remove-checkbox" data-dynamic-value="Personalized_Support">Remove</button>
-                            </div>
-                        </div>
-                        <br><br>
-                        <label>Add New Features</label>
-                        <input type="text" name="endurance_pricing_plan[${data}][add_new_feature]"> <br>
-                        <button type="button" class="add-checkbox">Add</button>
-                        <input type="hidden" name="endurance_pricing_plan_add_new_feature" value="">
-                    </div>
-                `);
-                jQuery('input[name="endurance_pricing_plan[' + data +'][add_new_feature]').keyup(function() {
-                    var current_value = jQuery(this).val();
-                    jQuery('input[name="endurance_pricing_plan_add_new_feature"]').val(current_value);
-                });
-
-                // Add event listeners for add and remove buttons
-                jQuery(".accordion-item-body-content").last().on("click", ".add-checkbox", function() {
-                    var dynamic_data = jQuery("input[name='endurance_pricing_plan_add_new_feature']").val();
-                    jQuery('.features_list').last().append('<div class="endurance_feature_'+ dynamic_data.replace(/ /g,"_") +'"><label><input type="checkbox" name="endurance_pricing_plan['+ data +']['+ dynamic_data.replace(/ /g,"_").toLowerCase() +']" checked="checked"> '+ dynamic_data +'</label> <button type="button" class="remove-checkbox" data-dynamic-value="'+ dynamic_data.replace(/ /g,"_") +'">Remove</button></div>');
-                    jQuery('input[name="endurance_pricing_plan[' + data +'][add_new_feature]').val('');
-                });
-
-                jQuery(".accordion-item-body-content").last().on("click", ".remove-checkbox", function() {
-                    var dynamic_data = jQuery(this).attr('data-dynamic-value');
-                    jQuery('.endurance_feature_'+ dynamic_data).remove();
-                });
             }
         });
 
-        // Remove accordion items for unselected options
-        jQuery(".accordion-item-header").each(function() {
-            var header = jQuery(this);
-            var headerText = header.text();
-            var isSelected = jQuery(".endurance_pricing_plan_select option:selected").filter(function() {
-                return jQuery(this).text() === headerText;
-            }).length > 0;
-
-            if (!isSelected) {
-                header.closest('.accordion-item').remove();
+        // Remove items for unselected options
+        jQuery(".accordion-item-header").each(function () {
+            const headerText = jQuery(this).text();
+            if (selectedOptions.filter((_, opt) => jQuery(opt).text() === headerText).length === 0) {
+                jQuery(this).closest('.accordion-item').remove();
             }
         });
 
-        // Remove previous event listeners to prevent duplication
         jQuery(".accordion-item-header").off("click").on("click", function() {
             const accordionItemHeader = jQuery(this);
             const currentlyActiveAccordionItemHeader = jQuery(".accordion-item-header.active");
@@ -129,11 +60,59 @@ jQuery(document).ready(function() {
         });
     }
 
-    // Listen for Select2 events
-    jQuery('.endurance_pricing_plan_select').on('select2:select select2:unselect', function() {
+    // Update accordion on select change
+    jQuery('.endurance_pricing_plan_select').on('change', function () {
         updateAccordion();
     });
 
-    // Initial call to display accordion items based on pre-selected options
+
+    jQuery(document).on("change", ".endurance_pricing_features_list_div .feature-item input[type='checkbox']", function () {
+        const plan = jQuery(this).attr("name").match(/\[([^\]]+)\]/)[1]; // Extract plan name
+        const featureKey = jQuery(this).attr("name").match(/\[features\]\[([^\]]+)\]/)[1]; // Extract feature key
+    
+        if (!jQuery(this).is(':checked')) {
+            // Track removed features
+            if (confirm("Are you sure you want to remove this feature?")) {
+                const removedFeaturesInput = jQuery(`input[name='endurance_pricing_plan_features[${plan}][removed_features]']`);
+                if (removedFeaturesInput.length) {
+                    let removedFeatures = JSON.parse(removedFeaturesInput.val());
+                    removedFeatures.push(featureKey);
+                    removedFeaturesInput.val(JSON.stringify(removedFeatures));
+                } else {
+                    jQuery(this).closest('.accordion-item-body-content').append(`
+                        <input type="hidden" name="endurance_pricing_plan_features[${plan}][removed_features]" value='["${featureKey}"]'>
+                    `);
+                }
+        
+                // Remove the feature from the DOM
+                jQuery(this).parent().remove();
+            }
+        }
+    });    
+
+    // Delegate add feature button functionality
+    jQuery(document).on("click", ".add-feature-btn", function () {
+        const plan = jQuery(this).data("plan");
+        const newFeature = jQuery(`.add-new-feature-input[data-plan='${plan}']`).val().trim();
+
+        if (newFeature) {
+            const featureKey = newFeature.replace(/\s+/g, "_").toLowerCase();
+            const featureHtml = `
+                <div class="feature-item">
+                    <label>
+                        <input type="checkbox" name="endurance_pricing_plan_features[${plan}][features][${featureKey}]" checked>
+                        ${newFeature}
+                    </label>
+                </div>`;
+            
+            // Append the new feature to the correct plan's features list
+            jQuery(this).closest('.endurance_pricing_features_list_div').find('.features_list').append(featureHtml);
+
+            // Clear the input field
+            jQuery(`.add-new-feature-input[data-plan='${plan}']`).val('');
+        }
+    });
+
+    // Initial call
     updateAccordion();
 });
