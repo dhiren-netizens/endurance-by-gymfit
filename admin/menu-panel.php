@@ -672,6 +672,30 @@ Redux::set_section(
 				),
             ),
 			array(
+                'id'           => 'endurance_general_gymfit_white_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'White Logo Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/client-pettern.svg'
+				),
+            ),
+			array(
+                'id'           => 'endurance_general_person_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Person Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/clients/client-img.webp'
+				),
+            ),
+			array(
 				'id'       => 'endurance_smart_app_Section',
 				'title'    => esc_html__( 'Smart App Section', 'endurance' ),
 			    'type'     => 'section',

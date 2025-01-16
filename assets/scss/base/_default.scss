@@ -648,3 +648,9 @@ BACKGROUND STRIPS LINES CSS
         }
     }
 }
+
+/* Change the border color to red when the dropdown is shown */
+.sub-menu.show + .dropdown-toggle::after {
+    border-right: .6em solid #f907fc !important;
+    border-left: .6em solid #f907fc !important;
+}

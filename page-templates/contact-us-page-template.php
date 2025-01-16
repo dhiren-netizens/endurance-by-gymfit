@@ -101,13 +101,7 @@ get_header();
         <!-- CONTACT US SECTION END'S FROM HERE -->
 		
 	</main>
-	<!-- MAIN SECTIONS END'S FROM HERE -->
-
-	<script>
-		$(document).ready(function() {
-			$('select').niceSelect();
-		});
-	</script>
+	<!-- MAIN SECTIONS END'S FROM HERE -->	
 
 </body>
 <?php

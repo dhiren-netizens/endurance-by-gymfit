@@ -580,14 +580,14 @@ $theme_option = get_option('redux_demo');
                     <div class="row gy-sm-5 gy-4 align-items-center justify-content-between">
                         <div class="col-lg-6 order-lg-1 order-2">
                             <div class="image-wrapper clientImg wow fadeInLeft">
-                                <?php if(isset( $theme_option['endurance_happy_clients_section_client_image']['url'] ) && !empty( $theme_option['endurance_happy_clients_section_client_image']['url'] )) { ?>
-                                    <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_happy_clients_section_client_image']['url'] ); ?>" alt="client-img" class="d-block mx-auto">
+                                <?php if(isset( $theme_option['endurance_general_person_img']['url'] ) && !empty( $theme_option['endurance_general_person_img']['url'] )) { ?>
+                                    <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_person_img']['url'] ); ?>" alt="client-img" class="d-block mx-auto">
                                 <?php } ?>
                                 <div class="pettern image-wrapper">
-                                    <?php if(isset( $theme_option['endurance_happy_clients_section_background_image']['url'] ) && !empty( $theme_option['endurance_happy_clients_section_background_image']['url'] )) { ?>
-                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_happy_clients_section_background_image']['url'] ); ?>" alt="client-pettern">
-                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_happy_clients_section_background_image']['url'] ); ?>" alt="client-pettern">
-                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_happy_clients_section_background_image']['url'] ); ?>" alt="client-pettern">
+                                    <?php if(isset( $theme_option['endurance_general_gymfit_white_img']['url'] ) && !empty( $theme_option['endurance_general_gymfit_white_img']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_gymfit_white_img']['url'] ); ?>" alt="client-pettern">
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_gymfit_white_img']['url'] ); ?>" alt="client-pettern">
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_gymfit_white_img']['url'] ); ?>" alt="client-pettern">
                                     <?php } ?>
                                 </div>
                                 <?php if(isset( $theme_option['endurance_general_background_image']['url'] ) && !empty( $theme_option['endurance_general_background_image']['url'] )) { ?>
@@ -605,39 +605,39 @@ $theme_option = get_option('redux_demo');
                                     <div class="swiper-wrapper">
                                         <?php if ( $testimonials_posts->have_posts() ) : ?>
                                          <?php while ( $testimonials_posts->have_posts() ) : $testimonials_posts->the_post(); ?>
-                                        <div class="swiper-slide">
-                                            <div class="review-block">
-                                                <div class="text pb-4">
-                                                    <p class="mb-3"><?php the_content(); ?></p>
-                                                </div>
-                                                <div class="review">
-                                                    <div class="image-wrapper pe-4">
-                                                        <?php if ( has_post_thumbnail() ) { 
-                                                            the_post_thumbnail( get_the_ID(), 'full' );
-                                                        } ?>
+                                            <div class="swiper-slide">
+                                                <div class="review-block">
+                                                    <div class="text pb-4">
+                                                        <p class="mb-3"><?php the_content(); ?></p>
                                                     </div>
-                                                    <div class="review-text">
-                                                        <span><?php the_title(); ?></span>
-                                                      <p class="mb-1">  <?php $review_title = get_post_meta( get_the_ID(), 'review_name'); 
-                                                        print_r($review_title[0]); ?></p>
-                                                        <!-- <p class="mb-1">Google Reviews</p> -->
-                                                        <div class="image-wrapper">
-                                                        <?php
-                                                            $start_rating = get_post_meta(get_the_ID(), 'star_rating'); // Get the star rating as a single value
-                                                            $max_stars = 5; // Define the maximum number of stars
-                                                            ?>
-                                                            <p class="stars">
-                                                                <span class="star-rate">
-                                                                    <?php for ($i = 1; $i <= $max_stars; $i++): ?>
-                                                                        <a class="star-<?php echo $i; ?> <?php echo ($i <= $start_rating[0]) ? 'active' : ''; ?>"></a>
-                                                                    <?php endfor; ?>
-                                                                </span>
-                                                            </p>
+                                                    <div class="review">
+                                                        <div class="image-wrapper pe-4">
+                                                            <?php if ( has_post_thumbnail() ) { 
+                                                                the_post_thumbnail( get_the_ID(), 'full' );
+                                                            } ?>
+                                                        </div>
+                                                        <div class="review-text">
+                                                            <span><?php the_title(); ?></span>
+                                                        <p class="mb-1">  <?php $review_title = get_post_meta( get_the_ID(), 'review_name'); 
+                                                            print_r($review_title[0]); ?></p>
+                                                            <!-- <p class="mb-1">Google Reviews</p> -->
+                                                            <div class="image-wrapper">
+                                                            <?php
+                                                                $start_rating = get_post_meta(get_the_ID(), 'star_rating'); // Get the star rating as a single value
+                                                                $max_stars = 5; // Define the maximum number of stars
+                                                                ?>
+                                                                <p class="stars">
+                                                                    <span class="star-rate">
+                                                                        <?php for ($i = 1; $i <= $max_stars; $i++): ?>
+                                                                            <a class="star-<?php echo $i; ?> <?php echo ($i <= $start_rating[0]) ? 'active' : ''; ?>"></a>
+                                                                        <?php endfor; ?>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         <?php endwhile;
                                     endif; ?>
                                     </div>

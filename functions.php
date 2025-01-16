@@ -276,68 +276,6 @@ add_action( 'after_setup_theme', 'my_after_setup_theme');
  */
 function my_after_switch_theme() {
 
-	/* Add a default Testimonails Reviews posts
-	*/
-   $default_posts = array(
-	   array(
-		   'slug' => 'angela-lipton',
-		   'title' => 'Angela Lipton',
-		   'content' => 'Endurance Training Coach',
-		   'image' => get_template_directory_uri() . '/assets/images/background/review-img.webp'
-	   ),
-	   array(
-		   'slug' => 'johnny-depp',
-		   'title' => 'Johnny Depp',
-		   'content' => 'Cardio Conditioning Specialist',
-		   'image' => get_template_directory_uri() . '/assets/images/background/review-img-2.webp'
-	   ),
-   );
-   foreach ($default_posts as $post) {
-	   // Check if the post already exists
-	   $existing_post = get_page_by_path($post['slug'], OBJECT, 'meet-our-team');
-	   if (!$existing_post) {
-		   $post_id = wp_insert_post(array(
-			   'post_title' => $post['title'],
-			   'post_type' => 'testimonial-reviews',
-			   'post_name' => $post['slug'],
-			   'post_content' => $post['content'],
-			   'comment_status' => 'closed',
-			   'ping_status' => 'closed',
-			   'post_status' => 'publish',
-			   'post_author' => 1,
-			   'menu_order' => 0
-		   ));
-
-		   // Add featured image
-		   $image_url = $post['image'];
-		   $image_data = file_get_contents($image_url);
-		   $filename = basename($image_url);
-		   $upload_dir = wp_upload_dir();
-
-		   if (wp_mkdir_p($upload_dir['path'])) {
-			   $file = $upload_dir['path'] . '/' . $filename;
-		   } else {
-			   $file = $upload_dir['basedir'] . '/' . $filename;
-		   }
-
-		   file_put_contents($file, $image_data);
-
-		   $wp_filetype = wp_check_filetype($filename, null);
-
-		   $attachment = array(
-			   'post_mime_type' => $wp_filetype['type'],
-			   'post_title' => sanitize_file_name($filename),
-			   'post_content' => '',
-			   'post_status' => 'inherit'
-		   );
-
-		   $attachment_id = wp_insert_attachment($attachment, $file, $post_id);
-		   require_once(ABSPATH . 'wp-admin/includes/image.php');
-		   $attach_data = wp_generate_attachment_metadata($attachment_id, $file);
-		   wp_update_attachment_metadata($attachment_id, $attach_data);
-		   set_post_thumbnail($post_id, $attachment_id);
-	   }
-   }
 
 	/**
 	 * Add a default pages
@@ -404,7 +342,71 @@ function my_after_switch_theme() {
 			));
 		}
 	}
-
+	/* Add a default Testimonails Reviews posts
+	*/
+	$default_review = array(
+		array(
+			'slug' => 'angela-lipton',
+			'title' => 'Angela Lipton',
+			'content' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum suscipit voluptate aliquam officia voluptatem! Minus dolorem tempora optio quisquam odio. Minima temporibus molestias aspernatur neque veniam ducimus, placeat ratione eligendi!',
+			'image' => get_template_directory_uri() . '/assets/images/background/review-img.webp'
+		),
+		array(
+			'slug' => 'johnny-depp',
+			'title' => 'Johnny Depp',
+			'content' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum suscipit voluptate aliquam officia voluptatem! Minus dolorem tempora optio quisquam odio. Minima temporibus molestias aspernatur neque veniam ducimus, placeat ratione eligendi!',
+			'image' => get_template_directory_uri() . '/assets/images/background/review-img-2.webp'
+		),
+	);
+	foreach ($default_review as $post) {
+		// Check if the post already exists
+		$existing_review = get_page_by_path($post['slug'], OBJECT, 'testimonial-reviews');
+		if (!$existing_review) {
+			$post_id = wp_insert_post(array(
+				'post_title' => $post['title'],
+				'post_type' => 'testimonial-reviews',
+				'post_name' => $post['slug'],
+				'post_content' => $post['content'],
+				'comment_status' => 'closed',
+				'ping_status' => 'closed',
+				'post_status' => 'publish',
+				'post_author' => 1,
+				'menu_order' => 0,
+			));
+			update_post_meta ($post_id, 'review_name', 'Google Review' );
+			update_post_meta ($post_id, 'star_rating', 4 );
+		
+			// Add featured image
+			$image_url = $post['image'];
+			$image_data = file_get_contents($image_url);
+			$filename = basename($image_url);
+			$upload_dir = wp_upload_dir();
+ 
+			if (wp_mkdir_p($upload_dir['path'])) {
+				$file = $upload_dir['path'] . '/' . $filename;
+			} else {
+				$file = $upload_dir['basedir'] . '/' . $filename;
+			}
+ 
+			file_put_contents($file, $image_data);
+ 
+			$wp_filetype = wp_check_filetype($filename, null);
+ 
+			$attachment = array(
+				'post_mime_type' => $wp_filetype['type'],
+				'post_title' => sanitize_file_name($filename),
+				'post_content' => '',
+				'post_status' => 'inherit'
+			);
+ 
+			$attachment_id = wp_insert_attachment($attachment, $file, $post_id);
+			require_once(ABSPATH . 'wp-admin/includes/image.php');
+			$attach_data = wp_generate_attachment_metadata($attachment_id, $file);
+			wp_update_attachment_metadata($attachment_id, $attach_data);
+			set_post_thumbnail($post_id, $attachment_id);
+		}
+	}
+ 
 	/**
 	 * Add a default meet our team posts
 	 */
