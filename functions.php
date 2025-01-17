@@ -898,7 +898,8 @@ function save_pricing_plan_meta_box_data($post_id) {
     ];
 
     $pricing_plan_data = [];
-	$pricing_plan_features_data = [];
+    $pricing_plan_features_data = [];
+    
     if (isset($_POST['endurance_pricing_plan_price'])) {
         foreach ($_POST['endurance_pricing_plan_price'] as $plan => $data) {
             // Prepare the pricing plan data
@@ -906,36 +907,46 @@ function save_pricing_plan_meta_box_data($post_id) {
                 'price' => floatval($data['price'] ?? 0),
             ];
         }
-		foreach ($_POST['endurance_pricing_plan_features'] as $features => $data) {
+        
+        foreach ($_POST['endurance_pricing_plan_features'] as $plan => $data) {
             // Start with the default features
-            $features = $default_features;
+            $features_data = $default_features;
 
             // Add checked features from the submitted data
             if (isset($data['features'])) {
                 foreach ($data['features'] as $feature => $checked) {
                     if ($checked) {
-                        $features[$feature] = 1;
+                        $features_data[$feature] = 1; // Add checked feature
                     }
                 }
             }
 
             // Remove features explicitly marked as removed
             if (isset($data['removed_features'])) {
-				$removed_features = json_decode(str_replace('\\', '', $data['removed_features']));
+                $removed_features = json_decode(stripslashes($data['removed_features']), true);
                 if (is_array($removed_features)) {
                     foreach ($removed_features as $removed_feature) {
-                        unset($features[$removed_feature]);
+                        unset($features_data[$removed_feature]); // Remove feature
                     }
                 }
             }
-			// Prepare the pricing plan data
-            $pricing_plan_features_data[strtolower(get_the_title($post_id))] = [
-                'features' => $features,
-            ];
+			$features_list = get_post_meta($post_id, 'endurance_pricing_plan_features', true);
+			if( '' != $features_list ) {
+				$features_data = array_diff( $data['features'], $features_data );
+				foreach ($features_data as $feature => $checked) {
+					if ($checked) {
+						$features_data[$feature] = 1; // Add checked feature
+					}
+				}
+			}
 
+            // Prepare the pricing plan features data
+            $pricing_plan_features_data[strtolower(get_the_title($post_id))] = [
+                'features' => $features_data,
+            ];
         }
     }
 
     update_post_meta($post_id, 'endurance_pricing_plan_price', $pricing_plan_data);
-	update_post_meta($post_id, 'endurance_pricing_plan_features', $pricing_plan_features_data);
+    update_post_meta($post_id, 'endurance_pricing_plan_features', $pricing_plan_features_data);
 }

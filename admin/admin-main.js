@@ -79,7 +79,7 @@ jQuery(document).ready(function () {
                     removedFeatures.push(featureKey);
                     removedFeaturesInput.val(JSON.stringify(removedFeatures));
                 } else {
-                    jQuery(this).closest('.accordion-item-body-content').append(`
+                    jQuery(this).closest('.endurance_pricing_features_list_div').append(`
                         <input type="hidden" name="endurance_pricing_plan_features[${plan}][removed_features]" value='["${featureKey}"]'>
                     `);
                 }
