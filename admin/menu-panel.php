@@ -636,9 +636,53 @@ Redux::set_section(
 				'indent' => false, // Indent all options below until the next 'section' option is set.
 			),
 			array(
+				'id'       => 'endurance_about_us_section',
+				'title'    => esc_html__( 'About Us', 'endurance' ),
+			    'type'     => 'section',
+				'indent'   => true, 
+			),
+			array(
+                'id'           => 'endurance_general_about_us_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/about-img.webp'
+				),
+            ),
+			array(
+                'id'           => 'endurance_general_about_us_logo_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Logo Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/white-logo.webp'
+				),
+            ),
+			array(
+				'id'          => 'endurance_general_about_us_title',
+				'type'        => 'text',
+				'title'       => esc_html__( 'Title', 'endurance' ),
+				'placeholder' => 'Enter your title ',
+				'default' => 'About Us',
+			),
+			array(
+				'id'       => 'endurance_general_about_us_description',
+				'type'     => 'textarea',
+				'title'    => esc_html__( 'Description', 'endurance' ),
+				'validate' => 'no_html',
+				'default'  => 'Welcome to Endurance Unleashed, where we fuel the spirit of champions. Our mission is to equip you with the finest tools, gear, and resources to conquer your limits and achieve extraordinary feats. Embrace the thrill of pushing beyond boundaries, stay motivated through the toughest challenges, and track your progress as you embark on a relentless journey to greatness.let\'s redefine the power of perseverance and triumph in the face of every obstacle. Unleash your full potential with Endurance.',
+			),
+			array(
 				'id'       => 'endurance_testimonial',
 				'type'     => 'section',
-				'title'    => esc_html__( 'Testimonial Reviews', 'endurance' ),
+				'title'    => esc_html__( 'Our Happy Client', 'endurance' ),
 				'indent'   => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
@@ -800,18 +844,6 @@ Redux::set_section(
 				'title'    => esc_html__( 'Banner Section Text & Image', 'endurance' ),
 				'indent'   => true, // Indent all options below until the next 'section' option is set.
 			),
-			array(
-                'id'           => 'endurance_banner_line_pattern_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Line Pattern Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/banner-pettern.svg'
-				),
-            ),
 			array(
 				'id'          => 'endurance_banner_title',
 				'type'        => 'text',
@@ -1128,59 +1160,6 @@ Redux::set_section(
         ),
 	)
 );
-
-// About Us Section - Home Page Settings
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'About Us Section', 'endurance' ),
-		'id'               => 'endurance_about_us_section',
-		'customizer_width' => '400px',
-		'subsection' => true,
-		'icon'             => 'el el-info-circle',
-		'fields'           => array(
-			array(
-                'id'           => 'endurance_about_us_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/about-img.webp'
-				),
-            ),
-			array(
-                'id'           => 'endurance_about_us_logo_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Logo Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/white-logo.webp'
-				),
-            ),
-			array(
-				'id'          => 'endurance_about_us_title',
-				'type'        => 'text',
-				'title'       => esc_html__( 'Title', 'endurance' ),
-				'placeholder' => 'Enter your title ',
-				'default' => 'About Us',
-			),
-			array(
-				'id'       => 'endurance_about_us_description',
-				'type'     => 'textarea',
-				'title'    => esc_html__( 'Description', 'endurance' ),
-				'validate' => 'no_html',
-				'default'  => 'Welcome to Endurance Unleashed, where we fuel the spirit of champions. Our mission is to equip you with the finest tools, gear, and resources to conquer your limits and achieve extraordinary feats. Embrace the thrill of pushing beyond boundaries, stay motivated through the toughest challenges, and track your progress as you embark on a relentless journey to greatness.let\'s redefine the power of perseverance and triumph in the face of every obstacle. Unleash your full potential with Endurance.',
-			),
-        ),
-	)
-);
-
 
 // Marquee Notice Section - Home Page Settings
 Redux::set_section(
@@ -1550,53 +1529,7 @@ Redux::set_section(
 		'icon'             => 'el el-adult',
 	),
 );
-//About us section - About Us Page Settings 
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'About Us Section', 'endurance' ),
-		'id'               => 'endurance_about_us',
-		'customizer_width' => '400px',
-		'subsection' => true,
-		'icon'             => 'el el-info-circle',
-		'fields'           => array(
-			array(
-				'id'           => 'endurance_about_us_img',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'About Us Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/about-img.webp'
-				),
-			),
-			array(
-                'id'           => 'endurance_about_us_white_img',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'White Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/white-logo.webp'
-				),
-            ),
-			array(
-				'id'       => 'about_us_heading',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Heading', 'endurance' ),
-				'default'  => 'About Us'
-			),
-			array(
-			    'id'       => 'about_us_Description',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Description', 'endurance' ),
-				'default'  => 'Welcome to Endurance Unleashed, where we fuel the spirit of champions. Our mission is to equip you with the finest tools, gear, and resources to conquer your limits and achieve extraordinary feats. Embrace the thrill of pushing beyond boundaries, stay motivated through the toughest challenges, and track your progress as you embark on a relentless journey to greatness.'
-			),
-        ),
-	)
-);
+
 //Stand Out section - About Us Page Settings 
 Redux::set_section(
 	$opt_name,

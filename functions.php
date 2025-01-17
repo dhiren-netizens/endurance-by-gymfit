@@ -133,10 +133,11 @@ function endurance_by_gymfit_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'endurance_by_gymfit_widgets_init' );
-
 /**
  * Enqueue scripts and styles.
  */
+
+ 
 function endurance_by_gymfit_scripts() {
 	wp_enqueue_style( 'endurance-by-gymfit-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_enqueue_style( 'endurance-bootstrap-style', get_template_directory_uri() . '/assets/vendors/bootstrap/css/bootstrap.css', array(), _S_VERSION );
@@ -168,6 +169,8 @@ function admin_side_endurance_by_gymfit_scripts() {
 }
 add_action( 'admin_enqueue_scripts', 'admin_side_endurance_by_gymfit_scripts' );
 
+
+
 /**
  * Implement the Custom Header feature.
  */
@@ -183,6 +186,8 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/template-functions.php';
 
+//add functionality file
+require get_template_directory() . '/inc/includes/register-plugins.php';
 /**
  * Customizer additions.
  */

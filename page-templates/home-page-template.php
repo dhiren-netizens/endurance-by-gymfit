@@ -162,10 +162,10 @@ $theme_option = get_option('redux_demo');
                         <div class="row gy-sm-5 gy-4 justify-content-center align-items-center">
                             <div class="col-lg-7 col-sm-10 order-lg-1 order-2">
                                 <div class="image-wrapper d-flex justify-content-center wow fadeInLeft">
-                                    <?php if(isset( $theme_option['endurance_about_us_image']['url'] ) && !empty( $theme_option['endurance_about_us_image']['url'] )) { ?>
-                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_about_us_image']['url'] ); ?>" alt="about-img" id="about_img1">
+                                    <?php if(isset( $theme_option['endurance_general_about_us_image']['url'] ) && !empty( $theme_option['endurance_general_about_us_image']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_about_us_image']['url'] ); ?>" alt="about-img" id="about_img1">
                                     <?php }
-                                    if(isset( $theme_option['endurance_about_us_logo_image']['url'] ) && !empty( $theme_option['endurance_about_us_logo_image']['url'] )) { ?>
+                                    if(isset( $theme_option['endurance_general_about_us_logo_image']['url'] ) && !empty( $theme_option['endurance_ageneral_bout_us_logo_image']['url'] )) { ?>
                                         <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_about_us_logo_image']['url'] ); ?>" alt="white-logo" class="logo" id="about_img2">
                                     <?php }
                                     if(isset( $theme_option['endurance_general_background_image']['url'] ) && !empty( $theme_option['endurance_general_background_image']['url'] )) { ?>
@@ -175,12 +175,12 @@ $theme_option = get_option('redux_demo');
                             </div>
                             <div class="col-lg-5 order-lg-2 order-1">
                                 <div class="about-text text-lg-start text-center wow fadeInRight">
-                                    <?php if(isset( $theme_option['endurance_about_us_title'] ) && !empty( $theme_option['endurance_about_us_title'] )) { ?>
-                                        <div class="title"><?php echo esc_html( $theme_option['endurance_about_us_title'] ); ?></div>
+                                    <?php if(isset( $theme_option['endurance_general_about_us_title'] ) && !empty( $theme_option['endurance_general_about_us_title'] )) { ?>
+                                        <div class="title"><?php echo esc_html( $theme_option['endurance_general_about_us_title'] ); ?></div>
                                     <?php } 
-                                    if(isset( $theme_option['endurance_about_us_description'] ) && !empty( $theme_option['endurance_about_us_description'] )) { ?>
+                                    if(isset( $theme_option['endurance_general_about_us_description'] ) && !empty( $theme_option['endurance_general_about_us_description'] )) { ?>
                                         <p>
-                                            <?php echo esc_html( $theme_option['endurance_about_us_description'] ); ?>
+                                            <?php echo esc_html( $theme_option['endurance_general_about_us_description'] ); ?>
                                         </p>
                                     <?php }
                                     $endurance_general_gt_link = isset( $theme_option['endurance_general_gt_link'] ) ? $theme_option['endurance_general_gt_link'] : site_url() . '/about-us/';

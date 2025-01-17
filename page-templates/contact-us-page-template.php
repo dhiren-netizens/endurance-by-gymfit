@@ -25,7 +25,7 @@ get_header();
 								    <?php if(isset( $theme_option['endurance_write_us'] ) && !empty( $theme_option['endurance_write_us'] )) { ?>
 									  <div class="title text-center"> <?php echo esc_html( $theme_option['endurance_write_us'] ); ?></div>
 									<?php } ?>
-                                    <?php echo do_shortcode('[contact-form-7 id="a3f9cb7" title="Contact form"]'); ?>										
+                                    <?php echo do_shortcode('[contact-form-7 id="dbd37a3" title="Contact form 1"]'); ?>										
 								</div>
 							</div>
 							
