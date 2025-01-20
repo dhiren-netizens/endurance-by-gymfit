@@ -3647,6 +3647,9 @@ GALLERY SECTION CSS
 .gallery-section .gallery-wrapper .image-wrapper img {
   transition: all 0.3s ease;
 }
+.stars a.active:after{
+  content: '★';
+}
 /*
 ============================================
 GALLERY SECTION CSS

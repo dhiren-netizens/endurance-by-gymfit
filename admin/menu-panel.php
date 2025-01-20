@@ -1462,6 +1462,113 @@ Redux::set_section(
 	)
 );
 
+// Pricing Plan Section - Home Page Settings
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Pricing Plan Section', 'endurance' ),
+		'id'               => 'endurance_pricing_plan_section',
+		'customizer_width' => '400px',
+		'subsection' => true,
+		'icon'             => 'el el-eur',
+		'fields'           => array(
+			array(
+				'id'           => 'endurance_pricing_plan_background_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Pricing Plan Free Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/pricing-paper-texture.webp'
+				),
+			),
+			array(
+				'id'       => 'endurance_pricing_plan_section_heading',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Heading', 'endurance' ),
+				'default'  => 'Pricing Plan',
+			),
+			array(
+                'id'           => 'endurance_pricing_plan_sub_title',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Sub Title', 'endurance' ),
+				'default'  => 'PRO',
+            ),
+			array(
+                'id'           => 'endurance_pricing_plan_prices_title',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Prices Title', 'endurance' ),
+				'default'  => 'PRICES',
+            ),
+			array(
+				'id'           => 'endurance_pricing_plan_free_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Pricing Plan Free Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/pricing-icon.svg'
+				),
+			),
+			array(
+				'id'           => 'endurance_pricing_plan_pro_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Pricing Plan Pro Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/pricing-icon-2.svg'
+				),
+			),
+			
+			array(
+				'id'          => 'endurance_pricing_plan_background_color1',
+				'type'        => 'color',
+				'title'       => esc_html__( 'Planing Text Background Color', 'endurance' ),
+				'default'     => '#ebeffc',
+				'transparent' => false,
+				'validate'    => 'color',
+			),
+			array(
+				'id'       => 'endurance_sign_up_text',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Button Text', 'endurance' ),
+				'default'  => 'Sign Up',
+			),
+			array(
+				'id'       => 'endurance_sign_up_link',
+				'type'     => 'text',
+				'validate'  => 'url',
+				'title'    => esc_html__( 'Button Link', 'endurance' ),
+				'default'  => '#',
+			),
+			array(
+				'id'             => 'endurance_nav_text_color',
+				'type'           => 'color_gradient',
+				'title'          => esc_html__( 'Featured Text Background Color', 'endurance' ),
+				'gradient-type'  => 'radial',
+				'gradient-reach' => true,
+				'gradient-angle' => true,
+				'preview'        => true,
+				'default'        => array(
+					'gradient-type'  => 'radial',
+					'from'           => '#05F6F9',
+					'to'             => '#F907FC',
+					'gradient-reach' => array(
+						'to'   => 100,
+						'from' => 0,
+					),
+				),
+		    ),
+        ),
+	)
+);
 
 // Gallery Page Settings
 $gallery_images_ids = get_option( 'endurance_gallery_images' );

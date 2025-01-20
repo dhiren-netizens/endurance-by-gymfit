@@ -314,7 +314,9 @@ $theme_option = get_option('redux_demo');
             <div class="pricing-section default-padding">
                 <div class="container">
                     <div class="content">
-                        <div class="title text-center pb-sm-5 pb-4">Pricing Plan</div>
+                        <?php if(isset( $theme_option['endurance_pricing_plan_section_heading'] ) && !empty( $theme_option['endurance_pricing_plan_section_heading'] )) { ?>
+                          <div class="title text-center pb-sm-5 pb-4"><?php echo esc_html( $theme_option['endurance_pricing_plan_section_heading'] ); ?></div>
+                        <?php } ?>
                         <div class="pricing-wrapper">
                             <div class="row">
                                 <div class="col-4">
@@ -341,7 +343,9 @@ $theme_option = get_option('redux_demo');
                                                 <li>Bonus Workshops/Seminars</li>
                                                 <li>Personalized Support</li>
                                             </ul>
-                                            <span class="price">prices</span>
+                                            <?php if(isset( $theme_option['endurance_pricing_plan_prices_title'] ) && !empty( $theme_option['endurance_pricing_plan_prices_title'] )) { ?>
+                                                <span class="price"><?php echo esc_html( $theme_option['endurance_pricing_plan_prices_title'] ); ?></span>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -366,7 +370,9 @@ $theme_option = get_option('redux_demo');
                                                                 <span class="free">--</span>
                                                                 <p>Lifetime Free</p>
                                                             </div>
-                                                            <a href="#" class="btn_wrapper mt-2 mx-auto">sign up</a>
+                                                            <?php if(isset( $theme_option['endurance_sign_up_link'] ) && !empty( $theme_option['endurance_sign_up_link'] )) { ?>
+                                                                <a href="#" class="btn_wrapper mt-2 mx-auto"><?php echo esc_html( $theme_option['endurance_sign_up_text'] ); ?></a>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
                                                     <div class="col-3">

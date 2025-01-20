@@ -190,6 +190,27 @@ if (!is_admin()) {
                 background-image: url(<?php echo esc_url($theme_option['endurance_404_line_bg_img']['url']); ?>), url(<?php echo esc_url($theme_option['endurance_404_line_bg_img']['url']); ?>);
             <?php } ?>
         }
+        .pricing-section{
+            <?php if( isset( $theme_option['endurance_pricing_plan_background_image'] ) && !empty( $theme_option['endurance_pricing_plan_background_image'] )) { ?>
+                background-image: url(<?php echo esc_url($theme_option['endurance_pricing_plan_background_image']['url']); ?>);
+            <?php } ?>
+        }
+        .pricing-section .pricing-wrapper .pricing-block::before{
+            <?php if( isset( $theme_option['endurance_pricing_plan_background_color1'] ) && !empty( $theme_option['endurance_pricing_plan_background_color1'] )) { ?>
+                background: <?php echo esc_attr($theme_option['endurance_pricing_plan_background_color1']); ?>;
+            <?php } ?>
+        }
+        .pricing-section .pricing-wrapper .option-wrapper .nav .nav-item .nav-link.active {
+            <?php if( isset( $theme_option['endurance_nav_text_color'] ) && !empty( $theme_option['endurance_nav_text_color'] ) && is_array( $theme_option['endurance_nav_text_color'] )) { ?>
+                background: linear-gradient(180deg, <?php echo esc_attr( $theme_option['endurance_nav_text_color']['from'] ) . ' '; ?> -80%, <?php echo esc_attr( $theme_option['endurance_nav_text_color']['to'] ) . ' 100%'; ?>);
+            <?php } ?>
+        }
+        .pricing-section .pricing-wrapper .pricing-block .pricing-plan:hover .title{
+            <?php if( isset( $theme_option['endurance_nav_text_color'] ) && !empty( $theme_option['endurance_nav_text_color'] ) && is_array( $theme_option['endurance_nav_text_color'] )) { ?>
+                background: linear-gradient(180deg, <?php echo esc_attr( $theme_option['endurance_nav_text_color']['from'] ) . ' '; ?> -80%, <?php echo esc_attr( $theme_option['endurance_nav_text_color']['to'] ) . ' 100%'; ?>);
+            <?php } ?>
+            -webkit-background-clip: text;
+        }
     </style>
     <?php
 }
