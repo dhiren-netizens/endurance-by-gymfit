@@ -487,6 +487,122 @@ function my_after_switch_theme() {
 			set_post_thumbnail($post_id, $attachment_id);
 		}
 	}
+
+	/**
+	 * Add a default pricing plan posts
+	 */
+	$default_posts = array(
+		array(
+			'slug' => 'ultimate',
+			'title' => 'Ultimate',
+		),
+		array(
+			'slug' => 'pro',
+			'title' => 'Pro',
+		),
+		array(
+			'slug' => 'basic',
+			'title' => 'Basic',
+		),
+		array(
+			'slug' => 'free',
+			'title' => 'Free',
+		),
+	);
+	foreach ($default_posts as $post) {
+		// Check if the post already exists
+		$existing_post = get_page_by_path($post['slug'], OBJECT, 'pricing-plan');
+		if (!$existing_post) {
+			$post_id = wp_insert_post(array(
+				'post_title' => $post['title'],
+				'post_type' => 'pricing-plan',
+				'post_name' => $post['slug'],
+				'post_content' => '',
+				'comment_status' => 'closed',
+				'ping_status' => 'closed',
+				'post_status' => 'publish',
+				'post_author' => 1,
+				'menu_order' => 0
+			));
+
+			if( 'Ultimate' == $post['title']) {
+				$price_data_arr = array(
+					'Weekly' => array('price' => 39.99),
+					'Monthly' => array('price' => 49.99),
+					'Quarterly' => array('price' => 69.99),
+					'Annually' => array('price' => 99.99),
+				);
+				$features_data_arr = array(
+					'ultimate' => array(
+						'features' => array(
+							'Workouts' => 1,
+							'Progress Tracking' => 1,
+							'Nutritional Guidance' => 1,
+							'One-on-One Coaching' => 1,
+							'Priority Event Registration' => 1,
+							'Bonus Workshops/Seminars' => 1,
+							'Personalized Support' => 1,
+						)
+					)
+				);
+			}
+			if( 'Pro' == $post['title']) {
+				$price_data_arr = array(
+					'Weekly' => array('price' => 19.99),
+					'Monthly' => array('price' => 29.99),
+					'Quarterly' => array('price' => 39.99),
+					'Annually' => array('price' => 49.99),
+				);
+				$features_data_arr = array(
+					'pro' => array(
+						'features' => array(
+							'Workouts' => 1,
+							'Progress Tracking' => 1,
+							'Nutritional Guidance' => 1,
+							'One-on-One Coaching' => 1,
+							'Priority Event Registration' => 1,
+						)
+					)
+				);
+			}
+			if( 'Free' == $post['title']) {
+				$price_data_arr = array(
+					'Weekly' => array('price' => '-'),
+					'Monthly' => array('price' => '-'),
+					'Quarterly' => array('price' => '-'),
+					'Annually' => array('price' => '-'),
+				);
+				$features_data_arr = array(
+					'free' => array(
+						'features' => array(
+							'Workouts' => 1,
+						)
+					)
+				);
+			}
+			if( 'Basic' == $post['title']) {
+				$price_data_arr = array(
+					'Weekly' => array('price' => 9.99),
+					'Monthly' => array('price' => 19.99),
+					'Quarterly' => array('price' => 29.99),
+					'Annually' => array('price' => 39.99),
+				);
+				$features_data_arr = array(
+					'basic' => array(
+						'features' => array(
+							'Workouts' => 1,
+							'Progress Tracking' => 1,
+							'Nutritional Guidance' => 1,
+						)
+					)
+				);
+			}
+
+			update_post_meta($post_id, 'endurance_pricing_plan_period', array('weekly', 'monthly', 'quarterly', 'annually'));
+			update_post_meta($post_id, 'endurance_pricing_plan_price', $price_data_arr);
+    		update_post_meta($post_id, 'endurance_pricing_plan_features', $features_data_arr);
+		}
+	}
 	/**
 	 * Setup the site navigation
 	 */    
@@ -806,31 +922,154 @@ add_action( 'init', 'endurance_custom_post_types');
 
 
 function pricing_plan_meta_box() {
-    add_meta_box('pricing_plan_metabox', 'Pricing Plan', 'display_pricing_plan_meta_box', 'pricing-plan', 'normal', 'high');
+    add_meta_box('pricing_plan_metabox', 'Pricing Plan', 'display_pricing_plan_meta_box', 'pricing-plan');
 }
 add_action('add_meta_boxes', 'pricing_plan_meta_box');
 
 function display_pricing_plan_meta_box($post) {
-    $custom_text = get_post_meta($post->ID, 'custom_text', true); ?>
-	<label>Select Pricing Plan </label>
-    <select class="endurance_pricing_plan_select" multiple="true" style="width: 500px;"> 
-		<option value="weekly">Weekly</option>
-		<option value="monthly">Monthly</option>
-		<option value="quaterly">Quaterly</option>
-		<option value="annually">Annually</option>
-	</select>
-	<div class="accordion">
+    wp_nonce_field('pricing_plan_nonce_action', 'pricing_plan_nonce');
+
+    $selected_plans = get_post_meta($post->ID, 'endurance_pricing_plan_period', true) ?: [];
+    $pricing_plan_data = get_post_meta($post->ID, 'endurance_pricing_plan_price', true) ?: [];
+	$pricing_plan_features_data = get_post_meta($post->ID, 'endurance_pricing_plan_features', true) ?: [];
+
+    ?>
+	<div class="endurance_pricing_plan_period_div">
+		<label>Select Pricing Plan:</label>
+		<select name="endurance_pricing_plan_period[]" class="endurance_pricing_plan_period" multiple style="width: 100%;">
+			<?php
+			$plans = ['weekly', 'monthly', 'quarterly', 'annually'];
+			foreach ($plans as $plan) {
+				echo '<option value="' . esc_attr($plan) . '" selected>' . ucfirst($plan) . '</option>';
+			}
+			?>
+		</select>
 	</div>
-	<?php
+
+	<div class="endurance_pricing_features_list_div">
+		<h3>Features:</h3>
+		<div class="features_list">
+			<?php
+			// Default features
+			$default_features = [
+				'Workouts' => 1,
+				'Progress Tracking' => 1,
+				'Nutritional Guidance' => 1,
+				'One-on-One Coaching' => 1,
+				'Priority Event Registration' => 1,
+				'Bonus Workshops/Seminars' => 1,
+				'Personalized Support' => 1
+			];
+			$features = $pricing_plan_features_data[$post->post_name]['features'] ?? $default_features;
+			foreach ($features as $feature => $checked): ?>
+				<div class="feature-item">
+					<label>
+						<input type="checkbox" name="endurance_pricing_plan_features[<?php echo esc_attr($post->post_name); ?>][features][<?php echo esc_attr($feature); ?>]" <?php checked($checked, true); ?>>
+						<?php echo esc_html(ucwords(str_replace('_', ' ', $feature))); ?>
+					</label>
+				</div>
+			<?php endforeach; ?>							
+		</div>
+		<br>
+		<label>Add New Feature:</label>
+		<input type="text" class="add-new-feature-input" data-plan="<?php echo esc_attr($post->post_name); ?>" placeholder="Enter feature name">
+		<button type="button" class="add-feature-btn" data-plan="<?php echo esc_attr($post->post_name); ?>">Add</button>
+	</div>
+
+    <div class="accordion">
+        <?php foreach ($selected_plans as $plan):
+			$plan = ucfirst($plan); ?>
+            <div class="accordion-item">
+                <div class="accordion-item-header"><?php echo esc_html(ucfirst($plan)); ?></div>
+                <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                        <label>Price:</label>
+                        <input type="number" name="endurance_pricing_plan_price[<?php echo esc_attr($plan); ?>][price]" value="<?php echo esc_attr($pricing_plan_data[$plan]['price'] ?? ''); ?>" min="0" required> / <?php echo esc_attr($plan); ?>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <?php
 }
 
+add_action('save_post', 'save_pricing_plan_meta_box_data', 10, 2);
+
 function save_pricing_plan_meta_box_data($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+    if (!isset($_POST['pricing_plan_nonce']) || !wp_verify_nonce($_POST['pricing_plan_nonce'], 'pricing_plan_nonce_action')) {
         return;
-    if ($parent_id = wp_is_post_revision($post_id))
-        $post_id = $parent_id;
-    if (isset($_POST['custom_text'])) {
-        update_post_meta($post_id, 'custom_text', $_POST['custom_text']);
     }
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    if ('pricing-plan' !== get_post_type($post_id)) {
+        return;
+    }
+
+    $selected_plans = $_POST['endurance_pricing_plan_period'] ?? [];
+    update_post_meta($post_id, 'endurance_pricing_plan_period', $selected_plans);
+
+    // Default features
+    $default_features = [
+        'Workouts' => 1,
+        'Progress Tracking' => 1,
+        'Nutritional Guidance' => 1,
+        'One-on-One Coaching' => 1,
+        'Priority Event Registration' => 1,
+        'Bonus Workshops/Seminars' => 1,
+        'Personalized Support' => 1
+    ];
+
+    $pricing_plan_data = [];
+    $pricing_plan_features_data = [];
+    
+    if (isset($_POST['endurance_pricing_plan_price'])) {
+        foreach ($_POST['endurance_pricing_plan_price'] as $plan => $data) {
+            // Prepare the pricing plan data
+            $pricing_plan_data[$plan] = [
+                'price' => floatval($data['price'] ?? 0),
+            ];
+        }
+        
+        foreach ($_POST['endurance_pricing_plan_features'] as $plan => $data) {
+            // Start with the default features
+            $features_data = $default_features;
+
+            // Add checked features from the submitted data
+            if (isset($data['features'])) {
+                foreach ($data['features'] as $feature => $checked) {
+                    if ($checked) {
+                        $features_data[$feature] = 1; // Add checked feature
+                    }
+                }
+            }
+
+            // Remove features explicitly marked as removed
+            if (isset($data['removed_features'])) {
+                $removed_features = json_decode(stripslashes($data['removed_features']), true);
+                if (is_array($removed_features)) {
+                    foreach ($removed_features as $removed_feature) {
+                        unset($features_data[$removed_feature]); // Remove feature
+                    }
+                }
+            }
+			$features_list = get_post_meta($post_id, 'endurance_pricing_plan_features', true);
+			if( '' != $features_list ) {
+				$features_data = array_diff( $data['features'], $features_data );
+				foreach ($features_data as $feature => $checked) {
+					if ($checked) {
+						$features_data[$feature] = 1; // Add checked feature
+					}
+				}
+			}
+
+            // Prepare the pricing plan features data
+            $pricing_plan_features_data[strtolower(get_the_title($post_id))] = [
+                'features' => $features_data,
+            ];
+        }
+    }
+
+    update_post_meta($post_id, 'endurance_pricing_plan_price', $pricing_plan_data);
+    update_post_meta($post_id, 'endurance_pricing_plan_features', $pricing_plan_features_data);
 }
-add_action('save_post', 'save_pricing_plan_meta_box_data');

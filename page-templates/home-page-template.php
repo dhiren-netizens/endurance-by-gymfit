@@ -322,26 +322,59 @@ $theme_option = get_option('redux_demo');
                                 <div class="col-4">
                                     <div class="option-wrapper wow fadeInLeft">
                                         <ul class="nav nav-pills mb-sm-5 mb-4" id="pills-tab" role="tablist">
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link" id="pills-monthly-tab" data-bs-toggle="pill" data-bs-target="#pills-monthly" type="button" role="tab" aria-controls="pills-monthly" aria-selected="true">
-                                                    monthly
-                                                </button>
-                                            </li>
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link active" id="pills-annually-tab" data-bs-toggle="pill" data-bs-target="#pills-annually" type="button" role="tab" aria-controls="pills-annually" aria-selected="false">
-                                                    annually
-                                                </button>
-                                            </li>
+                                            <?php 
+                                            $pricing_plans = new WP_Query( array( 'post_type' => 'pricing-plan', 'post_status' => 'publish', 'posts_per_page' => -1 ) ); 
+                                            $display_plan_period = array();
+                                            $post_title_arr = array();
+                                            $get_plan_price = array();
+
+                                            if ( $pricing_plans->have_posts() ) : 
+                                                while ( $pricing_plans->have_posts() ) : $pricing_plans->the_post(); 
+                                                    $get_plan_periods = get_post_meta( get_the_ID(), 'endurance_pricing_plan_period', true );
+                                                    $post_title_arr[] = get_the_title();
+                                                    
+                                                    $get_plan_prices = get_post_meta( get_the_ID(), 'endurance_pricing_plan_price', true );
+                                                    $get_plan_price[get_the_title()] = $get_plan_prices;
+
+                                                    foreach( $get_plan_periods as $get_plan_period ) { 
+                                                        if (!in_array($get_plan_period, $display_plan_period)) {
+                                                            $display_plan_period[] = $get_plan_period;
+                                                            ?>
+                                                            <li class="nav-item" role="presentation">
+                                                                <button class="nav-link" id="pills-<?php echo esc_attr( $get_plan_period ); ?>-tab" data-bs-toggle="pill" data-bs-target="#pills-<?php echo esc_attr( $get_plan_period ); ?>" type="button" role="tab" aria-controls="pills-<?php echo esc_attr( $get_plan_period ); ?>" aria-selected="true">
+                                                                    <?php echo esc_html( $get_plan_period );
+                                                                     ?>
+                                                                </button>
+                                                            </li>
+                                                            <?php 
+                                                        }
+                                                    } 
+                                                endwhile; 
+                                            endif; 
+                                            ?>
                                         </ul>
                                         <div class="options">
                                             <ul>
-                                                <li>Workouts</li>
-                                                <li>Progress Tracking</li>
-                                                <li>Nutritional Guidance</li>
-                                                <li>One-on-One Coaching</li>
-                                                <li>Priority Event Registration</li>
-                                                <li>Bonus Workshops/Seminars</li>
-                                                <li>Personalized Support</li>
+                                                <?php 
+                                                $pricing_plans = new WP_Query( array( 'post_type' => 'pricing-plan', 'post_status' => 'publish', 'posts_per_page' => -1 ) ); 
+                                                $display_plan_features = array();
+                                                $plan_features = array();
+                                                if ( $pricing_plans->have_posts() ) : 
+                                                    while ( $pricing_plans->have_posts() ) : $pricing_plans->the_post();
+                                                        $get_plan_features = get_post_meta( get_the_ID(), 'endurance_pricing_plan_features', true );
+                                                        $plan_features[] = $get_plan_features;                                                        
+                                                        foreach( $get_plan_features as $get_feature ) {
+                                                            foreach( $get_feature['features'] as $feature_name => $features_checked ) { 
+                                                                if (!in_array($feature_name, $display_plan_features)) {
+                                                                    $display_plan_features[] = $feature_name; ?>
+                                                                    <li><?php echo esc_html( $feature_name ); ?></li>
+                                                                    <?php
+                                                                }
+                                                            }
+                                                        }
+                                                    endwhile; 
+                                                endif; 
+                                                ?>
                                             </ul>
                                             <?php if(isset( $theme_option['endurance_pricing_plan_prices_title'] ) && !empty( $theme_option['endurance_pricing_plan_prices_title'] )) { ?>
                                                 <span class="price"><?php echo esc_html( $theme_option['endurance_pricing_plan_prices_title'] ); ?></span>
@@ -350,173 +383,52 @@ $theme_option = get_option('redux_demo');
                                     </div>
                                 </div>
                                 <div class="col-8">
-                                    <div class="pricing-block wow fadeInRight">
-                                        <div class="tab-content" id="pills-tabContent">
-                                            <div class="tab-pane fade" id="pills-monthly" role="tabpanel" aria-labelledby="pills-monthly-tab" tabindex="0">
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <div class="pricing-plan free">
-                                                            <div class="title mb-sm-5 mb-4">free</div>
-                                                            <ul>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                            </ul>
-                                                            <div class="pricing">
-                                                                <span class="free">--</span>
-                                                                <p>Lifetime Free</p>
+									<div class="pricing-block wow fadeInRight">
+										<div class="tab-content" id="pills-tabContent">
+                                            <?php foreach($display_plan_period as $display_period) { ?>
+                                                <div class="tab-pane fade" id="pills-<?= $display_period ?>" role="tabpanel" aria-labelledby="pills-<?= $display_period ?>-tab" tabindex="0">
+                                                    <div class="row">
+                                                        <?php foreach($post_title_arr as $display_title) { ?>
+                                                            <div class="col-3">
+                                                                <div class="pricing-plan <?= $display_title ?>">                                                                
+                                                                    <div class="title mb-sm-5 mb-4"><?= $display_title ?></div>
+                                                                    <ul>
+                                                                        <?php                                                                          
+                                                                            $plan_features_arr = array();
+                                                                            foreach ($plan_features as $features) {
+                                                                                foreach ($features as $key => $value) {                                                                                   
+                                                                                    $plan_features_arr[$key] = $value['features'];
+                                                                                }
+                                                                            }
+                                                                            foreach($display_plan_features as $display_features) {
+                                                                                $plan_features_keys = array_keys($plan_features_arr[strtolower($display_title)]);
+                                                                                $flag = in_array($display_features, $plan_features_keys) ? get_template_directory_uri() . "/assets/images/icon/pricing-icon.svg" : get_template_directory_uri() . "/assets/images/icon/pricing-icon-2.svg";
+                                                                        ?>
+                                                                            
+                                                                            <li><img loading="lazy" src="<?php echo esc_url( $flag ); ?>" width="30" height="30" alt="pricing-icon"></li>
+                                                                        <?php } ?>
+                                                                    </ul>
+                                                                    <div class="pricing">
+                                                                        <?php if('Free' == $display_title ) { ?>
+                                                                            <span class="<?php echo esc_attr( $display_title ); ?>"><?php echo esc_html( $get_plan_price[$display_title][ucwords($display_period)]['price'] ); ?></span>
+                                                                            <p> Lifetime</p>
+                                                                        <?php } else { ?>
+                                                                            <span class="<?php echo esc_attr( $display_title ); ?>">$<?php echo esc_html( $get_plan_price[$display_title][ucwords($display_period)]['price'] ); ?></span>
+                                                                            <p> / <?php echo esc_html( $display_period ); ?></p>
+                                                                        <?php } ?>
+                                                                    </div>
+                                                                    <?php if(isset( $theme_option['endurance_sign_up_link'] ) && !empty( $theme_option['endurance_sign_up_link'] )) { ?>
+                                                                        <a href="#" class="btn_wrapper mt-2 mx-auto"><?php echo esc_html( $theme_option['endurance_sign_up_text'] ); ?></a>
+                                                                    <?php } ?>
+                                                                </div>
                                                             </div>
-                                                            <?php if(isset( $theme_option['endurance_sign_up_link'] ) && !empty( $theme_option['endurance_sign_up_link'] )) { ?>
-                                                                <a href="#" class="btn_wrapper mt-2 mx-auto"><?php echo esc_html( $theme_option['endurance_sign_up_text'] ); ?></a>
-                                                            <?php } ?>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <div class="pricing-plan basic">
-                                                            <div class="title mb-sm-5 mb-4">Basic</div>
-                                                            <ul>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                            </ul>
-                                                            <div class="pricing">
-                                                                <span>$9.99</span>
-                                                                <p>/Monthly</p>
-                                                            </div>
-                                                            <a href="#" class="btn_wrapper mt-2 mx-auto">sign up</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <div class="pricing-plan pro">
-                                                            <div class="title mb-sm-5 mb-4">pro</div>
-                                                            <ul>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                            </ul>
-                                                            <div class="pricing">
-                                                                <span>$19.99</span>
-                                                                <p>/Monthly</p>
-                                                            </div>
-                                                            <a href="#" class="btn_wrapper mt-2 mx-auto">sign up</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <div class="pricing-plan ultimate">
-                                                            <div class="title mb-sm-5 mb-4">ULTIMATE</div>
-                                                            <ul>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                            </ul>
-                                                            <div class="pricing">
-                                                                <span>$29.99</span>
-                                                                <p>/Monthly</p>
-                                                            </div>
-                                                            <a href="#" class="btn_wrapper mt-2 mx-auto">sign up</a>
-                                                        </div>
+                                                        <?php } ?>                                                       
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="tab-pane fade show active" id="pills-annually" role="tabpanel" aria-labelledby="pills-annually-tab" tabindex="0">
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <div class="pricing-plan free">
-                                                            <div class="title mb-sm-5 mb-4">free</div>
-                                                            <ul>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                            </ul>
-                                                            <div class="pricing">
-                                                                <span class="free">--</span>
-                                                                <p>Lifetime Free</p>
-                                                            </div>
-                                                            <a href="#" class="btn_wrapper mt-2 mx-auto">sign up</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <div class="pricing-plan basic">
-                                                            <div class="title mb-sm-5 mb-4">Basic</div>
-                                                            <ul>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                            </ul>
-                                                            <div class="pricing">
-                                                                <span>$49.99</span>
-                                                                <p>/Annual</p>
-                                                            </div>
-                                                            <a href="#" class="btn_wrapper mt-2 mx-auto">sign up</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <div class="pricing-plan pro">
-                                                            <div class="title mb-sm-5 mb-4">pro</div>
-                                                            <ul>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon-2.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                            </ul>
-                                                            <div class="pricing">
-                                                                <span>$69.99</span>
-                                                                <p>/Annual</p>
-                                                            </div>
-                                                            <a href="#" class="btn_wrapper mt-2 mx-auto">sign up</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <div class="pricing-plan ultimate">
-                                                            <div class="title mb-sm-5 mb-4">ULTIMATE</div>
-                                                            <ul>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                            </ul>
-                                                            <div class="pricing">
-                                                                <span>$99.99</span>
-                                                                <p>/Annual</p>
-                                                            </div>
-                                                            <a href="#" class="btn_wrapper mt-2 mx-auto">sign up</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                            <?php } ?>
+										</div>
+									</div>
+								</div>
                             </div>
                         </div>
                     </div>
