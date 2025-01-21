@@ -280,7 +280,7 @@ Redux::set_args( $opt_name, $args );
 
 $opt_name = 'redux_demo';
 
-// Header Settings
+// Header Settings.
 Redux::set_section(
 	$opt_name,
 	array(
@@ -290,14 +290,14 @@ Redux::set_section(
 		'customizer_width' => '400px',
 		'icon'             => 'el el-website',
 		'fields'           => array(
-            array(
-                'id'       => 'endurance_header_menu',
-                'type'     => 'select',
-                'data'     => 'menus',
-                'title'    => esc_html__( 'Header Menu', 'endurance' ),
-                'desc'     => esc_html__( 'Select the header menu.', 'endurance' ),
-				'default'  => '31',
-            ),
+			array(
+				'id'      => 'endurance_header_menu',
+				'type'    => 'select',
+				'data'    => 'menus',
+				'title'   => esc_html__( 'Header Menu', 'endurance' ),
+				'desc'    => esc_html__( 'Select the header menu.', 'endurance' ),
+				'default' => '31',
+			),
 			array(
 				'id'           => 'endurance_header_logo',
 				'type'         => 'media',
@@ -306,8 +306,8 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Header Logo', 'endurance' ),
 				'preview_size' => 'full',
-				'default'  => array(
-					'url' => get_template_directory_uri() . '/assets/images/logo.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/logo.svg',
 				),
 			),
 			array(
@@ -318,50 +318,50 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Favicon', 'endurance' ),
 				'preview_size' => 'full',
-				'default'  => array(
-					'url' => get_template_directory_uri() . '/assets/images/favicon.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/favicon.svg',
 				),
 			),
 			array(
-				'id'       => 'endurance_display_contact_btn',
-				'type'     => 'switch',
-				'title'    => esc_html__( 'Display Contact us button', 'endurance' ),
-				'default'  => true,
+				'id'      => 'endurance_display_contact_btn',
+				'type'    => 'switch',
+				'title'   => esc_html__( 'Display Contact us button', 'endurance' ),
+				'default' => true,
 			),
 			array(
-				'id'       => 'endurance_enable_top_to_btn',
-				'type'     => 'switch',
-				'title'    => esc_html__( 'Want to display Top To Button?', 'endurance' ),
-				'default'  => true,
-				'on'       => 'Enabled',
-				'off'      => 'Disabled',
+				'id'      => 'endurance_enable_top_to_btn',
+				'type'    => 'switch',
+				'title'   => esc_html__( 'Want to display Top To Button?', 'endurance' ),
+				'default' => true,
+				'on'      => 'Enabled',
+				'off'     => 'Disabled',
 			),
 			array(
-				'id'       => 'endurance_page_loader',
-				'type'     => 'switch',
-				'title'    => esc_html__( 'Want to display Page Loader?', 'endurance' ),
-				'default'  => true,
-				'on'       => 'Enabled',
-				'off'      => 'Disabled',
+				'id'      => 'endurance_page_loader',
+				'type'    => 'switch',
+				'title'   => esc_html__( 'Want to display Page Loader?', 'endurance' ),
+				'default' => true,
+				'on'      => 'Enabled',
+				'off'     => 'Disabled',
 			),
 			array(
 				'id'           => 'endurance_page_loader_image',
 				'type'         => 'media',
 				'url'          => true,
-				'required' => array( 'endurance_page_loader', '=', true ),
+				'required'     => array( 'endurance_page_loader', '=', true ),
 				'title'        => esc_html__( 'Page Loader Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default'  => array(
-					'url' => get_template_directory_uri() . '/assets/images/transformation.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/transformation.webp',
 				),
 			),
-        ),
+		),
 	)
 );
 
-// Footer Settings
+// Footer Settings.
 Redux::set_section(
 	$opt_name,
 	array(
@@ -371,14 +371,14 @@ Redux::set_section(
 		'customizer_width' => '400px',
 		'icon'             => 'el el-th',
 		'fields'           => array(
-            array(
-                'id'       => 'endurance_footer_menu',
-                'type'     => 'select',
-                'data'     => 'menus',
-                'title'    => esc_html__( 'Footer Menu', 'endurance' ),
-                'desc'     => esc_html__( 'Select the footer menu.', 'endurance' ),
-				'default'  => '32',
-            ),
+			array(
+				'id'      => 'endurance_footer_menu',
+				'type'    => 'select',
+				'data'    => 'menus',
+				'title'   => esc_html__( 'Footer Menu', 'endurance' ),
+				'desc'    => esc_html__( 'Select the footer menu.', 'endurance' ),
+				'default' => '32',
+			),
 			array(
 				'id'           => 'endurance_footer_logo',
 				'type'         => 'media',
@@ -387,15 +387,15 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Footer Logo', 'endurance' ),
 				'preview_size' => 'full',
-				'default'  => array(
-					'url' => get_template_directory_uri() . '/assets/images/footer-logo.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/footer-logo.svg',
 				),
 			),
 			array(
 				'id'       => 'endurance_copyright_content',
 				'type'     => 'editor',
 				'title'    => esc_html__( 'Copyright Text', 'endurance' ),
-				'subtitle' => esc_html__( 'Enter your copyright text'),
+				'subtitle' => esc_html__( 'Enter your copyright text' ),
 				'default'  => 'Copyright © 2025. All rights reserved',
 			),
 			array(
@@ -406,8 +406,8 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Bank Cards', 'endurance' ),
 				'preview_size' => 'full',
-				'default'  => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/visa-card.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/visa-card.svg',
 				),
 			),
 			array(
@@ -416,59 +416,59 @@ Redux::set_section(
 				'title'           => esc_html__( 'Social Profiles', 'endurance' ),
 				'subtitle'        => esc_html__( 'Click an icon to activate it, drag and drop to change the icon order.', 'endurance' ),
 				'hide_widget_msg' => true,
-				'icons' => array(
-					array (
+				'icons'           => array(
+					array(
 						'id'         => 'facebook',
 						'icon'       => 'fa-facebook',
 						'enabled'    => true,
-						'name'       => __ ( 'Facebook', 'endurance' ),
+						'name'       => __( 'Facebook', 'endurance' ),
 						'background' => '',
 						'color'      => 'rgb(59, 89, 152)',
 						'url'        => 'https://facebook.com',
 					),
-					array (
+					array(
 						'id'         => 'instagram',
 						'icon'       => 'fa-instagram',
 						'enabled'    => true,
-						'name'       => __ ( 'Instagram', 'endurance' ),
+						'name'       => __( 'Instagram', 'endurance' ),
 						'background' => '',
 						'color'      => 'rgb(63, 114, 155)',
 						'url'        => 'https://instagram.com',
 					),
-					array (
+					array(
 						'id'         => 'twitter',
 						'icon'       => 'fa-twitter',
 						'enabled'    => true,
-						'name'       => __ ( 'Twitter', 'endurance' ),
+						'name'       => __( 'Twitter', 'endurance' ),
 						'background' => '',
 						'color'      => 'rgb(0, 0, 0)',
 						'url'        => 'https://x.com',
 					),
-					array (
+					array(
 						'id'         => 'youtube',
 						'icon'       => 'fa-youtube',
 						'enabled'    => true,
-						'name'       => __ ( 'Youtube', 'endurance' ),
+						'name'       => __( 'Youtube', 'endurance' ),
 						'background' => '',
 						'color'      => 'rgb(229, 45, 39)',
 						'url'        => 'https://youtube.com',
 					),
-					array (
+					array(
 						'id'         => 'linkedin',
 						'icon'       => 'fa-linkedin',
 						'enabled'    => true,
-						'name'       => __ ( 'LinkedIn', 'endurance' ),
+						'name'       => __( 'LinkedIn', 'endurance' ),
 						'background' => '',
 						'color'      => 'rgb(9, 118, 180)',
 						'url'        => 'https://linkedin.com',
-					)
-				)
+					),
+				),
 			),
-        ),
+		),
 	)
 );
 
-// General Settings
+// General Settings.
 Redux::set_section(
 	$opt_name,
 	array(
@@ -478,17 +478,17 @@ Redux::set_section(
 		'icon'             => 'el el-wrench',
 		'fields'           => array(
 			array(
-                'id'           => 'endurance_general_background_image',
+				'id'           => 'endurance_general_background_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Background Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/strips.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/strips.svg',
 				),
-            ),
+			),
 			array(
 				'id'          => 'endurance_general_background_color1',
 				'type'        => 'color',
@@ -506,62 +506,62 @@ Redux::set_section(
 				'validate'    => 'color',
 			),
 			array(
-                'id'           => 'endurance_general_pattern_image',
+				'id'           => 'endurance_general_pattern_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Pattern Image (Between the title)', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/line-pettern.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/line-pettern.svg',
 				),
-            ),
-			array(
-				'id'       => 'endurance_general_tutorial_button',
-				'type'     => 'section',
-				'title'    => esc_html__( 'Watch Tutorial Button', 'endurance' ),
-				'indent'   => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-				'id'       => 'endurance_general_tutorial_text',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Tutorial Button Text', 'endurance' ),
-				'default'  => 'Watch Tutorial',
+				'id'     => 'endurance_general_tutorial_button',
+				'type'   => 'section',
+				'title'  => esc_html__( 'Watch Tutorial Button', 'endurance' ),
+				'indent' => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-                'id'           => 'endurance_general_tutorial_play_btn_icon',
+				'id'      => 'endurance_general_tutorial_text',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Tutorial Button Text', 'endurance' ),
+				'default' => 'Watch Tutorial',
+			),
+			array(
+				'id'           => 'endurance_general_tutorial_play_btn_icon',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Watch Tutorial Play Button Icon', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/btn-arrow.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/btn-arrow.svg',
 				),
-            ),
+			),
 			array(
 				'id'     => 'endurance_general_tutorial_button_end',
 				'type'   => 'section',
 				'indent' => false, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-				'id'       => 'endurance_general_gt_button',
-				'type'     => 'section',
-				'title'    => esc_html__( 'Get Started Button', 'endurance' ),
-				'indent'   => true, // Indent all options below until the next 'section' option is set.
+				'id'     => 'endurance_general_gt_button',
+				'type'   => 'section',
+				'title'  => esc_html__( 'Get Started Button', 'endurance' ),
+				'indent' => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-				'id'       => 'endurance_general_gt_text',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Button Text', 'endurance' ),
-				'default'  => 'Get Started',
+				'id'      => 'endurance_general_gt_text',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Button Text', 'endurance' ),
+				'default' => 'Get Started',
 			),
 			array(
 				'id'       => 'endurance_general_gt_link',
 				'type'     => 'text',
-				'validate'  => 'url',
+				'validate' => 'url',
 				'title'    => esc_html__( 'Button Link', 'endurance' ),
 				'default'  => '#',
 			),
@@ -571,16 +571,16 @@ Redux::set_section(
 				'indent' => false, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-				'id'       => 'endurance_general_articles_button',
-				'type'     => 'section',
-				'title'    => esc_html__( 'Read Our Articles', 'endurance' ),
-				'indent'   => true, // Indent all options below until the next 'section' option is set.
+				'id'     => 'endurance_general_articles_button',
+				'type'   => 'section',
+				'title'  => esc_html__( 'Read Our Articles', 'endurance' ),
+				'indent' => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-				'id'       => 'endurance_general_articles_title',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Title', 'endurance' ),
-				'default'  => '<span>Read Our</span> Articles',
+				'id'      => 'endurance_general_articles_title',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Title', 'endurance' ),
+				'default' => '<span>Read Our</span> Articles',
 			),
 			array(
 				'id'       => 'endurance_general_articles_description',
@@ -590,45 +590,45 @@ Redux::set_section(
 				'default'  => 'Unlock the secrets of endurance and elevate your performance with our insightful articles.',
 			),
 			array(
-                'id'           => 'endurance_general_articles_left_arrow_icon',
+				'id'           => 'endurance_general_articles_left_arrow_icon',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Left Arrow Icon', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-left.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-left.svg',
 				),
-            ),
+			),
 			array(
-                'id'           => 'endurance_general_articles_right_arrow_icon',
+				'id'           => 'endurance_general_articles_right_arrow_icon',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Right Arrow Icon', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-right.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-right.svg',
 				),
-            ),
+			),
 			array(
 				'id'     => 'endurance_general_articles_button_end',
 				'type'   => 'section',
 				'indent' => false, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-				'id'       => 'endurance_general_team_button',
-				'type'     => 'section',
-				'title'    => esc_html__( 'Meet Our Team', 'endurance' ),
-				'indent'   => true, // Indent all options below until the next 'section' option is set.
+				'id'     => 'endurance_general_team_button',
+				'type'   => 'section',
+				'title'  => esc_html__( 'Meet Our Team', 'endurance' ),
+				'indent' => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-				'id'       => 'endurance_general_team_title',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Title', 'endurance' ),
-				'default'  => 'Meet Our Team',
+				'id'      => 'endurance_general_team_title',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Title', 'endurance' ),
+				'default' => 'Meet Our Team',
 			),
 			array(
 				'id'     => 'endurance_general_team_button_end',
@@ -636,41 +636,41 @@ Redux::set_section(
 				'indent' => false, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-				'id'       => 'endurance_about_us_section',
-				'title'    => esc_html__( 'About Us', 'endurance' ),
-			    'type'     => 'section',
-				'indent'   => true, 
+				'id'     => 'endurance_about_us_section',
+				'title'  => esc_html__( 'About Us', 'endurance' ),
+				'type'   => 'section',
+				'indent' => true,
 			),
 			array(
-                'id'           => 'endurance_general_about_us_image',
+				'id'           => 'endurance_general_about_us_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/about-img.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/about-img.webp',
 				),
-            ),
+			),
 			array(
-                'id'           => 'endurance_general_about_us_logo_image',
+				'id'           => 'endurance_general_about_us_logo_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Logo Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/white-logo.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/white-logo.webp',
 				),
-            ),
+			),
 			array(
 				'id'          => 'endurance_general_about_us_title',
 				'type'        => 'text',
 				'title'       => esc_html__( 'Title', 'endurance' ),
 				'placeholder' => 'Enter your title ',
-				'default' => 'About Us',
+				'default'     => 'About Us',
 			),
 			array(
 				'id'       => 'endurance_general_about_us_description',
@@ -680,77 +680,77 @@ Redux::set_section(
 				'default'  => 'Welcome to Endurance Unleashed, where we fuel the spirit of champions. Our mission is to equip you with the finest tools, gear, and resources to conquer your limits and achieve extraordinary feats. Embrace the thrill of pushing beyond boundaries, stay motivated through the toughest challenges, and track your progress as you embark on a relentless journey to greatness.let\'s redefine the power of perseverance and triumph in the face of every obstacle. Unleash your full potential with Endurance.',
 			),
 			array(
-				'id'       => 'endurance_testimonial',
-				'type'     => 'section',
-				'title'    => esc_html__( 'Our Happy Client', 'endurance' ),
-				'indent'   => true, // Indent all options below until the next 'section' option is set.
+				'id'     => 'endurance_testimonial',
+				'type'   => 'section',
+				'title'  => esc_html__( 'Our Happy Client', 'endurance' ),
+				'indent' => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-				'id'       => 'endurance_testimonial_heading',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Our Happy Client', 'endurance' ),
-				'default'  => 'Our Happy Client',
+				'id'      => 'endurance_testimonial_heading',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Our Happy Client', 'endurance' ),
+				'default' => 'Our Happy Client',
 			),
 			array(
-                'id'           => 'endurance_general_articles_left_arrow_icont',
+				'id'           => 'endurance_general_articles_left_arrow_icont',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Left Arrow Icon', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-left.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-left.svg',
 				),
-            ),
+			),
 			array(
-                'id'           => 'endurance_general_articles_right_arrow_icont',
+				'id'           => 'endurance_general_articles_right_arrow_icont',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Right Arrow Icon', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-right.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-right.svg',
 				),
-            ),
+			),
 			array(
-                'id'           => 'endurance_general_gymfit_white_img',
+				'id'           => 'endurance_general_gymfit_white_img',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'White Logo Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/client-pettern.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/client-pettern.svg',
 				),
-            ),
+			),
 			array(
-                'id'           => 'endurance_general_person_img',
+				'id'           => 'endurance_general_person_img',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Person Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/clients/client-img.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/clients/client-img.webp',
 				),
-            ),
+			),
 			array(
-				'id'       => 'endurance_smart_app_Section',
-				'title'    => esc_html__( 'Smart App Section', 'endurance' ),
-			    'type'     => 'section',
-				'indent'   => true, 
+				'id'     => 'endurance_smart_app_Section',
+				'title'  => esc_html__( 'Smart App Section', 'endurance' ),
+				'type'   => 'section',
+				'indent' => true,
 			),
 			array(
 				'id'          => 'endurance_general_smart_app_title',
 				'type'        => 'text',
 				'title'       => esc_html__( 'Title', 'endurance' ),
 				'placeholder' => 'Enter your title ',
-				'default' => 'Smart App For All',
+				'default'     => 'Smart App For All',
 			),
 			array(
 				'id'       => 'endurance_general_smart_app_description',
@@ -767,8 +767,8 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/cta-appstore-img.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-appstore-img.svg',
 				),
 			),
 			array(
@@ -779,8 +779,8 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/cta-mockup.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-mockup.webp',
 				),
 			),
 			array(
@@ -791,8 +791,8 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/cta-line.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-line.svg',
 				),
 			),
 			array(
@@ -812,12 +812,12 @@ Redux::set_section(
 						'from' => 0,
 					),
 				),
-		    ),
-        ),
+			),
+		),
 	)
 );
 
-// Home Page Settings
+// Home Page Settings.
 Redux::set_section(
 	$opt_name,
 	array(
@@ -828,21 +828,21 @@ Redux::set_section(
 	),
 );
 
-// Banner Section - Home Page Settings
+// Banner Section - Home Page Settings.
 Redux::set_section(
 	$opt_name,
 	array(
 		'title'            => esc_html__( 'Banner Section', 'endurance' ),
 		'id'               => 'endurance_banner_section',
 		'customizer_width' => '400px',
-		'subsection' => true,
+		'subsection'       => true,
 		'icon'             => 'el el-website',
 		'fields'           => array(
 			array(
-				'id'       => 'endurance_banner_data',
-				'type'     => 'section',
-				'title'    => esc_html__( 'Banner Section Text & Image', 'endurance' ),
-				'indent'   => true, // Indent all options below until the next 'section' option is set.
+				'id'     => 'endurance_banner_data',
+				'type'   => 'section',
+				'title'  => esc_html__( 'Banner Section Text & Image', 'endurance' ),
+				'indent' => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
 				'id'          => 'endurance_banner_title',
@@ -856,10 +856,10 @@ Redux::set_section(
 					'box1' => '',
 					'box2' => '',
 				),
-				'default' => array(
+				'default'     => array(
 					'box1' => 'BE UNSTOPPABLE',
 					'box2' => 'Embrace Endurance',
-				)
+				),
 			),
 			array(
 				'id'       => 'endurance_banner_description',
@@ -869,79 +869,79 @@ Redux::set_section(
 				'default'  => 'We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.',
 			),
 			array(
-                'id'           => 'endurance_banner_image',
+				'id'           => 'endurance_banner_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/banner-img.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/banner-img.webp',
 				),
-            ),
-			array(
-				'id'       => 'endurance_banner_members_text',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Members Text', 'endurance' ),
-				'default'  => 'members',
 			),
 			array(
-                'id'           => 'endurance_banner_members_image',
+				'id'      => 'endurance_banner_members_text',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Members Text', 'endurance' ),
+				'default' => 'members',
+			),
+			array(
+				'id'           => 'endurance_banner_members_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Members Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/members.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/members.webp',
 				),
-            ),
+			),
 			array(
 				'id'     => 'endurance_banner_data_end',
 				'type'   => 'section',
 				'indent' => false, // Indent all options below until the next 'section' option is set.
-			),		
-        ),
+			),
+		),
 	)
 );
 
-// Gear Up For Success Section - Home Page Settings
+// Gear Up For Success Section - Home Page Settings.
 Redux::set_section(
 	$opt_name,
 	array(
 		'title'            => esc_html__( 'Gear Up Section', 'endurance' ),
 		'id'               => 'endurance_gear_up_section',
 		'customizer_width' => '400px',
-		'subsection' => true,
+		'subsection'       => true,
 		'icon'             => 'el el-heart',
 		'fields'           => array(
-			// Learn From the best
+			// Learn From the best.
 			array(
-				'id'       => 'endurance_gear_up_learn_data',
-				'type'     => 'section',
-				'title'    => esc_html__( 'Learn From The Best', 'endurance' ),
-				'indent'   => true, // Indent all options below until the next 'section' option is set.
+				'id'     => 'endurance_gear_up_learn_data',
+				'type'   => 'section',
+				'title'  => esc_html__( 'Learn From The Best', 'endurance' ),
+				'indent' => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-                'id'           => 'endurance_gear_up_learn_image',
+				'id'           => 'endurance_gear_up_learn_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/success-1.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/success-1.webp',
 				),
-            ),
+			),
 			array(
 				'id'          => 'endurance_gear_up_learn_title',
 				'type'        => 'text',
 				'title'       => esc_html__( 'Title', 'endurance' ),
 				'placeholder' => 'Enter your title ',
-				'default' => 'Learn From The Best',
+				'default'     => 'Learn From The Best',
 			),
 			array(
 				'id'       => 'endurance_gear_up_learn_description',
@@ -972,31 +972,31 @@ Redux::set_section(
 				'type'   => 'section',
 				'indent' => false, // Indent all options below until the next 'section' option is set.
 			),
-			// Track your progress
+			// Track your progress.
 			array(
-				'id'       => 'endurance_gear_up_track_data',
-				'type'     => 'section',
-				'title'    => esc_html__( 'Track Your Progress', 'endurance' ),
-				'indent'   => true, // Indent all options below until the next 'section' option is set.
+				'id'     => 'endurance_gear_up_track_data',
+				'type'   => 'section',
+				'title'  => esc_html__( 'Track Your Progress', 'endurance' ),
+				'indent' => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-                'id'           => 'endurance_gear_up_track_image',
+				'id'           => 'endurance_gear_up_track_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/success-icon.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/success-icon.svg',
 				),
-            ),
+			),
 			array(
 				'id'          => 'endurance_gear_up_track_title',
 				'type'        => 'text',
 				'title'       => esc_html__( 'Title', 'endurance' ),
 				'placeholder' => 'Enter your title ',
-				'default' => 'Track Your Progress',
+				'default'     => 'Track Your Progress',
 			),
 			array(
 				'id'             => 'endurance_gear_up_track_color',
@@ -1037,31 +1037,31 @@ Redux::set_section(
 				'type'   => 'section',
 				'indent' => false, // Indent all options below until the next 'section' option is set.
 			),
-			// Improve With Routine
+			// Improve With Routine.
 			array(
-				'id'       => 'endurance_gear_up_improve_data',
-				'type'     => 'section',
-				'title'    => esc_html__( 'Improve With Routine', 'endurance' ),
-				'indent'   => true, // Indent all options below until the next 'section' option is set.
+				'id'     => 'endurance_gear_up_improve_data',
+				'type'   => 'section',
+				'title'  => esc_html__( 'Improve With Routine', 'endurance' ),
+				'indent' => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-                'id'           => 'endurance_gear_up_improve_image',
+				'id'           => 'endurance_gear_up_improve_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/success-icon-2.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/success-icon-2.svg',
 				),
-            ),
+			),
 			array(
 				'id'          => 'endurance_gear_up_improve_title',
 				'type'        => 'text',
 				'title'       => esc_html__( 'Title', 'endurance' ),
 				'placeholder' => 'Enter your title ',
-				'default' => 'Improve With Routine',
+				'default'     => 'Improve With Routine',
 			),
 			array(
 				'id'             => 'endurance_gear_up_improve_color',
@@ -1102,31 +1102,31 @@ Redux::set_section(
 				'type'   => 'section',
 				'indent' => false, // Indent all options below until the next 'section' option is set.
 			),
-			// Stay Movtivated
+			// Stay Movtivated.
 			array(
-				'id'       => 'endurance_gear_up_motivated_data',
-				'type'     => 'section',
-				'title'    => esc_html__( 'Stay Movtivated', 'endurance' ),
-				'indent'   => true, // Indent all options below until the next 'section' option is set.
+				'id'     => 'endurance_gear_up_motivated_data',
+				'type'   => 'section',
+				'title'  => esc_html__( 'Stay Movtivated', 'endurance' ),
+				'indent' => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-                'id'           => 'endurance_gear_up_motivated_image',
+				'id'           => 'endurance_gear_up_motivated_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/success-2.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/success-2.webp',
 				),
-            ),
+			),
 			array(
 				'id'          => 'endurance_gear_up_motivated_title',
 				'type'        => 'text',
 				'title'       => esc_html__( 'Title', 'endurance' ),
 				'placeholder' => 'Enter your title ',
-				'default' => 'Stay Movtivated.',
+				'default'     => 'Stay Movtivated.',
 			),
 			array(
 				'id'       => 'endurance_gear_up_motivated_description',
@@ -1157,18 +1157,18 @@ Redux::set_section(
 				'type'   => 'section',
 				'indent' => false, // Indent all options below until the next 'section' option is set.
 			),
-        ),
+		),
 	)
 );
 
-// Marquee Notice Section - Home Page Settings
+// Marquee Notice Section - Home Page Settings.
 Redux::set_section(
 	$opt_name,
 	array(
 		'title'            => esc_html__( 'Marquee Notice Section', 'endurance' ),
 		'id'               => 'endurance_marquee_notice_section',
 		'customizer_width' => '400px',
-		'subsection' => true,
+		'subsection'       => true,
 		'icon'             => 'el el-idea',
 		'fields'           => array(
 			array(
@@ -1190,49 +1190,49 @@ Redux::set_section(
 				),
 			),
 			array(
-                'id'           => 'endurance_marquee_notice_image',
+				'id'           => 'endurance_marquee_notice_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Marquee Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/marquee-icon.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/marquee-icon.svg',
 				),
-            ),
-        ),
+			),
+		),
 	)
 );
 
-// Stand Out Section - Home Page Settings
+// Stand Out Section - Home Page Settings.
 Redux::set_section(
 	$opt_name,
 	array(
 		'title'            => esc_html__( 'Stand Out Section', 'endurance' ),
 		'id'               => 'endurance_stand_out_section',
 		'customizer_width' => '400px',
-		'subsection' => true,
+		'subsection'       => true,
 		'icon'             => 'el el-opensource',
 		'fields'           => array(
 			array(
-				'id'       => 'endurance_stand_out_data',
-				'type'     => 'section',
-				'title'    => esc_html__( 'Stand Out Section Text & Image', 'endurance' ),
-				'indent'   => true, // Indent all options below until the next 'section' option is set.
+				'id'     => 'endurance_stand_out_data',
+				'type'   => 'section',
+				'title'  => esc_html__( 'Stand Out Section Text & Image', 'endurance' ),
+				'indent' => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
-                'id'           => 'endurance_stand_out_line_pattern_image',
+				'id'           => 'endurance_stand_out_line_pattern_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Line Pattern Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/stand-with-pettern.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/stand-with-pettern.svg',
 				),
-            ),
+			),
 			array(
 				'id'          => 'endurance_stand_out_title',
 				'type'        => 'text',
@@ -1245,16 +1245,16 @@ Redux::set_section(
 					'box1' => '',
 					'box2' => '',
 				),
-				'default' => array(
+				'default'     => array(
 					'box1' => 'Stand out with',
 					'box2' => 'High Endurance',
-				)
+				),
 			),
 			array(
-				'id'       => 'endurance_stand_out_subtitle',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Sub Title', 'endurance' ),
-				'default'  => 'Defy The Limits',
+				'id'      => 'endurance_stand_out_subtitle',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Sub Title', 'endurance' ),
+				'default' => 'Defy The Limits',
 			),
 			array(
 				'id'       => 'endurance_stand_out_description',
@@ -1264,54 +1264,54 @@ Redux::set_section(
 				'default'  => 'We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.',
 			),
 			array(
-                'id'           => 'endurance_stand_out_image',
+				'id'           => 'endurance_stand_out_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/stand-with-img.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/stand-with-img.webp',
 				),
-            ),
+			),
 			array(
 				'id'     => 'endurance_stand_out_end',
 				'type'   => 'section',
 				'indent' => false, // Indent all options below until the next 'section' option is set.
-			),		
-        ),
+			),
+		),
 	)
 );
 
-// Special Addons Section - Home Page Settings
+// Special Addons Section - Home Page Settings.
 Redux::set_section(
 	$opt_name,
 	array(
 		'title'            => esc_html__( 'Special Addons Section', 'endurance' ),
 		'id'               => 'endurance_special_addons_section',
 		'customizer_width' => '400px',
-		'subsection' => true,
+		'subsection'       => true,
 		'icon'             => 'el el-puzzle',
 		'fields'           => array(
 			array(
-				'id'       => 'endurance_special_addons_section_heading',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Heading', 'endurance' ),
-				'default'  => 'Special Addons',
+				'id'      => 'endurance_special_addons_section_heading',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Heading', 'endurance' ),
+				'default' => 'Special Addons',
 			),
 			array(
-                'id'           => 'endurance_special_addons_section_background_image',
+				'id'           => 'endurance_special_addons_section_background_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Background Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/special-line.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/special-line.svg',
 				),
-            ),
+			),
 
 			array(
 				'id'       => 'endurance_special_addons_box1_data',
@@ -1320,10 +1320,10 @@ Redux::set_section(
 				'position' => 'start',
 			),
 			array(
-				'id'       => 'endurance_special_addons_box1_title',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Title', 'endurance' ),
-				'default'  => 'Workouts & Training',
+				'id'      => 'endurance_special_addons_box1_title',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Title', 'endurance' ),
+				'default' => 'Workouts & Training',
 			),
 			array(
 				'id'       => 'endurance_special_addons_box1_description',
@@ -1333,10 +1333,10 @@ Redux::set_section(
 				'default'  => 'We focus on building cardiovascular endurance, muscular stamina, and mental resilience, enabling athletes and fitness enthusiasts to sustain physical effort over extended periods.',
 			),
 			array(
-				'id'       => 'endurance_special_addons_box1_hashtag_title',
-				'type'     => 'text',
-				'title'    => esc_html__( 'HashTag Title', 'endurance' ),
-				'default'  => '#EndureDrills',
+				'id'      => 'endurance_special_addons_box1_hashtag_title',
+				'type'    => 'text',
+				'title'   => esc_html__( 'HashTag Title', 'endurance' ),
+				'default' => '#EndureDrills',
 			),
 			array(
 				'id'           => 'endurance_special_addons_box1_pattern_image',
@@ -1346,8 +1346,8 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/special-pettern.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/special-pettern.svg',
 				),
 			),
 			array(
@@ -1358,8 +1358,8 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/special-1.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/special-1.webp',
 				),
 			),
 			array(
@@ -1393,10 +1393,10 @@ Redux::set_section(
 				'open'     => false,
 			),
 			array(
-				'id'       => 'endurance_special_addons_box2_title',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Title', 'endurance' ),
-				'default'  => 'Workouts & Training',
+				'id'      => 'endurance_special_addons_box2_title',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Title', 'endurance' ),
+				'default' => 'Workouts & Training',
 			),
 			array(
 				'id'       => 'endurance_special_addons_box2_description',
@@ -1406,35 +1406,35 @@ Redux::set_section(
 				'default'  => 'We focus on building cardiovascular endurance, muscular stamina, and mental resilience, enabling athletes and fitness enthusiasts to sustain physical effort over extended periods.',
 			),
 			array(
-				'id'       => 'endurance_special_addons_box2_hashtag_title',
-				'type'     => 'text',
-				'title'    => esc_html__( 'HashTag Title', 'endurance' ),
-				'default'  => '#EndureDrills',
+				'id'      => 'endurance_special_addons_box2_hashtag_title',
+				'type'    => 'text',
+				'title'   => esc_html__( 'HashTag Title', 'endurance' ),
+				'default' => '#EndureDrills',
 			),
 			array(
-                'id'           => 'endurance_special_addons_box2_pattern_image',
+				'id'           => 'endurance_special_addons_box2_pattern_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Pattern Image for Box2', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/special-pettern-2.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/special-pettern-2.svg',
 				),
-            ),
+			),
 			array(
-                'id'           => 'endurance_special_addons_box2_image',
+				'id'           => 'endurance_special_addons_box2_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/special-2.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/special-2.webp',
 				),
-            ),
+			),
 			array(
 				'id'             => 'endurance_special_addons_box2_color',
 				'type'           => 'color_gradient',
@@ -1458,18 +1458,18 @@ Redux::set_section(
 				'type'     => 'accordion',
 				'position' => 'end',
 			),
-        ),
+		),
 	)
 );
 
-// Pricing Plan Section - Home Page Settings
+// Pricing Plan Section - Home Page Settings.
 Redux::set_section(
 	$opt_name,
 	array(
 		'title'            => esc_html__( 'Pricing Plan Section', 'endurance' ),
 		'id'               => 'endurance_pricing_plan_section',
 		'customizer_width' => '400px',
-		'subsection' => true,
+		'subsection'       => true,
 		'icon'             => 'el el-eur',
 		'fields'           => array(
 			array(
@@ -1480,28 +1480,28 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/pricing-paper-texture.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/pricing-paper-texture.webp',
 				),
 			),
 			array(
-				'id'       => 'endurance_pricing_plan_section_heading',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Heading', 'endurance' ),
-				'default'  => 'Pricing Plan',
+				'id'      => 'endurance_pricing_plan_section_heading',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Heading', 'endurance' ),
+				'default' => 'Pricing Plan',
 			),
 			array(
-                'id'           => 'endurance_pricing_plan_sub_title',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Sub Title', 'endurance' ),
-				'default'  => 'PRO',
-            ),
+				'id'      => 'endurance_pricing_plan_sub_title',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Sub Title', 'endurance' ),
+				'default' => 'PRO',
+			),
 			array(
-                'id'           => 'endurance_pricing_plan_prices_title',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Prices Title', 'endurance' ),
-				'default'  => 'PRICES',
-            ),
+				'id'      => 'endurance_pricing_plan_prices_title',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Prices Title', 'endurance' ),
+				'default' => 'PRICES',
+			),
 			array(
 				'id'           => 'endurance_pricing_plan_free_image',
 				'type'         => 'media',
@@ -1510,8 +1510,8 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/pricing-icon.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/pricing-icon.svg',
 				),
 			),
 			array(
@@ -1522,11 +1522,11 @@ Redux::set_section(
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/pricing-icon-2.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/pricing-icon-2.svg',
 				),
 			),
-			
+
 			array(
 				'id'          => 'endurance_pricing_plan_background_color1',
 				'type'        => 'color',
@@ -1536,15 +1536,15 @@ Redux::set_section(
 				'validate'    => 'color',
 			),
 			array(
-				'id'       => 'endurance_sign_up_text',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Button Text', 'endurance' ),
-				'default'  => 'Sign Up',
+				'id'      => 'endurance_sign_up_text',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Button Text', 'endurance' ),
+				'default' => 'Sign Up',
 			),
 			array(
 				'id'       => 'endurance_sign_up_link',
 				'type'     => 'text',
-				'validate'  => 'url',
+				'validate' => 'url',
 				'title'    => esc_html__( 'Button Link', 'endurance' ),
 				'default'  => '#',
 			),
@@ -1565,14 +1565,14 @@ Redux::set_section(
 						'from' => 0,
 					),
 				),
-		    ),
-        ),
+			),
+		),
 	)
 );
 
-// Gallery Page Settings
+// Gallery Page Settings.
 $gallery_images_ids = get_option( 'endurance_gallery_images' );
-if ( is_array( $gallery_images_ids ) && !empty( $gallery_images_ids ) ) {
+if ( is_array( $gallery_images_ids ) && ! empty( $gallery_images_ids ) ) {
 	$gallery_images_ids = implode( ',', $gallery_images_ids );
 } else {
 	$gallery_images_ids = '';
@@ -1587,19 +1587,19 @@ Redux::set_section(
 		'icon'             => 'el el-picture',
 		'fields'           => array(
 			array(
-				'id'       => 'endurance_gallery_images',
-				'type'     => 'gallery',
-				'title'    => esc_html__( 'Add/Edit Gallery Images', 'endurance' ),
-				'desc'     => esc_html__( 'Upload Images', 'endurance' ),
+				'id'      => 'endurance_gallery_images',
+				'type'    => 'gallery',
+				'title'   => esc_html__( 'Add/Edit Gallery Images', 'endurance' ),
+				'desc'    => esc_html__( 'Upload Images', 'endurance' ),
 				'default' => $gallery_images,
-			),			
-        ),
+			),
+		),
 	)
 );
 
-// Gallery Page Settings
+// Gallery Page Settings.
 $gallery_images_ids = get_option( 'endurance_gallery_images' );
-if ( is_array( $gallery_images_ids ) && !empty( $gallery_images_ids ) ) {
+if ( is_array( $gallery_images_ids ) && ! empty( $gallery_images_ids ) ) {
 	$gallery_images_ids = implode( ',', $gallery_images_ids );
 } else {
 	$gallery_images_ids = '';
@@ -1614,18 +1614,18 @@ Redux::set_section(
 		'icon'             => 'el el-picture',
 		'fields'           => array(
 			array(
-				'id'       => 'endurance_gallery_images',
-				'type'     => 'gallery',
-				'title'    => esc_html__( 'Add/Edit Gallery Images', 'endurance' ),
-				'desc'     => esc_html__( 'Upload Images', 'endurance' ),
+				'id'      => 'endurance_gallery_images',
+				'type'    => 'gallery',
+				'title'   => esc_html__( 'Add/Edit Gallery Images', 'endurance' ),
+				'desc'    => esc_html__( 'Upload Images', 'endurance' ),
 				'default' => $gallery_images,
-			),			
-        ),
+			),
+		),
 	)
 );
 
 
-//About Us Page Settings 
+// About Us Page Settings.
 Redux::set_section(
 	$opt_name,
 	array(
@@ -1637,33 +1637,33 @@ Redux::set_section(
 	),
 );
 
-//Stand Out section - About Us Page Settings 
+// Stand Out section - About Us Page Settings.
 Redux::set_section(
 	$opt_name,
 	array(
 		'title'            => esc_html__( 'Stand Out Section', 'endurance' ),
 		'id'               => 'endurance_stand_out',
 		'customizer_width' => '400px',
-		'subsection' => true,
+		'subsection'       => true,
 		'icon'             => 'el el-hand-up',
 		'fields'           => array(
-		    array(
-			    'id'       => 'stand_out_with',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Heading', 'endurance' ),
-				'default'  => 'Stand Out With'
+			array(
+				'id'      => 'stand_out_with',
+				'type'    => 'editor',
+				'title'   => esc_html__( 'Heading', 'endurance' ),
+				'default' => 'Stand Out With',
 			),
 			array(
-			    'id'       => 'high_endurance',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Heading', 'endurance' ),
-				'default'  => 'High Endurance'
+				'id'      => 'high_endurance',
+				'type'    => 'editor',
+				'title'   => esc_html__( 'Heading', 'endurance' ),
+				'default' => 'High Endurance',
 			),
 			array(
-			    'id'       => 'high_endurance_description',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Description', 'endurance' ),
-				'default'  => 'We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.'
+				'id'      => 'high_endurance_description',
+				'type'    => 'editor',
+				'title'   => esc_html__( 'Description', 'endurance' ),
+				'default' => 'We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.',
 			),
 			array(
 				'id'           => 'stand_out_with_img',
@@ -1672,8 +1672,8 @@ Redux::set_section(
 				'title'        => esc_html__( 'Stand Out Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/stand-with-img-2.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/stand-with-img-2.webp',
 				),
 			),
 			array(
@@ -1683,51 +1683,51 @@ Redux::set_section(
 				'title'        => esc_html__( 'Stand Out Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/stand-with-pettern.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/stand-with-pettern.svg',
 				),
 			),
 		),
 	),
 );
-//Our Mission section - About Us Page Settings 
+// Our Mission section - About Us Page Settings.
 Redux::set_section(
 	$opt_name,
 	array(
 		'title'            => esc_html__( 'Our Mission Section', 'endurance' ),
 		'id'               => 'endurance_our_mission',
 		'customizer_width' => '400px',
-		'subsection' => true,
+		'subsection'       => true,
 		'icon'             => 'el el-idea',
 		'fields'           => array(
 			array(
-		    	'id'           => 'endurance_our_mission_image',
+				'id'           => 'endurance_our_mission_image',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/mission-img.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/mission-img.webp',
 				),
-		    ),
-		    array(
-			    'id'       => 'endurance_our_mission',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Heading', 'endurance' ),
-				'default'  => 'Our Mission'
 			),
 			array(
-			    'id'       => 'endurance_mission_decription',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Description', 'endurance' ),
-				'default'  => 'We believe in the power of pushing boundaries, staying motivated through challenges, and tracking your progress as you embark on an unwavering journey to greatness.'
+				'id'      => 'endurance_our_mission',
+				'type'    => 'editor',
+				'title'   => esc_html__( 'Heading', 'endurance' ),
+				'default' => 'Our Mission',
+			),
+			array(
+				'id'      => 'endurance_mission_decription',
+				'type'    => 'editor',
+				'title'   => esc_html__( 'Description', 'endurance' ),
+				'default' => 'We believe in the power of pushing boundaries, staying motivated through challenges, and tracking your progress as you embark on an unwavering journey to greatness.',
 			),
 		),
 	),
 );
 
-//Contact Us Page Settings
+// Contact Us Page Settings.
 Redux::set_section(
 	$opt_name,
 	array(
@@ -1744,15 +1744,15 @@ Redux::set_section(
 				'title'        => esc_html__( 'Background Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/contact-lines.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/contact-lines.svg',
 				),
 			),
 			array(
-				'id'           => 'endurance_write_us',
-				'type'         => 'editor',
-				'title'        => esc_html__( 'Heading', 'endurance' ),
-				'default'  => 'Write Us'
+				'id'      => 'endurance_write_us',
+				'type'    => 'editor',
+				'title'   => esc_html__( 'Heading', 'endurance' ),
+				'default' => 'Write Us',
 			),
 			array(
 				'id'           => 'location_geocode',
@@ -1771,14 +1771,14 @@ Redux::set_section(
 	),
 );
 
-//Contact Information section - Contact Us Page Settings
+// Contact Information section - Contact Us Page Settings.
 Redux::set_section(
 	$opt_name,
 	array(
 		'title'            => esc_html__( 'Conatct Inforamtion Section', 'endurance' ),
 		'id'               => 'endurance_conatct_info',
 		'customizer_width' => '400px',
-		'subsection' => true,
+		'subsection'       => true,
 		'icon'             => 'el el-info-circle',
 		'fields'           => array(
 			array(
@@ -1788,90 +1788,86 @@ Redux::set_section(
 				'title'        => esc_html__( 'Call Us Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/call.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/call.svg',
 				),
 			),
 			array(
-                'id'           => 'endurance_mail_img',
+				'id'           => 'endurance_mail_img',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Mail Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/mail.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/mail.svg',
 				),
-            ),
-			array(
-				'id'       => 'call_us_heading',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Call Us Heading', 'endurance' ),
-				'default'  => 'Call Us'
 			),
 			array(
-				'id'       => 'mail_heading',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'E-mail Heading', 'endurance' ),
-				'default'  => 'Email'
+				'id'      => 'call_us_heading',
+				'type'    => 'editor',
+				'title'   => esc_html__( 'Call Us Heading', 'endurance' ),
+				'default' => 'Call Us',
 			),
 			array(
-				'id'       => 'endurance_call_us_link',
-				'type'     => 'text',
-				// 'validate'  => 'url',
-				'title'    => esc_html__( 'Business Inquiry  Link', 'endurance' ),
-				'default'  => '+1256(7852)551',
+				'id'      => 'mail_heading',
+				'type'    => 'editor',
+				'title'   => esc_html__( 'E-mail Heading', 'endurance' ),
+				'default' => 'Email',
 			),
 			array(
-				'id'       => 'endurance_bussiness_inquiry',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Business Inquiry Text', 'endurance' ),
-				'default'  => 'Business Inquiry :',
+				'id'      => 'endurance_call_us_link',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Business Inquiry  Link', 'endurance' ),
+				'default' => '+1256(7852)551',
 			),
 			array(
-				'id'       => 'endurance_call_us_customer_link',
-				'type'     => 'text',
-				// 'validate'  => 'url',
-				'title'    => esc_html__( 'Customer Number Link', 'endurance' ),
-				'default'  => '+1256(7852)551',
+				'id'      => 'endurance_bussiness_inquiry',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Business Inquiry Text', 'endurance' ),
+				'default' => 'Business Inquiry :',
 			),
 			array(
-				'id'       => 'endurance_coustomer_support',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Customer Support Text', 'endurance' ),
-				'default'  => 'Customer Support :',
+				'id'      => 'endurance_call_us_customer_link',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Customer Number Link', 'endurance' ),
+				'default' => '+1256(7852)551',
 			),
 			array(
-				'id'       => 'endurance_bussiness_email',
-				'type'     => 'text',
-				// 'validate'  => 'url',
-				'title'    => esc_html__( 'Business Inquiry  Mail Link', 'endurance' ),
-				'default'  => 'businessinfo@gymfit.email',
+				'id'      => 'endurance_coustomer_support',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Customer Support Text', 'endurance' ),
+				'default' => 'Customer Support :',
 			),
 			array(
-				'id'       => 'endurance_bussiness_inquiry_mail_text',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Business Inquiry Mail Text', 'endurance' ),
-				'default'  => 'Business Inquiry :',
+				'id'      => 'endurance_bussiness_email',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Business Inquiry  Mail Link', 'endurance' ),
+				'default' => 'businessinfo@gymfit.email',
 			),
 			array(
-				'id'       => 'endurance_customer_email_link',
-				'type'     => 'text',
-				// 'validate'  => 'url',
-				'title'    => esc_html__( 'Customer Emial Support Link', 'endurance' ),
-				'default'  => 'customer@gymfit.email',
+				'id'      => 'endurance_bussiness_inquiry_mail_text',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Business Inquiry Mail Text', 'endurance' ),
+				'default' => 'Business Inquiry :',
 			),
 			array(
-				'id'       => 'endurance_coustomer_support_email',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Customer Support Email Text', 'endurance' ),
-				'default'  => 'Customer Support :',
+				'id'      => 'endurance_customer_email_link',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Customer Emial Support Link', 'endurance' ),
+				'default' => 'customer@gymfit.email',
 			),
-        ),
+			array(
+				'id'      => 'endurance_coustomer_support_email',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Customer Support Email Text', 'endurance' ),
+				'default' => 'Customer Support :',
+			),
+		),
 	)
 );
 
-//Coming Soon Page Seetings
+// Coming Soon Page Seetings.
 Redux::set_section(
 	$opt_name,
 	array(
@@ -1882,58 +1878,58 @@ Redux::set_section(
 		'icon'             => 'el el-check-empty',
 		'fields'           => array(
 			array(
-				'id'           => 'endurance_coming_soon',
-				'type'         => 'text',
-				'title'        => esc_html__( 'Heading', 'endurance' ),
-				'default'  => 'Coming Soon'
+				'id'      => 'endurance_coming_soon',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Heading', 'endurance' ),
+				'default' => 'Coming Soon',
 			),
 			array(
-				'id'           => 'endurance_day_number',
-				'type'         => 'text',
-				'title'        => esc_html__( 'Day Number', 'endurance' ),
-				'default'  => '12'
+				'id'      => 'endurance_day_number',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Day Number', 'endurance' ),
+				'default' => '12',
 			),
 			array(
-				'id'           => 'endurance_day_text',
-				'type'         => 'text',
-				'title'        => esc_html__( 'Day Text', 'endurance' ),
-				'default'  => 'Day'
+				'id'      => 'endurance_day_text',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Day Text', 'endurance' ),
+				'default' => 'Day',
 			),
 			array(
-				'id'           => 'endurance_hours_number',
-				'type'         => 'text',
-				'title'        => esc_html__( 'Hours Number', 'endurance' ),
-				'default'  => '12'
+				'id'      => 'endurance_hours_number',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Hours Number', 'endurance' ),
+				'default' => '12',
 			),
 			array(
-				'id'           => 'endurance_hours_text',
-				'type'         => 'text',
-				'title'        => esc_html__( 'Hours Text', 'endurance' ),
-				'default'  => 'Hours'
+				'id'      => 'endurance_hours_text',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Hours Text', 'endurance' ),
+				'default' => 'Hours',
 			),
 			array(
-				'id'           => 'endurance_minutes_number',
-				'type'         => 'text',
-				'title'        => esc_html__( 'Minutes Number', 'endurance' ),
-				'default'  => '50'
+				'id'      => 'endurance_minutes_number',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Minutes Number', 'endurance' ),
+				'default' => '50',
 			),
 			array(
-				'id'           => 'endurance_minutes_text',
-				'type'         => 'text',
-				'title'        => esc_html__( 'Minutes Text', 'endurance' ),
-				'default'  => 'Minutes'
+				'id'      => 'endurance_minutes_text',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Minutes Text', 'endurance' ),
+				'default' => 'Minutes',
 			),
 			array(
-				'id'           => 'endurance_second_number',
-				'type'         => 'text',
-				'title'        => esc_html__( 'Second Number', 'endurance' ),
-				'default'  => '40'
+				'id'      => 'endurance_second_number',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Second Number', 'endurance' ),
+				'default' => '40',
 			),
 			array(
-				'id'           => 'endurance_second_text',
-				'type'         => 'text',
-				'title'        => esc_html__( 'Second Text', 'endurance' ),
-				'default'  => 'Second'
+				'id'      => 'endurance_second_text',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Second Text', 'endurance' ),
+				'default' => 'Second',
 			),
 			array(
 				'id'           => 'endurance_star_img',
@@ -1942,8 +1938,8 @@ Redux::set_section(
 				'title'        => esc_html__( 'Star Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/icon/star-icon.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/star-icon.svg',
 				),
 			),
 			array(
@@ -1953,8 +1949,8 @@ Redux::set_section(
 				'title'        => esc_html__( 'Background Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/error-img-1.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/error-img-1.webp',
 				),
 			),
 			array(
@@ -1964,27 +1960,27 @@ Redux::set_section(
 				'title'        => esc_html__( 'Background Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/error-img-2.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/error-img-2.webp',
 				),
 			),
 			array(
-				'id'           => 'endurance_join_waiting_text',
-				'type'         => 'text',
-				'title'        => esc_html__( 'Join Waiting Text', 'endurance' ),
-				'default'  => 'Join Waiting List'
+				'id'      => 'endurance_join_waiting_text',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Join Waiting Text', 'endurance' ),
+				'default' => 'Join Waiting List',
 			),
 			array(
-				'id'           => 'endurance_mail_text',
-				'type'         => 'text',
-				'title'        => esc_html__( 'mail Text', 'endurance' ),
-				'default'  => 'You’ll get instant notification through mail'
+				'id'      => 'endurance_mail_text',
+				'type'    => 'text',
+				'title'   => esc_html__( 'mail Text', 'endurance' ),
+				'default' => 'You’ll get instant notification through mail',
 			),
 		),
 	),
 );
 
-//404 Page Settings
+// 404 Page Settings.
 Redux::set_section(
 	$opt_name,
 	array(
@@ -1995,10 +1991,10 @@ Redux::set_section(
 		'icon'             => 'el el-error',
 		'fields'           => array(
 			array(
-				'id'           => 'endurance_404_description',
-				'type'         => 'text',
-				'title'        => esc_html__( 'Description', 'endurance' ),
-				'default'  => 'The page you’re looking for is exercising so try again or...'
+				'id'      => 'endurance_404_description',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Description', 'endurance' ),
+				'default' => 'The page you’re looking for is exercising so try again or...',
 			),
 			array(
 				'id'           => 'endurance_404_img',
@@ -2007,8 +2003,8 @@ Redux::set_section(
 				'title'        => esc_html__( '404 Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/error-img.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/error-img.webp',
 				),
 			),
 			array(
@@ -2018,8 +2014,8 @@ Redux::set_section(
 				'title'        => esc_html__( '404 Background Line Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/error-page-lines.svg'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/error-page-lines.svg',
 				),
 			),
 			array(
@@ -2029,8 +2025,8 @@ Redux::set_section(
 				'title'        => esc_html__( '404 Background Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/error-img-1.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/error-img-1.webp',
 				),
 			),
 			array(
@@ -2040,20 +2036,20 @@ Redux::set_section(
 				'title'        => esc_html__( '404 Background Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/error-img-2.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/error-img-2.webp',
 				),
 			),
 			array(
-				'id'       => 'endurance_back_home',
-				'type'     => 'text',
-				'title'    => esc_html__( 'Back To Home Text', 'endurance' ),
-				'default'  => 'Back To Home',
+				'id'      => 'endurance_back_home',
+				'type'    => 'text',
+				'title'   => esc_html__( 'Back To Home Text', 'endurance' ),
+				'default' => 'Back To Home',
 			),
 			array(
 				'id'       => 'endurance_back_to_home_link',
 				'type'     => 'text',
-				'validate'  => 'url',
+				'validate' => 'url',
 				'title'    => esc_html__( 'Back To Home Button Link', 'endurance' ),
 				'default'  => '#',
 			),
@@ -2061,7 +2057,7 @@ Redux::set_section(
 	),
 );
 
-//Site Map Seeting
+// Site Map Seeting.
 Redux::set_section(
 	$opt_name,
 	array(
@@ -2078,8 +2074,8 @@ Redux::set_section(
 				'title'        => esc_html__( 'Site Map Image', 'endurance' ),
 				'compiler'     => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/sitemap-img.webp'
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/sitemap-img.webp',
 				),
 			),
 		),
@@ -2110,7 +2106,7 @@ if ( ! function_exists( 'compiler_action' ) ) {
 
 if ( ! function_exists( 'redux_validate_callback_function' ) ) {
 	/**
-	 * Custom function for the callback validation referenced above
+	 * Custom function for the callback validation referenced above.
 	 *
 	 * @param array $field          Field array.
 	 * @param mixed $value          New value.

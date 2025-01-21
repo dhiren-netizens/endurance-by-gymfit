@@ -9,7 +9,7 @@
  * @package Endurance_By_GymFit
  */
 
-$theme_option = get_option('redux_demo');
+$theme_option = get_option( 'redux_demo' );
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -50,7 +50,7 @@ $theme_option = get_option('redux_demo');
 	<!-- META TAG END'S HERE -->
 
 	<!-- FAVICON -->
-	<?php if(isset( $theme_option['endurance_favicon']['url'] ) && !empty( $theme_option['endurance_favicon']['url'] )) { ?>
+	<?php if ( isset( $theme_option['endurance_favicon']['url'] ) && ! empty( $theme_option['endurance_favicon']['url'] ) ) { ?>
 		<link href="<?php echo esc_url( $theme_option['endurance_favicon']['url'] ); ?>" rel="shortcut icon" type="image/x-icon">
 		<?php } ?>
 		<?php wp_head(); ?>
@@ -68,7 +68,7 @@ $theme_option = get_option('redux_demo');
 				
 				<!-- Logo -->
 				<a class="navbar-brand logo lh-0" href="<?php echo esc_url( home_url() ); ?>">
-					<?php if(isset( $theme_option['endurance_header_logo']['url'] ) && !empty( $theme_option['endurance_header_logo']['url'] )) { ?>
+					<?php if ( isset( $theme_option['endurance_header_logo']['url'] ) && ! empty( $theme_option['endurance_header_logo']['url'] ) ) { ?>
 						<img src="<?php echo esc_url( $theme_option['endurance_header_logo']['url'] ); ?>" alt="Logo">
 					<?php } ?>
 				</a>
@@ -85,9 +85,15 @@ $theme_option = get_option('redux_demo');
 						</a>
 					</div>
 					<ul class="tabActive">
-						<?php 
-						if(isset( $theme_option['endurance_header_menu'] ) && !empty( $theme_option['endurance_header_menu'] )) {
-							wp_nav_menu( array('menu' => $theme_option['endurance_header_menu'], 'theme_location' => 'primary', 'fallback_cb' => 'fallback_menu_pages' ) );
+						<?php
+						if ( isset( $theme_option['endurance_header_menu'] ) && ! empty( $theme_option['endurance_header_menu'] ) ) {
+							wp_nav_menu(
+								array(
+									'menu'           => $theme_option['endurance_header_menu'],
+									'theme_location' => 'primary',
+									'fallback_cb'    => 'fallback_menu_pages',
+								)
+							);
 						}
 						?>
 					</ul>
@@ -99,10 +105,12 @@ $theme_option = get_option('redux_demo');
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/toggle-icon.svg" alt="Icon" class="ps-2">
 					</button>
 					<?php
-					if(isset( $theme_option['endurance_display_contact_btn'] ) && !empty( $theme_option['endurance_display_contact_btn'] )) {
-						if( 1 == $theme_option['endurance_display_contact_btn'] ) { ?>
-							<a href="<?php echo esc_url( home_url(). '/contact-us/' ); ?>" class="btn_wrapper d-lg-flex d-none">Contact us</a>
-						<?php }
+					if ( isset( $theme_option['endurance_display_contact_btn'] ) && ! empty( $theme_option['endurance_display_contact_btn'] ) ) {
+						if ( 1 == $theme_option['endurance_display_contact_btn'] ) {
+							?>
+							<a href="<?php echo esc_url( home_url() . '/contact-us/' ); ?>" class="btn_wrapper d-lg-flex d-none">Contact us</a>
+							<?php
+						}
 					}
 					?>
 				</div>
@@ -112,7 +120,7 @@ $theme_option = get_option('redux_demo');
 	<!-- HEADER END'S FROM HERE -->
 
 	<!-- BREADCRUMBS SECTION START FROM HERE -->
-	<?php if( !is_front_page() ) { ?>
+	<?php if ( ! is_front_page() ) { ?>
 	<div class="default-padding pt-0">
 		<div class="breadcrumbs-section">
 			<div class="container">
@@ -127,9 +135,9 @@ $theme_option = get_option('redux_demo');
 	<?php } ?>
 	<!-- BREADCRUMBS SECTION END'S FROM HERE -->
 	<!-- LOADER START HERE -->
-    <div class="page_loader">
-		<?php if(isset( $theme_option['endurance_page_loader_image']['url'] ) && !empty( $theme_option['endurance_page_loader_image']['url'] )) { ?>
+	<div class="page_loader">
+		<?php if ( isset( $theme_option['endurance_page_loader_image']['url'] ) && ! empty( $theme_option['endurance_page_loader_image']['url'] ) ) { ?>
 			<img src="<?php echo esc_url( $theme_option['endurance_page_loader_image']['url'] ); ?>" alt="Logo" loading="lazy">
 		<?php } ?>
-    </div>
-    <!-- LOADER END HERE -->
+	</div>
+	<!-- LOADER END HERE -->
