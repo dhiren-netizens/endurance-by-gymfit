@@ -480,6 +480,122 @@ function my_after_switch_theme() {
 			set_post_thumbnail($post_id, $attachment_id);
 		}
 	}
+
+	/**
+	 * Add a default pricing plan posts
+	 */
+	$default_posts = array(
+		array(
+			'slug' => 'ultimate',
+			'title' => 'Ultimate',
+		),
+		array(
+			'slug' => 'pro',
+			'title' => 'Pro',
+		),
+		array(
+			'slug' => 'basic',
+			'title' => 'Basic',
+		),
+		array(
+			'slug' => 'free',
+			'title' => 'Free',
+		),
+	);
+	foreach ($default_posts as $post) {
+		// Check if the post already exists
+		$existing_post = get_page_by_path($post['slug'], OBJECT, 'pricing-plan');
+		if (!$existing_post) {
+			$post_id = wp_insert_post(array(
+				'post_title' => $post['title'],
+				'post_type' => 'pricing-plan',
+				'post_name' => $post['slug'],
+				'post_content' => '',
+				'comment_status' => 'closed',
+				'ping_status' => 'closed',
+				'post_status' => 'publish',
+				'post_author' => 1,
+				'menu_order' => 0
+			));
+
+			if( 'Ultimate' == $post['title']) {
+				$price_data_arr = array(
+					'Weekly' => array('price' => 39.99),
+					'Monthly' => array('price' => 49.99),
+					'Quarterly' => array('price' => 69.99),
+					'Annually' => array('price' => 99.99),
+				);
+				$features_data_arr = array(
+					'ultimate' => array(
+						'features' => array(
+							'Workouts' => 1,
+							'Progress Tracking' => 1,
+							'Nutritional Guidance' => 1,
+							'One-on-One Coaching' => 1,
+							'Priority Event Registration' => 1,
+							'Bonus Workshops/Seminars' => 1,
+							'Personalized Support' => 1,
+						)
+					)
+				);
+			}
+			if( 'Pro' == $post['title']) {
+				$price_data_arr = array(
+					'Weekly' => array('price' => 19.99),
+					'Monthly' => array('price' => 29.99),
+					'Quarterly' => array('price' => 39.99),
+					'Annually' => array('price' => 49.99),
+				);
+				$features_data_arr = array(
+					'pro' => array(
+						'features' => array(
+							'Workouts' => 1,
+							'Progress Tracking' => 1,
+							'Nutritional Guidance' => 1,
+							'One-on-One Coaching' => 1,
+							'Priority Event Registration' => 1,
+						)
+					)
+				);
+			}
+			if( 'Free' == $post['title']) {
+				$price_data_arr = array(
+					'Weekly' => array('price' => '-'),
+					'Monthly' => array('price' => '-'),
+					'Quarterly' => array('price' => '-'),
+					'Annually' => array('price' => '-'),
+				);
+				$features_data_arr = array(
+					'free' => array(
+						'features' => array(
+							'Workouts' => 1,
+						)
+					)
+				);
+			}
+			if( 'Basic' == $post['title']) {
+				$price_data_arr = array(
+					'Weekly' => array('price' => 9.99),
+					'Monthly' => array('price' => 19.99),
+					'Quarterly' => array('price' => 29.99),
+					'Annually' => array('price' => 39.99),
+				);
+				$features_data_arr = array(
+					'basic' => array(
+						'features' => array(
+							'Workouts' => 1,
+							'Progress Tracking' => 1,
+							'Nutritional Guidance' => 1,
+						)
+					)
+				);
+			}
+
+			update_post_meta($post_id, 'endurance_pricing_plan_period', array('weekly', 'monthly', 'quarterly', 'annually'));
+			update_post_meta($post_id, 'endurance_pricing_plan_price', $price_data_arr);
+    		update_post_meta($post_id, 'endurance_pricing_plan_features', $features_data_arr);
+		}
+	}
 	/**
 	 * Setup the site navigation
 	 */    
@@ -806,14 +922,14 @@ add_action('add_meta_boxes', 'pricing_plan_meta_box');
 function display_pricing_plan_meta_box($post) {
     wp_nonce_field('pricing_plan_nonce_action', 'pricing_plan_nonce');
 
-    $selected_plans = get_post_meta($post->ID, 'endurance_pricing_plan_select', true) ?: [];
+    $selected_plans = get_post_meta($post->ID, 'endurance_pricing_plan_period', true) ?: [];
     $pricing_plan_data = get_post_meta($post->ID, 'endurance_pricing_plan_price', true) ?: [];
 	$pricing_plan_features_data = get_post_meta($post->ID, 'endurance_pricing_plan_features', true) ?: [];
 
     ?>
-	<div class="endurance_pricing_plan_select_div">
+	<div class="endurance_pricing_plan_period_div">
 		<label>Select Pricing Plan:</label>
-		<select name="endurance_pricing_plan_select[]" class="endurance_pricing_plan_select" multiple style="width: 100%;">
+		<select name="endurance_pricing_plan_period[]" class="endurance_pricing_plan_period" multiple style="width: 100%;">
 			<?php
 			$plans = ['weekly', 'monthly', 'quarterly', 'annually'];
 			foreach ($plans as $plan) {
@@ -883,8 +999,8 @@ function save_pricing_plan_meta_box_data($post_id) {
         return;
     }
 
-    $selected_plans = $_POST['endurance_pricing_plan_select'] ?? [];
-    update_post_meta($post_id, 'endurance_pricing_plan_select', $selected_plans);
+    $selected_plans = $_POST['endurance_pricing_plan_period'] ?? [];
+    update_post_meta($post_id, 'endurance_pricing_plan_period', $selected_plans);
 
     // Default features
     $default_features = [

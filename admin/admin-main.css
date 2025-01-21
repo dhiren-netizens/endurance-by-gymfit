@@ -46,6 +46,6 @@
     border-top: 1px solid;
     border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
 }
-.endurance_pricing_plan_select_div {
+.endurance_pricing_plan_period_div {
     display: none;
 }

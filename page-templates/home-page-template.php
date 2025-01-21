@@ -322,20 +322,26 @@ $theme_option = get_option('redux_demo');
                                         <ul class="nav nav-pills mb-sm-5 mb-4" id="pills-tab" role="tablist">
                                             <?php 
                                             $pricing_plans = new WP_Query( array( 'post_type' => 'pricing-plan', 'post_status' => 'publish', 'posts_per_page' => -1 ) ); 
-                                            $displayed_plans = array(); // Array to keep track of displayed plans
+                                            $display_plan_period = array();
+                                            $post_title_arr = array();
+                                            $get_plan_price = array();
 
                                             if ( $pricing_plans->have_posts() ) : 
                                                 while ( $pricing_plans->have_posts() ) : $pricing_plans->the_post(); 
-                                                    $get_plans = get_post_meta( get_the_ID(), 'endurance_pricing_plan_select', true );
+                                                    $get_plan_periods = get_post_meta( get_the_ID(), 'endurance_pricing_plan_period', true );
+                                                    $post_title_arr[] = get_the_title();
+                                                    
+                                                    $get_plan_prices = get_post_meta( get_the_ID(), 'endurance_pricing_plan_price', true );
+                                                    $get_plan_price[get_the_title()] = $get_plan_prices;
 
-                                                    foreach( $get_plans as $get_plan ) { 
-                                                        // Check if the plan has already been displayed
-                                                        if (!in_array($get_plan, $displayed_plans)) {
-                                                            $displayed_plans[] = $get_plan; // Add the plan to the displayed array
+                                                    foreach( $get_plan_periods as $get_plan_period ) { 
+                                                        if (!in_array($get_plan_period, $display_plan_period)) {
+                                                            $display_plan_period[] = $get_plan_period;
                                                             ?>
                                                             <li class="nav-item" role="presentation">
-                                                                <button class="nav-link" id="pills-<?php echo esc_attr( $get_plan ); ?>-tab" data-bs-toggle="pill" data-bs-target="#pills-<?php echo esc_attr( $get_plan ); ?>" type="button" role="tab" aria-controls="pills-<?php echo esc_attr( $get_plan ); ?>" aria-selected="true">
-                                                                    <?php echo esc_html( $get_plan ); ?>
+                                                                <button class="nav-link" id="pills-<?php echo esc_attr( $get_plan_period ); ?>-tab" data-bs-toggle="pill" data-bs-target="#pills-<?php echo esc_attr( $get_plan_period ); ?>" type="button" role="tab" aria-controls="pills-<?php echo esc_attr( $get_plan_period ); ?>" aria-selected="true">
+                                                                    <?php echo esc_html( $get_plan_period );
+                                                                     ?>
                                                                 </button>
                                                             </li>
                                                             <?php 
@@ -349,15 +355,16 @@ $theme_option = get_option('redux_demo');
                                             <ul>
                                                 <?php 
                                                 $pricing_plans = new WP_Query( array( 'post_type' => 'pricing-plan', 'post_status' => 'publish', 'posts_per_page' => -1 ) ); 
-                                                $displayed_features = array(); // Array to keep track of displayed plans
-
+                                                $display_plan_features = array();
+                                                $plan_features = array();
                                                 if ( $pricing_plans->have_posts() ) : 
                                                     while ( $pricing_plans->have_posts() ) : $pricing_plans->the_post();
-                                                        $get_features = get_post_meta( get_the_ID(), 'endurance_pricing_plan_features', true );
-                                                        foreach( $get_features as $get_feature ) { 
+                                                        $get_plan_features = get_post_meta( get_the_ID(), 'endurance_pricing_plan_features', true );
+                                                        $plan_features[] = $get_plan_features;                                                        
+                                                        foreach( $get_plan_features as $get_feature ) {
                                                             foreach( $get_feature['features'] as $feature_name => $features_checked ) { 
-                                                                if (!in_array($feature_name, $displayed_plans)) {
-                                                                    $displayed_plans[] = $feature_name; // Add the plan to the displayed array ?>
+                                                                if (!in_array($feature_name, $display_plan_features)) {
+                                                                    $display_plan_features[] = $feature_name; ?>
                                                                     <li><?php echo esc_html( $feature_name ); ?></li>
                                                                     <?php
                                                                 }
@@ -372,50 +379,50 @@ $theme_option = get_option('redux_demo');
                                     </div>
                                 </div>
                                 <div class="col-8">
-                                    <div class="pricing-block wow fadeInRight">
-                                        <div class="tab-content" id="pills-tabContent">
-                                            <?php 
-                                            $pricing_plans = new WP_Query( array( 'post_type' => 'pricing-plan', 'post_status' => 'publish', 'posts_per_page' => -1 ) ); 
-                                            $displayed_features = array(); ?>
-                                            <div class="tab-pane fade" id="pills-monthly" role="tabpanel" aria-labelledby="pills-monthly-tab" tabindex="0">
-                                                <div class="row">
-                                                    <?php if ( $pricing_plans->have_posts() ) : 
-                                                        while ( $pricing_plans->have_posts() ) : $pricing_plans->the_post(); ?>
-                                                        <?php $get_prices = get_post_meta( get_the_ID(), 'endurance_pricing_plan_price', true ); ?>
-                                                        <div class="col-3">
-                                                            <div class="pricing-plan free">
-                                                                <div class="title mb-sm-5 mb-4"><?php echo esc_html( the_title() ); ?></div>
-                                                                <ul>
-                                                                    <?php
-                                                                    $get_features = get_post_meta( get_the_ID(), 'endurance_pricing_plan_features', true );
-                                                                    foreach( $get_features as $get_feature ) { 
-                                                                        foreach( $get_feature['features'] as $feature_name => $features_checked ) { ?>
-                                                                            <li><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/pricing-icon.svg" width="30" height="30" alt="pricing-icon"></li>
-                                                                        <?php
-                                                                        }
-                                                                    }
-                                                                    ?>
-                                                                </ul>
-                                                                <div class="pricing">
-                                                                    <?php
-                                                                    $get_prices = get_post_meta( get_the_ID(), 'endurance_pricing_plan_price', true );
-                                                                    foreach( $get_prices as $get_price ) { ?>
-                                                                        <span class="free">$ <?php echo esc_html( $get_price['price'] ); ?></span>
-                                                                        <p>Lifetime Free</p>
-                                                                    <?php } ?>
+									<div class="pricing-block wow fadeInRight">
+										<div class="tab-content" id="pills-tabContent">
+                                            <?php foreach($display_plan_period as $display_period) { ?>
+                                                <div class="tab-pane fade" id="pills-<?= $display_period ?>" role="tabpanel" aria-labelledby="pills-<?= $display_period ?>-tab" tabindex="0">
+                                                    <div class="row">
+                                                        <?php foreach($post_title_arr as $display_title) { ?>
+                                                            <div class="col-3">
+                                                                <div class="pricing-plan <?= $display_title ?>">                                                                
+                                                                    <div class="title mb-sm-5 mb-4"><?= $display_title ?></div>
+                                                                    <ul>
+                                                                        <?php                                                                          
+                                                                            $plan_features_arr = array();
+                                                                            foreach ($plan_features as $features) {
+                                                                                foreach ($features as $key => $value) {                                                                                   
+                                                                                    $plan_features_arr[$key] = $value['features'];
+                                                                                }
+                                                                            }
+                                                                            foreach($display_plan_features as $display_features) {
+                                                                                $plan_features_keys = array_keys($plan_features_arr[strtolower($display_title)]);
+                                                                                $flag = in_array($display_features, $plan_features_keys) ? get_template_directory_uri() . "/assets/images/icon/pricing-icon.svg" : get_template_directory_uri() . "/assets/images/icon/pricing-icon-2.svg";
+                                                                        ?>
+                                                                            
+                                                                            <li><img loading="lazy" src="<?php echo esc_url( $flag ); ?>" width="30" height="30" alt="pricing-icon"></li>
+                                                                        <?php } ?>
+                                                                    </ul>
+                                                                    <div class="pricing">
+                                                                        <?php if('Free' == $display_title ) { ?>
+                                                                            <span class="<?php echo esc_attr( $display_title ); ?>"><?php echo esc_html( $get_plan_price[$display_title][ucwords($display_period)]['price'] ); ?></span>
+                                                                            <p> Lifetime</p>
+                                                                        <?php } else { ?>
+                                                                            <span class="<?php echo esc_attr( $display_title ); ?>">$<?php echo esc_html( $get_plan_price[$display_title][ucwords($display_period)]['price'] ); ?></span>
+                                                                            <p> / <?php echo esc_html( $display_period ); ?></p>
+                                                                        <?php } ?>
+                                                                    </div>
+                                                                    <a href="#" class="btn_wrapper mt-2 mx-auto">sign up</a>
                                                                 </div>
-                                                                <a href="#" class="btn_wrapper mt-2 mx-auto">sign up</a>
                                                             </div>
-                                                        </div>
-                                                        <?php
-                                                        endwhile; 
-                                                    endif; 
-                                                    ?>
+                                                        <?php } ?>                                                       
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                            <?php } ?>
+										</div>
+									</div>
+								</div>
                             </div>
                         </div>
                     </div>

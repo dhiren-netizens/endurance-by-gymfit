@@ -1,14 +1,14 @@
-jQuery(".endurance_pricing_plan_select").select2({
+jQuery(".endurance_pricing_plan_period").select2({
     placeholder: "Please select the pricing plans..."
 });
 jQuery(document).ready(function () {
     // Initialize Select2
-    jQuery('.endurance_pricing_plan_select').select2();
+    jQuery('.endurance_pricing_plan_period').select2();
 
     // Function to update accordion items
     function updateAccordion() {
         // Get selected options
-        const selectedOptions = jQuery(".endurance_pricing_plan_select option:selected");
+        const selectedOptions = jQuery(".endurance_pricing_plan_period option:selected");
 
         // Loop through selected options
         selectedOptions.each(function () {
@@ -61,7 +61,7 @@ jQuery(document).ready(function () {
     }
 
     // Update accordion on select change
-    jQuery('.endurance_pricing_plan_select').on('change', function () {
+    jQuery('.endurance_pricing_plan_period').on('change', function () {
         updateAccordion();
     });
 
