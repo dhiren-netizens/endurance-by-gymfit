@@ -162,10 +162,10 @@ $theme_option = get_option('redux_demo');
                         <div class="row gy-sm-5 gy-4 justify-content-center align-items-center">
                             <div class="col-lg-7 col-sm-10 order-lg-1 order-2">
                                 <div class="image-wrapper d-flex justify-content-center wow fadeInLeft">
-                                    <?php if(isset( $theme_option['endurance_about_us_image']['url'] ) && !empty( $theme_option['endurance_about_us_image']['url'] )) { ?>
-                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_about_us_image']['url'] ); ?>" alt="about-img" id="about_img1">
+                                    <?php if(isset( $theme_option['endurance_general_about_us_image']['url'] ) && !empty( $theme_option['endurance_general_about_us_image']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_about_us_image']['url'] ); ?>" alt="about-img" id="about_img1">
                                     <?php }
-                                    if(isset( $theme_option['endurance_about_us_logo_image']['url'] ) && !empty( $theme_option['endurance_about_us_logo_image']['url'] )) { ?>
+                                    if(isset( $theme_option['endurance_general_about_us_logo_image']['url'] ) && !empty( $theme_option['endurance_ageneral_bout_us_logo_image']['url'] )) { ?>
                                         <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_about_us_logo_image']['url'] ); ?>" alt="white-logo" class="logo" id="about_img2">
                                     <?php }
                                     if(isset( $theme_option['endurance_general_background_image']['url'] ) && !empty( $theme_option['endurance_general_background_image']['url'] )) { ?>
@@ -175,12 +175,12 @@ $theme_option = get_option('redux_demo');
                             </div>
                             <div class="col-lg-5 order-lg-2 order-1">
                                 <div class="about-text text-lg-start text-center wow fadeInRight">
-                                    <?php if(isset( $theme_option['endurance_about_us_title'] ) && !empty( $theme_option['endurance_about_us_title'] )) { ?>
-                                        <div class="title"><?php echo esc_html( $theme_option['endurance_about_us_title'] ); ?></div>
+                                    <?php if(isset( $theme_option['endurance_general_about_us_title'] ) && !empty( $theme_option['endurance_general_about_us_title'] )) { ?>
+                                        <div class="title"><?php echo esc_html( $theme_option['endurance_general_about_us_title'] ); ?></div>
                                     <?php } 
-                                    if(isset( $theme_option['endurance_about_us_description'] ) && !empty( $theme_option['endurance_about_us_description'] )) { ?>
+                                    if(isset( $theme_option['endurance_general_about_us_description'] ) && !empty( $theme_option['endurance_general_about_us_description'] )) { ?>
                                         <p>
-                                            <?php echo esc_html( $theme_option['endurance_about_us_description'] ); ?>
+                                            <?php echo esc_html( $theme_option['endurance_general_about_us_description'] ); ?>
                                         </p>
                                     <?php }
                                     $endurance_general_gt_link = isset( $theme_option['endurance_general_gt_link'] ) ? $theme_option['endurance_general_gt_link'] : site_url() . '/about-us/';
@@ -204,24 +204,24 @@ $theme_option = get_option('redux_demo');
                         <div class="col-lg-10">
                             <div class="cta-text text-lg-start text-center d-flex align-items-center gap-4">
                                 <div>
-                                    <?php if(isset( $theme_option['endurance_smart_app_title'] ) && !empty( $theme_option['endurance_smart_app_title'] )) { ?>
-                                        <div class="title pb-1"><?php echo esc_html( $theme_option['endurance_smart_app_title'] ); ?></div>
+                                    <?php if(isset( $theme_option['endurance_general_smart_app_title'] ) && !empty( $theme_option['endurance_general_smart_app_title'] )) { ?>
+                                        <div class="title pb-1"><?php echo esc_html( $theme_option['endurance_general_smart_app_title'] ); ?></div>
                                     <?php } 
-                                    if(isset( $theme_option['endurance_smart_app_description'] ) && !empty( $theme_option['endurance_smart_app_description'] )) { ?>
-                                        <p><?php echo esc_html( $theme_option['endurance_smart_app_description'] ); ?></p>
+                                    if(isset( $theme_option['endurance_general_smart_app_description'] ) && !empty( $theme_option['endurance_general_smart_app_description'] )) { ?>
+                                        <p><?php echo esc_html( $theme_option['endurance_general_smart_app_description'] ); ?></p>
                                     <?php } ?>
                                 </div>
                                 <div class="image-wrapper d-lg-block d-none">
-                                    <?php if(isset( $theme_option['endurance_smart_app_download_image']['url'] ) && !empty( $theme_option['endurance_smart_app_download_image']['url'] )) { ?>
-                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_smart_app_download_image']['url'] ); ?>" alt="cta-appstore-img">
+                                    <?php if(isset( $theme_option['endurance_general_smart_app_download_image']['url'] ) && !empty( $theme_option['endurance_general_smart_app_download_image']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_smart_app_download_image']['url'] ); ?>" alt="cta-appstore-img">
                                     <?php } ?>
                                 </div>
                             </div>
                             <div class="image-wrapper mockup mx-lg-0 mx-auto">
                                 <div class="row justify-content-center">
                                     <div class="col-xxl-10 col-lg-8 col-sm-10">
-                                        <?php if(isset( $theme_option['endurance_smart_app_mobile_image']['url'] ) && !empty( $theme_option['endurance_smart_app_mobile_image']['url'] )) { ?>
-                                            <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_smart_app_mobile_image']['url'] ); ?>" alt="cta-mockup" class="d-block mx-auto">
+                                        <?php if(isset( $theme_option['endurance_general_smart_app_mobile_image']['url'] ) && !empty( $theme_option['endurance_general_smart_app_mobile_image']['url'] )) { ?>
+                                            <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_smart_app_mobile_image']['url'] ); ?>" alt="cta-mockup" class="d-block mx-auto">
                                         <?php } ?>
                                     </div>
                                 </div>
@@ -314,7 +314,9 @@ $theme_option = get_option('redux_demo');
             <div class="pricing-section default-padding">
                 <div class="container">
                     <div class="content">
-                        <div class="title text-center pb-sm-5 pb-4">Pricing Plan</div>
+                        <?php if(isset( $theme_option['endurance_pricing_plan_section_heading'] ) && !empty( $theme_option['endurance_pricing_plan_section_heading'] )) { ?>
+                          <div class="title text-center pb-sm-5 pb-4"><?php echo esc_html( $theme_option['endurance_pricing_plan_section_heading'] ); ?></div>
+                        <?php } ?>
                         <div class="pricing-wrapper">
                             <div class="row">
                                 <div class="col-4">
@@ -374,7 +376,9 @@ $theme_option = get_option('redux_demo');
                                                 endif; 
                                                 ?>
                                             </ul>
-                                            <span class="price">prices</span>
+                                            <?php if(isset( $theme_option['endurance_pricing_plan_prices_title'] ) && !empty( $theme_option['endurance_pricing_plan_prices_title'] )) { ?>
+                                                <span class="price"><?php echo esc_html( $theme_option['endurance_pricing_plan_prices_title'] ); ?></span>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -413,7 +417,9 @@ $theme_option = get_option('redux_demo');
                                                                             <p> / <?php echo esc_html( $display_period ); ?></p>
                                                                         <?php } ?>
                                                                     </div>
-                                                                    <a href="#" class="btn_wrapper mt-2 mx-auto">sign up</a>
+                                                                    <?php if(isset( $theme_option['endurance_sign_up_link'] ) && !empty( $theme_option['endurance_sign_up_link'] )) { ?>
+                                                                        <a href="#" class="btn_wrapper mt-2 mx-auto"><?php echo esc_html( $theme_option['endurance_sign_up_text'] ); ?></a>
+                                                                    <?php } ?>
                                                                 </div>
                                                             </div>
                                                         <?php } ?>                                                       
@@ -492,14 +498,14 @@ $theme_option = get_option('redux_demo');
                     <div class="row gy-sm-5 gy-4 align-items-center justify-content-between">
                         <div class="col-lg-6 order-lg-1 order-2">
                             <div class="image-wrapper clientImg wow fadeInLeft">
-                                <?php if(isset( $theme_option['endurance_happy_clients_section_client_image']['url'] ) && !empty( $theme_option['endurance_happy_clients_section_client_image']['url'] )) { ?>
-                                    <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_happy_clients_section_client_image']['url'] ); ?>" alt="client-img" class="d-block mx-auto">
+                                <?php if(isset( $theme_option['endurance_general_person_img']['url'] ) && !empty( $theme_option['endurance_general_person_img']['url'] )) { ?>
+                                    <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_person_img']['url'] ); ?>" alt="client-img" class="d-block mx-auto">
                                 <?php } ?>
                                 <div class="pettern image-wrapper">
-                                    <?php if(isset( $theme_option['endurance_happy_clients_section_background_image']['url'] ) && !empty( $theme_option['endurance_happy_clients_section_background_image']['url'] )) { ?>
-                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_happy_clients_section_background_image']['url'] ); ?>" alt="client-pettern">
-                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_happy_clients_section_background_image']['url'] ); ?>" alt="client-pettern">
-                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_happy_clients_section_background_image']['url'] ); ?>" alt="client-pettern">
+                                    <?php if(isset( $theme_option['endurance_general_gymfit_white_img']['url'] ) && !empty( $theme_option['endurance_general_gymfit_white_img']['url'] )) { ?>
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_gymfit_white_img']['url'] ); ?>" alt="client-pettern">
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_gymfit_white_img']['url'] ); ?>" alt="client-pettern">
+                                        <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_gymfit_white_img']['url'] ); ?>" alt="client-pettern">
                                     <?php } ?>
                                 </div>
                                 <?php if(isset( $theme_option['endurance_general_background_image']['url'] ) && !empty( $theme_option['endurance_general_background_image']['url'] )) { ?>
@@ -517,35 +523,53 @@ $theme_option = get_option('redux_demo');
                                     <div class="swiper-wrapper">
                                         <?php if ( $testimonials_posts->have_posts() ) : ?>
                                          <?php while ( $testimonials_posts->have_posts() ) : $testimonials_posts->the_post(); ?>
-                                        <div class="swiper-slide">
-                                            <div class="review-block">
-                                                <div class="text pb-4">
-                                                    <p class="mb-3"><?php the_content(); ?></p>
-                                                </div>
-                                                <div class="review">
-                                                    <div class="image-wrapper pe-4">
-                                                        <?php if ( has_post_thumbnail() ) { 
-                                                            the_post_thumbnail( get_the_ID(), 'full' );
-                                                        } ?>
+                                            <div class="swiper-slide">
+                                                <div class="review-block">
+                                                    <div class="text pb-4">
+                                                        <p class="mb-3"><?php the_content(); ?></p>
                                                     </div>
-                                                    <div class="review-text">
-                                                        <span><?php the_title(); ?></span>
-                                                        <?php $review_title = get_post_meta( get_the_ID(), 'Person Review'); 
-                                                        print_r($review_title); ?>
-                                                        <p class="mb-1">Google Reviews</p>
-                                                        <div class="image-wrapper">
-                                                            <img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/stars.svg" alt="stars" width="126" height="22">
+                                                    <div class="review">
+                                                        <div class="image-wrapper pe-4">
+                                                            <?php if ( has_post_thumbnail() ) { 
+                                                                the_post_thumbnail( get_the_ID(), 'full' );
+                                                            } ?>
+                                                        </div>
+                                                        <div class="review-text">
+                                                            <span><?php the_title(); ?></span>
+                                                        <p class="mb-1">  <?php $review_title = get_post_meta( get_the_ID(), 'review_name'); 
+                                                            print_r($review_title[0]); ?></p>
+                                                            <!-- <p class="mb-1">Google Reviews</p> -->
+                                                            <div class="image-wrapper">
+                                                            <?php
+                                                                $start_rating = get_post_meta(get_the_ID(), 'star_rating'); // Get the star rating as a single value
+                                                                $max_stars = 5; // Define the maximum number of stars
+                                                                ?>
+                                                                <p class="stars">
+                                                                    <span class="star-rate">
+                                                                        <?php for ($i = 1; $i <= $max_stars; $i++): ?>
+                                                                            <a class="star-<?php echo $i; ?> <?php echo ($i <= $start_rating[0]) ? 'active' : ''; ?>"></a>
+                                                                        <?php endfor; ?>
+                                                                    </span>
+                                                                </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         <?php endwhile;
                                     endif; ?>
                                     </div>
                                     <div class="btn-block pt-lg-0 pt-3">
-                                        <div class="button prev image-wrapper"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-left"></div>
-                                        <div class="button next image-wrapper"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-right"></div>
+                                        <div class="button prev image-wrapper">                            
+                                             <?php if(isset( $theme_option['endurance_general_articles_left_arrow_icont']['url'] ) && !empty( $theme_option['endurance_general_articles_left_arrow_icont']['url'] )) { ?>
+                                              <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_left_arrow_icont']['url'] ); ?>" width="24" height="24" alt="arrow-left">
+                                             <?php } ?> 
+                                        </div>
+                                        <div class="button next image-wrapper"> 
+                                            <?php if(isset( $theme_option['endurance_general_articles_right_arrow_icont']['url'] ) && !empty( $theme_option['endurance_general_articles_right_arrow_icont']['url'] )) { ?>
+                                               <img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_right_arrow_icont']['url'] ); ?>" width="24" height="24" alt="arrow-right">
+                                            <?php } ?> 
+                                        </div>
                                     </div>
                                 </div>
                             </div>

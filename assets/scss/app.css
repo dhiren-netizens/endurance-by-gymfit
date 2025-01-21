@@ -1005,6 +1005,9 @@ header .header_block ul li {
     margin-bottom: 10px;
   }
 }
+header .header_block ul li:hover{
+  color: #F907FC;
+}
 header .header_block ul li:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
@@ -1013,7 +1016,7 @@ header .header_block ul li:last-child {
 header .header_block ul li a {
   font-family: "Zen Dots", sans-serif;
   font-weight: 400;
-  color: rgba(45, 45, 45, 0.5);
+  color: rgba(45, 45, 45, 0.5) !important;
   font-size: 38px;
   line-height: 1;
   text-transform: capitalize;
@@ -1067,7 +1070,7 @@ header .header_block ul li a::before {
   }
 }
 header .header_block ul li a:hover, header .header_block ul li a.active {
-  color: #F907FC;
+  color: #F907FC !important;
 }
 header .header_block ul li a:hover::before, header .header_block ul li a.active::before {
   right: -100px;
@@ -3644,7 +3647,9 @@ GALLERY SECTION CSS
 .gallery-section .gallery-wrapper .image-wrapper img {
   transition: all 0.3s ease;
 }
-
+.stars a.active:after{
+  content: '★';
+}
 /*
 ============================================
 GALLERY SECTION CSS

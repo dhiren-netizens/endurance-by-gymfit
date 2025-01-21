@@ -636,9 +636,53 @@ Redux::set_section(
 				'indent' => false, // Indent all options below until the next 'section' option is set.
 			),
 			array(
+				'id'       => 'endurance_about_us_section',
+				'title'    => esc_html__( 'About Us', 'endurance' ),
+			    'type'     => 'section',
+				'indent'   => true, 
+			),
+			array(
+                'id'           => 'endurance_general_about_us_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/about-img.webp'
+				),
+            ),
+			array(
+                'id'           => 'endurance_general_about_us_logo_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Logo Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/white-logo.webp'
+				),
+            ),
+			array(
+				'id'          => 'endurance_general_about_us_title',
+				'type'        => 'text',
+				'title'       => esc_html__( 'Title', 'endurance' ),
+				'placeholder' => 'Enter your title ',
+				'default' => 'About Us',
+			),
+			array(
+				'id'       => 'endurance_general_about_us_description',
+				'type'     => 'textarea',
+				'title'    => esc_html__( 'Description', 'endurance' ),
+				'validate' => 'no_html',
+				'default'  => 'Welcome to Endurance Unleashed, where we fuel the spirit of champions. Our mission is to equip you with the finest tools, gear, and resources to conquer your limits and achieve extraordinary feats. Embrace the thrill of pushing beyond boundaries, stay motivated through the toughest challenges, and track your progress as you embark on a relentless journey to greatness.let\'s redefine the power of perseverance and triumph in the face of every obstacle. Unleash your full potential with Endurance.',
+			),
+			array(
 				'id'       => 'endurance_testimonial',
 				'type'     => 'section',
-				'title'    => esc_html__( 'Testimonial Reviews', 'endurance' ),
+				'title'    => esc_html__( 'Our Happy Client', 'endurance' ),
 				'indent'   => true, // Indent all options below until the next 'section' option is set.
 			),
 			array(
@@ -647,6 +691,128 @@ Redux::set_section(
 				'title'    => esc_html__( 'Our Happy Client', 'endurance' ),
 				'default'  => 'Our Happy Client',
 			),
+			array(
+                'id'           => 'endurance_general_articles_left_arrow_icont',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Left Arrow Icon', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-left.svg'
+				),
+            ),
+			array(
+                'id'           => 'endurance_general_articles_right_arrow_icont',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Right Arrow Icon', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-right.svg'
+				),
+            ),
+			array(
+                'id'           => 'endurance_general_gymfit_white_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'White Logo Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/client-pettern.svg'
+				),
+            ),
+			array(
+                'id'           => 'endurance_general_person_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Person Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/clients/client-img.webp'
+				),
+            ),
+			array(
+				'id'       => 'endurance_smart_app_Section',
+				'title'    => esc_html__( 'Smart App Section', 'endurance' ),
+			    'type'     => 'section',
+				'indent'   => true, 
+			),
+			array(
+				'id'          => 'endurance_general_smart_app_title',
+				'type'        => 'text',
+				'title'       => esc_html__( 'Title', 'endurance' ),
+				'placeholder' => 'Enter your title ',
+				'default' => 'Smart App For All',
+			),
+			array(
+				'id'       => 'endurance_general_smart_app_description',
+				'type'     => 'textarea',
+				'title'    => esc_html__( 'Description', 'endurance' ),
+				'validate' => 'no_html',
+				'default'  => 'We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.',
+			),
+			array(
+				'id'           => 'endurance_general_smart_app_download_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Download Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-appstore-img.svg'
+				),
+			),
+			array(
+				'id'           => 'endurance_general_smart_app_mobile_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Mobile Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-mockup.webp'
+				),
+			),
+			array(
+				'id'           => 'endurance_general_smart_app_line_background_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Line Background Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/cta-line.svg'
+				),
+			),
+			array(
+				'id'             => 'endurance_general_smart_app_background_color',
+				'type'           => 'color_gradient',
+				'title'          => esc_html__( 'Background Color', 'endurance' ),
+				'gradient-type'  => 'radial',
+				'gradient-reach' => true,
+				'gradient-angle' => true,
+				'preview'        => true,
+				'default'        => array(
+					'gradient-type'  => 'radial',
+					'from'           => '#05F6F9',
+					'to'             => '#F907FC',
+					'gradient-reach' => array(
+						'to'   => 100,
+						'from' => 0,
+					),
+				),
+		    ),
         ),
 	)
 );
@@ -678,18 +844,6 @@ Redux::set_section(
 				'title'    => esc_html__( 'Banner Section Text & Image', 'endurance' ),
 				'indent'   => true, // Indent all options below until the next 'section' option is set.
 			),
-			array(
-                'id'           => 'endurance_banner_line_pattern_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Line Pattern Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/banner-pettern.svg'
-				),
-            ),
 			array(
 				'id'          => 'endurance_banner_title',
 				'type'        => 'text',
@@ -1007,140 +1161,6 @@ Redux::set_section(
 	)
 );
 
-// About Us Section - Home Page Settings
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'About Us Section', 'endurance' ),
-		'id'               => 'endurance_about_us_section',
-		'customizer_width' => '400px',
-		'subsection' => true,
-		'icon'             => 'el el-info-circle',
-		'fields'           => array(
-			array(
-                'id'           => 'endurance_about_us_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/about-img.webp'
-				),
-            ),
-			array(
-                'id'           => 'endurance_about_us_logo_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Logo Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/white-logo.webp'
-				),
-            ),
-			array(
-				'id'          => 'endurance_about_us_title',
-				'type'        => 'text',
-				'title'       => esc_html__( 'Title', 'endurance' ),
-				'placeholder' => 'Enter your title ',
-				'default' => 'About Us',
-			),
-			array(
-				'id'       => 'endurance_about_us_description',
-				'type'     => 'textarea',
-				'title'    => esc_html__( 'Description', 'endurance' ),
-				'validate' => 'no_html',
-				'default'  => 'Welcome to Endurance Unleashed, where we fuel the spirit of champions. Our mission is to equip you with the finest tools, gear, and resources to conquer your limits and achieve extraordinary feats. Embrace the thrill of pushing beyond boundaries, stay motivated through the toughest challenges, and track your progress as you embark on a relentless journey to greatness.let\'s redefine the power of perseverance and triumph in the face of every obstacle. Unleash your full potential with Endurance.',
-			),
-        ),
-	)
-);
-
-// Smart App Section - Home Page Settings
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'Smart App Section', 'endurance' ),
-		'id'               => 'endurance_smart_app_section',
-		'customizer_width' => '400px',
-		'subsection' => true,
-		'icon'             => 'el el-laptop',
-		'fields'           => array(
-			array(
-				'id'          => 'endurance_smart_app_title',
-				'type'        => 'text',
-				'title'       => esc_html__( 'Title', 'endurance' ),
-				'placeholder' => 'Enter your title ',
-				'default' => 'Smart App For All',
-			),
-			array(
-				'id'       => 'endurance_smart_app_description',
-				'type'     => 'textarea',
-				'title'    => esc_html__( 'Description', 'endurance' ),
-				'validate' => 'no_html',
-				'default'  => 'We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.',
-			),
-			array(
-                'id'           => 'endurance_smart_app_download_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Download Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/cta-appstore-img.svg'
-				),
-            ),
-			array(
-                'id'           => 'endurance_smart_app_mobile_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Mobile Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/cta-mockup.webp'
-				),
-            ),
-			array(
-                'id'           => 'endurance_smart_app_line_background_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Line Background Image', 'endurance' ),
-				'compiler'     => 'true',
-				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/cta-line.svg'
-				),
-            ),
-			array(
-				'id'             => 'endurance_smart_app_background_color',
-				'type'           => 'color_gradient',
-				'title'          => esc_html__( 'Background Color', 'endurance' ),
-				'gradient-type'  => 'radial',
-				'gradient-reach' => true,
-				'gradient-angle' => true,
-				'preview'        => true,
-				'default'        => array(
-					'gradient-type'  => 'radial',
-					'from'           => '#05F6F9',
-					'to'             => '#F907FC',
-					'gradient-reach' => array(
-						'to'   => 100,
-						'from' => 0,
-					),
-				),
-			),
-        ),
-	)
-);
-
 // Marquee Notice Section - Home Page Settings
 Redux::set_section(
 	$opt_name,
@@ -1442,44 +1462,113 @@ Redux::set_section(
 	)
 );
 
-// Our Happy Clients Section - Home Page Settings
+// Pricing Plan Section - Home Page Settings
 Redux::set_section(
 	$opt_name,
 	array(
-		'title'            => esc_html__( 'Our Happy Clients Section', 'endurance' ),
-		'id'               => 'endurance_happy_clients_section',
+		'title'            => esc_html__( 'Pricing Plan Section', 'endurance' ),
+		'id'               => 'endurance_pricing_plan_section',
 		'customizer_width' => '400px',
 		'subsection' => true,
-		'icon'             => 'el el-group',
+		'icon'             => 'el el-eur',
 		'fields'           => array(
 			array(
-                'id'           => 'endurance_happy_clients_section_background_image',
+				'id'           => 'endurance_pricing_plan_background_image',
 				'type'         => 'media',
 				'url'          => true,
-				'title'        => esc_html__( 'Background Image', 'endurance' ),
+				'title'        => esc_html__( 'Pricing Plan Free Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
 				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/client-pettern.svg'
+					'url' => get_template_directory_uri() . '/assets/images/background/pricing-paper-texture.webp'
 				),
+			),
+			array(
+				'id'       => 'endurance_pricing_plan_section_heading',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Heading', 'endurance' ),
+				'default'  => 'Pricing Plan',
+			),
+			array(
+                'id'           => 'endurance_pricing_plan_sub_title',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Sub Title', 'endurance' ),
+				'default'  => 'PRO',
             ),
 			array(
-                'id'           => 'endurance_happy_clients_section_client_image',
+                'id'           => 'endurance_pricing_plan_prices_title',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Prices Title', 'endurance' ),
+				'default'  => 'PRICES',
+            ),
+			array(
+				'id'           => 'endurance_pricing_plan_free_image',
 				'type'         => 'media',
 				'url'          => true,
-				'title'        => esc_html__( 'Client Image', 'endurance' ),
+				'title'        => esc_html__( 'Pricing Plan Free Image', 'endurance' ),
 				'compiler'     => 'true',
 				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
 				'preview_size' => 'full',
 				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/clients/client-img.webp'
+					'url' => get_template_directory_uri() . '/assets/images/icon/pricing-icon.svg'
 				),
-            ),
+			),
+			array(
+				'id'           => 'endurance_pricing_plan_pro_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Pricing Plan Pro Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default' => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/pricing-icon-2.svg'
+				),
+			),
+			
+			array(
+				'id'          => 'endurance_pricing_plan_background_color1',
+				'type'        => 'color',
+				'title'       => esc_html__( 'Planing Text Background Color', 'endurance' ),
+				'default'     => '#ebeffc',
+				'transparent' => false,
+				'validate'    => 'color',
+			),
+			array(
+				'id'       => 'endurance_sign_up_text',
+				'type'     => 'text',
+				'title'    => esc_html__( 'Button Text', 'endurance' ),
+				'default'  => 'Sign Up',
+			),
+			array(
+				'id'       => 'endurance_sign_up_link',
+				'type'     => 'text',
+				'validate'  => 'url',
+				'title'    => esc_html__( 'Button Link', 'endurance' ),
+				'default'  => '#',
+			),
+			array(
+				'id'             => 'endurance_nav_text_color',
+				'type'           => 'color_gradient',
+				'title'          => esc_html__( 'Featured Text Background Color', 'endurance' ),
+				'gradient-type'  => 'radial',
+				'gradient-reach' => true,
+				'gradient-angle' => true,
+				'preview'        => true,
+				'default'        => array(
+					'gradient-type'  => 'radial',
+					'from'           => '#05F6F9',
+					'to'             => '#F907FC',
+					'gradient-reach' => array(
+						'to'   => 100,
+						'from' => 0,
+					),
+				),
+		    ),
         ),
 	)
 );
-
 
 // Gallery Page Settings
 $gallery_images_ids = get_option( 'endurance_gallery_images' );
@@ -1547,54 +1636,7 @@ Redux::set_section(
 		'icon'             => 'el el-adult',
 	),
 );
-//About us section - About Us Page Settings 
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'About Us Section', 'endurance' ),
-		'id'               => 'endurance_about_us',
-		'customizer_width' => '400px',
-		'subsection' => true,
-		'icon'             => 'el el-info-circle',
-		'fields'           => array(
-			array(
-				'id'           => 'endurance_about_us_img',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'About Us Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/about-img.webp'
-				),
-			),
-			array(
-                'id'           => 'endurance_about_us_white_img',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'White Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/white-logo.webp'
-				),
-            ),
-			array(
-				'id'       => 'about_us_heading',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Heading', 'endurance' ),
-				'default'  => 'About Us'
-			),
-			array(
-			    'id'       => 'about_us_Description',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Description', 'endurance' ),
-				'default'  => 'Welcome to Endurance Unleashed, where we fuel the spirit of champions. Our mission is to equip you with the finest tools, gear, and resources to conquer your limits and achieve extraordinary feats. Embrace the thrill of pushing beyond boundaries, stay motivated through the toughest challenges, and track your progress as you embark on a relentless journey to greatness.'
-			),
-			
-        ),
-	)
-);
+
 //Stand Out section - About Us Page Settings 
 Redux::set_section(
 	$opt_name,
@@ -1681,88 +1723,6 @@ Redux::set_section(
 				'title'    => esc_html__( 'Description', 'endurance' ),
 				'default'  => 'We believe in the power of pushing boundaries, staying motivated through challenges, and tracking your progress as you embark on an unwavering journey to greatness.'
 			),
-		),
-	),
-);
-//Smart App section - About Us Page Settings 
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'Smart App Section', 'endurance' ),
-		'id'               => 'endurance_smart_app',
-		'customizer_width' => '400px',
-		'subsection' => true,
-		'icon'             => 'el el-screen',
-		'fields'           => array(
-			array(
-		    	'id'           => 'endurance_smart_app_store_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/cta-appstore-img.svg'
-				),
-		    ),
-			array(
-		    	'id'           => 'endurance_smart_app_bg_image',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/cta-mockup.webp'
-				),
-		    ),
-		    array(
-			    'id'       => 'endurance_samrt_app_heading',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Heading', 'endurance' ),
-				'default'  => 'Smart App For all'
-			),
-			array(
-			    'id'       => 'endurance_smart_app_decription',
-				'type'     => 'editor',
-				'title'    => esc_html__( 'Description', 'endurance' ),
-				'default'  => 'We are the ultimate destination for those seeking to push their boundaries.'
-			),
-		),
-	),
-);
-//Client Review Section - About Us Page Settings 
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'Client Review Section', 'endurance' ),
-		'id'               => 'endurance_client_review',
-		'customizer_width' => '400px',
-		'subsection' => true,
-		'icon'             => 'el el-heart',
-		'fields'           => array(
-			array(
-		    	'id'           => 'endurance_client_review_img',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/clients/client-img.webp'
-				),
-		    ),
-			array(
-		    	'id'           => 'endurance_repater_logo_img',
-				'type'         => 'media',
-				'url'          => true,
-				'title'        => esc_html__( 'Image', 'endurance' ),
-				'compiler'     => 'true',
-				'preview_size' => 'full',
-				'default' => array(
-					'url' => get_template_directory_uri() . '/assets/images/background/client-pettern.svg'
-				),
-		    ),
 		),
 	),
 );
