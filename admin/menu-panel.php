@@ -98,7 +98,7 @@ $args = array(
 	'admin_bar'                 => true,
 
 	// Icon for the admin bar menu.
-	'admin_bar_icon'            => get_template_directory_uri() . '/assets/images/endurance_favicon.svg',
+	'admin_bar_icon'            => '',
 
 	// Priority for the admin bar menu.
 	'admin_bar_priority'        => 50,
@@ -107,7 +107,7 @@ $args = array(
 	'global_variable'           => $opt_name,
 
 	// Show the time the page took to load, etc. (forced on while on localhost or when WP_DEBUG is enabled).
-	'dev_mode'                  => true,
+	'dev_mode'                  => false,
 
 	// Enable basic customizer support.
 	'customizer'                => true,
@@ -128,7 +128,7 @@ $args = array(
 	'page_permissions'          => 'manage_options',
 
 	// Specify a custom URL to an icon.
-	'menu_icon'                 => '',
+	'menu_icon'                 => get_template_directory_uri() . '/assets/images/endurance_favicon.svg',
 
 	// Force your panel to always open to a specific tab (by id).
 	'last_tab'                  => '',

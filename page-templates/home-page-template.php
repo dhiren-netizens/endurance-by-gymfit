@@ -348,135 +348,103 @@ $theme_option = get_option( 'redux_demo' );
 						<?php if ( isset( $theme_option['endurance_pricing_plan_section_heading'] ) && ! empty( $theme_option['endurance_pricing_plan_section_heading'] ) ) { ?>
 							<div class="title text-center pb-sm-5 pb-4"><?php echo esc_html( $theme_option['endurance_pricing_plan_section_heading'] ); ?></div>
 						<?php } ?>
-						<div class="pricing-wrapper">
-							<div class="row">
-								<div class="col-4">
-									<div class="option-wrapper wow fadeInLeft">
-										<ul class="nav nav-pills mb-sm-5 mb-4" id="pills-tab" role="tablist">
-											<?php
-											$pricing_plans       = new WP_Query(
-												array(
-													'post_type'   => 'pricing-plan',
-													'post_status' => 'publish',
-													'posts_per_page' => -1,
-												)
-											);
-											$display_plan_period = array();
-											$post_title_arr      = array();
-											$get_plan_price      = array();
+						<div class="pricing_nav d-flex justify-content-center">							
+							<ul class="nav nav-pills mb-sm-5 mb-4" id="pills-tab" role="tablist">
+								<?php
+								$pricing_plans       = new WP_Query(
+									array(
+										'post_type'   => 'pricing-plan',
+										'post_status' => 'publish',
+										'posts_per_page' => -1,
+									)
+								);
+								$display_plan_period = array();
+								$post_title_arr      = array();
+								$get_plan_price      = array();
+								$display_plan_features = array();
+								$plan_features         = array();
 
-											if ( $pricing_plans->have_posts() ) :
-												while ( $pricing_plans->have_posts() ) :
-													$pricing_plans->the_post();
-													$get_plan_periods = get_post_meta( get_the_ID(), 'endurance_pricing_plan_period', true );
-													$post_title_arr[] = get_the_title();
+								if ( $pricing_plans->have_posts() ) :
+									while ( $pricing_plans->have_posts() ) :
+										$pricing_plans->the_post();
+										$get_plan_periods = get_post_meta( get_the_ID(), 'endurance_pricing_plan_period', true );
+										$post_title_arr[] = get_the_title();
 
-													$get_plan_prices                   = get_post_meta( get_the_ID(), 'endurance_pricing_plan_price', true );
-													$get_plan_price[ get_the_title() ] = $get_plan_prices;
+										$get_plan_prices                   = get_post_meta( get_the_ID(), 'endurance_pricing_plan_price', true );
+										$get_plan_price[ get_the_title() ] = $get_plan_prices;
 
-													foreach ( $get_plan_periods as $get_plan_period ) {
-														if ( ! in_array( $get_plan_period, $display_plan_period ) ) {
-															$display_plan_period[] = $get_plan_period;
-															?>
-															<li class="nav-item" role="presentation">
-																<button class="nav-link" id="pills-<?php echo esc_attr( $get_plan_period ); ?>-tab" data-bs-toggle="pill" data-bs-target="#pills-<?php echo esc_attr( $get_plan_period ); ?>" type="button" role="tab" aria-controls="pills-<?php echo esc_attr( $get_plan_period ); ?>" aria-selected="true">
-																	<?php
-																	echo esc_html( $get_plan_period );
-																	?>
-																</button>
-															</li>
-															<?php
+										foreach ( $get_plan_periods as $get_plan_period ) {
+											if ( ! in_array( $get_plan_period, $display_plan_period ) ) {
+												$display_plan_period[] = $get_plan_period;
+												?>
+												<li class="nav-item" role="presentation">
+													<button class="nav-link" id="pills-<?php echo esc_attr( $get_plan_period ); ?>-tab" data-bs-toggle="pill" data-bs-target="#pills-<?php echo esc_attr( $get_plan_period ); ?>" type="button" role="tab" aria-controls="pills-<?php echo esc_attr( $get_plan_period ); ?>" aria-selected="true">
+														<?php
+														echo esc_html( $get_plan_period );
+														?>
+													</button>
+												</li>
+												<?php
+											}
+										}
+
+										$get_plan_features = get_post_meta( get_the_ID(), 'endurance_pricing_plan_features', true );
+										$plan_features[]   = $get_plan_features;
+										foreach ( $get_plan_features as $get_feature ) {
+											foreach ( $get_feature['features'] as $feature_name => $features_checked ) {
+												if ( ! in_array( $feature_name, $display_plan_features ) ) {
+													$display_plan_features[] = $feature_name;
+												}
+											}
+										}
+									endwhile;
+								endif;
+								?>
+							</ul>
+						</div>
+						<div class="pricingWrapper">
+							<?php foreach ( $display_plan_period as $display_period ) { ?>
+							<div class="tab-pane fade" id="pills-<?php echo esc_html( $display_period ); ?>" role="tabpanel" aria-labelledby="pills-<?php echo esc_html( $display_period ); ?>-tab" tabindex="0">
+								<div class="swiper pricingSwiper">
+									<div class="swiper-wrapper">
+										<?php foreach ( $post_title_arr as $display_title ) { ?>
+										<div class="swiper-slide">
+											<div class="pricingtable-inner">
+												<div class="pricingtable-title"><?php echo esc_html( $display_title ); ?></div>
+												<div class="pricingtable-price">
+													<?php if ( 'Free' == $display_title ) { ?>
+														<h2>$0 <small></small></h2>
+													<?php } else { ?>
+														<h2>$<?php echo esc_html( $get_plan_price[ $display_title ][ ucwords( $display_period ) ]['price'] ); ?><small>/ <?php echo esc_html( $display_period ); ?></small></h2>
+													<?php } ?>
+												</div>
+												<ul class="pricingtable-features">
+													<?php
+														$plan_features_arr = array();
+													foreach ( $plan_features as $features ) {
+														foreach ( $features as $key => $value ) {
+															$plan_features_arr[ $key ] = $value['features'];
 														}
 													}
-												endwhile;
-											endif;
-											?>
-										</ul>
-										<div class="options">
-											<ul>
-												<?php
-												$pricing_plans         = new WP_Query(
-													array(
-														'post_type'      => 'pricing-plan',
-														'post_status'    => 'publish',
-														'posts_per_page' => -1,
-													)
-												);
-												$display_plan_features = array();
-												$plan_features         = array();
-												if ( $pricing_plans->have_posts() ) :
-													while ( $pricing_plans->have_posts() ) :
-														$pricing_plans->the_post();
-														$get_plan_features = get_post_meta( get_the_ID(), 'endurance_pricing_plan_features', true );
-														$plan_features[]   = $get_plan_features;
-														foreach ( $get_plan_features as $get_feature ) {
-															foreach ( $get_feature['features'] as $feature_name => $features_checked ) {
-																if ( ! in_array( $feature_name, $display_plan_features ) ) {
-																	$display_plan_features[] = $feature_name;
-																	?>
-																	<li><?php echo esc_html( $feature_name ); ?></li>
-																	<?php
-																}
-															}
-														}
-													endwhile;
-												endif;
-												?>
-											</ul>
-											<?php if ( isset( $theme_option['endurance_pricing_plan_prices_title'] ) && ! empty( $theme_option['endurance_pricing_plan_prices_title'] ) ) { ?>
-												<span class="price"><?php echo esc_html( $theme_option['endurance_pricing_plan_prices_title'] ); ?></span>
-											<?php } ?>
+													foreach ( $display_plan_features as $display_features ) {
+														$plan_features_keys = array_keys( $plan_features_arr[ strtolower( $display_title ) ] );
+														$flag               = in_array( $display_features, $plan_features_keys ) ? get_template_directory_uri() . '/assets/images/icon/pricing-icon.svg' : get_template_directory_uri() . '/assets/images/icon/pricing-icon-2.svg';
+														?>
+														
+														<li><img loading="lazy" src="<?php echo esc_url( $flag ); ?>" width="30" height="30" alt="pricing-icon"><?php echo esc_html( $display_features ); ?></li>
+													<?php } ?>
+												</ul>
+												<?php if ( isset( $theme_option['endurance_sign_up_text'] ) && ! empty( $theme_option['endurance_sign_up_text'] ) && ( isset( $theme_option['endurance_sign_up_link'] ) && ! empty( $theme_option['endurance_sign_up_link'] ) ) ) { ?>
+													<a href="<?php echo esc_url( $theme_option['endurance_sign_up_link'] ); ?>" class="btn_wrapper mt-2 mx-auto"><?php echo esc_html( $theme_option['endurance_sign_up_text'] ); ?></a>
+												<?php } ?>
+											</div>
 										</div>
+										<?php } ?>
 									</div>
-								</div>
-								<div class="col-8">
-									<div class="pricing-block wow fadeInRight">
-										<div class="tab-content" id="pills-tabContent">
-											<?php foreach ( $display_plan_period as $display_period ) { ?>
-												<div class="tab-pane fade" id="pills-<?php echo esc_html( $display_period ); ?>" role="tabpanel" aria-labelledby="pills-<?php echo esc_html( $display_period ); ?>-tab" tabindex="0">
-													<div class="row">
-														<?php foreach ( $post_title_arr as $display_title ) { ?>
-															<div class="col-3">
-																<div class="pricing-plan <?php echo esc_html( $display_title ); ?>">                                                                
-																	<div class="title mb-sm-5 mb-4"><?php echo esc_html( $display_title ); ?></div>
-																	<ul>
-																		<?php
-																			$plan_features_arr = array();
-																		foreach ( $plan_features as $features ) {
-																			foreach ( $features as $key => $value ) {
-																				$plan_features_arr[ $key ] = $value['features'];
-																			}
-																		}
-																		foreach ( $display_plan_features as $display_features ) {
-																			$plan_features_keys = array_keys( $plan_features_arr[ strtolower( $display_title ) ] );
-																			$flag               = in_array( $display_features, $plan_features_keys ) ? get_template_directory_uri() . '/assets/images/icon/pricing-icon.svg' : get_template_directory_uri() . '/assets/images/icon/pricing-icon-2.svg';
-																			?>
-																			
-																			<li><img loading="lazy" src="<?php echo esc_url( $flag ); ?>" width="30" height="30" alt="pricing-icon"></li>
-																		<?php } ?>
-																	</ul>
-																	<div class="pricing">
-																		<?php if ( 'Free' == $display_title ) { ?>
-																			<span class="<?php echo esc_attr( $display_title ); ?>"><?php echo esc_html( $get_plan_price[ $display_title ][ ucwords( $display_period ) ]['price'] ); ?></span>
-																			<p> Lifetime</p>
-																		<?php } else { ?>
-																			<span class="<?php echo esc_attr( $display_title ); ?>">$<?php echo esc_html( $get_plan_price[ $display_title ][ ucwords( $display_period ) ]['price'] ); ?></span>
-																			<p> / <?php echo esc_html( $display_period ); ?></p>
-																		<?php } ?>
-																	</div>
-																	<?php if ( isset( $theme_option['endurance_sign_up_link'] ) && ! empty( $theme_option['endurance_sign_up_link'] ) ) { ?>
-																		<a href="#" class="btn_wrapper mt-2 mx-auto"><?php echo esc_html( $theme_option['endurance_sign_up_text'] ); ?></a>
-																	<?php } ?>
-																</div>
-															</div>
-														<?php } ?>                                                       
-													</div>
-												</div>
-											<?php } ?>
-										</div>
-									</div>
+									<div class="swiper-scrollbar"></div>
 								</div>
 							</div>
+							<?php } ?>
 						</div>
 					</div>
 				</div>
@@ -618,7 +586,7 @@ $theme_option = get_option( 'redux_demo' );
 																<p class="stars">
 																	<span class="star-rate">
 																		<?php for ( $i = 1; $i <= $max_stars; $i++ ) : ?>
-																			<a class="star-<?php echo $i; ?> <?php echo ( $i <= $start_rating[0] ) ? 'active' : ''; ?>"></a>
+																			<a class="star-<?php echo esc_attr( $i ); ?> <?php echo isset($start_rating[0]) && ( $i <= $start_rating[0] ) ? 'active' : ''; ?>"></a>
 																		<?php endfor; ?>
 																	</span>
 																</p>
@@ -660,7 +628,7 @@ $theme_option = get_option( 'redux_demo' );
 					<div class="row gy-lg-0 gy-4">
 					<div class="col-lg-4">
 							<?php if ( isset( $theme_option['endurance_general_articles_title'] ) && ! empty( $theme_option['endurance_general_articles_title'] ) ) { ?>
-								<div class="title pb-3 text-lg-start text-center"><?php echo $theme_option['endurance_general_articles_title']; ?></div>
+								<div class="title pb-3 text-lg-start text-center"><?php echo wp_kses( $theme_option['endurance_general_articles_title'], endurance_allowed_tags() ); ?></div>
 								<?php
 							}
 							if ( isset( $theme_option['endurance_general_articles_description'] ) && ! empty( $theme_option['endurance_general_articles_description'] ) ) {
@@ -771,26 +739,26 @@ $theme_option = get_option( 'redux_demo' );
 		<div class="instagram-section default-padding wow fadeIn" data-wow-duration="1.2s">
 			<div class="instagram-wrapper">
 				<div class="image-wrapper">
-					<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/background/paper-texture.webp" alt="papper-texture">
+					<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/paper-texture.webp" alt="papper-texture">
 					<div class="img-block">
 						<div class="row g-0 h-100 justify-content-between">
 							<div class="col-6">
 								<div class="row g-0 h-100">
 									<div class="col-4">
 										<div class="image-wrapper h-100 d-flex flex-column justify-content-between">
-											<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram/instagram-img-1.webp" alt="img-1" class="img-1 z-1" id="floatingImage1">
-											<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram/instagram-img-2.webp" alt="img-2" class="img-2" id="floatingImage2">
+											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-1.webp" alt="img-1" class="img-1 z-1" id="floatingImage1">
+											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-2.webp" alt="img-2" class="img-2" id="floatingImage2">
 										</div>
 									</div>
 									<div class="col-4">
 										<div class="image-wrapper h-100 d-flex flex-column justify-content-center">
-											<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram/instagram-img-3.webp" alt="img-3" class="img-3" id="floatingImage3">
-											<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram/instagram-img-4.webp" alt="img-4" class="img-4" id="floatingImage4">
+											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-3.webp" alt="img-3" class="img-3" id="floatingImage3">
+											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-4.webp" alt="img-4" class="img-4" id="floatingImage4">
 										</div>
 									</div>
 									<div class="col-2">
 										<div class="image-wrapper h-100">
-											<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram/instagram-img-5.webp" alt="img-5" class="img-5" id="floatingImage5">
+											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-5.webp" alt="img-5" class="img-5" id="floatingImage5">
 										</div>
 									</div>
 								</div>
@@ -799,14 +767,14 @@ $theme_option = get_option( 'redux_demo' );
 								<div class="row g-0 h-100">
 									<div class="col-6">
 										<div class="image-wrapper h-100 d-flex flex-column justify-content-center">
-											<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram/instagram-img-6.webp" alt="img-6" class="img-6" id="floatingImage6">
-											<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram/instagram-img-7.webp" alt="img-7" class="img-7" id="floatingImage7">
+											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-6.webp" alt="img-6" class="img-6" id="floatingImage6">
+											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-7.webp" alt="img-7" class="img-7" id="floatingImage7">
 										</div>
 									</div>
 									<div class="col-6">
 										<div class="image-wrapper h-100">
-											<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram/instagram-img-8.webp" alt="img-8" class="img-8" id="floatingImage8">
-											<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram/instagram-img-9.webp" alt="img-9" class="img-9" id="floatingImage9">
+											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-8.webp" alt="img-8" class="img-8" id="floatingImage8">
+											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-9.webp" alt="img-9" class="img-9" id="floatingImage9">
 										</div>
 									</div>
 								</div>
@@ -832,7 +800,7 @@ $theme_option = get_option( 'redux_demo' );
 				<div class="modal-body">
 					<button type="button" class="btn-close d-block ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
 					<video controls="" id="video1">
-						<source src="<?php echo get_template_directory_uri(); ?>/assets/video/video.mp4" type="video/mp4">
+						<source src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/video/video.mp4" type="video/mp4">
 					</video>
 				</div>
 			</div>

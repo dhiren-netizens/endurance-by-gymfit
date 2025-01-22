@@ -716,298 +716,183 @@ PRICING SECTION END'S FROM HERE
     ::-webkit-scrollbar-height {
         height: 5px;
     }
-    .pricing-wrapper {
-        @media screen and (max-width:1199px) {
-            width: 1116px;
-        }
+    .pricing_nav{
+        .nav {
+            width: 100%;
+            max-width: max-content;
+            padding: 6px;
+            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 100%);
+            border: 1px solid $White;
+            border-radius: 33px;
+            box-shadow: 0 13px 36px 0 rgba(#6D8DAD, 0.21), inset 0 4px 14px 0 rgba(#CAB6B6 , 0.25);
 
-        @media screen and (max-width:575px) {
-            width: 856px;
-        }
-
-        @media screen and (max-width:480px) {
-            width: 806px;
-        }
-
-        .option-wrapper {
-            .nav {
-                width: 100%;
-                max-width: max-content;
-                padding: 6px;
-                background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 100%);
-                border: 1px solid $White;
-                border-radius: 33px;
-                box-shadow: 0 13px 36px 0 rgba(#6D8DAD, 0.21), inset 0 4px 14px 0 rgba(#CAB6B6 , 0.25);
-
-                @media screen and (max-width:480px) {
-                    padding: 5px;
-                }
-
-                .nav-item {
-                    .nav-link {
-                        background: transparent;
-                        padding: 16px 34px;
-                        border-radius: 48px;
-                        font-family: $Secondary-font;
-                        font-weight: 400;
-                        color: rgba($Secondary-color , 0.45);
-                        font-size: 14px;
-                        line-height: 1;
-                        text-transform: uppercase;
-                        transition: all 0.3s ease;
-
-                        @media screen and (max-width:1399px) {
-                            font-size: 12px;
-                            padding: 15px 30px;
-                        }
-
-                        @media screen and (max-width:575px) {
-                            padding: 10px 20px;
-                            font-size: 10px;
-                        }
-
-                        &.active {
-                            background: $Gradient;
-                            color: $White;
-                        }
-                    }
-                }
+            @media screen and (max-width:480px) {
+                padding: 5px;
             }
 
-            .options {
-                ul {
-                    li {
-                        font-weight: 500;
-                        color: $Secondary-color;
-                        font-size: 20px;
-                        line-height: 1.5;
-                        padding-left: 35px;
-                        padding-bottom: 24px;
-                        margin-bottom: 24px;
-                        border-bottom: 1px solid #E6E6E6;
-                        position: relative;
-
-                        @media screen and (max-width:575px) {
-                            font-size: 16px;
-                            padding-left: 0;
-                            padding-bottom: 10px;
-                            margin-bottom: 10px;
-                        }
-
-                        &::after {
-                            content: '';
-                            width: 8px;
-                            height: 8px;
-                            background: linear-gradient(90deg, rgba(22,204,62,1) 0%, rgba(22,204,62,1) 32%, rgba(35,78,231,1) 66%, rgba(35,78,231,1) 100%);
-                            position: absolute;
-                            top: 10px;
-                            left: 14px;
-
-                            @media screen and (max-width:575px) {
-                                display: none;
-                            }
-                        }
-                    }
-                }
-
-                .price {
-                    display: block;
+            .nav-item {
+                .nav-link {
+                    background: transparent;
+                    padding: 16px 34px;
+                    border-radius: 48px;
                     font-family: $Secondary-font;
                     font-weight: 400;
-                    font-size: 24px;
+                    color: rgba($Secondary-color , 0.45);
+                    font-size: 14px;
                     line-height: 1;
                     text-transform: uppercase;
-                    background: linear-gradient(180deg, rgb(5, 246, 249) -80%, rgb(249, 7, 252) 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: rgba(0, 0, 0, 0);
-
-                    @media screen and (max-width:575px) {
-                        font-size: 20px;
-                    }
-                }
-            }
-        }
-
-        .pricing-block {
-            position: relative;
-
-            &::before {
-                content: '';
-                width: 100%;
-                height: 60px;
-                background: #ebeffc;
-                border-radius: 48px;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
-
-                @media screen and (max-width:1399px) {
-                    height: 56px;
-                }
-
-                @media screen and (max-width:575px) {
-                    height: 44px;
-                }
-
-                @media screen and (max-width:480px) {
-                    height: 42px;
-                }
-            }
-
-            .pricing-plan {
-                position: relative;
-
-                .title {
-                    padding: 20px;
-                    background: #EBEFFC;
-                    border-radius: 48px;
-                    color: rgba($Secondary-color , 0.45);
-                    font-size: 20px;
-                    line-height: 1;
-                    text-align: center;
-                    transition: all 0.5s ease;
+                    transition: all 0.3s ease;
 
                     @media screen and (max-width:1399px) {
-                        font-size: 16px;
-                    }
-
-                    @media screen and (max-width:575px) {
-                        padding: 15px;
-                        font-size: 14px;
-                    }
-
-                    @media screen and (max-width:480px) {
                         font-size: 12px;
+                        padding: 15px 30px;
                     }
-                }
-
-                ul {
-                    li {
-                        padding-bottom: 24px;
-                        margin-bottom: 24px;
-                        line-height: 0;
-                        border-bottom: 1px solid #E6E6E6;
-                        transition: all 0.5s ease;
-
-                        @media screen and (max-width:575px) {
-                            padding-bottom: 10px;
-                            margin-bottom: 10px;
-                        }
-
-                        img {
-                            display: block;
-                            margin: auto;
-
-                            @media screen and (max-width:575px) {
-                                width: 24px;
-                                height: 24px;
-                            }
-                        }
-                    }
-                }
-
-                .pricing {
-                    text-align: center;
-
-                    span {
-                        display: block;
-                        font-family: $Secondary-font;
-                        font-weight: 400;
-                        color: $Secondary-color;
-                        font-size: 24px;
-                        line-height: 1;
-                        margin-bottom: 5px;
-
-                        @media screen and (max-width:1399px) {
-                            font-size: 18px;
-                        }
-
-                        @media screen and (max-width:575px) {
-                            font-size: 16px;
-                        }
-
-                        &.free {
-                            background: linear-gradient(180deg, rgb(5, 246, 249) -80%, rgb(249, 7, 252) 100%);
-                            -webkit-background-clip: text;
-                            -webkit-text-fill-color: rgba(0, 0, 0, 0);
-                        }
-                    }
-
-                    p {
-                        font-size: 16px;
-
-                        @media screen and (max-width:575px) {
-                            font-size: 14px;
-                        }
-                    }
-                }
-
-                .btn_wrapper {
-                    opacity: 0;
-                    z-index: -1;
-                    transition: all 0.5s ease;
 
                     @media screen and (max-width:575px) {
                         padding: 10px 20px;
                         font-size: 10px;
-                        border-radius: 8px;
                     }
-                }
-                
-                &::after {
-                    content: '';
-                    width: 100%;
-                    height: 100%;
-                    background: url(../images/background/pricing-bg.svg), $White;
-                    background-repeat: no-repeat;
-                    background-position: top;
-                    border: 1px solid #F907FC;
-                    border-radius: 28px;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50% , -50%);
-                    z-index: -1;
-                    opacity: 0;
-                    transition: all 0.5s ease;
-                    overflow: hidden;
-                        
-                    @media screen and (max-width:575px) {
-                        border-radius: 14px;
-                    }
-                }
- 
-                &:hover {
-                    .title {
-                        background: linear-gradient(180deg, rgb(5, 246, 249) -80%, rgb(249, 7, 252) 100%);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: rgba(0, 0, 0, 0);
-                    }
-                    ul {
-                        li {
-                            border-color: transparent;
-                        }
-                    }
-                    &::after {
-                        height: calc(100% + 50px);
-                        opacity: 1;
-                        
-                        @media screen and (max-width:575px) {
-                            height: calc(100% + 30px);
-                            border-radius: 14px;
-                        }
-                    }
-                    &::before {
-                        opacity: 1;
-                    }
-                    .btn_wrapper {
-                        opacity: 1;
-                        z-index: 1;
+
+                    &.active {
+                        background: $Gradient;
+                        color: $White;
                     }
                 }
             }
         }
+    }
+    .pricingSwiper{
+        .pricingtable-inner {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid #00000012;
+            transition: all 0.5s ease;
+            .pricingtable-title {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                font-size: 18px;
+                line-height: 1.2;
+                color: #fff;
+                padding: 7px 30px 5px 20px;
+                background: $Gradient;
+                z-index: 1;
+                font-weight: 500;
+                clip-path: polygon(0 0, 100% 0, 82% 100%, 0% 100%);
+                transition: all 0.5s ease;
+            }
+            .pricingtable-price {
+                padding: 30px;
+                padding-top: 50px;
+                -webkit-transition: all .5s;
+                transition: all .5s;
+                overflow: hidden;
+                // background: #d82bfe14;
+                position: relative;
+                @media screen and (max-width:1199px) {
+                    padding: 20px;
+                    padding-top: 50px;
+                }
+                &::after{
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: $Gradient;
+                    opacity: 0.05;
+                    transition: all 0.5s ease;
+                }
+                h2 {
+                    font-weight: 700;
+                    font-size: 30px;
+                    margin: 0;
+                    position: relative;
+                    z-index: 2;
+                    margin-bottom: 5px;
+                    @media screen and (max-width:1199px) {
+                        font-size: 20px;
+                        margin-bottom: 6px;
+                    }
+                    small {
+                        font-size: 20px;
+                        margin-left: 5px;
+                        @media screen and (max-width:1199px) {
+                            font-size: 16px;
+                        }
+                    }
+                }
+                p{
+                    position: relative;
+                    z-index: 2;
+                    font-size: 18px;
+                    @media screen and (max-width:1199px) {
+                        font-size: 15px;
+                    }
+                }
+            }
+            .pricingtable-features{
+                padding: 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                @media screen and (max-width:1199px) {
+                    padding: 20px;
+                }
+                li{
+                    font-weight: 500;
+                    color: $Secondary-color;
+                    font-size: 20px;
+                    line-height: 1.5;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    @media screen and (max-width:1199px) {
+                        font-size: 17px;
+                    }
+                }
+            }
+            .btn_wrapper{
+                border-radius: 0;
+                width: 100%;
+                max-width: 100%;
+                text-align: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+            }
+            &:hover{
+                border-color: $Primary-color;
+                .pricingtable-title {
+                    background: $Revert-gradient;
+                }
+                .pricingtable-price {
+                    &::after{
+                        background: $Revert-gradient;
+                    }
+                }
+                .btn_wrapper{
+                    background: $Revert-gradient;
+                }
+            }
+        }
+    }
+    .fade:not(.show) {
+        opacity: 0;
+        display: none;
+    }
+    .swiper-horizontal>.swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        z-index: 50;
+        height: 5px;
+        width: 100%;
+        border-radius: 0;
+        max-width: 340px;
+        margin: 20px auto 0;
     }
 }
 /*

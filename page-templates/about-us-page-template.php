@@ -236,7 +236,7 @@ get_header();
 																<p class="stars">
 																	<span class="star-rate">
 																		<?php for ( $i = 1; $i <= $max_stars; $i++ ) : ?>
-																			<a class="star-<?php echo $i; ?> <?php echo esc_html( ( $i <= $start_rating[0] ) ) ? 'active' : ''; ?>"></a>
+																			<a class="star-<?php echo esc_attr( $i ); ?> <?php echo esc_html( isset( $start_rating[0] ) && ( $i <= $start_rating[0] ) ) ? 'active' : ''; ?>"></a>
 																		<?php endfor; ?>
 																	</span>
 																</p>
@@ -328,7 +328,7 @@ get_header();
 					<div class="row gy-lg-0 gy-4">
 					<div class="col-lg-4">
 							<?php if ( isset( $theme_option['endurance_general_articles_title'] ) && ! empty( $theme_option['endurance_general_articles_title'] ) ) { ?>
-								<div class="title pb-3 text-lg-start text-center"><?php echo $theme_option['endurance_general_articles_title']; ?></div>
+								<div class="title pb-3 text-lg-start text-center"><?php echo wp_kses( $theme_option['endurance_general_articles_title'], endurance_allowed_tags() ); ?></div>
 								<?php
 							}
 							if ( isset( $theme_option['endurance_general_articles_description'] ) && ! empty( $theme_option['endurance_general_articles_description'] ) ) {

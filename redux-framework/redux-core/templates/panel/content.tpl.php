@@ -14,7 +14,7 @@
 
 <!-- Intro Text -->
 <?php if ( isset( $this->parent->args['intro_text'] ) ) { ?>
-	<div id="redux-intro-text"><?php echo wp_kses_post( $this->parent->args['intro_text'] ); ?></div>
+	<!-- <div id="redux-intro-text"><?php //echo wp_kses_post( $this->parent->args['intro_text'] ); ?></div> -->
 <?php } ?>
 
 <?php $this->get_template( 'menu-container.tpl.php' ); ?>

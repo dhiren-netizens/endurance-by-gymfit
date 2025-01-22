@@ -1133,3 +1133,17 @@ function save_pricing_plan_meta_box_data( $post_id ) {
 	update_post_meta( $post_id, 'endurance_pricing_plan_price', $pricing_plan_data );
 	update_post_meta( $post_id, 'endurance_pricing_plan_features', $pricing_plan_features_data );
 }
+
+
+function endurance_allowed_tags() {
+
+	$allowed_tags = array(
+		'span' => array(
+			'class' => array(),
+			'title' => array(),
+			'style' => array(),
+		),
+	);
+	
+	return $allowed_tags;
+}

@@ -1,6 +1,6 @@
 === Endurance By GymFit ===
 
-Contributors: automattic
+Contributors: netizenstech
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
@@ -14,7 +14,7 @@ A starter theme called Endurance By GymFit.
 
 == Description ==
 
-Description
+Gymfit's "Endurance" theme is a custom WordPress template designed for fitness clubs and gyms, featuring stunning imagery and customizable options for a visually appealing website.
 
 == Installation ==
 
@@ -32,8 +32,3 @@ Endurance By GymFit includes support for WooCommerce and for Infinite Scroll in 
 
 = 1.0 - May 12 2015 =
 * Initial release
-
-== Credits ==
-
-* Based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2018 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)

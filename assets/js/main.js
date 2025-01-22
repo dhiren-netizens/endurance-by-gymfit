@@ -388,4 +388,37 @@ $(document).ready(function () {
 		$(this).addClass('active');
 		$('.stars .star-rate').addClass('active');
 	});
+	$('#pills-weekly-tab').addClass('active');
+	$('#pills-weekly').addClass('active show');
+});
+var swiper = new Swiper(".pricingSwiper", {
+	slidesPerView: 3,
+	spaceBetween: 30,
+	pagination: {
+	  el: ".swiper-pagination",
+	  clickable: true,
+	},
+	scrollbar: {
+	  el: ".swiper-scrollbar",
+	  hide: false,
+	  draggable: true,
+	},	
+	breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        992: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        2000: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+    },
 });
