@@ -121,17 +121,51 @@ $theme_option = get_option( 'redux_demo' );
 
 	<!-- BREADCRUMBS SECTION START FROM HERE -->
 	<?php if ( ! is_front_page() ) { ?>
-	<div class="default-padding pt-0">
-		<div class="breadcrumbs-section">
-			<div class="container">
-				<div class="breadcrumbs-title title text-lg-start text-center pb-3"><?php echo esc_html( get_the_title() ); ?></div>
-				<div class="breadcrumbs-block mx-lg-0 mx-auto">
-					<a href="<?php echo esc_url( home_url() ); ?>" class="item">home</a>
-					<span class="item active"><?php echo esc_html( get_the_title() ); ?></span>
+		<div class="default-padding pt-0">
+			<div class="breadcrumbs-section">
+				<div class="container">
+					<div class="breadcrumbs-title title text-lg-start text-center pb-3">
+						<?php 
+						// Check if we are on a single post page
+						if(is_category()) {
+							echo esc_url( single_cat_title() ); // Display the post title for single blog posts
+						}elseif(is_tag()) {
+							echo esc_url( single_tag_title() ); // Display the post title for single blog posts
+						}else {
+							if ( is_single() && 'post' === get_post_type() ) {
+								echo esc_html( 'Blog Details' ); // Display "Blog Details" for single blog posts
+							} else {
+								echo esc_html( get_the_title() ); // Display the full title for other pages
+							}
+						}
+						?>
+					</div>
+					<div class="breadcrumbs-block mx-lg-0 mx-auto">
+						<a href="<?php echo esc_url( home_url() ); ?>" class="item">home</a>
+						<?php 
+						// Check if we are on a single post page
+							if ( is_single() && 'post' === get_post_type() ) {
+								echo '<a href="' . esc_url( home_url( '/blogs' ) ) . '" class="item">blog</a>'; // Add "blog" link
+							}
+						?>
+						<span class="item active">
+							<?php 
+							// Display the title for the active breadcrumb
+							if(is_category()) {
+								echo esc_html( single_cat_title() ); // Display the post title for single blog posts
+							} else {
+								if ( is_single() && 'post' === get_post_type() ) {
+									echo esc_html( get_the_title() ); // Display the post title for single blog posts
+								} else {
+									echo esc_html( get_the_title() ); // Display the full title for other pages
+								}
+							}
+							?>
+						</span>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	<?php } ?>
 	<!-- BREADCRUMBS SECTION END'S FROM HERE -->
 	<!-- LOADER START HERE -->
