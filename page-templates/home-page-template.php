@@ -626,7 +626,7 @@ $theme_option = get_option( 'redux_demo' );
 			<div class="container">
 				<div class="blog-wrapper wow fadeInUp">
 					<div class="row gy-lg-0 gy-4">
-					<div class="col-lg-4">
+						<div class="col-lg-4">
 							<?php if ( isset( $theme_option['endurance_general_articles_title'] ) && ! empty( $theme_option['endurance_general_articles_title'] ) ) { ?>
 								<div class="title pb-3 text-lg-start text-center"><?php echo wp_kses( $theme_option['endurance_general_articles_title'], endurance_allowed_tags() ); ?></div>
 								<?php
@@ -648,47 +648,6 @@ $theme_option = get_option( 'redux_demo' );
 								</div>
 							</div>
 						</div>
-						<?php
-						$blog_posts = new WP_Query(
-							array(
-								'post_type'      => 'post',
-								'post_status'    => 'publish',
-								'posts_per_page' => -1,
-							)
-						);
-						?>
-						<div class="col-lg-8">
-							<div class="swiper BlogSwiper">
-								<div class="swiper-wrapper">
-									<?php if ( $blog_posts->have_posts() ) : ?>
-										<?php
-										while ( $blog_posts->have_posts() ) :
-											$blog_posts->the_post();
-											?>
-											<div class="swiper-slide">
-												<div class="blog-block">
-													<div class="image-wrapper pb-4">
-														<?php
-														if ( has_post_thumbnail() ) {
-															the_post_thumbnail( get_the_ID(), 'full' );
-														}
-														?>
-													</div>
-													<p class="blog-title"><?php the_title(); ?></p>
-													<div class="read d-flex gap-3 align-items-center justify-content-between">
-														<a href="<?php the_permalink(); ?>"><?php echo esc_html__( 'Read more', 'endurance' ); ?></a>
-														<p><?php the_date(); ?></p>
-													</div>
-												</div>
-											</div>
-											<?php
-										endwhile;
-									endif;
-									?>
-								</div>
-							</div>
-						</div>
-					</div>
 						<?php
 						$blog_posts = new WP_Query(
 							array(
