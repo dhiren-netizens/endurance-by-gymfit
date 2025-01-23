@@ -45,7 +45,7 @@ if ( $this->parent->args_class->dev_mode_forced ) {
 					class="redux-dev-mode-notice-container redux-dev-qtip"
 					qtip-title="<?php echo esc_attr( $tip_title ); ?>"
 					qtip-content="<?php echo esc_attr( $tip_msg ); ?>">
-					<span class="redux-dev-mode-notice"><?php esc_html_e( 'Developer Mode Enabled', 'redux-framework' ); ?></span>
+					<!-- <span class="redux-dev-mode-notice"><?php //esc_html_e( 'Developer Mode Enabled', 'redux-framework' ); ?></span> -->
 				</div>
 			<?php } ?>
 			<h2><?php echo wp_kses_post( $this->parent->args['display_name'] ); ?></h2>

@@ -729,7 +729,12 @@ BACKGROUND STRIPS LINES CSS
 /* Change the border color to red when the dropdown is shown */
 .sub-menu.show > .dropdown-toggle::after {
    color: #f907fc !important;
-}      
+}
+.dropdown-toggle {
+    &:after {
+        color: rgba(45,45,45,.5);
+    }
+}
 
 
 /*

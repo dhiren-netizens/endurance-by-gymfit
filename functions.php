@@ -135,6 +135,8 @@ function endurance_by_gymfit_scripts() {
 	wp_enqueue_style( 'endurance-swiper-style', get_template_directory_uri() . '/assets/vendors/swiper/css/swiper-bundle.min.css', array(), _S_VERSION );
 	wp_enqueue_style( 'endurance-animation-style', get_template_directory_uri() . '/assets/vendors/animation/css/animation.css', array(), _S_VERSION );
 	wp_enqueue_style( 'endurance-app-style', get_template_directory_uri() . '/assets/css/app.css', array(), _S_VERSION );
+	wp_enqueue_style( 'font-awesome', Redux_Core::$url . 'assets/font-awesome/css/all' . Redux_Functions::is_min() . '.css', array(), '6.5.2' );
+	wp_enqueue_style( 'font-awesome-4-shims', Redux_Core::$url . 'assets/font-awesome/css/v4-shims' . Redux_Functions::is_min() . '.css', array(), '6.5.2' );
 
 	wp_style_add_data( 'endurance-by-gymfit-style', 'rtl', 'replace' );
 

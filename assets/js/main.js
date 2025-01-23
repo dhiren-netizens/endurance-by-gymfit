@@ -54,7 +54,8 @@ $(document).ready(function () {
 	$('header ul.sub-menu.dropdown-menu > li > a').addClass('dropdown-item');
 
 	$('header .sub-menu.dropdown-menu').parent().on('click', function() {
-		$('header .sub-menu.dropdown-menu').toggleClass('show');
+		$("header .sub-menu.dropdown-menu").toggleClass('show');
+		$(this).toggleClass("activeDropdown")
 	});
 });
 
@@ -391,18 +392,18 @@ $(document).ready(function () {
 	$('#pills-weekly-tab').addClass('active');
 	$('#pills-weekly').addClass('active show');
 });
-var swiper = new Swiper(".pricingSwiper", {
+var pricingSwiperswiper = new Swiper(".pricingSwiper", {
 	slidesPerView: 3,
 	spaceBetween: 30,
-	pagination: {
-	  el: ".swiper-pagination",
-	  clickable: true,
-	},
 	scrollbar: {
-	  el: ".swiper-scrollbar",
+	  el: ".pricingSwiper .swiper-scrollbar",
 	  hide: false,
 	  draggable: true,
-	},	
+	},
+	observer: true,
+	observeParents: true,
+	watchSlidesVisibility: true,
+	watchSlidesProgress: true,
 	breakpoints: {
         0: {
           slidesPerView: 1,

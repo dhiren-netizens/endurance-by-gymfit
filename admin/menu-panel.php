@@ -107,7 +107,7 @@ $args = array(
 	'global_variable'           => $opt_name,
 
 	// Show the time the page took to load, etc. (forced on while on localhost or when WP_DEBUG is enabled).
-	'dev_mode'                  => false,
+	'dev_mode'                  => true,
 
 	// Enable basic customizer support.
 	'customizer'                => true,
@@ -1757,8 +1757,8 @@ Redux::set_section(
 			array(
 				'id'           => 'location_geocode',
 				'type'         => 'google_maps',
-				'title'        => esc_html__( 'Google Maps', 'your-textdomain-here' ),
-				'subtitle'     => esc_html__( 'This map is set using only latitude and longitude with a zoom factor of 7.  When setting a Google map using lat/long, address information will not be returned.', 'your-textdomain-here' ),
+				'title'        => esc_html__( 'Google Maps', 'endurance' ),
+				'subtitle'     => esc_html__( 'This map is set using only latitude and longitude with a zoom factor of 7.  When setting a Google map using lat/long, address information will not be returned.', 'endurance' ),
 				'full_width'   => true,
 				'show_api_key' => true,
 				'default'      => array(
@@ -1867,7 +1867,7 @@ Redux::set_section(
 	)
 );
 
-// Coming Soon Page Seetings.
+// Coming Soon Page Settingss.
 Redux::set_section(
 	$opt_name,
 	array(
@@ -2057,7 +2057,7 @@ Redux::set_section(
 	),
 );
 
-// Site Map Seeting.
+// Site Map Settings.
 Redux::set_section(
 	$opt_name,
 	array(
@@ -2131,42 +2131,6 @@ Redux::set_section(
 				'default' => true,
 				'on'      => 'Yes',
 				'off'     => 'No',
-			),
-			array(
-				'id'              => 'endurance_single_post_social_profiles',
-				'type'            => 'social_profiles',
-				'title'           => esc_html__( 'Social Profiles', 'endurance' ),
-				'subtitle'        => esc_html__( 'Click an icon to activate it, drag and drop to change the icon order.', 'endurance' ),
-				'hide_widget_msg' => true,
-				'icons'           => array(
-					array(
-						'id'         => 'single_post_facebook',
-						'icon'       => 'fa-facebook',
-						'enabled'    => true,
-						'name'       => __( 'Facebook', 'endurance' ),
-						'background' => '',
-						'color'      => 'rgb(59, 89, 152)',
-						'url'        => 'https://facebook.com',
-					),
-					array(
-						'id'         => 'single_post_instagram',
-						'icon'       => 'fa-instagram',
-						'enabled'    => true,
-						'name'       => __( 'Instagram', 'endurance' ),
-						'background' => '',
-						'color'      => 'rgb(63, 114, 155)',
-						'url'        => 'https://instagram.com',
-					),
-					array(
-						'id'         => 'single_post_twitter',
-						'icon'       => 'fa-twitter',
-						'enabled'    => true,
-						'name'       => __( 'Twitter', 'endurance' ),
-						'background' => '',
-						'color'      => 'rgb(0, 0, 0)',
-						'url'        => 'https://x.com',
-					),
-				),
 			),
 			array(
 				'id'           => 'endurance_pre_img',

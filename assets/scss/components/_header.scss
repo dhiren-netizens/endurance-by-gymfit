@@ -254,6 +254,16 @@ header {
                             }
                         }
                     }
+                    
+                    &.activeDropdown{
+                        color : $Primary-color;
+                        > a{
+                            color : $Primary-color !important;
+                        }
+                        &:after{
+                            color : $Primary-color;
+                        }
+                    }
                 }
             }
         }
