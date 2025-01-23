@@ -113,10 +113,6 @@ $count      = 1;
 			</div>
 		</div>
 		<!-- BLOG SECTION END'S FROM HERE -->
-
-		<div class="sidebar default-padding">
-			<?php get_sidebar(); ?>
-		</div>
 	</main>
 	<!-- MAIN SECTIONS END'S FROM HERE -->
 

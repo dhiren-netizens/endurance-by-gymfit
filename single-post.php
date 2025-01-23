@@ -7,6 +7,7 @@
  * @package Endurance_By_GymFit
  */
 
+$theme_option = get_option( 'redux_demo' );
 get_header();
 ?>
 
@@ -21,7 +22,18 @@ get_header();
 							<div class="mb-3 wow fadeIn">
 								<p class="blog-title big"><?php the_title(); ?></p>
 								<div class="read">
-									<p><?php echo get_the_date(); ?></p>
+									<?php if ( isset( $theme_option['endurance_display_date'] ) && ! empty( $theme_option['endurance_display_date'] ) ) { 
+										if ( 1 == $theme_option['endurance_display_date'] ) {?>
+										<p>
+								     		<?php echo get_the_date(); ?>
+							     		</p>
+									   <?php }
+								    } ?>
+									
+										<p>
+										<?php echo the_author(); ?>
+							     		</p>
+									   
 								</div>
 							</div>
 							<?php echo get_post_field('post_content', $post_id); ?>

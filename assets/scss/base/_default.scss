@@ -729,9 +729,15 @@ BACKGROUND STRIPS LINES CSS
 /* Change the border color to red when the dropdown is shown */
 .sub-menu.show > .dropdown-toggle::after {
    color: #f907fc !important;
-}       
+}      
 
-/* Category Page */
+
+/*
+============================================
+Category Page
+============================================
+*/
+
 .category-section{
     display: flex;
     gap: 30px;
@@ -780,7 +786,17 @@ BACKGROUND STRIPS LINES CSS
     }
 }
 
-/* Tag Page */
+/*
+============================================
+Category Page
+============================================
+*/
+
+/*
+============================================
+Tag Page
+============================================
+*/
 
 .tag-section {
     display: flex;
@@ -828,4 +844,72 @@ BACKGROUND STRIPS LINES CSS
             text-align: center;
         }
     }
+}
+
+/*
+============================================
+Tag Page
+============================================
+*/
+
+/*
+============================================
+Search Page
+============================================
+*/
+
+.search-section{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    @media screen and (max-width:767px) {
+        margin: 40px 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .search-block{
+        width: calc(33.33% - 20px);
+        @media screen and (max-width:767px) {
+            width: 100%;
+        }
+        h2{
+            font-size: 22px;
+            margin: 15px 0;
+            font-family: "Hind", sans-serif;
+            text-align: center;
+            font-weight: 600;
+
+            & a:hover{
+                background: linear-gradient(180deg, rgb(5, 246, 249) -80%, rgb(249, 7, 252) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: rgba(0, 0, 0, 0);
+            }
+            @media screen and (max-width:575px) {
+                font-size: 20px;
+            }
+        }
+        img{
+        max-width: 400px;
+        max-height: 400px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        @media screen and (max-width:767px) {
+            max-width: 100%;
+        }
+        }
+        p{
+            text-align: center;
+        }
+    }
+}
+/*
+============================================
+Search Page
+============================================
+*/
+#primary{
+    margin-bottom: 40px;
 }

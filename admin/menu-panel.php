@@ -2082,6 +2082,119 @@ Redux::set_section(
 	),
 );
 
+//Post Settings.
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Single Post', 'endurance' ),
+		'id'               => 'endurance_display_post',
+		'desc'             => esc_html__( 'Display Post Options', 'endurance' ),
+		'customizer_width' => '400px',
+		'icon'             => 'el el-tags',
+		'fields'           => array(
+			array(
+				'id'           => 'endurance_display_categories',
+				'type'    => 'switch',
+				'title'   => esc_html__( 'Want to display Categories?', 'endurance' ),
+				'default' => true,
+				'on'      => 'Yes',
+				'off'     => 'No',
+			),
+			array(
+				'id'           => 'endurance_display_tags',
+				'type'    => 'switch',
+				'title'   => esc_html__( 'Want to display Tags?', 'endurance' ),
+				'default' => true,
+				'on'      => 'Yes',
+				'off'     => 'No',
+			),
+			array(
+				'id'           => 'endurance_display_author',
+				'type'    => 'switch',
+				'title'   => esc_html__( 'Want to display Author Name?', 'endurance' ),
+				'default' => true,
+				'on'      => 'Yes',
+				'off'     => 'No',
+			),
+			array(
+				'id'           => 'endurance_display_comment_count',
+				'type'    => 'switch',
+				'title'   => esc_html__( 'Want to display Comment Count?', 'endurance' ),
+				'default' => true,
+				'on'      => 'Yes',
+				'off'     => 'No',
+			),
+			array(
+				'id'           => 'endurance_display_date',
+				'type'    => 'switch',
+				'title'   => esc_html__( 'Want to display Date?', 'endurance' ),
+				'default' => true,
+				'on'      => 'Yes',
+				'off'     => 'No',
+			),
+			array(
+				'id'              => 'endurance_single_post_social_profiles',
+				'type'            => 'social_profiles',
+				'title'           => esc_html__( 'Social Profiles', 'endurance' ),
+				'subtitle'        => esc_html__( 'Click an icon to activate it, drag and drop to change the icon order.', 'endurance' ),
+				'hide_widget_msg' => true,
+				'icons'           => array(
+					array(
+						'id'         => 'single_post_facebook',
+						'icon'       => 'fa-facebook',
+						'enabled'    => true,
+						'name'       => __( 'Facebook', 'endurance' ),
+						'background' => '',
+						'color'      => 'rgb(59, 89, 152)',
+						'url'        => 'https://facebook.com',
+					),
+					array(
+						'id'         => 'single_post_instagram',
+						'icon'       => 'fa-instagram',
+						'enabled'    => true,
+						'name'       => __( 'Instagram', 'endurance' ),
+						'background' => '',
+						'color'      => 'rgb(63, 114, 155)',
+						'url'        => 'https://instagram.com',
+					),
+					array(
+						'id'         => 'single_post_twitter',
+						'icon'       => 'fa-twitter',
+						'enabled'    => true,
+						'name'       => __( 'Twitter', 'endurance' ),
+						'background' => '',
+						'color'      => 'rgb(0, 0, 0)',
+						'url'        => 'https://x.com',
+					),
+				),
+			),
+			array(
+				'id'           => 'endurance_pre_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Previous Arrow Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-left.svg',
+				),
+			),
+			array(
+				'id'           => 'endurance_next_img',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Next Arrow Image', 'endurance' ),
+				'compiler'     => 'true',
+				'preview_size' => 'full',
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/icon/arrow-right.svg',
+				),
+			),
+		),
+	),
+);
+
+
 if ( ! function_exists( 'compiler_action' ) ) {
 	/**
 	 * This is a test function that will let you see when the compiler hook occurs.
