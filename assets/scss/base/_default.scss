@@ -913,3 +913,121 @@ Search Page
 #primary{
     margin-bottom: 40px;
 }
+
+/*
+============================================
+Date Page
+============================================
+*/
+
+.date-section{
+display: flex;
+gap: 30px;
+flex-wrap: wrap;
+margin-bottom: 40px;
+@media screen and (max-width:767px) {
+    margin: 40px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.date-block{
+    width: calc(33.33% - 20px);
+    @media screen and (max-width:767px) {
+        width: 100%;
+    }
+    h2{
+        font-size: 22px;
+        margin: 15px 0;
+        font-family: "Hind", sans-serif;
+        text-align: center;
+        font-weight: 600;
+
+        & a:hover{
+            background: linear-gradient(180deg, rgb(5, 246, 249) -80%, rgb(249, 7, 252) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: rgba(0, 0, 0, 0);
+        }
+        @media screen and (max-width:575px) {
+            font-size: 20px;
+        }
+    }
+    img{
+    max-width: 400px;
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    @media screen and (max-width:767px) {
+        max-width: 100%;
+    }
+    }
+    p{
+        text-align: center;
+    }
+}
+}
+
+/*
+============================================
+Date Page
+============================================
+*/
+
+/*
+============================================
+Author Page
+============================================
+*/
+.author-section{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    @media screen and (max-width:767px) {
+        margin: 40px 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .author-block{
+        width: calc(33.33% - 20px);
+        @media screen and (max-width:767px) {
+            width: 100%;
+        }
+        h2{
+            font-size: 22px;
+            margin: 15px 0;
+            font-family: "Hind", sans-serif;
+            text-align: center;
+            font-weight: 600;
+
+            & a:hover{
+                background: linear-gradient(180deg, rgb(5, 246, 249) -80%, rgb(249, 7, 252) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: rgba(0, 0, 0, 0);
+            }
+            @media screen and (max-width:575px) {
+                font-size: 20px;
+            }
+        }
+        img{
+        max-width: 400px;
+        max-height: 400px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+        @media screen and (max-width:767px) {
+            max-width: 100%;
+        }
+        }
+        p{
+            text-align: center;
+        }
+    }
+}
+/*
+============================================
+Author Page
+============================================
+*/
