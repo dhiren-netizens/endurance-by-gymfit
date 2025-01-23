@@ -10,6 +10,33 @@ BLOG DETAILS SECTION CSS
         .blogdtls-wrapper {
             padding-bottom: 30px;
 
+            .read{
+                display: flex;
+                justify-content: left;
+                gap: 20px;
+                align-items: center;
+                a{
+                    font-size: 16px;
+                    color: rgba(45,45,45,.75);
+                    text-transform: uppercase;
+                    margin-bottom: 0;
+                    background: unset !important;
+                    -webkit-text-fill-color:unset !important;
+                    font-family: "Hind",sans-serif;
+
+                    &:hover{
+                        background: linear-gradient(180deg, rgb(5, 246, 249) -80%, rgb(249, 7, 252) 100%) !important;
+                        -webkit-background-clip: text !important;
+                        -webkit-text-fill-color: rgba(0, 0, 0, 0);
+                    }
+                @media screen and (max-width:1199px) {
+                        font-size: 14px;
+                    }
+                }
+                p{
+                    color: rgba(45,45,45,.75);
+                }
+            }
             .social {
                 display: flex;
                 align-items: center;
@@ -36,6 +63,9 @@ BLOG DETAILS SECTION CSS
 
                     &:hover {
                         transform: scale(1.1);
+                    }
+                    .fa::before{
+                        color: #fff;
                     }
                 }
             }

@@ -9,9 +9,9 @@
 
 get_header(); ?> 
   
-<section id="tag" class="tag-content">
+<section id="author" class="author-content">
 	<div class="container">
-	<div class="tag-section">
+	<div class="author-section">
 		
 		<?php
 		// Check if there are any posts to display.
@@ -22,7 +22,7 @@ get_header(); ?>
 			while ( have_posts() ) :
 				the_post();
 				?>
-		<div class="tag-block">
+		<div class="author-block">
 		<img src="<?php echo esc_url( get_the_post_thumbnail_url( $post_id, 'thumbnail' ) ); ?>">
 		<h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 		</div>
