@@ -664,7 +664,7 @@ function my_after_switch_theme() {
 		/**
 		 * Site Map Menu
 		 */
-		$primary_menu_items          = array(
+		$sitemap_menu_items          = array(
 			'Home'       => 'home',
 			'About Us'   => 'about-us',
 			'Pricing'    => '#pricing',
@@ -673,12 +673,12 @@ function my_after_switch_theme() {
 			'Contact Us' => 'contact-us',
 			'Pages'      => '#',
 		);
-		$primary_menu_items['Pages'] = array(
+		$sitemap_menu_items['Pages'] = array(
 			'404'         => '404',
 			'Coming Soon' => 'coming-soon',
 			'Sitemap'     => 'sitemap',
 		);
-		generate_site_nav_menu( 'Primary Menu', $primary_menu_items, 'primary' );
+		generate_site_nav_menu( 'Sitemap', $sitemap_menu_items, 'sitemap' );
 
 		/**
 		 * Footer
