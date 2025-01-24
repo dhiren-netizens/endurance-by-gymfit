@@ -296,7 +296,7 @@ Redux::set_section(
 				'data'    => 'menus',
 				'title'   => esc_html__( 'Header Menu', 'endurance' ),
 				'desc'    => esc_html__( 'Select the header menu.', 'endurance' ),
-				'default' => get_nav_menu_locations()['primary-menu'],
+				'default' => get_nav_menu_locations()['primary'],
 			),
 			array(
 				'id'           => 'endurance_header_logo',
