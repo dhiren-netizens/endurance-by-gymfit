@@ -62,61 +62,63 @@ $theme_option = get_option( 'redux_demo' );
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'endurance-by-gymfit' ); ?></a>
 
 	<!-- HEADER START FROM HERE -->
-	<header class="default-padding pt-0">
-		<div class="container">
-			<nav class="navbar navbar-expand-xxxl">
-				
-				<!-- Logo -->
-				<a class="navbar-brand logo lh-0" href="<?php echo esc_url( home_url() ); ?>">
-					<?php if ( isset( $theme_option['endurance_header_logo']['url'] ) && ! empty( $theme_option['endurance_header_logo']['url'] ) ) { ?>
-						<img src="<?php echo esc_url( $theme_option['endurance_header_logo']['url'] ); ?>" alt="Logo">
-					<?php } ?>
-				</a>
-				
-				<!-- COLLAPSE MENU -->
-				<div class="header_block">
-					<div class="MobileView lh-0 mb-sm-5 mb-4 d-flex align-items-center justify-content-end">
-						<a href="#!" class="closeBtn d-flex align-items-center">
-							<p class="mb-0 pe-sm-3 pe-2">close</p>
-							<div class="close-icon d-flex align-items-center justify-content-center">
-								<span></span>
-								<span></span>
-							</div>
-						</a>
+	<div class="default-padding pt-0 header-wrapper">
+		<header>
+			<div class="container">
+				<nav class="navbar navbar-expand-xxxl">
+					
+					<!-- Logo -->
+					<a class="navbar-brand logo lh-0" href="<?php echo esc_url( home_url() ); ?>">
+						<?php if ( isset( $theme_option['endurance_header_logo']['url'] ) && ! empty( $theme_option['endurance_header_logo']['url'] ) ) { ?>
+							<img src="<?php echo esc_url( $theme_option['endurance_header_logo']['url'] ); ?>" alt="Logo">
+						<?php } ?>
+					</a>
+					
+					<!-- COLLAPSE MENU -->
+					<div class="header_block">
+						<div class="MobileView lh-0 mb-sm-5 mb-4 d-flex align-items-center justify-content-end">
+							<a href="#!" class="closeBtn d-flex align-items-center">
+								<p class="mb-0 pe-sm-3 pe-2">close</p>
+								<div class="close-icon d-flex align-items-center justify-content-center">
+									<span></span>
+									<span></span>
+								</div>
+							</a>
+						</div>
+						<ul class="tabActive">
+							<?php
+							if ( isset( $theme_option['endurance_header_menu'] ) && ! empty( $theme_option['endurance_header_menu'] ) ) {
+								wp_nav_menu(
+									array(
+										'menu'           => $theme_option['endurance_header_menu'],
+										'theme_location' => 'primary',
+										'fallback_cb'    => 'fallback_menu_pages',
+									)
+								);
+							}
+							?>
+						</ul>
 					</div>
-					<ul class="tabActive">
+					<div class="d-flex align-items-center gap-sm-4 gap-3">
+						<!-- COLLAPSE BUTTON -->
+						<button class="hamburger lh-0">
+							<span>menu</span>
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/toggle-icon.svg" alt="Icon" class="ps-2">
+						</button>
 						<?php
-						if ( isset( $theme_option['endurance_header_menu'] ) && ! empty( $theme_option['endurance_header_menu'] ) ) {
-							wp_nav_menu(
-								array(
-									'menu'           => $theme_option['endurance_header_menu'],
-									'theme_location' => 'primary',
-									'fallback_cb'    => 'fallback_menu_pages',
-								)
-							);
+						if ( isset( $theme_option['endurance_display_contact_btn'] ) && ! empty( $theme_option['endurance_display_contact_btn'] ) ) {
+							if ( 1 == $theme_option['endurance_display_contact_btn'] ) {
+								?>
+								<a href="<?php echo esc_url( home_url() . '/contact-us/' ); ?>" class="btn_wrapper d-lg-flex d-none">Contact us</a>
+								<?php
+							}
 						}
 						?>
-					</ul>
-				</div>
-				<div class="d-flex align-items-center gap-sm-4 gap-3">
-					<!-- COLLAPSE BUTTON -->
-					<button class="hamburger lh-0">
-						<span>menu</span>
-						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/toggle-icon.svg" alt="Icon" class="ps-2">
-					</button>
-					<?php
-					if ( isset( $theme_option['endurance_display_contact_btn'] ) && ! empty( $theme_option['endurance_display_contact_btn'] ) ) {
-						if ( 1 == $theme_option['endurance_display_contact_btn'] ) {
-							?>
-							<a href="<?php echo esc_url( home_url() . '/contact-us/' ); ?>" class="btn_wrapper d-lg-flex d-none">Contact us</a>
-							<?php
-						}
-					}
-					?>
-				</div>
-			</nav>
-		</div>
-	</header>
+					</div>
+				</nav>
+			</div>
+		</header>	
+	</div>
 	<!-- HEADER END'S FROM HERE -->
 
 	<!-- BREADCRUMBS SECTION START FROM HERE -->

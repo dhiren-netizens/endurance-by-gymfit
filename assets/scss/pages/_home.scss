@@ -81,7 +81,7 @@ BANNER SECTION START FROM HERE
         &::after {
             width: 470px;
             height: 470px;
-            background-color: rgba(#16CC3E, 0.50);
+            background-color: rgba(#16CC3E, 0.30);
             filter: blur(120px);
             left: 50%;
             bottom: 75px;
@@ -104,7 +104,7 @@ BANNER SECTION START FROM HERE
         &::before {
             width: 500px;
             height: 400px;
-            background-color: rgba(#234EE7, 0.50);
+            background-color: rgba(#234EE7, 0.30);
             left: 200px;
 
             @media (max-width: 1399px) {
@@ -767,7 +767,7 @@ PRICING SECTION END'S FROM HERE
             flex-direction: column;
             height: 100%;
             border: 1px solid #00000012;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
             .pricingtable-title {
                 position: absolute;
                 top: 0px;
@@ -780,7 +780,7 @@ PRICING SECTION END'S FROM HERE
                 z-index: 1;
                 font-weight: 500;
                 clip-path: polygon(0 0, 100% 0, 82% 100%, 0% 100%);
-                transition: all 0.5s ease;
+                transition: all 0.3s ease;
             }
             .pricingtable-price {
                 padding: 30px;
@@ -803,7 +803,7 @@ PRICING SECTION END'S FROM HERE
                     height: 100%;
                     background: $Gradient;
                     opacity: 0.05;
-                    transition: all 0.5s ease;
+                    transition: all 0.3s ease;
                 }
                 h2 {
                     font-weight: 700;
@@ -861,7 +861,7 @@ PRICING SECTION END'S FROM HERE
                 max-width: 100%;
                 text-align: center;
                 justify-content: center;
-                transition: all 0.5s ease;
+                transition: all 0.3s ease;
             }
             &:hover{
                 border-color: $Primary-color;

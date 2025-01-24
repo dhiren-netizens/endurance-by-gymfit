@@ -162,11 +162,11 @@ TEAM SECTION END'S FROM HERE
                     display: block;
                     margin: auto;
                     filter: grayscale(1);
-                    transition: all 0.5s ease;
+                    transition: all 0.3s ease;
                 }
                 &:hover img{
                     filter: grayscale(0);
-                    transition: all 0.5s ease;
+                    transition: all 0.3s ease;
                 }
             }
     

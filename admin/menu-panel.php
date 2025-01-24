@@ -296,7 +296,7 @@ Redux::set_section(
 				'data'    => 'menus',
 				'title'   => esc_html__( 'Header Menu', 'endurance' ),
 				'desc'    => esc_html__( 'Select the header menu.', 'endurance' ),
-				'default' => '31',
+				'default' => get_nav_menu_locations()['primary-menu'],
 			),
 			array(
 				'id'           => 'endurance_header_logo',
@@ -377,7 +377,7 @@ Redux::set_section(
 				'data'    => 'menus',
 				'title'   => esc_html__( 'Footer Menu', 'endurance' ),
 				'desc'    => esc_html__( 'Select the footer menu.', 'endurance' ),
-				'default' => '32',
+				'default' => get_nav_menu_locations()['secondary'],
 			),
 			array(
 				'id'           => 'endurance_footer_logo',

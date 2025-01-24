@@ -692,7 +692,6 @@ function my_after_switch_theme() {
 			'Contact Us'  => 'contact-us',
 			'Blogs'       => 'blogs',
 			'Gallery'     => 'gallery',
-			'Help Center' => 'help-center',
 			'Sitemap'     => 'sitemap',
 		);
 		generate_site_nav_menu( 'Secondary', $secondary_menu_items, 'secondary' );
