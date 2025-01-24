@@ -231,10 +231,11 @@ function generate_site_nav_menu_item( $term_id, $title, $url, $parent_id = 0 ) {
 			$term_id,
 			0,
 			array(
-				'menu-item-title'     => sprintf( __( '%s', 'text_domain' ), $title ),
+				/* translators: %s: search term */
+				'menu-item-title'     => sprintf( __( '%s', 'endurance' ), $title ),
 				'menu-item-url'       => home_url( '/' . $url ),
 				'menu-item-status'    => 'publish',
-				'menu-item-parent-id' => $parent_id, // Add parent ID here.
+				'menu-item-parent-id' => $parent_id,
 			)
 		);
 	}
@@ -810,7 +811,7 @@ add_filter( 'mime_types', 'add_webp_upload_mime' );
  * @param string $path Images Link.
  */
 function webp_is_displayable( $result, $path ) {
-	if ( $result === false ) {
+	if ( false === $result ) {
 		$displayable_image_types = array( IMAGETYPE_WEBP );
 		$info                    = @getimagesize( $path );
 		if ( empty( $info ) ) {
@@ -994,7 +995,7 @@ function display_pricing_plan_meta_box( $post ) {
 			<?php
 			$plans = array( 'weekly', 'monthly', 'quarterly', 'annually' );
 			foreach ( $plans as $plan ) {
-				echo '<option value="' . esc_attr( $plan ) . '" selected>' . ucfirst( $plan ) . '</option>';
+				echo '<option value="' . esc_attr( $plan ) . '" selected>' . esc_html( ucfirst( $plan ) ) . '</option>';
 			}
 			?>
 		</select>
@@ -1058,7 +1059,7 @@ add_action( 'save_post', 'save_pricing_plan_meta_box_data', 10, 2 );
  * @param int $post_id Post ID.
  */
 function save_pricing_plan_meta_box_data( $post_id ) {
-	if ( ! isset( $_POST['pricing_plan_nonce'] ) || ! wp_verify_nonce( $_POST['pricing_plan_nonce'], 'pricing_plan_nonce_action' ) ) {
+	if ( ! isset( $_POST['pricing_plan_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['pricing_plan_nonce'] ) ), 'pricing_plan_nonce_action' ) ) {
 		return;
 	}
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -1068,7 +1069,11 @@ function save_pricing_plan_meta_box_data( $post_id ) {
 		return;
 	}
 
-	$selected_plans = $_POST['endurance_pricing_plan_period'] ?? array();
+	$endurance_pricing_plan_period   = isset( $_POST['endurance_pricing_plan_period'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['endurance_pricing_plan_period'] ) ) : array();
+	$endurance_pricing_plan_price    = isset( $_POST['endurance_pricing_plan_price'] ) ? map_deep( wp_unslash( $_POST['endurance_pricing_plan_price'] ), 'sanitize_text_field' ) : array();
+	$endurance_pricing_plan_features = isset( $_POST['endurance_pricing_plan_features'] ) ? map_deep( wp_unslash( $_POST['endurance_pricing_plan_features'] ), 'sanitize_text_field' ) : array();
+
+	$selected_plans = $endurance_pricing_plan_period;
 	update_post_meta( $post_id, 'endurance_pricing_plan_period', $selected_plans );
 
 	// Default features.
@@ -1085,15 +1090,15 @@ function save_pricing_plan_meta_box_data( $post_id ) {
 	$pricing_plan_data          = array();
 	$pricing_plan_features_data = array();
 
-	if ( isset( $_POST['endurance_pricing_plan_price'] ) ) {
-		foreach ( $_POST['endurance_pricing_plan_price'] as $plan => $data ) {
+	if ( $endurance_pricing_plan_price ) {
+		foreach ( $endurance_pricing_plan_price as $plan => $data ) {
 			// Prepare the pricing plan data.
 			$pricing_plan_data[ $plan ] = array(
 				'price' => floatval( $data['price'] ?? 0 ),
 			);
 		}
 
-		foreach ( $_POST['endurance_pricing_plan_features'] as $plan => $data ) {
+		foreach ( $endurance_pricing_plan_features as $plan => $data ) {
 			// Start with the default features.
 			$features_data = $default_features;
 
@@ -1136,79 +1141,80 @@ function save_pricing_plan_meta_box_data( $post_id ) {
 	update_post_meta( $post_id, 'endurance_pricing_plan_features', $pricing_plan_features_data );
 }
 
-
+/**
+ * WP Kses Allowed Tags
+ */
 function endurance_allowed_tags() {
 
 	$allowed_tags = array(
-		'a' => array(
+		'a'          => array(
 			'class' => array(),
 			'href'  => array(),
 			'rel'   => array(),
 			'title' => array(),
 		),
-		'abbr' => array(
+		'abbr'       => array(
 			'title' => array(),
 		),
-		'b' => array(),
+		'b'          => array(),
 		'blockquote' => array(
-			'cite'  => array(),
+			'cite' => array(),
 		),
-		'cite' => array(
+		'cite'       => array(
 			'title' => array(),
 		),
-		'code' => array(),
-		'del' => array(
+		'code'       => array(),
+		'del'        => array(
 			'datetime' => array(),
-			'title' => array(),
+			'title'    => array(),
 		),
-		'dd' => array(),
-		'div' => array(
+		'dd'         => array(),
+		'div'        => array(
 			'class' => array(),
 			'title' => array(),
 			'style' => array(),
 		),
-		'dl' => array(),
-		'dt' => array(),
-		'em' => array(),
-		'h1' => array(),
-		'h2' => array(),
-		'h3' => array(),
-		'h4' => array(),
-		'h5' => array(),
-		'h6' => array(),
-		'i' => array(),
-		'img' => array(
+		'dl'         => array(),
+		'dt'         => array(),
+		'em'         => array(),
+		'h1'         => array(),
+		'h2'         => array(),
+		'h3'         => array(),
+		'h4'         => array(),
+		'h5'         => array(),
+		'h6'         => array(),
+		'i'          => array(),
+		'img'        => array(
 			'alt'    => array(),
 			'class'  => array(),
 			'height' => array(),
 			'src'    => array(),
 			'width'  => array(),
 		),
-		'li' => array(
+		'li'         => array(
 			'class' => array(),
 		),
-		'ol' => array(
+		'ol'         => array(
 			'class' => array(),
 		),
-		'p' => array(
+		'p'          => array(
 			'class' => array(),
 		),
-		'q' => array(
-			'cite' => array(),
+		'q'          => array(
+			'cite'  => array(),
 			'title' => array(),
 		),
-		'span' => array(
+		'span'       => array(
 			'class' => array(),
 			'title' => array(),
 			'style' => array(),
 		),
-		'strike' => array(),
-		'strong' => array(),
-		'ul' => array(
+		'strike'     => array(),
+		'strong'     => array(),
+		'ul'         => array(
 			'class' => array(),
 		),
 	);
 
-	
 	return $allowed_tags;
 }

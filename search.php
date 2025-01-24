@@ -28,7 +28,7 @@ get_header();
 		</div>
 				<?php
 		endwhile;
-		
+
 		else :
 			?>
 		<p>Sorry, no posts matched your criteria.</p>

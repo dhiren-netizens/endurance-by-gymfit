@@ -31,17 +31,17 @@ get_header();
 										}
 									}
 									?>
-																		<?php
-																		if ( isset( $theme_option['endurance_display_author'] ) && ! empty( $theme_option['endurance_display_author'] ) ) {
-																			if ( 1 === (int) $theme_option['endurance_display_author'] ) {
-																				?>
+									<?php
+									if ( isset( $theme_option['endurance_display_author'] ) && ! empty( $theme_option['endurance_display_author'] ) ) {
+										if ( 1 === (int) $theme_option['endurance_display_author'] ) {
+											?>
 											<a href="<?php echo esc_url( get_author_posts_url( get_post_field( 'post_author', get_the_ID() ) ) ); ?>">
 												Posts by: <?php echo esc_html( get_the_author_meta( 'display_name', get_post_field( 'post_author', get_the_ID() ) ) ); ?>
 											</a>
-																				<?php
-																			}
-																		}
-																		?>
+											<?php
+										}
+									}
+									?>
 									<?php
 									if ( isset( $theme_option['endurance_display_comment_count'] ) && ! empty( $theme_option['endurance_display_comment_count'] ) ) {
 										if ( 1 === (int) $theme_option['endurance_display_comment_count'] ) {
@@ -53,10 +53,10 @@ get_header();
 										}
 									}
 									?>
-																	</div>
+								</div>
 									
 							</div>
-							<?php echo wp_kses( get_post_field( 'post_content', $post_id ),endurance_allowed_tags() ); ?>
+							<?php echo wp_kses( get_post_field( 'post_content', $post_id ), endurance_allowed_tags() ); ?>
 								<div class="social wow fadeInUp">
 									<?php if ( isset( $theme_option['endurance_social_profile'] ) && ! empty( $theme_option['endurance_social_profile'] ) ) { ?>
 										<span>
@@ -134,14 +134,14 @@ get_header();
 														<div class="dtls">
 															<div class="text">
 																<span><?php echo esc_html( $comment->comment_author ); ?></span>
-																<p><?php echo esc_html( date( 'jS F, Y', strtotime( $comment->comment_date ) ) ); ?></p>
+																<p><?php echo esc_html( gmdate( 'jS F, Y', strtotime( $comment->comment_date ) ) ); ?></p>
 															</div>
 															<div class="forward">
 																<a href="#!" class="image-wrapper">
-																	<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/forward-icon.svg" alt="forward-icon">
+																	<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/forward-icon.svg" alt="forward-icon">
 																</a>
 																<a href="#!" class="image-wrapper">
-																	<img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/more-icon.svg" alt="more-icon">
+																	<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/more-icon.svg" alt="more-icon">
 																</a>
 															</div>
 														</div>

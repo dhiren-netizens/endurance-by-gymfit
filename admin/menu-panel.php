@@ -2082,7 +2082,7 @@ Redux::set_section(
 	),
 );
 
-//Post Settings.
+// Post Settings.
 Redux::set_section(
 	$opt_name,
 	array(
@@ -2093,7 +2093,7 @@ Redux::set_section(
 		'icon'             => 'el el-tags',
 		'fields'           => array(
 			array(
-				'id'           => 'endurance_display_categories',
+				'id'      => 'endurance_display_categories',
 				'type'    => 'switch',
 				'title'   => esc_html__( 'Want to display Categories?', 'endurance' ),
 				'default' => true,
@@ -2101,7 +2101,7 @@ Redux::set_section(
 				'off'     => 'No',
 			),
 			array(
-				'id'           => 'endurance_display_tags',
+				'id'      => 'endurance_display_tags',
 				'type'    => 'switch',
 				'title'   => esc_html__( 'Want to display Tags?', 'endurance' ),
 				'default' => true,
@@ -2109,7 +2109,7 @@ Redux::set_section(
 				'off'     => 'No',
 			),
 			array(
-				'id'           => 'endurance_display_author',
+				'id'      => 'endurance_display_author',
 				'type'    => 'switch',
 				'title'   => esc_html__( 'Want to display Author Name?', 'endurance' ),
 				'default' => true,
@@ -2117,7 +2117,7 @@ Redux::set_section(
 				'off'     => 'No',
 			),
 			array(
-				'id'           => 'endurance_display_comment_count',
+				'id'      => 'endurance_display_comment_count',
 				'type'    => 'switch',
 				'title'   => esc_html__( 'Want to display Comment Count?', 'endurance' ),
 				'default' => true,
@@ -2125,7 +2125,7 @@ Redux::set_section(
 				'off'     => 'No',
 			),
 			array(
-				'id'           => 'endurance_display_date',
+				'id'      => 'endurance_display_date',
 				'type'    => 'switch',
 				'title'   => esc_html__( 'Want to display Date?', 'endurance' ),
 				'default' => true,
@@ -2133,26 +2133,26 @@ Redux::set_section(
 				'off'     => 'No',
 			),
 			array(
-				'id'           => 'endurance_pre_text',
-				'type'         => 'text',
+				'id'      => 'endurance_pre_text',
+				'type'    => 'text',
 				'title'   => esc_html__( 'Previous Text', 'endurance' ),
 				'default' => 'Previous',
 			),
 			array(
-				'id'           => 'endurance_next_text',
-				'type'         => 'text',
+				'id'      => 'endurance_next_text',
+				'type'    => 'text',
 				'title'   => esc_html__( 'Next Text', 'endurance' ),
 				'default' => 'Next',
 			),
 			array(
-				'id'           => 'endurance_comment_title',
-				'type'         => 'text',
+				'id'      => 'endurance_comment_title',
+				'type'    => 'text',
 				'title'   => esc_html__( 'Comment Title', 'endurance' ),
 				'default' => 'Comment',
 			),
 			array(
-				'id'           => 'endurance_leave_comment',
-				'type'         => 'text',
+				'id'      => 'endurance_leave_comment',
+				'type'    => 'text',
 				'title'   => esc_html__( 'Leave a comment', 'endurance' ),
 				'default' => 'Leave a comment',
 			),

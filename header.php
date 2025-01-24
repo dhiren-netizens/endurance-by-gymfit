@@ -102,7 +102,7 @@ $theme_option = get_option( 'redux_demo' );
 					<!-- COLLAPSE BUTTON -->
 					<button class="hamburger lh-0">
 						<span>menu</span>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/toggle-icon.svg" alt="Icon" class="ps-2">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/toggle-icon.svg" alt="Icon" class="ps-2">
 					</button>
 					<?php
 					if ( isset( $theme_option['endurance_display_contact_btn'] ) && ! empty( $theme_option['endurance_display_contact_btn'] ) ) {
@@ -125,40 +125,35 @@ $theme_option = get_option( 'redux_demo' );
 			<div class="breadcrumbs-section">
 				<div class="container">
 					<div class="breadcrumbs-title title text-lg-start text-center pb-3">
-						<?php 
-						// Check if we are on a single post page
-						if(is_category()) {
-							echo esc_url( single_cat_title() ); // Display the post title for single blog posts
-						}elseif(is_tag()) {
-							echo esc_url( single_tag_title() ); // Display the post title for single blog posts
-						}else {
-							if ( is_single() && 'post' === get_post_type() ) {
-								echo esc_html( 'Blog Details' ); // Display "Blog Details" for single blog posts
-							} else {
-								echo esc_html( get_the_title() ); // Display the full title for other pages
-							}
+						<?php
+						if ( is_category() ) {
+							echo esc_url( single_cat_title() );
+						} elseif ( is_tag() ) {
+							echo esc_url( single_tag_title() );
+						} elseif ( is_single() && 'post' === get_post_type() ) {
+								echo esc_html( 'Blog Details' );
+						} else {
+							echo esc_html( get_the_title() );
+
 						}
 						?>
 					</div>
 					<div class="breadcrumbs-block mx-lg-0 mx-auto">
 						<a href="<?php echo esc_url( home_url() ); ?>" class="item">home</a>
-						<?php 
-						// Check if we are on a single post page
-							if ( is_single() && 'post' === get_post_type() ) {
-								echo '<a href="' . esc_url( home_url( '/blogs' ) ) . '" class="item">blog</a>'; // Add "blog" link
-							}
+						<?php
+						if ( is_single() && 'post' === get_post_type() ) {
+							echo '<a href="' . esc_url( home_url( '/blogs' ) ) . '" class="item">blog</a>';
+						}
 						?>
 						<span class="item active">
-							<?php 
-							// Display the title for the active breadcrumb
-							if(is_category()) {
-								echo esc_html( single_cat_title() ); // Display the post title for single blog posts
+							<?php
+							if ( is_category() ) {
+								echo esc_html( single_cat_title() );
+							} elseif ( is_single() && 'post' === get_post_type() ) {
+									echo esc_html( get_the_title() );
 							} else {
-								if ( is_single() && 'post' === get_post_type() ) {
-									echo esc_html( get_the_title() ); // Display the post title for single blog posts
-								} else {
-									echo esc_html( get_the_title() ); // Display the full title for other pages
-								}
+								echo esc_html( get_the_title() );
+
 							}
 							?>
 						</span>

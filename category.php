@@ -22,10 +22,10 @@ get_header(); ?>
 			while ( have_posts() ) :
 				the_post();
 				?>
-		<div class="category-block">
-		<img src="<?php echo esc_url( get_the_post_thumbnail_url( $post_id, 'thumbnail' ) ); ?>">
-		<h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-		</div>
+				<div class="category-block">
+					<img src="<?php echo esc_url( get_the_post_thumbnail_url( $post_id, 'thumbnail' ) ); ?>">
+					<h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+				</div>
 				<?php
 		endwhile;
 

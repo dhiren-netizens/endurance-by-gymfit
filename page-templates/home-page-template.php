@@ -351,16 +351,16 @@ $theme_option = get_option( 'redux_demo' );
 						<div class="pricing_nav d-flex justify-content-center">							
 							<ul class="nav nav-pills mb-sm-5 mb-4" id="pills-tab" role="tablist">
 								<?php
-								$pricing_plans       = new WP_Query(
+								$pricing_plans         = new WP_Query(
 									array(
-										'post_type'   => 'pricing-plan',
-										'post_status' => 'publish',
+										'post_type'      => 'pricing-plan',
+										'post_status'    => 'publish',
 										'posts_per_page' => -1,
 									)
 								);
-								$display_plan_period = array();
-								$post_title_arr      = array();
-								$get_plan_price      = array();
+								$display_plan_period   = array();
+								$post_title_arr        = array();
+								$get_plan_price        = array();
 								$display_plan_features = array();
 								$plan_features         = array();
 
@@ -586,7 +586,7 @@ $theme_option = get_option( 'redux_demo' );
 																<p class="stars">
 																	<span class="star-rate">
 																		<?php for ( $i = 1; $i <= $max_stars; $i++ ) : ?>
-																			<a class="star-<?php echo esc_attr( $i ); ?> <?php echo isset($start_rating[0]) && ( $i <= $start_rating[0] ) ? 'active' : ''; ?>"></a>
+																			<a class="star-<?php echo esc_attr( $i ); ?> <?php echo isset( $start_rating[0] ) && ( $i <= $start_rating[0] ) ? 'active' : ''; ?>"></a>
 																		<?php endfor; ?>
 																	</span>
 																</p>

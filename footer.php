@@ -14,7 +14,7 @@ $theme_option = get_option( 'redux_demo' );
 
 <!-- BACK TOP TOP BUTTON START FROM HERE -->
 <?php if ( isset( $theme_option['endurance_enable_top_to_btn'] ) && ! empty( $theme_option['endurance_enable_top_to_btn'] ) && 1 == $theme_option['endurance_enable_top_to_btn'] ) { ?>
-	<a href="#!" id="button"><img loading="lazy" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon/arrow-up.svg" width="22" height="22" alt="arrow-up"></a>
+	<a href="#!" id="button"><img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/arrow-up.svg" width="22" height="22" alt="arrow-up"></a>
 <?php } ?>
 <!-- BACK TOP TOP BUTTON END'S FROM HERE -->
 

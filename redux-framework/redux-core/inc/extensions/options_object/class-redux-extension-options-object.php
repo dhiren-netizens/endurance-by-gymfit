@@ -61,7 +61,7 @@ if ( ! class_exists( 'Redux_Extension_Options_Object', false ) ) {
 			$this->is_field = Redux_Helpers::is_field_in_use( $redux, $this->field_name );
 
 			if ( ! $this->is_field && $this->parent->args['dev_mode'] && $this->parent->args['show_options_object'] ) {
-				$this->add_section();
+				// $this->add_section();
 			}
 		}
 
