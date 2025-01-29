@@ -1210,6 +1210,8 @@ function endurance_allowed_tags() {
 		),
 		'strike'     => array(),
 		'strong'     => array(),
+		'em'     	 => array(),
+		'ins'     	 => array(),
 		'ul'         => array(
 			'class' => array(),
 		),

@@ -44,7 +44,10 @@ get_header();
 								<div class="icon mx-sm-0 mx-auto image-wrapper">
 									<?php if ( isset( $theme_option['endurance_call_img']['url'] ) && ! empty( $theme_option['endurance_call_img']['url'] ) ) { ?>
 										<img src="<?php echo esc_url( $theme_option['endurance_call_img']['url'] ); ?>" alt="call_icon">
-									<?php } ?></div>
+									<?php } else { ?>
+										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/call.svg" alt="call_icon">
+									<?php } ?>
+									</div>
 									<?php if ( isset( $theme_option['call_us_heading'] ) && ! empty( $theme_option['call_us_heading'] ) ) { ?>
 										<span> <?php echo esc_html( $theme_option['call_us_heading'] ); ?></span>
 									<?php } ?>
@@ -70,7 +73,10 @@ get_header();
 							<div class="contact-block text-sm-start text-center emailBlock">
 								<div class="icon mx-sm-0 mx-auto image-wrapper"><?php if ( isset( $theme_option['endurance_mail_img']['url'] ) && ! empty( $theme_option['endurance_mail_img']['url'] ) ) { ?>
 										<img src="<?php echo esc_url( $theme_option['endurance_mail_img']['url'] ); ?>" alt="call_icon">
-									<?php } ?></div>
+									<?php } else { ?>
+										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/mail.svg" alt="call_icon">
+									<?php } ?>
+									</div>
 									<?php if ( isset( $theme_option['mail_heading'] ) && ! empty( $theme_option['mail_heading'] ) ) { ?>
 										<span> <?php echo esc_html( $theme_option['mail_heading'] ); ?></span>
 									<?php } ?>

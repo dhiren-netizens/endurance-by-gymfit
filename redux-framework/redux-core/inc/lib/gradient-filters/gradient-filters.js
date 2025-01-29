@@ -126,5 +126,8 @@
 		if ( update ) {
 			redux_change( el );
 		}
+		preview.parent().find('.slider-from-reach .label > strong').text(fromReach + '%');
+		preview.parent().find('.slider-to-reach .label > strong').text(toReach + '%');
+		preview.parent().find('.slider-gradient-angle .label > strong').text(angle + '°');
 	};
 })( jQuery );

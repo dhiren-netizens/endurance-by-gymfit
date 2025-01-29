@@ -167,10 +167,10 @@ if ( ! is_admin() ) {
 		.notice-section .notice .notice-slide {
 			<?php if ( isset( $theme_option['endurance_marquee_notice_color'] ) && ! empty( $theme_option['endurance_marquee_notice_color'] ) && is_array( $theme_option['endurance_marquee_notice_color'] ) ) { ?>
 				background: linear-gradient(<?php echo esc_attr( $theme_option['endurance_marquee_notice_color']['gradient-angle'] ) . 'deg'; ?>, 
-														<?php
-														echo esc_attr( $theme_option['endurance_marquee_notice_color']['from'] ) . ' ';
-														echo esc_attr( $theme_option['endurance_marquee_notice_color']['gradient-reach']['from'] ) . '%';
-														?>
+				<?php
+				echo esc_attr( $theme_option['endurance_marquee_notice_color']['from'] ) . ' ';
+				echo esc_attr( $theme_option['endurance_marquee_notice_color']['gradient-reach']['from'] ) . '%';
+				?>
 				, <?php echo esc_attr( $theme_option['endurance_marquee_notice_color']['from'] ) . ' '; ?> 32%, <?php echo esc_attr( $theme_option['endurance_marquee_notice_color']['to'] ) . ' '; ?> 66%, 
 				<?php
 				echo esc_attr( $theme_option['endurance_marquee_notice_color']['to'] ) . ' ';
@@ -212,10 +212,10 @@ if ( ! is_admin() ) {
 		.special-section .special-wrapper .special-block {
 			<?php if ( ( isset( $theme_option['endurance_special_addons_box1_color'] ) && ! empty( $theme_option['endurance_special_addons_box1_color'] ) && is_array( $theme_option['endurance_special_addons_box1_color'] ) ) && ( isset( $theme_option['endurance_special_addons_box1_pattern_image']['url'] ) && ! empty( $theme_option['endurance_special_addons_box1_pattern_image']['url'] ) ) ) { ?>
 				background-image: url(<?php echo esc_attr( $theme_option['endurance_special_addons_box1_pattern_image']['url'] ); ?>),linear-gradient(<?php echo esc_attr( $theme_option['endurance_special_addons_box1_color']['gradient-angle'] ) . 'deg'; ?>, 
-												<?php
-													echo esc_attr( $theme_option['endurance_special_addons_box1_color']['from'] ) . ' ';
-													echo esc_attr( $theme_option['endurance_special_addons_box1_color']['gradient-reach']['from'] ) . '%';
-												?>
+				<?php
+					echo esc_attr( $theme_option['endurance_special_addons_box1_color']['from'] ) . ' ';
+					echo esc_attr( $theme_option['endurance_special_addons_box1_color']['gradient-reach']['from'] ) . '%';
+				?>
 				, 
 				<?php
 				echo esc_attr( $theme_option['endurance_special_addons_box1_color']['to'] ) . ' ';
@@ -227,10 +227,10 @@ if ( ! is_admin() ) {
 		.special-section .special-wrapper .special-block.second-box {
 			<?php if ( ( isset( $theme_option['endurance_special_addons_box2_color'] ) && ! empty( $theme_option['endurance_special_addons_box2_color'] ) && is_array( $theme_option['endurance_special_addons_box2_color'] ) ) && ( isset( $theme_option['endurance_special_addons_box2_pattern_image']['url'] ) && ! empty( $theme_option['endurance_special_addons_box2_pattern_image']['url'] ) ) ) { ?>
 				background-image: url(<?php echo esc_attr( $theme_option['endurance_special_addons_box2_pattern_image']['url'] ); ?>),linear-gradient(<?php echo esc_attr( $theme_option['endurance_special_addons_box2_color']['gradient-angle'] ) . 'deg'; ?>, 
-												<?php
-													echo esc_attr( $theme_option['endurance_special_addons_box2_color']['from'] ) . ' ';
-													echo esc_attr( $theme_option['endurance_special_addons_box2_color']['gradient-reach']['from'] ) . '%';
-												?>
+				<?php
+					echo esc_attr( $theme_option['endurance_special_addons_box2_color']['from'] ) . ' ';
+					echo esc_attr( $theme_option['endurance_special_addons_box2_color']['gradient-reach']['from'] ) . '%';
+				?>
 				, 
 				<?php
 				echo esc_attr( $theme_option['endurance_special_addons_box2_color']['to'] ) . ' ';
@@ -327,6 +327,23 @@ if ( ! is_admin() ) {
 			<?php } ?>
 			-webkit-background-clip: text;
 		}
+		<?php if ( isset( $theme_option['endurance_social_profiles'] ) && is_array( $theme_option['endurance_social_profiles'] ) ) {
+			foreach ( $theme_option['endurance_social_profiles'] as $social_profiles ) {
+				if ( 1 == $social_profiles['enabled'] ) {
+					?>
+					footer .icon-wrapper a.icon.image-wrapper i.fa.<?php echo esc_attr( $social_profiles['icon'] ); ?> {
+						<?php if ( isset( $social_profiles['color'] ) && ! empty( $social_profiles['color'] ) ) { ?>
+							color: <?php echo esc_attr( $social_profiles['color'] ); ?>;
+						<?php }
+						if ( isset( $social_profiles['background'] ) && ! empty( $social_profiles['background'] ) ) { ?>
+							background: <?php echo esc_attr( $social_profiles['background'] ); ?>;
+							padding: 5px;
+						<?php } ?>
+					}
+					<?php
+				}
+			}
+		} ?>
 	</style>
 	<?php
 }

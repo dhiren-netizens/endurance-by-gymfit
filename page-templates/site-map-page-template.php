@@ -33,6 +33,8 @@ get_header();
 							<div class="img-wrapper wow fadeInRight">
 								<?php if ( isset( $theme_option['endurance_site_map_img']['url'] ) && ! empty( $theme_option['endurance_site_map_img']['url'] ) ) { ?>
 									<img src="<?php echo esc_url( $theme_option['endurance_site_map_img']['url'] ); ?>" >
+								<?php } else { ?>
+									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/sitemap-img.webp" >
 								<?php } ?>
 							</div>
 						</div>

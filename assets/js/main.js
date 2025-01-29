@@ -47,14 +47,14 @@ $(document).ready(function () {
 		e.preventDefault();
 		$("html, body").animate({ scrollTop: 0 }, "300");
 	});
-	$('header ul.sub-menu').addClass('dropdown-menu');
-	$('header ul.sub-menu.dropdown-menu').parent().addClass('dropdown');
-	$('header ul.sub-menu.dropdown-menu').parent().addClass('dropdown-toggle');
-	$('header .dropdown-toggle > a::after').css('content', '');
-	$('header ul.sub-menu.dropdown-menu > li > a').addClass('dropdown-item');
+	$('header ul.sub-menu, footer ul.sub-menu').addClass('dropdown-menu');
+	$('header ul.sub-menu.dropdown-menu, footer ul.sub-menu.dropdown-menu').parent().addClass('dropdown');
+	$('header ul.sub-menu.dropdown-menu, footer ul.sub-menu.dropdown-menu').parent().addClass('dropdown-toggle');
+	$('header .dropdown-toggle > a::after, footer .dropdown-toggle > a::after').css('content', '');
+	$('header ul.sub-menu.dropdown-menu > li > a, footer ul.sub-menu.dropdown-menu > li > a').addClass('dropdown-item');
 
-	$('header .sub-menu.dropdown-menu').parent().on('click', function() {
-		$("header .sub-menu.dropdown-menu").toggleClass('show');
+	$('header .sub-menu.dropdown-menu, footer .sub-menu.dropdown-menu').parent().on('click', function() {
+		$("header .sub-menu.dropdown-menu, footer .sub-menu.dropdown-menu").toggleClass('show');
 		$(this).toggleClass("activeDropdown")
 	});
 });

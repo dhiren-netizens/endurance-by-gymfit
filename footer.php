@@ -27,6 +27,8 @@ $theme_option = get_option( 'redux_demo' );
 						<a href="<?php echo esc_url( home_url() ); ?>" class="logo image-wrapper">
 						<?php if ( isset( $theme_option['endurance_footer_logo']['url'] ) && ! empty( $theme_option['endurance_footer_logo']['url'] ) ) { ?>
 							<img src="<?php echo esc_url( $theme_option['endurance_footer_logo']['url'] ); ?>" alt="Logo">
+						<?php } else { ?>
+							<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/footer-logo.svg'; ?>" alt="Logo">
 						<?php } ?>
 						</a>
 						<div class="icon-wrapper">
@@ -69,13 +71,15 @@ $theme_option = get_option( 'redux_demo' );
 					<p>
 						<?php
 						if ( isset( $theme_option['endurance_copyright_content'] ) && ! empty( $theme_option['endurance_copyright_content'] ) ) {
-							echo esc_html( $theme_option['endurance_copyright_content'] );
+							echo wp_kses( $theme_option['endurance_copyright_content'], endurance_allowed_tags() );
 						}
 						?>
 					</p>
 					<?php if ( isset( $theme_option['endurance_footer_bank_cards']['url'] ) && ! empty( $theme_option['endurance_footer_bank_cards']['url'] ) ) { ?>
-							<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_footer_bank_cards']['url'] ); ?>" alt="Logo" width="295" height="27" alt="visa-card" class="image-wrapper d-lg-block d-none">
-						<?php } ?>
+						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_footer_bank_cards']['url'] ); ?>" alt="Logo" width="295" height="27" alt="visa-card" class="image-wrapper d-lg-block d-none">
+					<?php } else { ?>
+						<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/icon/visa-card.svg'; ?>" alt="Logo" width="295" height="27" alt="visa-card" class="image-wrapper d-lg-block d-none">
+					<?php } ?>
 				</div>
 			</div>
 		</div>

@@ -60,6 +60,11 @@ footer {
                     }
 
                     li {
+                        &:last-child {
+                            margin-bottom: 0;
+                            padding-bottom: 0;
+                            border: none;
+                        }
                         a {
                             color: rgba($White , 0.40);
                             font-size: 18px;
@@ -73,6 +78,71 @@ footer {
 
                             &:hover {
                                 color: $White;
+                            }
+        
+                            &:hover,
+                            &.active {
+                                color: $White !important;
+        
+                                &::before {
+                                    right: -100px;
+                                    opacity: 1;
+        
+                                    @media screen and (max-width:991px) {
+                                        right: -60px;
+                                    }
+                                    @media screen and (max-width:575px) {
+                                        right: -50px;
+                                    }
+                                }
+        
+                                img {
+                                    left: 100%;
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                        &.dropdown {
+                            a::before {
+                                display: none;
+                            }
+        
+                            .dropdown-menu {
+                                margin-top: 10px;
+                                padding: 0;
+                                display: none;
+        
+                                li {
+                                    margin-bottom: 0;
+                                    padding-bottom: 0;
+                                }
+        
+                                .dropdown-item {
+                                    font-size: 20px;
+                                    padding: 10px;
+        
+                                    @media screen and (max-width:767px) {
+                                        font-size: 18px;
+                                    }
+        
+                                    @media screen and (max-width:575px) {
+                                        font-size: 16px;
+                                    }
+        
+                                    &::after {
+                                        display: none;
+                                    }
+                                }
+                            }
+                            
+                            &.activeDropdown{
+                                color : $White;
+                                > a{
+                                    color : $White !important;
+                                }
+                                &:after{
+                                    color : $White;
+                                }
                             }
                         }
                     }
@@ -107,7 +177,7 @@ footer {
         }
     }
     .icon-wrapper a.icon.image-wrapper i {
-        color: #fff !important;
+        color: #fff;
     }
 }
 /*

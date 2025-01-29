@@ -425,6 +425,7 @@ Redux::set_section(
 						'background' => '',
 						'color'      => 'rgb(59, 89, 152)',
 						'url'        => 'https://facebook.com',
+						'validate' 	 => 'url',
 					),
 					array(
 						'id'         => 'instagram',
@@ -432,8 +433,9 @@ Redux::set_section(
 						'enabled'    => true,
 						'name'       => __( 'Instagram', 'endurance' ),
 						'background' => '',
-						'color'      => 'rgb(63, 114, 155)',
+						'color'      => 'rgb(160,57,162)',
 						'url'        => 'https://instagram.com',
+						'validate' 	 => 'url',
 					),
 					array(
 						'id'         => 'twitter',
@@ -443,6 +445,7 @@ Redux::set_section(
 						'background' => '',
 						'color'      => 'rgb(0, 0, 0)',
 						'url'        => 'https://x.com',
+						'validate' 	 => 'url',
 					),
 					array(
 						'id'         => 'youtube',
@@ -452,6 +455,7 @@ Redux::set_section(
 						'background' => '',
 						'color'      => 'rgb(229, 45, 39)',
 						'url'        => 'https://youtube.com',
+						'validate' 	 => 'url',
 					),
 					array(
 						'id'         => 'linkedin',
@@ -461,6 +465,7 @@ Redux::set_section(
 						'background' => '',
 						'color'      => 'rgb(9, 118, 180)',
 						'url'        => 'https://linkedin.com',
+						'validate' 	 => 'url',
 					),
 				),
 			),
@@ -881,6 +886,18 @@ Redux::set_section(
 				),
 			),
 			array(
+				'id'           => 'endurance_banner_line_pattern_image',
+				'type'         => 'media',
+				'url'          => true,
+				'title'        => esc_html__( 'Line Pattern Image', 'endurance' ),
+				'compiler'     => 'true',
+				'desc'         => esc_html__( 'Upload Image', 'endurance' ),
+				'preview_size' => 'full',
+				'default'      => array(
+					'url' => get_template_directory_uri() . '/assets/images/background/banner-pettern.svg',
+				),
+			),
+			array(
 				'id'      => 'endurance_banner_members_text',
 				'type'    => 'text',
 				'title'   => esc_html__( 'Members Text', 'endurance' ),
@@ -917,6 +934,13 @@ Redux::set_section(
 		'subsection'       => true,
 		'icon'             => 'el el-heart',
 		'fields'           => array(
+			array(
+				'id'          => 'endurance_gear_up_heading',
+				'type'        => 'text',
+				'title'       => esc_html__( 'Heading', 'endurance' ),
+				'placeholder' => 'Enter your title',
+				'default'     => 'Gear Up for Success',
+			),
 			// Learn From the best.
 			array(
 				'id'     => 'endurance_gear_up_learn_data',
@@ -1854,7 +1878,7 @@ Redux::set_section(
 			array(
 				'id'      => 'endurance_customer_email_link',
 				'type'    => 'text',
-				'title'   => esc_html__( 'Customer Emial Support Link', 'endurance' ),
+				'title'   => esc_html__( 'Customer Email Support Link', 'endurance' ),
 				'default' => 'customer@gymfit.email',
 			),
 			array(

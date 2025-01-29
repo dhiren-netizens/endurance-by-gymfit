@@ -77,6 +77,8 @@ get_header();
 					<div class="lines py-sm-5 py-4"><span></span>
 						<?php if ( isset( $theme_option['endurance_star_img']['url'] ) && ! empty( $theme_option['endurance_star_img']['url'] ) ) { ?>
 							<img src="<?php echo esc_url( $theme_option['endurance_star_img']['url'] ); ?>" alt="star-icon" class="px-3">
+						<?php } else { ?>
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/star-icon.svg" alt="star-icon" class="px-3">
 						<?php } ?>
 					<span></span></div>
 					<div class="join-block text-center">

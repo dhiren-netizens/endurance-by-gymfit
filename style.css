@@ -541,7 +541,7 @@ a:active {
 } */
 
 a:focus {
-	outline: thin dotted;
+	outline: 0page_loader;
 }
 
 a:hover,

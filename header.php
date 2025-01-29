@@ -71,6 +71,8 @@ $theme_option = get_option( 'redux_demo' );
 					<a class="navbar-brand logo lh-0" href="<?php echo esc_url( home_url() ); ?>">
 						<?php if ( isset( $theme_option['endurance_header_logo']['url'] ) && ! empty( $theme_option['endurance_header_logo']['url'] ) ) { ?>
 							<img src="<?php echo esc_url( $theme_option['endurance_header_logo']['url'] ); ?>" alt="Logo">
+						<?php } else { ?>
+							<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/logo.svg'; ?>" alt="Logo">
 						<?php } ?>
 					</a>
 					
@@ -166,9 +168,13 @@ $theme_option = get_option( 'redux_demo' );
 	<?php } ?>
 	<!-- BREADCRUMBS SECTION END'S FROM HERE -->
 	<!-- LOADER START HERE -->
-	<div class="page_loader">
-		<?php if ( isset( $theme_option['endurance_page_loader_image']['url'] ) && ! empty( $theme_option['endurance_page_loader_image']['url'] ) ) { ?>
-			<img src="<?php echo esc_url( $theme_option['endurance_page_loader_image']['url'] ); ?>" alt="Logo" loading="lazy">
-		<?php } ?>
-	</div>
+	<?php if ( isset( $theme_option['endurance_page_loader'] ) && ! empty( $theme_option['endurance_page_loader'] ) && 1 == $theme_option['endurance_page_loader'] ) { ?>
+		<div class="page_loader">
+			<?php if ( isset( $theme_option['endurance_page_loader_image']['url'] ) && ! empty( $theme_option['endurance_page_loader_image']['url'] ) ) { ?>
+				<img src="<?php echo esc_url( $theme_option['endurance_page_loader_image']['url'] ); ?>" alt="Logo" loading="lazy">
+			<?php } else { ?>
+				<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/transformation.webp'; ?>" alt="Logo" loading="lazy">
+			<?php } ?>
+		</div>
+	<?php } ?>
 	<!-- LOADER END HERE -->
