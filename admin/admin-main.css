@@ -49,3 +49,9 @@
 .endurance_pricing_plan_period_div {
     display: none;
 }
+div#endurance_coming_soon_date_time label.redux-datetime-input-label {
+    display: none;
+}
+div#endurance_coming_soon_date_time .redux-datetime-input.single_wrapper {
+    height: auto;
+}

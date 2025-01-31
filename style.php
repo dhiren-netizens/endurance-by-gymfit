@@ -52,7 +52,22 @@ if ( ! is_admin() ) {
 				echo esc_attr( $theme_option['endurance_gear_up_learn_color']['to'] ) . ' ';
 				echo esc_attr( $theme_option['endurance_gear_up_learn_color']['gradient-reach']['to'] ) . '%';
 				?>
-);
+				);
+			<?php } ?>
+		}
+		.success-section .success-wrapper .success-box.first-box:after {
+			<?php if ( isset( $theme_option['endurance_gear_up_learn_color'] ) && ! empty( $theme_option['endurance_gear_up_learn_color'] ) && is_array( $theme_option['endurance_gear_up_learn_color'] ) ) { ?>
+				background: linear-gradient(180deg, 
+				<?php
+				echo esc_attr( $theme_option['endurance_gear_up_learn_color']['from'] ) . '3d ';
+				echo esc_attr( $theme_option['endurance_gear_up_learn_color']['gradient-reach']['from'] ) . '%';
+				?>
+				, 
+				<?php
+				echo esc_attr( $theme_option['endurance_gear_up_learn_color']['to'] ) . ' ';
+				echo esc_attr( $theme_option['endurance_gear_up_learn_color']['gradient-reach']['to'] ) . '%';
+				?>
+				);
 			<?php } ?>
 		}
 		.success-section .success-wrapper .success-box.last-box.opacity-box {
@@ -130,6 +145,21 @@ if ( ! is_admin() ) {
 				echo esc_attr( $theme_option['endurance_gear_up_motivated_color']['gradient-reach']['to'] ) . '%';
 				?>
 );
+			<?php } ?>
+		}
+		.success-section .success-wrapper .success-box.last-box:after {
+			<?php if ( isset( $theme_option['endurance_gear_up_learn_color'] ) && ! empty( $theme_option['endurance_gear_up_motivated_color'] ) && is_array( $theme_option['endurance_gear_up_motivated_color'] ) ) { ?>
+				background: linear-gradient(180deg, 
+				<?php
+				echo esc_attr( $theme_option['endurance_gear_up_motivated_color']['from'] ) . '3d ';
+				echo esc_attr( $theme_option['endurance_gear_up_motivated_color']['gradient-reach']['from'] ) . '%';
+				?>
+				, 
+				<?php
+				echo esc_attr( $theme_option['endurance_gear_up_motivated_color']['to'] ) . ' ';
+				echo esc_attr( $theme_option['endurance_gear_up_motivated_color']['gradient-reach']['to'] ) . '%';
+				?>
+				);
 			<?php } ?>
 		}
 		.about-section .about-wrapper .image-wrapper:before {
@@ -252,8 +282,8 @@ if ( ! is_admin() ) {
 			<?php } ?>
 		}
 		.stand-with-section .img-block .image-wrapper{
-			<?php if ( isset( $theme_option['stand_out_with_pettern'] ) && ! empty( $theme_option['stand_out_with_pettern'] ) ) { ?>
-				background-image: url(<?php echo esc_url( $theme_option['stand_out_with_pettern']['url'] ); ?>), url(<?php echo esc_url( $theme_option['stand_out_with_pettern']['url'] ); ?>);
+			<?php if ( isset( $theme_option['endurance_stand_out_with_pettern'] ) && ! empty( $theme_option['endurance_stand_out_with_pettern'] ) ) { ?>
+				background-image: url(<?php echo esc_url( $theme_option['endurance_stand_out_with_pettern']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_stand_out_with_pettern']['url'] ); ?>);
 			<?php } ?>
 		}
 		.mission-section .mission-wrapper .image-wrapper::before{
@@ -267,8 +297,8 @@ if ( ! is_admin() ) {
 			<?php } ?>
 		}
 		.contact-section.details-section{
-			<?php if ( isset( $theme_option['endurance_call_us_bg_img'] ) && ! empty( $theme_option['endurance_call_us_bg_img'] ) ) { ?>
-				background-image: url(<?php echo esc_url( $theme_option['endurance_call_us_bg_img']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_call_us_bg_img']['url'] ); ?>);
+			<?php if ( isset( $theme_option['endurance_contact_us_bg_img'] ) && ! empty( $theme_option['endurance_contact_us_bg_img'] ) ) { ?>
+				background-image: url(<?php echo esc_url( $theme_option['endurance_contact_us_bg_img']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_contact_us_bg_img']['url'] ); ?>);
 			<?php } ?>
 		}
 		.error-wrapper .wrapper::before{
@@ -287,13 +317,13 @@ if ( ! is_admin() ) {
 			<?php } ?>
 		}
 		.error-wrapper::before{
-			<?php if ( isset( $theme_option['endurance_coming_soon_bg2'] ) && ! empty( $theme_option['endurance_coming_soon_bg2'] ) ) { ?>
-				background-image: url(<?php echo esc_url( $theme_option['endurance_coming_soon_bg2']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_coming_soon_bg2']['url'] ); ?>);
+			<?php if ( isset( $theme_option['endurance_coming_soon_bg2_img'] ) && ! empty( $theme_option['endurance_coming_soon_bg2_img'] ) ) { ?>
+				background-image: url(<?php echo esc_url( $theme_option['endurance_coming_soon_bg2_img']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_coming_soon_bg2_img']['url'] ); ?>);
 			<?php } ?>
 		}
 		.error-wrapper::after{
-			<?php if ( isset( $theme_option['endurance_coming_soon_bg1'] ) && ! empty( $theme_option['endurance_coming_soon_bg1'] ) ) { ?>
-				background-image: url(<?php echo esc_url( $theme_option['endurance_coming_soon_bg1']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_coming_soon_bg1']['url'] ); ?>);
+			<?php if ( isset( $theme_option['endurance_coming_soon_bg1_img'] ) && ! empty( $theme_option['endurance_coming_soon_bg1_img'] ) ) { ?>
+				background-image: url(<?php echo esc_url( $theme_option['endurance_coming_soon_bg1_img']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_coming_soon_bg1_img']['url'] ); ?>);
 			<?php } ?>
 		}
 		.fill-up-form form .form-group input[type="submit"]:before{
@@ -327,15 +357,18 @@ if ( ! is_admin() ) {
 			<?php } ?>
 			-webkit-background-clip: text;
 		}
-		<?php if ( isset( $theme_option['endurance_social_profiles'] ) && is_array( $theme_option['endurance_social_profiles'] ) ) {
+		<?php
+		if ( isset( $theme_option['endurance_social_profiles'] ) && is_array( $theme_option['endurance_social_profiles'] ) ) {
 			foreach ( $theme_option['endurance_social_profiles'] as $social_profiles ) {
 				if ( 1 == $social_profiles['enabled'] ) {
 					?>
 					footer .icon-wrapper a.icon.image-wrapper i.fa.<?php echo esc_attr( $social_profiles['icon'] ); ?> {
 						<?php if ( isset( $social_profiles['color'] ) && ! empty( $social_profiles['color'] ) ) { ?>
 							color: <?php echo esc_attr( $social_profiles['color'] ); ?>;
-						<?php }
-						if ( isset( $social_profiles['background'] ) && ! empty( $social_profiles['background'] ) ) { ?>
+							<?php
+						}
+						if ( isset( $social_profiles['background'] ) && ! empty( $social_profiles['background'] ) ) {
+							?>
 							background: <?php echo esc_attr( $social_profiles['background'] ); ?>;
 							padding: 5px;
 						<?php } ?>
@@ -343,7 +376,8 @@ if ( ! is_admin() ) {
 					<?php
 				}
 			}
-		} ?>
+		}
+		?>
 	</style>
 	<?php
 }

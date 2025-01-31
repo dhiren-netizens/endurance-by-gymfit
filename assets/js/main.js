@@ -52,13 +52,27 @@ $(document).ready(function () {
 	$('header ul.sub-menu.dropdown-menu, footer ul.sub-menu.dropdown-menu').parent().addClass('dropdown-toggle');
 	$('header .dropdown-toggle > a::after, footer .dropdown-toggle > a::after').css('content', '');
 	$('header ul.sub-menu.dropdown-menu > li > a, footer ul.sub-menu.dropdown-menu > li > a').addClass('dropdown-item');
+	$('footer .dropdown > a').attr("href", "javascript:void(0);");
 
 	$('header .sub-menu.dropdown-menu, footer .sub-menu.dropdown-menu').parent().on('click', function() {
 		$("header .sub-menu.dropdown-menu, footer .sub-menu.dropdown-menu").toggleClass('show');
 		$(this).toggleClass("activeDropdown")
 	});
 });
+$(document).mouseup(function(e) 
+{
+	var container = $("footer .footer-wrapper .footer-block .footer-content ul li.dropdown");
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    {
+		container.removeClass("activeDropdown");
+    }
+});
 
+$(document).on('scroll', function () {
+	var container = $("footer .footer-wrapper .footer-block .footer-content ul li.dropdown");
+	container.removeClass("activeDropdown");
+});
 
 /*=====================================================================
 03 - HEADER JS
@@ -296,50 +310,29 @@ if ($(".myTeam").length == "1") {
 08 - COMING SOON COUNT-DOWN JS
 =====================================================================*/
 if ($(".comming-wrapper").length > "0") {
-	(function () {
-		const second = 1000,
-			minute = second * 60,
-			hour = minute * 60,
-			day = hour * 24;
-		let today = new Date(),
-			dd = String(today.getDate()).padStart(2, "0"),
-			mm = String(today.getMonth() + 1).padStart(2, "0"),
-			yyyy = today.getFullYear(),
-			nextYear = yyyy + 1,
-			dayMonth = "07/29/",
-			birthday = dayMonth + yyyy;
+	var cmsdate = $('#coming_soon_date').val();
+	var endTime = new Date(cmsdate);
+	endTime = (Date.parse(endTime) / 1000);
 
-		today = mm + "/" + dd + "/" + yyyy;
+	var now = new Date();
+	now = (Date.parse(now) / 1000);
 
-		if (today > birthday) {
-			birthday = dayMonth + nextYear;
-		}
+	var timeLeft = endTime - now;
 
-		const countDown = new Date(birthday).getTime(),
-			x = setInterval(function () {
+	var days = Math.floor(timeLeft / 86400); 
+	var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+	var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+	var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
 
-				const now = new Date().getTime(),
-					distance = countDown - now;
+	if (hours < "10") { hours = "0" + hours; }
+	if (minutes < "10") { minutes = "0" + minutes; }
+	if (seconds < "10") { seconds = "0" + seconds; }
 
-				const days = Math.floor(distance / day),
-					hours = Math.floor((distance % day) / hour),
-					minutes = Math.floor((distance % hour) / minute),
-					seconds = Math.floor((distance % minute) / second);
-				document.getElementById("days").innerText = String(days).padStart(2, "0");
-				document.getElementById("hours").innerText = String(hours).padStart(2, "0");
-				document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
-				document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
-
-				if (distance < 0) {
-					document.getElementById("countdown").style.display = "none";
-					document.getElementById("content").style.display = "block";
-					clearInterval(x);
-				}
-			}, 0)
-	}());
+	$("#days").html(days);
+	$("#hours").html(hours);
+	$("#minutes").html(minutes);
+	$("#seconds").html(seconds);
 };
-
-
 
 /*
 =================================================================

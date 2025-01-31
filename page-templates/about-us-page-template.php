@@ -21,17 +21,23 @@ get_header();
 								<div class="image-wrapper d-flex justify-content-center wow fadeInLeft">
 									<?php if ( isset( $theme_option['endurance_general_about_us_image']['url'] ) && ! empty( $theme_option['endurance_general_about_us_image']['url'] ) ) { ?>
 										<img src="<?php echo esc_url( $theme_option['endurance_general_about_us_image']['url'] ); ?>" alt="about-img" id="about_img1">
-									<?php } else {
+										<?php
+									} else {
 										?>
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/about-img.webp" alt="about-img" id="about_img1">
-									<?php }
-									if ( isset( $theme_option['endurance_general_about_us_logo_image']['url'] ) && ! empty( $theme_option['endurance_general_about_us_logo_image']['url'] ) ) { ?>
+										<?php
+									}
+									if ( isset( $theme_option['endurance_general_about_us_logo_image']['url'] ) && ! empty( $theme_option['endurance_general_about_us_logo_image']['url'] ) ) {
+										?>
 										<img src="<?php echo esc_url( $theme_option['endurance_general_about_us_logo_image']['url'] ); ?>" alt="white-logo" id="about_img2" class="logo">
-									<?php } else {
+										<?php
+									} else {
 										?>
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo/white-logo.webp" alt="white-logo" id="about_img2" class="logo">
-									<?php }
-									if ( isset( $theme_option['endurance_general_background_image']['url'] ) && ! empty( $theme_option['endurance_general_background_image']['url'] ) ) { ?>
+										<?php
+									}
+									if ( isset( $theme_option['endurance_general_background_image']['url'] ) && ! empty( $theme_option['endurance_general_background_image']['url'] ) ) {
+										?>
 										<img src="<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>" alt="strips" id="strips"  class="strips">
 									<?php } ?>
 								</div>
@@ -61,10 +67,10 @@ get_header();
 				<div class="stand-with-wrapper">
 					<div class="top-block wow fadeIn">
 						<div class="d-lg-flex justify-content-start d-block align-items-center text-lg-start text-center pb-sm-2 pb-0">
-							<?php if ( isset( $theme_option['stand_out_with'] ) && ! empty( $theme_option['stand_out_with'] ) ) { ?>
-									<h1 class="title p-0">
-										<?php echo esc_html( $theme_option['stand_out_with'] ); ?>
-									</h1>
+							<?php if ( isset( $theme_option['endurance_stand_out_with_title']['box1'] ) && ! empty( $theme_option['endurance_stand_out_with_title']['box1'] ) ) { ?>
+								<h1 class="title p-0">
+									<?php echo esc_html( $theme_option['endurance_stand_out_with_title']['box1'] ); ?>
+								</h1>
 							<?php } ?>  
 							<?php if ( isset( $theme_option['endurance_general_pattern_image']['url'] ) && ! empty( $theme_option['endurance_general_pattern_image']['url'] ) ) { ?>
 								<img src="<?php echo esc_url( $theme_option['endurance_general_pattern_image']['url'] ); ?>" alt="Line" class="px-xl-5 px-4 mx-xl-5 mx-4 d-lg-block d-none">
@@ -72,18 +78,18 @@ get_header();
 								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/line-pettern.svg" alt="Line" class="px-xl-5 px-4 mx-xl-5 mx-4 d-lg-block d-none">
 							<?php } ?>
 						</div>
-						<?php if ( isset( $theme_option['high_endurance'] ) && ! empty( $theme_option['high_endurance'] ) ) { ?>
-									<h1 class="title text-lg-end text-center">
-										<?php echo esc_html( $theme_option['high_endurance'] ); ?>
-									</h1>
+						<?php if ( isset( $theme_option['endurance_stand_out_with_title']['box2'] ) && ! empty( $theme_option['endurance_stand_out_with_title']['box2'] ) ) { ?>
+							<h1 class="title text-lg-end text-center">
+								<?php echo esc_html( $theme_option['endurance_stand_out_with_title']['box2'] ); ?>
+							</h1>
 						<?php } ?> 
 					</div>
 					<div class="row justify-content-end pb-lg-0 pb-4">
 						<div class="col-lg-7">
 							<div class="text-block d-lg-flex align-items-center text-lg-start text-center wow fadeInLeft">
-							<?php if ( isset( $theme_option['high_endurance_description'] ) && ! empty( $theme_option['high_endurance'] ) ) { ?>
+							<?php if ( isset( $theme_option['endurance_stand_out_with_description'] ) && ! empty( $theme_option['endurance_stand_out_with_description'] ) ) { ?>
 								<p class="mb-0 me-lg-3 mb-3">
-										<?php echo esc_html( $theme_option['high_endurance_description'] ); ?>
+										<?php echo esc_html( $theme_option['endurance_stand_out_with_description'] ); ?>
 								</p>
 							<?php } ?> 
 							<?php if ( isset( $theme_option['endurance_general_gt_button'] ) && 1 == $theme_option['endurance_general_gt_button'] && ! empty( $theme_option['endurance_general_gt_button'] ) ) { ?>
@@ -98,8 +104,8 @@ get_header();
 			</div>
 			<div class="img-block img-block-2 wow fadeInUpBig">
 				<div class="image-wrapper">
-					<?php if ( isset( $theme_option['stand_out_with_img']['url'] ) && ! empty( $theme_option['stand_out_with_img']['url'] ) ) { ?>
-						<img src="<?php echo esc_url( $theme_option['stand_out_with_img']['url'] ); ?>" alt="stand-with-img" class="d-block" id="stand_with_img">
+					<?php if ( isset( $theme_option['endurance_stand_out_with_img']['url'] ) && ! empty( $theme_option['endurance_stand_out_with_img']['url'] ) ) { ?>
+						<img src="<?php echo esc_url( $theme_option['endurance_stand_out_with_img']['url'] ); ?>" alt="stand-with-img" class="d-block" id="stand_with_img">
 					<?php } else { ?>
 						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/stand-with-img.webp" alt="stand-with-img" class="d-block" id="stand_with_img">
 					<?php } ?>
@@ -115,12 +121,12 @@ get_header();
 					<div class="row gy-4 align-items-center justify-content-lg-between justify-content-center">
 						<div class="col-lg-5">
 							<div class="text-block text-lg-start text-center wow fadeInLeft">
-								<?php if ( isset( $theme_option['endurance_our_mission'] ) && ! empty( $theme_option['endurance_our_mission'] ) ) { ?>
-									<div class="title"><?php echo esc_html( $theme_option['endurance_our_mission'] ); ?></div>
+								<?php if ( isset( $theme_option['endurance_our_mission_heading'] ) && ! empty( $theme_option['endurance_our_mission_heading'] ) ) { ?>
+									<div class="title"><?php echo esc_html( $theme_option['endurance_our_mission_heading'] ); ?></div>
 								<?php } ?>  
 
-								<?php if ( isset( $theme_option['endurance_mission_decription'] ) && ! empty( $theme_option['endurance_mission_decription'] ) ) { ?>
-									<p class="mb-0"><?php echo esc_html( $theme_option['endurance_mission_decription'] ); ?></p>
+								<?php if ( isset( $theme_option['endurance_our_mission_description'] ) && ! empty( $theme_option['endurance_our_mission_description'] ) ) { ?>
+									<p class="mb-0"><?php echo esc_html( $theme_option['endurance_our_mission_description'] ); ?></p>
 								<?php } ?>  
 							</div>
 						</div>

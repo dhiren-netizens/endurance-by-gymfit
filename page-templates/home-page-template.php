@@ -105,7 +105,7 @@ $theme_option = get_option( 'redux_demo' );
 					<div class="success-wrapper">
 						<div class="row gy-lg-0 gy-4">
 							<div class="col-lg-4 col-sm-6 order-2">
-								<div class="success-box first-box wow fadeIn">
+								<div class="success-box first-box first_success_box wow fadeIn">
 									<div class="image-wrapper">
 										<?php if ( isset( $theme_option['endurance_gear_up_learn_image']['url'] ) && ! empty( $theme_option['endurance_gear_up_learn_image']['url'] ) ) { ?>
 											<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_learn_image']['url'] ); ?>" alt="success-1" class="box_img">
@@ -162,7 +162,7 @@ $theme_option = get_option( 'redux_demo' );
 								</div>
 							</div>
 							<div class="col-lg-4 col-sm-6 order-3">
-								<div class="success-box last-box wow fadeIn">
+								<div class="success-box last-box last_success_box wow fadeIn">
 									<div class="image-wrapper">
 										<?php if ( isset( $theme_option['endurance_gear_up_motivated_image']['url'] ) && ! empty( $theme_option['endurance_gear_up_motivated_image']['url'] ) ) { ?>
 											<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_motivated_image']['url'] ); ?>" alt="success-2" class="box_img">

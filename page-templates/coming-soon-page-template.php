@@ -18,65 +18,36 @@ get_header();
 			<div class="container">
 				<div class="wrapper">
 					<div class="text-block text-center">
-						<?php if ( isset( $theme_option['endurance_coming_soon'] ) && ! empty( $theme_option['endurance_coming_soon'] ) ) { ?>
+						<?php if ( isset( $theme_option['endurance_coming_soon_heading'] ) && ! empty( $theme_option['endurance_coming_soon_heading'] ) ) { ?>
 							<div class="title">
-							<?php echo esc_html( $theme_option['endurance_coming_soon'] ); ?>
+							<?php echo esc_html( $theme_option['endurance_coming_soon_heading'] ); ?>
 						</div>
+						<?php } ?>
+						<?php if ( isset( $theme_option['endurance_coming_soon_date_time'] ) && ! empty( $theme_option['endurance_coming_soon_date_time'] ) ) { ?>
+							<input type="hidden" id="coming_soon_date" value="<?php echo esc_html( $theme_option['endurance_coming_soon_date_time'] ); ?>">
 						<?php } ?>
 						<div class="count-section">
 							<div class="count-item">
-								<?php if ( isset( $theme_option['endurance_day_number'] ) && ! empty( $theme_option['endurance_day_number'] ) ) { ?>
-									<span id="days">
-										<?php echo esc_html( $theme_option['endurance_day_number'] ); ?>
-								</span>
-								<?php } ?>
-								<?php if ( isset( $theme_option['endurance_day_text'] ) && ! empty( $theme_option['endurance_day_text'] ) ) { ?>
-									<p>
-									<?php echo esc_html( $theme_option['endurance_day_text'] ); ?>
-								</p>
-								<?php } ?>
+								<span id="days">00</span>
+								<p>days</p>
 							</div>
 							<div class="count-item">
-								<?php if ( isset( $theme_option['endurance_hours_number'] ) && ! empty( $theme_option['endurance_hours_number'] ) ) { ?>
-									<span id="hours">
-										<?php echo esc_html( $theme_option['endurance_hours_number'] ); ?>
-								</span>
-								<?php } ?>
-								<?php if ( isset( $theme_option['endurance_hours_text'] ) && ! empty( $theme_option['endurance_hours_text'] ) ) { ?>
-									<p>
-									<?php echo esc_html( $theme_option['endurance_hours_text'] ); ?>
-								</p>
-								<?php } ?>
+								<span id="hours">00</span>
+								<p>hours</p>
 							</div>
 							<div class="count-item">
-								<?php if ( isset( $theme_option['endurance_minutes_number'] ) && ! empty( $theme_option['endurance_minutes_number'] ) ) { ?>
-									<span id="minutes">
-										<?php echo esc_html( $theme_option['endurance_minutes_number'] ); ?>
-								</span>
-								<?php } ?>
-								<?php if ( isset( $theme_option['endurance_minutes_text'] ) && ! empty( $theme_option['endurance_minutes_text'] ) ) { ?>
-									<p>
-									<?php echo esc_html( $theme_option['endurance_minutes_text'] ); ?>
-								</p>
-								<?php } ?>
+								<span id="minutes">00</span>
+								<p>minutes</p>
 							</div>
 							<div class="count-item">
-								<?php if ( isset( $theme_option['endurance_second_number'] ) && ! empty( $theme_option['endurance_second_number'] ) ) { ?>
-									<span id="seconds">
-										<?php echo esc_html( $theme_option['endurance_second_number'] ); ?>
-								</span>
-								<?php } ?>
-								<?php if ( isset( $theme_option['endurance_second_text'] ) && ! empty( $theme_option['endurance_second_text'] ) ) { ?>
-									<p>
-									<?php echo esc_html( $theme_option['endurance_second_text'] ); ?>
-								</p>
-								<?php } ?>
+								<span id="seconds">00</span>
+								<p>seconds</p>
 							</div>
 						</div>
 					</div>
 					<div class="lines py-sm-5 py-4"><span></span>
-						<?php if ( isset( $theme_option['endurance_star_img']['url'] ) && ! empty( $theme_option['endurance_star_img']['url'] ) ) { ?>
-							<img src="<?php echo esc_url( $theme_option['endurance_star_img']['url'] ); ?>" alt="star-icon" class="px-3">
+						<?php if ( isset( $theme_option['endurance_coming_soon_star_img']['url'] ) && ! empty( $theme_option['endurance_coming_soon_star_img']['url'] ) ) { ?>
+							<img src="<?php echo esc_url( $theme_option['endurance_coming_soon_star_img']['url'] ); ?>" alt="star-icon" class="px-3">
 						<?php } else { ?>
 							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/star-icon.svg" alt="star-icon" class="px-3">
 						<?php } ?>
@@ -84,17 +55,17 @@ get_header();
 					<div class="join-block text-center">
 						<div class="row justify-content-center">
 							<div class="col-lg-6 col-sm-10">
-								<?php if ( isset( $theme_option['endurance_join_waiting_text'] ) && ! empty( $theme_option['endurance_join_waiting_text'] ) ) { ?>
+								<?php if ( isset( $theme_option['endurance_coming_soon_waiting_heading'] ) && ! empty( $theme_option['endurance_coming_soon_waiting_heading'] ) ) { ?>
 								<div class="title pb-4">
-									<?php echo esc_html( $theme_option['endurance_join_waiting_text'] ); ?>
+									<?php echo esc_html( $theme_option['endurance_coming_soon_waiting_heading'] ); ?>
 								</div>
 								<?php } ?>						
 								<div class="fill-up-form">
 								<?php echo do_shortcode( '[contact-form-7 id="6186708" title="Join Form - Coming Soon Page"]' ); ?>
 								</div>
-								<?php if ( isset( $theme_option['endurance_mail_text'] ) && ! empty( $theme_option['endurance_mail_text'] ) ) { ?>
+								<?php if ( isset( $theme_option['endurance_coming_soon_waiting_description'] ) && ! empty( $theme_option['endurance_coming_soon_waiting_description'] ) ) { ?>
 									<p>
-									<?php echo esc_html( $theme_option['endurance_mail_text'] ); ?>
+									<?php echo esc_html( $theme_option['endurance_coming_soon_waiting_description'] ); ?>
 								</p>
 								<?php } ?>
 							</div>
