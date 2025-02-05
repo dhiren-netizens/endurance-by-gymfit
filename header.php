@@ -70,7 +70,7 @@ $theme_option = get_option( 'redux_demo' );
 					<!-- Logo -->
 					<a class="navbar-brand logo lh-0" href="<?php echo esc_url( home_url() ); ?>">
 						<?php if ( isset( $theme_option['endurance_header_logo']['url'] ) && ! empty( $theme_option['endurance_header_logo']['url'] ) ) { ?>
-							<img src="<?php echo esc_url( $theme_option['endurance_header_logo']['url'] ); ?>" alt="Logo">
+							<img src="<?php echo esc_url( $theme_option['endurance_header_logo']['url'] ); ?>" alt="Logo" width="130px" height="20px">
 						<?php } else { ?>
 							<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/logo.svg'; ?>" alt="Logo">
 						<?php } ?>
@@ -171,7 +171,7 @@ $theme_option = get_option( 'redux_demo' );
 	<?php if ( isset( $theme_option['endurance_page_loader'] ) && ! empty( $theme_option['endurance_page_loader'] ) && 1 == $theme_option['endurance_page_loader'] ) { ?>
 		<div class="page_loader">
 			<?php if ( isset( $theme_option['endurance_page_loader_image']['url'] ) && ! empty( $theme_option['endurance_page_loader_image']['url'] ) ) { ?>
-				<img src="<?php echo esc_url( $theme_option['endurance_page_loader_image']['url'] ); ?>" alt="Logo" loading="lazy">
+				<img src="<?php echo esc_url( $theme_option['endurance_page_loader_image']['url'] ); ?>" alt="Logo" loading="lazy" height="150px" width="150px">
 			<?php } else { ?>
 				<img src="<?php echo esc_url( get_template_directory_uri() ) . '/assets/images/transformation.webp'; ?>" alt="Logo" loading="lazy">
 			<?php } ?>

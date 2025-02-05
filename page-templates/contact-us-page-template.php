@@ -43,7 +43,7 @@ get_header();
 							<div class="contact-block text-sm-start text-center">
 								<div class="icon mx-sm-0 mx-auto image-wrapper">
 									<?php if ( isset( $theme_option['endurance_conatct_info_call_img']['url'] ) && ! empty( $theme_option['endurance_conatct_info_call_img']['url'] ) ) { ?>
-										<img src="<?php echo esc_url( $theme_option['endurance_conatct_info_call_img']['url'] ); ?>" alt="call_icon">
+										<img src="<?php echo esc_url( $theme_option['endurance_conatct_info_call_img']['url'] ); ?>" alt="call_icon" width="36px" height="36px">
 									<?php } else { ?>
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/call.svg" alt="call_icon">
 									<?php } ?>
@@ -72,9 +72,9 @@ get_header();
 						<div class="col-xl-4 col-lg-6 col-sm-10 wow fadeInRight">
 							<div class="contact-block text-sm-start text-center emailBlock">
 								<div class="icon mx-sm-0 mx-auto image-wrapper"><?php if ( isset( $theme_option['endurance_conatct_info_mail_img']['url'] ) && ! empty( $theme_option['endurance_conatct_info_mail_img']['url'] ) ) { ?>
-										<img src="<?php echo esc_url( $theme_option['endurance_conatct_info_mail_img']['url'] ); ?>" alt="call_icon">
+										<img src="<?php echo esc_url( $theme_option['endurance_conatct_info_mail_img']['url'] ); ?>" alt="email_icon" width="36px" height="36px">
 									<?php } else { ?>
-										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/mail.svg" alt="call_icon">
+										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/mail.svg" alt="email_icon">
 									<?php } ?>
 									</div>
 									<?php if ( isset( $theme_option['endurance_conatct_info_mail_heading'] ) && ! empty( $theme_option['endurance_conatct_info_mail_heading'] ) ) { ?>

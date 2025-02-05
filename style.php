@@ -282,8 +282,8 @@ if ( ! is_admin() ) {
 			<?php } ?>
 		}
 		.stand-with-section .img-block .image-wrapper{
-			<?php if ( isset( $theme_option['endurance_stand_out_with_pettern'] ) && ! empty( $theme_option['endurance_stand_out_with_pettern'] ) ) { ?>
-				background-image: url(<?php echo esc_url( $theme_option['endurance_stand_out_with_pettern']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_stand_out_with_pettern']['url'] ); ?>);
+			<?php if ( isset( $theme_option['endurance_stand_out_with_pattern'] ) && ! empty( $theme_option['endurance_stand_out_with_pattern'] ) ) { ?>
+				background-image: url(<?php echo esc_url( $theme_option['endurance_stand_out_with_pattern']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_stand_out_with_pattern']['url'] ); ?>);
 			<?php } ?>
 		}
 		.mission-section .mission-wrapper .image-wrapper::before{
@@ -326,6 +326,16 @@ if ( ! is_admin() ) {
 				background-image: url(<?php echo esc_url( $theme_option['endurance_coming_soon_bg1_img']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_coming_soon_bg1_img']['url'] ); ?>);
 			<?php } ?>
 		}
+		.error_404_page .error-wrapper::before{
+			<?php if ( isset( $theme_option['endurance_404_background_image2'] ) && ! empty( $theme_option['endurance_404_background_image2'] ) ) { ?>
+				background-image: url(<?php echo esc_url( $theme_option['endurance_404_background_image2']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_404_background_image2']['url'] ); ?>);
+			<?php } ?>
+		}
+		.error_404_page .error-wrapper::after{
+			<?php if ( isset( $theme_option['endurance_404_background_image1'] ) && ! empty( $theme_option['endurance_404_background_image1'] ) ) { ?>
+				background-image: url(<?php echo esc_url( $theme_option['endurance_404_background_image1']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_404_background_image1']['url'] ); ?>);
+			<?php } ?>
+		}
 		.fill-up-form form .form-group input[type="submit"]:before{
 			background-image:url('assets/images/icon/search-icon.svg');
 			content: "";
@@ -341,21 +351,33 @@ if ( ! is_admin() ) {
 				background-image: url(<?php echo esc_url( $theme_option['endurance_pricing_plan_background_image']['url'] ); ?>);
 			<?php } ?>
 		}
-		.pricing-section .pricing-wrapper .pricing-block::before{
-			<?php if ( isset( $theme_option['endurance_pricing_plan_background_color1'] ) && ! empty( $theme_option['endurance_pricing_plan_background_color1'] ) ) { ?>
-				background: <?php echo esc_attr( $theme_option['endurance_pricing_plan_background_color1'] ); ?>;
+		.pricing-section .pricingSwiper .pricingtable-inner .pricingtable-price:after{
+			<?php if ( isset( $theme_option['endurance_pricing_plan_background_color'] ) && ! empty( $theme_option['endurance_pricing_plan_background_color'] ) ) { ?>
+				background: <?php echo esc_attr( $theme_option['endurance_pricing_plan_background_color'] ); ?>;
 			<?php } ?>
 		}
-		.pricing-section .pricing-wrapper .option-wrapper .nav .nav-item .nav-link.active {
-			<?php if ( isset( $theme_option['endurance_nav_text_color'] ) && ! empty( $theme_option['endurance_nav_text_color'] ) && is_array( $theme_option['endurance_nav_text_color'] ) ) { ?>
-				background: linear-gradient(180deg, <?php echo esc_attr( $theme_option['endurance_nav_text_color']['from'] ) . ' '; ?> -80%, <?php echo esc_attr( $theme_option['endurance_nav_text_color']['to'] ) . ' 100%'; ?>);
+		.pricing-section .pricing_nav .nav .nav-item .nav-link.active {
+			<?php if ( isset( $theme_option['endurance_features_background_color'] ) && ! empty( $theme_option['endurance_features_background_color'] ) && is_array( $theme_option['endurance_features_background_color'] ) ) { ?>
+				background: linear-gradient(180deg, <?php echo esc_attr( $theme_option['endurance_features_background_color']['from'] ) . ' '; ?> -80%, <?php echo esc_attr( $theme_option['endurance_features_background_color']['to'] ) . ' 100%'; ?>);
 			<?php } ?>
 		}
-		.pricing-section .pricing-wrapper .pricing-block .pricing-plan:hover .title{
-			<?php if ( isset( $theme_option['endurance_nav_text_color'] ) && ! empty( $theme_option['endurance_nav_text_color'] ) && is_array( $theme_option['endurance_nav_text_color'] ) ) { ?>
-				background: linear-gradient(180deg, <?php echo esc_attr( $theme_option['endurance_nav_text_color']['from'] ) . ' '; ?> -80%, <?php echo esc_attr( $theme_option['endurance_nav_text_color']['to'] ) . ' 100%'; ?>);
+		.pricing-section .pricingSwiper .pricingtable-inner .pricingtable-title {
+			<?php if ( isset( $theme_option['endurance_features_background_color'] ) && ! empty( $theme_option['endurance_features_background_color'] ) && is_array( $theme_option['endurance_features_background_color'] ) ) { ?>
+				background: linear-gradient(180deg, <?php echo esc_attr( $theme_option['endurance_features_background_color']['from'] ) . ' '; ?> -80%, <?php echo esc_attr( $theme_option['endurance_features_background_color']['to'] ) . ' 100%'; ?>);
 			<?php } ?>
-			-webkit-background-clip: text;
+		}
+		.pricing-section .pricingSwiper .btn_wrapper {
+			background: linear-gradient(180deg, <?php echo esc_attr( $theme_option['endurance_sign_up_background_color']['from'] ) . ' '; echo esc_attr( $theme_option['endurance_sign_up_background_color']['gradient-reach']['from'] ) . '%'; ?>, <?php echo esc_attr( $theme_option['endurance_sign_up_background_color']['to'] ) . ' '; echo esc_attr( $theme_option['endurance_sign_up_background_color']['gradient-reach']['to'] ) . '%'; ?>);
+		}
+		.pricing-section .pricingSwiper .pricingtable-inner:hover .btn_wrapper {
+			background: linear-gradient(180deg, <?php echo esc_attr( $theme_option['endurance_sign_up_background_color']['to'] ) . ' '; echo esc_attr( $theme_option['endurance_sign_up_background_color']['gradient-reach']['from'] ) . '%'; ?>, <?php echo esc_attr( $theme_option['endurance_sign_up_background_color']['from'] ) . ' '; echo esc_attr( $theme_option['endurance_sign_up_background_color']['gradient-reach']['to'] ) . '%'; ?>);
+		}
+		.cta-section {
+			<?php if ( isset( $theme_option['endurance_general_smart_app_line_background_image']['url'] ) && ! empty( $theme_option['endurance_general_smart_app_line_background_image']['url'] ) ) { ?>
+				background: url(<?php echo esc_url( $theme_option['endurance_general_smart_app_line_background_image']['url'] ); ?>) no-repeat;
+			<?php } ?>
+			background-size: contain;
+			background-position: top center;
 		}
 		<?php
 		if ( isset( $theme_option['endurance_social_profiles'] ) && is_array( $theme_option['endurance_social_profiles'] ) ) {

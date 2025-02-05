@@ -16,7 +16,7 @@ $theme_option = get_option( 'redux_demo' );
 		<div class="default-padding">
 			<div class="banner-wrapper">
 				<?php if ( isset( $theme_option['endurance_general_background_image']['url'] ) && ! empty( $theme_option['endurance_general_background_image']['url'] ) ) { ?>
-					<img src="<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>" alt="strips" class="strips">
+					<img src="<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>" alt="strips" class="strips" width="1600px" height="821px">
 				<?php } else { ?>
 					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/strips.svg" alt="strips" class="strips">
 				<?php } ?>
@@ -30,7 +30,7 @@ $theme_option = get_option( 'redux_demo' );
 											<h1 class="title p-0"><?php echo esc_html( $theme_option['endurance_banner_title']['box1'] ); ?></h1>
 										<?php } ?>
 										<?php if ( isset( $theme_option['endurance_general_pattern_image']['url'] ) && ! empty( $theme_option['endurance_general_pattern_image']['url'] ) ) { ?>
-											<img src="<?php echo esc_url( $theme_option['endurance_general_pattern_image']['url'] ); ?>" alt="Line" class="ps-3 d-lg-block d-none" loading="lazy">
+											<img src="<?php echo esc_url( $theme_option['endurance_general_pattern_image']['url'] ); ?>" alt="Line" class="ps-3 d-lg-block d-none" loading="lazy" width="133px" height="50px">
 										<?php } else { ?>
 											<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/line-pettern.svg" alt="Line" class="ps-3 d-lg-block d-none" loading="lazy">
 										<?php } ?>
@@ -58,14 +58,14 @@ $theme_option = get_option( 'redux_demo' );
 				</div>
 				<div class="imgBlock pt-lg-0 pt-sm-5 pt-4">
 					<?php if ( isset( $theme_option['endurance_banner_image']['url'] ) && ! empty( $theme_option['endurance_banner_image']['url'] ) ) { ?>
-						<img src="<?php echo esc_url( $theme_option['endurance_banner_image']['url'] ); ?>" alt="banner" class="bannerImg wow fadeInLeftBig">
+						<img src="<?php echo esc_url( $theme_option['endurance_banner_image']['url'] ); ?>" alt="banner" class="bannerImg wow fadeInLeftBig" width="1599px" height="597px">
 					<?php } else { ?>
 						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/banner-img.webp" alt="banner" class="bannerImg wow fadeInLeftBig">
 					<?php } ?>
 					<div class="container position-relative wow fadeInUp">
 						<div class="members d-lg-flex d-none align-items-center">
 							<?php if ( isset( $theme_option['endurance_banner_members_image']['url'] ) && ! empty( $theme_option['endurance_banner_members_image']['url'] ) ) { ?>
-								<img src="<?php echo esc_url( $theme_option['endurance_banner_members_image']['url'] ); ?>" alt="Members" class="pe-2">
+								<img src="<?php echo esc_url( $theme_option['endurance_banner_members_image']['url'] ); ?>" alt="Members" class="pe-2" width="132px" height="54px">
 							<?php } else { ?>
 								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/members.webp" alt="Members" class="pe-2">
 							<?php } ?>
@@ -82,7 +82,7 @@ $theme_option = get_option( 'redux_demo' );
 							}
 							?>
 							<?php if ( isset( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ) && ! empty( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ) ) { ?>
-								<img src="<?php echo esc_url( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ); ?>" alt="Arrow">
+								<img src="<?php echo esc_url( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ); ?>" alt="Arrow" width="16px" height="16px">
 							<?php } else { ?>
 								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/btn-arrow.svg" alt="Arrow">
 							<?php } ?>
@@ -108,7 +108,7 @@ $theme_option = get_option( 'redux_demo' );
 								<div class="success-box first-box first_success_box wow fadeIn">
 									<div class="image-wrapper">
 										<?php if ( isset( $theme_option['endurance_gear_up_learn_image']['url'] ) && ! empty( $theme_option['endurance_gear_up_learn_image']['url'] ) ) { ?>
-											<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_learn_image']['url'] ); ?>" alt="success-1" class="box_img">
+											<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_learn_image']['url'] ); ?>" alt="success-1" class="box_img" width="424px" height="496px">
 										<?php } else { ?>
 											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/success-1.webp" alt="success-1" class="box_img">
 										<?php } ?>
@@ -131,7 +131,7 @@ $theme_option = get_option( 'redux_demo' );
 										<div class="success-box last-box opacity-box icon-box">
 											<div class="image-wrapper icon">
 												<?php if ( isset( $theme_option['endurance_gear_up_track_image']['url'] ) && ! empty( $theme_option['endurance_gear_up_track_image']['url'] ) ) { ?>
-													<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_track_image']['url'] ); ?>" alt="success-icon">
+													<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_track_image']['url'] ); ?>" alt="success-icon" width="80px" height="80px">
 												<?php } else { ?>
 													<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/success-icon.svg" alt="success-icon">
 												<?php } ?>
@@ -147,7 +147,7 @@ $theme_option = get_option( 'redux_demo' );
 										<div class="success-box first-box opacity-box icon-box">
 											<div class="image-wrapper icon icon-2">
 												<?php if ( isset( $theme_option['endurance_gear_up_improve_image']['url'] ) && ! empty( $theme_option['endurance_gear_up_improve_image']['url'] ) ) { ?>
-													<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_improve_image']['url'] ); ?>" alt="success-icon">
+													<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_improve_image']['url'] ); ?>" alt="success-icon" width="80px" height="80px">
 												<?php } else { ?>
 													<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/success-icon-2.svg" alt="success-icon">
 												<?php } ?>
@@ -165,7 +165,7 @@ $theme_option = get_option( 'redux_demo' );
 								<div class="success-box last-box last_success_box wow fadeIn">
 									<div class="image-wrapper">
 										<?php if ( isset( $theme_option['endurance_gear_up_motivated_image']['url'] ) && ! empty( $theme_option['endurance_gear_up_motivated_image']['url'] ) ) { ?>
-											<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_motivated_image']['url'] ); ?>" alt="success-2" class="box_img">
+											<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_gear_up_motivated_image']['url'] ); ?>" alt="success-2" class="box_img" width="424px" height="496px">
 										<?php } else { ?>
 											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/success-2.webp" alt="success-2" class="box_img">
 										<?php } ?>
@@ -198,7 +198,7 @@ $theme_option = get_option( 'redux_demo' );
 							<div class="col-lg-7 col-sm-10 order-lg-1 order-2">
 								<div class="image-wrapper d-flex justify-content-center wow fadeInLeft">
 									<?php if ( isset( $theme_option['endurance_general_about_us_image']['url'] ) && ! empty( $theme_option['endurance_general_about_us_image']['url'] ) ) { ?>
-										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_about_us_image']['url'] ); ?>" alt="about-img" id="about_img1">
+										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_about_us_image']['url'] ); ?>" alt="about-img" id="about_img1" width="427px" height="635px">
 										<?php
 									} else {
 										?>
@@ -207,7 +207,7 @@ $theme_option = get_option( 'redux_demo' );
 									}
 									if ( isset( $theme_option['endurance_general_about_us_logo_image']['url'] ) && ! empty( $theme_option['endurance_general_about_us_logo_image']['url'] ) ) {
 										?>
-										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_about_us_logo_image']['url'] ); ?>" alt="white-logo" class="logo" id="about_img2">
+										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_about_us_logo_image']['url'] ); ?>" alt="white-logo" class="logo" id="about_img2" width="648px" height="96px">
 										<?php
 									} else {
 										?>
@@ -216,7 +216,7 @@ $theme_option = get_option( 'redux_demo' );
 									}
 									if ( isset( $theme_option['endurance_general_background_image']['url'] ) && ! empty( $theme_option['endurance_general_background_image']['url'] ) ) {
 										?>
-										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>" alt="strips" class="strips">
+										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>" alt="strips" class="strips" width="1600px" height="821px">
 									<?php } else { ?>
 										<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/strips.svg" alt="strips" class="strips">
 									<?php } ?>
@@ -268,7 +268,7 @@ $theme_option = get_option( 'redux_demo' );
 								</div>
 								<div class="image-wrapper d-lg-block d-none">
 									<?php if ( isset( $theme_option['endurance_general_smart_app_download_image']['url'] ) && ! empty( $theme_option['endurance_general_smart_app_download_image']['url'] ) ) { ?>
-										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_smart_app_download_image']['url'] ); ?>" alt="cta-appstore-img">
+										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_smart_app_download_image']['url'] ); ?>" alt="cta-appstore-img" width="204px" height="60px">
 									<?php } else { ?>
 										<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/cta-appstore-img.svg" alt="cta-appstore-img">
 									<?php } ?>
@@ -278,7 +278,7 @@ $theme_option = get_option( 'redux_demo' );
 								<div class="row justify-content-center">
 									<div class="col-xxl-10 col-lg-8 col-sm-10">
 										<?php if ( isset( $theme_option['endurance_general_smart_app_mobile_image']['url'] ) && ! empty( $theme_option['endurance_general_smart_app_mobile_image']['url'] ) ) { ?>
-											<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_smart_app_mobile_image']['url'] ); ?>" alt="cta-mockup" class="d-block mx-auto">
+											<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_smart_app_mobile_image']['url'] ); ?>" alt="cta-mockup" class="d-block mx-auto" width="832px" height="492px">
 										<?php } else { ?>
 											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/cta-mockup.webp" alt="cta-mockup" class="d-block mx-auto">
 										<?php } ?>
@@ -297,9 +297,9 @@ $theme_option = get_option( 'redux_demo' );
 			<div class="notice">
 				<div class="notice-slide">
 					<?php if ( isset( $theme_option['endurance_marquee_notice_image']['url'] ) && ! empty( $theme_option['endurance_marquee_notice_image']['url'] ) ) { ?>
-						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_marquee_notice_image']['url'] ); ?>" alt="marquee-icon">
-						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_marquee_notice_image']['url'] ); ?>" alt="marquee-icon">
-						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_marquee_notice_image']['url'] ); ?>" alt="marquee-icon">
+						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_marquee_notice_image']['url'] ); ?>" alt="marquee-icon" width="1005px" height="31px">
+						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_marquee_notice_image']['url'] ); ?>" alt="marquee-icon" width="1005px" height="31px">
+						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_marquee_notice_image']['url'] ); ?>" alt="marquee-icon" width="1005px" height="31px">
 					<?php } else { ?>
 						<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/marquee-icon.svg" alt="marquee-icon">
 						<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/marquee-icon.svg" alt="marquee-icon">
@@ -308,9 +308,9 @@ $theme_option = get_option( 'redux_demo' );
 				</div>
 				<div class="notice-slide">
 					<?php if ( isset( $theme_option['endurance_marquee_notice_image']['url'] ) && ! empty( $theme_option['endurance_marquee_notice_image']['url'] ) ) { ?>
-						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_marquee_notice_image']['url'] ); ?>" alt="marquee-icon">
-						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_marquee_notice_image']['url'] ); ?>" alt="marquee-icon">
-						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_marquee_notice_image']['url'] ); ?>" alt="marquee-icon">
+						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_marquee_notice_image']['url'] ); ?>" alt="marquee-icon" width="1005px" height="31px">
+						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_marquee_notice_image']['url'] ); ?>" alt="marquee-icon" width="1005px" height="31px">
+						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_marquee_notice_image']['url'] ); ?>" alt="marquee-icon" width="1005px" height="31px">
 					<?php } else { ?>
 						<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/marquee-icon.svg" alt="marquee-icon">
 						<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/marquee-icon.svg" alt="marquee-icon">
@@ -333,7 +333,7 @@ $theme_option = get_option( 'redux_demo' );
 							}
 							if ( isset( $theme_option['endurance_general_pattern_image']['url'] ) && ! empty( $theme_option['endurance_general_pattern_image']['url'] ) ) {
 								?>
-								<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_pattern_image']['url'] ); ?>" alt="Line" class="px-xl-5 px-4 mx-xl-5 mx-4 d-lg-block d-none">
+								<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_pattern_image']['url'] ); ?>" alt="Line" class="px-xl-5 px-4 mx-xl-5 mx-4 d-lg-block d-none" width="133px" height="50px">
 							<?php } else { ?>
 								<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/line-pettern.svg" alt="Line" class="px-xl-5 px-4 mx-xl-5 mx-4 d-lg-block d-none">
 							<?php } ?>
@@ -368,7 +368,7 @@ $theme_option = get_option( 'redux_demo' );
 				<div class="container">
 					<div class="image-wrapper">
 						<?php if ( isset( $theme_option['endurance_stand_out_image']['url'] ) && ! empty( $theme_option['endurance_stand_out_image']['url'] ) ) { ?>
-							<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_stand_out_image']['url'] ); ?>" alt="stand-with-img" class="d-block mx-auto">
+							<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_stand_out_image']['url'] ); ?>" alt="stand-with-img" class="d-block mx-auto" width="1092px" height="467px">
 						<?php } else { ?>
 							<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/stand-with-img.webp" alt="stand-with-img" class="d-block mx-auto">
 						<?php } ?>
@@ -379,7 +379,7 @@ $theme_option = get_option( 'redux_demo' );
 							}
 							?>
 							<?php if ( isset( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ) && ! empty( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ) ) { ?>
-								<img src="<?php echo esc_url( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ); ?>" alt="Arrow">
+								<img src="<?php echo esc_url( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ); ?>" alt="Arrow" width="16px" height="16px">
 							<?php } else { ?>
 								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/btn-arrow.svg" alt="Arrow">
 							<?php } ?>
@@ -478,10 +478,20 @@ $theme_option = get_option( 'redux_demo' );
 													}
 													foreach ( $display_plan_features as $display_features ) {
 														$plan_features_keys = array_keys( $plan_features_arr[ strtolower( $display_title ) ] );
-														$flag               = in_array( $display_features, $plan_features_keys ) ? get_template_directory_uri() . '/assets/images/icon/pricing-icon.svg' : get_template_directory_uri() . '/assets/images/icon/pricing-icon-2.svg';
+														if ( isset( $theme_option['endurance_pricing_plan_features_available_image']['url'] ) && ! empty( $theme_option['endurance_pricing_plan_features_available_image']['url'] ) ) {
+															$features_available_img = $theme_option['endurance_pricing_plan_features_available_image']['url'];
+														} else {
+															$features_available_img = get_template_directory_uri() . '/assets/images/icon/pricing-icon.svg';
+														}
+														if ( isset( $theme_option['endurance_pricing_plan_features_not_available_image']['url'] ) && ! empty( $theme_option['endurance_pricing_plan_features_not_available_image']['url'] ) ) {
+															$features_not_available_img = $theme_option['endurance_pricing_plan_features_not_available_image']['url'];
+														} else {
+															$features_not_available_img = get_template_directory_uri() . '/assets/images/icon/pricing-icon-2.svg';
+														}
+														$flag               = in_array( $display_features, $plan_features_keys ) ? $features_available_img : $features_not_available_img;
 														?>
 														
-														<li><img loading="lazy" src="<?php echo esc_url( $flag ); ?>" width="30" height="30" alt="pricing-icon"><?php echo esc_html( $display_features ); ?></li>
+														<li><img loading="lazy" src="<?php echo esc_url( $flag ); ?>" width="30px" height="30px" alt="pricing-icon"><?php echo esc_html( $display_features ); ?></li>
 													<?php } ?>
 												</ul>
 												<?php if ( isset( $theme_option['endurance_sign_up_text'] ) && ! empty( $theme_option['endurance_sign_up_text'] ) && ( isset( $theme_option['endurance_sign_up_link'] ) && ! empty( $theme_option['endurance_sign_up_link'] ) ) ) { ?>
@@ -529,7 +539,7 @@ $theme_option = get_option( 'redux_demo' );
 										<?php } ?>
 										<div class="image-wrapper mt-4 wow fadeInUpBig">
 											<?php if ( isset( $theme_option['endurance_special_addons_box1_image']['url'] ) && ! empty( $theme_option['endurance_special_addons_box1_image']['url'] ) ) { ?>
-												<img loading="lazy" src="<?php echo esc_html( $theme_option['endurance_special_addons_box1_image']['url'] ); ?>" alt="special-1">
+												<img loading="lazy" src="<?php echo esc_html( $theme_option['endurance_special_addons_box1_image']['url'] ); ?>" alt="special-1" width="536px" height="316px">
 											<?php } else { ?>
 												<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/special-1.webp" alt="special-1">
 											<?php } ?>
@@ -540,9 +550,9 @@ $theme_option = get_option( 'redux_demo' );
 									<div class="special-block second-box text-lg-start text-center mt-lg-5 mt-0 pt-0 wow fadeInUp">
 										<div class="image-wrapper mb-4 wow fadeInDownBig">
 											<?php if ( isset( $theme_option['endurance_special_addons_box2_image']['url'] ) && ! empty( $theme_option['endurance_special_addons_box2_image']['url'] ) ) { ?>
-												<img loading="lazy" src="<?php echo esc_html( $theme_option['endurance_special_addons_box2_image']['url'] ); ?>" alt="special-2">
+												<img loading="lazy" src="<?php echo esc_html( $theme_option['endurance_special_addons_box2_image']['url'] ); ?>" alt="special-2" width="536px" height="316px">
 											<?php } else { ?>
-												<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/special-pettern-2.svg" alt="special-2">
+												<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/special-2.webp" alt="special-2">
 											<?php } ?>
 										</div>
 										<?php if ( isset( $theme_option['endurance_special_addons_box2_title'] ) && ! empty( $theme_option['endurance_special_addons_box2_title'] ) ) { ?>
@@ -576,15 +586,15 @@ $theme_option = get_option( 'redux_demo' );
 						<div class="col-lg-6 order-lg-1 order-2">
 							<div class="image-wrapper clientImg wow fadeInLeft">
 								<?php if ( isset( $theme_option['endurance_general_person_img']['url'] ) && ! empty( $theme_option['endurance_general_person_img']['url'] ) ) { ?>
-									<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_person_img']['url'] ); ?>" alt="client-img" class="d-block mx-auto">
+									<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_person_img']['url'] ); ?>" alt="client-img" class="d-block mx-auto" width="357px" height="585px">
 								<?php } else { ?>
 									<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/client-img.webp" alt="client-img" class="d-block mx-auto">
 								<?php } ?>
 								<div class="pettern image-wrapper">
 									<?php if ( isset( $theme_option['endurance_general_gymfit_white_img']['url'] ) && ! empty( $theme_option['endurance_general_gymfit_white_img']['url'] ) ) { ?>
-										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_gymfit_white_img']['url'] ); ?>" alt="client-pettern">
-										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_gymfit_white_img']['url'] ); ?>" alt="client-pettern">
-										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_gymfit_white_img']['url'] ); ?>" alt="client-pettern">
+										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_gymfit_white_img']['url'] ); ?>" alt="client-pettern" width="593px" height="544px">
+										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_gymfit_white_img']['url'] ); ?>" alt="client-pettern" width="593px" height="544px">
+										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_gymfit_white_img']['url'] ); ?>" alt="client-pettern" width="593px" height="544px">
 									<?php } else { ?>
 										<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/client-pettern.svg" alt="client-pettern">
 										<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/client-pettern.svg" alt="client-pettern">
@@ -592,7 +602,7 @@ $theme_option = get_option( 'redux_demo' );
 									<?php } ?>
 								</div>
 								<?php if ( isset( $theme_option['endurance_general_background_image']['url'] ) && ! empty( $theme_option['endurance_general_background_image']['url'] ) ) { ?>
-									<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>" alt="strips" class="strips">
+									<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>" alt="strips" class="strips" width="1600px" height="821px">
 								<?php } else { ?>
 									<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/strips.svg" alt="strips" class="strips">
 								<?php } ?>
@@ -664,17 +674,17 @@ $theme_option = get_option( 'redux_demo' );
 									</div>
 									<div class="btn-block pt-lg-0 pt-3">
 										<div class="button prev image-wrapper">                            
-											<?php if ( isset( $theme_option['endurance_general_articles_left_arrow_icont']['url'] ) && ! empty( $theme_option['endurance_general_articles_left_arrow_icont']['url'] ) ) { ?>
-												<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_left_arrow_icont']['url'] ); ?>" width="24" height="24" alt="arrow-left">
+											<?php if ( isset( $theme_option['endurance_general_articles_left_arrow_icon']['url'] ) && ! empty( $theme_option['endurance_general_articles_left_arrow_icon']['url'] ) ) { ?>
+												<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_left_arrow_icon']['url'] ); ?>" width="24px" height="24px" alt="arrow-left">
 											<?php } else { ?> 
-												<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/arrow-left.svg" width="24" height="24" alt="arrow-left">
+												<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/arrow-left.svg" width="24px" height="24px" alt="arrow-left">
 											<?php } ?>
 										</div>
 										<div class="button next image-wrapper"> 
-											<?php if ( isset( $theme_option['endurance_general_articles_right_arrow_icont']['url'] ) && ! empty( $theme_option['endurance_general_articles_right_arrow_icont']['url'] ) ) { ?>
-												<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_right_arrow_icont']['url'] ); ?>" width="24" height="24" alt="arrow-right">
+											<?php if ( isset( $theme_option['endurance_general_articles_right_arrow_icon']['url'] ) && ! empty( $theme_option['endurance_general_articles_right_arrow_icon']['url'] ) ) { ?>
+												<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_right_arrow_icon']['url'] ); ?>" width="24px" height="24px" alt="arrow-right">
 											<?php } else { ?> 
-												<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-right">
+												<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/arrow-right.svg" width="24px" height="24px" alt="arrow-right">
 											<?php } ?>
 										</div>
 									</div>
@@ -704,16 +714,16 @@ $theme_option = get_option( 'redux_demo' );
 							<div class="btn-block">
 								<div class="button prev image-wrapper">
 									<?php if ( isset( $theme_option['endurance_general_articles_left_arrow_icon']['url'] ) && ! empty( $theme_option['endurance_general_articles_left_arrow_icon']['url'] ) ) { ?>
-										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_left_arrow_icon']['url'] ); ?>" width="24" height="24" alt="arrow-left">
+										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_left_arrow_icon']['url'] ); ?>" width="24px" height="24px" alt="arrow-left">
 									<?php } else { ?> 
-										<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/arrow-left.svg" width="24" height="24" alt="arrow-left">
+										<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/arrow-left.svg" width="24px" height="24px" alt="arrow-left">
 									<?php } ?>
 								</div>
 								<div class="button next image-wrapper">
 									<?php if ( isset( $theme_option['endurance_general_articles_right_arrow_icon']['url'] ) && ! empty( $theme_option['endurance_general_articles_right_arrow_icon']['url'] ) ) { ?>
-										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_right_arrow_icon']['url'] ); ?>" width="24" height="24" alt="arrow-right">
+										<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_general_articles_right_arrow_icon']['url'] ); ?>" width="24px" height="24px" alt="arrow-right">
 									<?php } else { ?> 
-										<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/arrow-right.svg" width="24" height="24" alt="arrow-right">
+										<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/arrow-right.svg" width="24px" height="24px" alt="arrow-right">
 									<?php } ?>
 								</div>
 							</div>
