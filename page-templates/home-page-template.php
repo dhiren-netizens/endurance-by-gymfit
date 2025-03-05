@@ -491,7 +491,7 @@ $theme_option = get_option( 'redux_demo' );
 														$flag               = in_array( $display_features, $plan_features_keys ) ? $features_available_img : $features_not_available_img;
 														?>
 														
-														<li><img loading="lazy" src="<?php echo esc_url( $flag ); ?>" width="30px" height="30px" alt="pricing-icon"><?php echo esc_html( $display_features ); ?></li>
+														<li><img loading="lazy" src="<?php echo esc_url( $flag ); ?>" width="30px" height="30px" alt="pricing-icon"><?php echo esc_html( ucwords( str_replace('_', ' ', $display_features ) ) ); ?></li>
 													<?php } ?>
 												</ul>
 												<?php if ( isset( $theme_option['endurance_sign_up_text'] ) && ! empty( $theme_option['endurance_sign_up_text'] ) && ( isset( $theme_option['endurance_sign_up_link'] ) && ! empty( $theme_option['endurance_sign_up_link'] ) ) ) { ?>

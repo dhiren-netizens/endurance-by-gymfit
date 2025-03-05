@@ -1097,40 +1097,40 @@ function save_pricing_plan_meta_box_data( $post_id ) {
 			);
 		}
 
-		foreach ( $endurance_pricing_plan_features as $plan => $data ) {
+		foreach ($endurance_pricing_plan_features as $plan => $data) {
 			// Start with the default features.
 			$features_data = $default_features;
-
-			// Add checked features from the submitted data.
-			if ( isset( $data['features'] ) ) {
-				foreach ( $data['features'] as $feature => $checked ) {
-					if ( $checked ) {
-						$features_data[ $feature ] = 1; // Add checked feature.
+		
+			// Fetch existing features from post meta
+			$existing_features = get_post_meta($post_id, 'endurance_pricing_plan_features', true);
+			if (!empty($existing_features) && is_array($existing_features)) {
+				$features_data = array_merge($features_data, $existing_features); // Preserve previous features
+			}
+		
+			// Add new checked features from the submitted data.
+			if (isset($data['features']) && is_array($data['features'])) {
+				foreach ($data['features'] as $feature => $checked) {
+					if ($checked) {
+						$features_data[$feature] = 1; // Ensure checked features are set
 					}
 				}
 			}
-
+		
 			// Remove features explicitly marked as removed.
-			if ( isset( $data['removed_features'] ) ) {
-				$removed_features = json_decode( stripslashes( $data['removed_features'] ), true );
-				if ( is_array( $removed_features ) ) {
-					foreach ( $removed_features as $removed_feature ) {
-						unset( $features_data[ $removed_feature ] ); // Remove feature.
+			if (isset($data['removed_features'])) {
+				$removed_features = json_decode(stripslashes($data['removed_features']), true);
+				if (is_array($removed_features)) {
+					foreach ($removed_features as $removed_feature) {
+						unset($features_data[$removed_feature]); // Remove feature
 					}
 				}
 			}
-			$features_list = get_post_meta( $post_id, 'endurance_pricing_plan_features', true );
-			if ( '' != $features_list ) {
-				$features_data = array_diff( $data['features'], $features_data );
-				foreach ( $features_data as $feature => $checked ) {
-					if ( $checked ) {
-						$features_data[ $feature ] = 1; // Add checked feature.
-					}
-				}
-			}
-
-			// Prepare the pricing plan features data.
-			$pricing_plan_features_data[ strtolower( get_the_title( $post_id ) ) ] = array(
+		
+			// Save the updated features data
+			update_post_meta($post_id, 'endurance_pricing_plan_features', $features_data);
+		
+			// Prepare data for pricing plan storage
+			$pricing_plan_features_data[strtolower(get_the_title($post_id))] = array(
 				'features' => $features_data,
 			);
 		}
