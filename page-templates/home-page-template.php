@@ -16,7 +16,7 @@ $theme_option = get_option( 'redux_demo' );
 		<div class="default-padding">
 			<div class="banner-wrapper">
 				<?php if ( isset( $theme_option['endurance_general_background_image']['url'] ) && ! empty( $theme_option['endurance_general_background_image']['url'] ) ) { ?>
-					<img src="<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>" alt="strips" class="strips" width="1600px" height="821px">
+					<img src="<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>" alt="strips" class="strips">
 				<?php } else { ?>
 					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/strips.svg" alt="strips" class="strips">
 				<?php } ?>
@@ -30,7 +30,7 @@ $theme_option = get_option( 'redux_demo' );
 											<h1 class="title p-0"><?php echo esc_html( $theme_option['endurance_banner_title']['box1'] ); ?></h1>
 										<?php } ?>
 										<?php if ( isset( $theme_option['endurance_general_pattern_image']['url'] ) && ! empty( $theme_option['endurance_general_pattern_image']['url'] ) ) { ?>
-											<img src="<?php echo esc_url( $theme_option['endurance_general_pattern_image']['url'] ); ?>" alt="Line" class="ps-3 d-lg-block d-none" loading="lazy" width="133px" height="50px">
+											<img src="<?php echo esc_url( $theme_option['endurance_general_pattern_image']['url'] ); ?>" alt="Line" class="ps-3 d-lg-block d-none" loading="lazy">
 										<?php } else { ?>
 											<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/line-pettern.svg" alt="Line" class="ps-3 d-lg-block d-none" loading="lazy">
 										<?php } ?>
@@ -58,14 +58,14 @@ $theme_option = get_option( 'redux_demo' );
 				</div>
 				<div class="imgBlock pt-lg-0 pt-sm-5 pt-4">
 					<?php if ( isset( $theme_option['endurance_banner_image']['url'] ) && ! empty( $theme_option['endurance_banner_image']['url'] ) ) { ?>
-						<img src="<?php echo esc_url( $theme_option['endurance_banner_image']['url'] ); ?>" alt="banner" class="bannerImg wow fadeInLeftBig" width="1599px" height="597px">
+						<img src="<?php echo esc_url( $theme_option['endurance_banner_image']['url'] ); ?>" alt="banner" class="bannerImg wow fadeInLeftBig">
 					<?php } else { ?>
 						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/banner-img.webp" alt="banner" class="bannerImg wow fadeInLeftBig">
 					<?php } ?>
 					<div class="container position-relative wow fadeInUp">
 						<div class="members d-lg-flex d-none align-items-center">
 							<?php if ( isset( $theme_option['endurance_banner_members_image']['url'] ) && ! empty( $theme_option['endurance_banner_members_image']['url'] ) ) { ?>
-								<img src="<?php echo esc_url( $theme_option['endurance_banner_members_image']['url'] ); ?>" alt="Members" class="pe-2" width="132px" height="54px">
+								<img src="<?php echo esc_url( $theme_option['endurance_banner_members_image']['url'] ); ?>" alt="Members" class="pe-2">
 							<?php } else { ?>
 								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/members.webp" alt="Members" class="pe-2">
 							<?php } ?>
@@ -82,7 +82,7 @@ $theme_option = get_option( 'redux_demo' );
 							}
 							?>
 							<?php if ( isset( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ) && ! empty( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ) ) { ?>
-								<img src="<?php echo esc_url( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ); ?>" alt="Arrow" width="16px" height="16px">
+								<img src="<?php echo esc_url( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ); ?>" alt="Arrow">
 							<?php } else { ?>
 								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/btn-arrow.svg" alt="Arrow">
 							<?php } ?>
@@ -351,7 +351,7 @@ $theme_option = get_option( 'redux_demo' );
 								}
 								if ( isset( $theme_option['endurance_stand_out_description'] ) && ! empty( $theme_option['endurance_stand_out_description'] ) ) {
 									?>
-									<p>We are the ultimate destination for those seeking to push their boundaries, elevate their endurance, and achieve greatness.</p>
+									<p><?php echo esc_html( $theme_option['endurance_stand_out_description'] ); ?></p>
 									<?php
 								}
 								$endurance_general_gt_link = isset( $theme_option['endurance_general_gt_link'] ) ? $theme_option['endurance_general_gt_link'] : '#';
@@ -379,7 +379,7 @@ $theme_option = get_option( 'redux_demo' );
 							}
 							?>
 							<?php if ( isset( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ) && ! empty( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ) ) { ?>
-								<img src="<?php echo esc_url( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ); ?>" alt="Arrow" width="16px" height="16px">
+								<img src="<?php echo esc_url( $theme_option['endurance_general_tutorial_play_btn_icon']['url'] ); ?>" alt="Arrow">
 							<?php } else { ?>
 								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/btn-arrow.svg" alt="Arrow">
 							<?php } ?>

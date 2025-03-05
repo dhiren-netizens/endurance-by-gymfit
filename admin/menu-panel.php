@@ -1573,61 +1573,6 @@ Redux::set_section(
 	)
 );
 
-// Gallery Page Settings.
-$gallery_images_ids = get_option( 'endurance_gallery_images' );
-if ( is_array( $gallery_images_ids ) && ! empty( $gallery_images_ids ) ) {
-	$gallery_images_ids = implode( ',', $gallery_images_ids );
-} else {
-	$gallery_images_ids = '';
-}
-$gallery_images = $gallery_images_ids;
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'Gallery', 'endurance' ),
-		'id'               => 'endurance_gallery_page_settings',
-		'customizer_width' => '400px',
-		'icon'             => 'el el-picture',
-		'fields'           => array(
-			array(
-				'id'      => 'endurance_gallery_images',
-				'type'    => 'gallery',
-				'title'   => esc_html__( 'Add/Edit Gallery Images', 'endurance' ),
-				'desc'    => esc_html__( 'Upload Images', 'endurance' ),
-				'default' => $gallery_images,
-			),
-		),
-	)
-);
-
-// Gallery Page Settings.
-$gallery_images_ids = get_option( 'endurance_gallery_images' );
-if ( is_array( $gallery_images_ids ) && ! empty( $gallery_images_ids ) ) {
-	$gallery_images_ids = implode( ',', $gallery_images_ids );
-} else {
-	$gallery_images_ids = '';
-}
-$gallery_images = $gallery_images_ids;
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'Gallery', 'endurance' ),
-		'id'               => 'endurance_gallery_page_settings',
-		'customizer_width' => '400px',
-		'icon'             => 'el el-picture',
-		'fields'           => array(
-			array(
-				'id'      => 'endurance_gallery_images',
-				'type'    => 'gallery',
-				'title'   => esc_html__( 'Add/Edit Gallery Images', 'endurance' ),
-				'desc'    => esc_html__( 'Upload Images', 'endurance' ),
-				'default' => $gallery_images,
-			),
-		),
-	)
-);
-
-
 // About Us Page Settings.
 Redux::set_section(
 	$opt_name,
@@ -1740,6 +1685,34 @@ Redux::set_section(
 	),
 );
 
+// Gallery Page Settings.
+$gallery_images_ids = get_option( 'endurance_gallery_images' );
+if ( is_array( $gallery_images_ids ) && ! empty( $gallery_images_ids ) ) {
+	$gallery_images_ids = implode( ',', $gallery_images_ids );
+} else {
+	$gallery_images_ids = '';
+}
+$gallery_images = $gallery_images_ids;
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Gallery', 'endurance' ),
+		'id'               => 'endurance_gallery_page_settings',
+		'customizer_width' => '400px',
+		'icon'             => 'el el-picture',
+		'fields'           => array(
+			array(
+				'id'      => 'endurance_gallery_images',
+				'type'    => 'gallery',
+				'title'   => esc_html__( 'Add/Edit Gallery Images', 'endurance' ),
+				'desc'    => esc_html__( 'Upload Images', 'endurance' ),
+				'desc'    => wp_kses( '<strong>Recommended Size: 424 x 424 px</strong>', endurance_allowed_tags() ),
+				'default' => $gallery_images,
+			),
+		),
+	)
+);
+
 // Contact Us Page Settings.
 Redux::set_section(
 	$opt_name,
@@ -1842,9 +1815,9 @@ Redux::set_section(
 				),
 				'default' => array(
 					'box1' => 'Business Inquiry',
-					'box2' => '+1256(7852)551',
+					'box2' => '12567852551',
 					'box3' => 'Customer Support',
-					'box4' => '+1256(7852)551',
+					'box4' => '12567852551',
 				),
 			),
 			array(

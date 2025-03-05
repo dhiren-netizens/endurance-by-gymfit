@@ -43,7 +43,7 @@ get_header();
 							<div class="contact-block text-sm-start text-center">
 								<div class="icon mx-sm-0 mx-auto image-wrapper">
 									<?php if ( isset( $theme_option['endurance_conatct_info_call_img']['url'] ) && ! empty( $theme_option['endurance_conatct_info_call_img']['url'] ) ) { ?>
-										<img src="<?php echo esc_url( $theme_option['endurance_conatct_info_call_img']['url'] ); ?>" alt="call_icon" width="36px" height="36px">
+										<img src="<?php echo esc_url( $theme_option['endurance_conatct_info_call_img']['url'] ); ?>" alt="call_icon">
 									<?php } else { ?>
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/call.svg" alt="call_icon">
 									<?php } ?>
@@ -56,7 +56,7 @@ get_header();
 										<p> <?php echo esc_html( $theme_option['endurance_conatct_info_call_details']['box1'] ); ?></p>
 									<?php } ?>
 									<?php if ( isset( $theme_option['endurance_conatct_info_call_details']['box2'] ) && ! empty( $theme_option['endurance_conatct_info_call_details']['box2'] ) ) { ?>
-										<a href="tel:<?php echo esc_html( $theme_option['endurance_conatct_info_call_details']['box2'] ); ?>"> <?php echo esc_html( $theme_option['endurance_conatct_info_call_details']['box2'] ); ?></a>
+										<a href="tel:+<?php echo esc_html( $theme_option['endurance_conatct_info_call_details']['box2'] ); ?>"> +<?php echo esc_html( $theme_option['endurance_conatct_info_call_details']['box2'] ); ?></a>
 									<?php } ?>
 								</div>
 								<div class="d-sm-flex align-items-center justify-content-between">
@@ -64,7 +64,7 @@ get_header();
 										<p> <?php echo esc_html( $theme_option['endurance_conatct_info_call_details']['box3'] ); ?></p>
 									<?php } ?>
 									<?php if ( isset( $theme_option['endurance_conatct_info_call_details']['box4'] ) && ! empty( $theme_option['endurance_conatct_info_call_details']['box4'] ) ) { ?>
-										<a href="tel:<?php echo esc_html( $theme_option['endurance_conatct_info_call_details']['box4'] ); ?>"> <?php echo esc_html( $theme_option['endurance_conatct_info_call_details']['box4'] ); ?></a>
+										<a href="tel:+<?php echo esc_html( $theme_option['endurance_conatct_info_call_details']['box4'] ); ?>"> +<?php echo esc_html( $theme_option['endurance_conatct_info_call_details']['box4'] ); ?></a>
 									<?php } ?>
 								</div>
 							</div>
@@ -72,7 +72,7 @@ get_header();
 						<div class="col-xl-4 col-lg-6 col-sm-10 wow fadeInRight">
 							<div class="contact-block text-sm-start text-center emailBlock">
 								<div class="icon mx-sm-0 mx-auto image-wrapper"><?php if ( isset( $theme_option['endurance_conatct_info_mail_img']['url'] ) && ! empty( $theme_option['endurance_conatct_info_mail_img']['url'] ) ) { ?>
-										<img src="<?php echo esc_url( $theme_option['endurance_conatct_info_mail_img']['url'] ); ?>" alt="email_icon" width="36px" height="36px">
+										<img src="<?php echo esc_url( $theme_option['endurance_conatct_info_mail_img']['url'] ); ?>" alt="email_icon">
 									<?php } else { ?>
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/mail.svg" alt="email_icon">
 									<?php } ?>

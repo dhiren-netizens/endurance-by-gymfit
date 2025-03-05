@@ -16,7 +16,7 @@ get_header();
 					<div class="row justify-content-center">
 						<div class="col-lg-12 col-sm-10">
 							<?php if ( isset( $theme_option['endurance_404_img']['url'] ) && ! empty( $theme_option['endurance_404_img']['url'] ) ) { ?>
-								<img src="<?php echo esc_url( $theme_option['endurance_404_img']['url'] ); ?>" alt="error-img" class="error-img" width="642px" height="280px">
+								<img src="<?php echo esc_url( $theme_option['endurance_404_img']['url'] ); ?>" alt="error-img" class="error-img">
 							<?php } else { ?>
 								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/error-img.webp" alt="error-img" class="error-img">
 							<?php } ?>

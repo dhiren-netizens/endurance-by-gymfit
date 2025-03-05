@@ -33,7 +33,11 @@ $theme_option = get_option( 'redux_demo' );
 							</div>
 						<?php } ?>
 					</div>
-					<a href="#" class="btn_wrapper mt-sm-5 mt-4 mx-auto">load more</a>
+					<?php if( !empty( $gallery_images_ids ) ) { ?>
+						<a href="#" class="btn_wrapper mt-sm-5 mt-4 mx-auto">load more</a>
+					<?php } else { ?>
+						<p class="no_img_found text-center">No gallery images found.</p>
+					<?php } ?>
 				</div>
 			</div>
 		</div>

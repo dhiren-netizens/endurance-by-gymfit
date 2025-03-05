@@ -281,11 +281,6 @@ if ( ! is_admin() ) {
 				background-image: url(<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>);
 			<?php } ?>
 		}
-		.stand-with-section .img-block .image-wrapper{
-			<?php if ( isset( $theme_option['endurance_stand_out_with_pattern'] ) && ! empty( $theme_option['endurance_stand_out_with_pattern'] ) ) { ?>
-				background-image: url(<?php echo esc_url( $theme_option['endurance_stand_out_with_pattern']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_stand_out_with_pattern']['url'] ); ?>);
-			<?php } ?>
-		}
 		.mission-section .mission-wrapper .image-wrapper::before{
 			<?php if ( isset( $theme_option['endurance_banner_background_color1'] ) && ! empty( $theme_option['endurance_banner_background_color1'] ) ) { ?>
 				background-color: <?php echo esc_attr( $theme_option['endurance_banner_background_color1'] ); ?>;
