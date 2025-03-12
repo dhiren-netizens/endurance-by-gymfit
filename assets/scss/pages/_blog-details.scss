@@ -36,11 +36,23 @@ BLOG DETAILS SECTION CSS
                 p{
                     color: rgba(45,45,45,.75);
                 }
+                a {
+                    color: rgba(45,45,45,.75);
+                    text-decoration: none;
+                }
             }
 
             a {
                 color: #0d6efd;
                 text-decoration: underline;
+            }
+
+            .endurance_display_categories_tags {
+                display: block;
+                margin-top: 20px;
+            }
+            .endurance_single_blog_categories, .endurance_single_blog_tags {
+                display: block;
             }
             .social {
                 display: flex;
@@ -53,6 +65,10 @@ BLOG DETAILS SECTION CSS
                     font-weight: 400;
                     font-size: 15px;
                     line-height: 1;
+                }
+
+                a {
+                    text-decoration: none;
                 }
 
                 .image-wrapper {

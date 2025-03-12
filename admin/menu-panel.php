@@ -1761,7 +1761,7 @@ Redux::set_section(
 Redux::set_section(
 	$opt_name,
 	array(
-		'title'            => esc_html__( 'Conatct Inforamtion Section', 'endurance' ),
+		'title'            => esc_html__( 'Conatct Information Section', 'endurance' ),
 		'id'               => 'endurance_conatct_info_settings',
 		'customizer_width' => '400px',
 		'subsection'       => true,
@@ -2026,9 +2026,67 @@ Redux::set_section(
 Redux::set_section(
 	$opt_name,
 	array(
-		'title'            => esc_html__( 'Single Post', 'endurance' ),
+		'title'            => esc_html__( 'Blog', 'endurance' ),
+		'id'               => 'endurance_blog_section',
+		'customizer_width' => '400px',
+		'icon'             => 'el el-adult',
+	),
+);
+
+// Single Blog Sidebar section - Blog Settings.
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Sidebar', 'endurance' ),
+		'id'               => 'endurance_display_sidebar',
+		'customizer_width' => '400px',
+		'subsection'       => true,
+		'icon'             => 'el el-tags',
+		'fields'           => array(
+			array(
+				'id'      => 'endurance_sidebar_display_categories',
+				'type'    => 'switch',
+				'title'   => esc_html__( 'Want to display Categories?', 'endurance' ),
+				'default' => true,
+				'on'      => 'Yes',
+				'off'     => 'No',
+			),
+			array(
+				'id'      => 'endurance_sidebar_display_tags',
+				'type'    => 'switch',
+				'title'   => esc_html__( 'Want to display Tags?', 'endurance' ),
+				'default' => true,
+				'on'      => 'Yes',
+				'off'     => 'No',
+			),
+			array(
+				'id'      => 'endurance_sidebar_display_search_bar',
+				'type'    => 'switch',
+				'title'   => esc_html__( 'Want to display Search bar?', 'endurance' ),
+				'default' => true,
+				'on'      => 'Yes',
+				'off'     => 'No',
+			),
+			array(
+				'id'      => 'endurance_sidebar_display_related_posts',
+				'type'    => 'switch',
+				'title'   => esc_html__( 'Want to display Related posts?', 'endurance' ),
+				'default' => true,
+				'on'      => 'Yes',
+				'off'     => 'No',
+			),
+		),
+	),
+);
+
+// Single Blog section - Blog Settings.
+Redux::set_section(
+	$opt_name,
+	array(
+		'title'            => esc_html__( 'Single Blog', 'endurance' ),
 		'id'               => 'endurance_display_post',
 		'customizer_width' => '400px',
+		'subsection'       => true,
 		'icon'             => 'el el-tags',
 		'fields'           => array(
 			array(
