@@ -101,7 +101,7 @@ $theme_option = get_option( 'redux_demo' );
 							?>
 						</ul>
 					</div>
-					<div class="d-flex align-items-center gap-sm-4 gap-3">
+					<div class="d-flex align-items-center gap-sm-4 gap-3 header-right">
 						<!-- COLLAPSE BUTTON -->
 						<button class="hamburger lh-0">
 							<span>menu</span>

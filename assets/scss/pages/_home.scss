@@ -346,6 +346,10 @@ ABOUT SECTION START FROM HERE
                 max-width: 320px;
                 margin: auto;
             }
+            @media screen and (max-width:425px) {
+                max-width: 260px;
+                margin: auto;
+            }
 
             &::after,
             &::before {
@@ -771,10 +775,16 @@ PRICING SECTION END'S FROM HERE
                         font-size: 12px;
                         padding: 15px 30px;
                     }
-
+                    @media screen and (max-width:767px) {
+                        padding: 15px 20px;
+                    }
                     @media screen and (max-width:575px) {
                         padding: 10px 20px;
                         font-size: 10px;
+                    }
+                    @media screen and (max-width:465px) {
+                        padding: 10px 13px;
+                        font-size: 8px;
                     }
 
                     &.active {
@@ -1078,6 +1088,11 @@ CLIENT SECTION END'S FROM HERE
                 @media screen and (max-width:575px) {
                     width: 100%;
                     max-width: 320px;
+                    margin: auto;
+                }
+                @media screen and (max-width:425px) {
+                    width: 100%;
+                    max-width: 260px;
                     margin: auto;
                 }
             }

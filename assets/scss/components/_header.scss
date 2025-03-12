@@ -146,8 +146,8 @@ HEADER CSS START FROM HERE
     
             ul {
                 li {
-                    padding-bottom: 30px;
-                    margin-bottom: 30px;
+                    padding-bottom: 25px;
+                    margin-bottom: 25px;
                     border-bottom: 1px solid #E6E6E6;
     
                     @media (max-width: 1199px) {
@@ -302,7 +302,11 @@ HEADER CSS START FROM HERE
         }
     }
 }
-
+@media screen and (max-width:575px) {
+.dropdown-toggle::after{
+    vertical-align: middle;
+}
+}
 /*
 ============================================
 HEADER CSS END FROM HERE

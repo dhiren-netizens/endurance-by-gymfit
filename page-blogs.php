@@ -18,10 +18,10 @@ $blog_posts = new WP_Query(
 	array(
 		'post_type'      => 'post',
 		'post_status'    => 'publish',
-		'posts_per_page' => -1,
+		'posts_per_page' => -1, // Get all posts, no limit
 	)
 );
-$count      = 1;
+$count = 1;
 ?>
 
 	<!-- MAIN SECTIONS START FROM HERE -->
@@ -32,13 +32,14 @@ $count      = 1;
 			<div class="container">
 				<div class="blog-wrapper wow fadeIn">
 					<?php if ( $blog_posts->have_posts() ) : ?>
-						<div class="row">
+						<div class="row blog-post">
 							<?php $count = 1; ?>
 							<?php
 							while ( $blog_posts->have_posts() ) :
 								$blog_posts->the_post();
 								?>
 								<?php if ( 1 == $count ) { ?>
+									<!-- Display the first large post -->
 									<div class="col-lg-8 col-md-8">
 										<div class="blog-block h-100 d-flex flex-column justify-content-between">
 											<div class="image-wrapper mb-4">
@@ -56,6 +57,8 @@ $count      = 1;
 											</div>
 										</div>
 									</div>
+
+									<!-- Display the first 2 small posts in the sidebar -->
 									<div class="col-lg-4 col-md-4">
 										<?php ++$count; ?>
 										<?php
@@ -80,8 +83,9 @@ $count      = 1;
 										<?php endwhile; ?>
 									</div>
 								<?php } else { ?>
-									<div class="pt-4 col-lg-4 col-md-4">
-										<div class="blog-block">
+									<!-- Hide remaining posts initially -->
+									<div class="pt-4 col-lg-4 col-md-4 hidden">
+										<div class="blog-block wow fadeInUp">
 											<div class="image-wrapper mb-4">
 												<?php
 												if ( has_post_thumbnail() ) {
@@ -104,11 +108,9 @@ $count      = 1;
 						<p class="no-blog-posts">
 							<?php esc_html_e( 'We couldn\'t find any posts that match your criteria.', 'endurance' ); ?> 
 						</p>
-						<?php
-					endif;
-					wp_reset_postdata();
-					?>
-					<a href="#" class="btn_wrapper mt-sm-5 mt-4 mx-auto">load more</a>
+					<?php endif; wp_reset_postdata(); ?>
+					
+					<a href="#" class="btn_wrapper mt-sm-5 mt-4 mx-auto" id="load-more">Load more</a>
 				</div>
 			</div>
 		</div>

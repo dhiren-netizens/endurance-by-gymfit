@@ -3,6 +3,20 @@
 404 SECTION CSS
 ============================================
 */
+.page-template-404-page-template{
+    .header-right{
+        display: none !important;
+    }
+    .navbar{
+        justify-content: center !important;
+    }
+    .breadcrumbs-section{
+        display: none !important;
+    }
+    .footer-wrapper{
+        display: none !important;
+    }
+}
 .error-wrapper {
     padding: 250px 0;
     height: 100%;
@@ -80,6 +94,7 @@
         bottom: 50px;
         left: -50px;
         animation: floating2 3s linear infinite;
+        z-index: 99;
 
         @media screen and (max-width:1399px) {
             width: 180px;

@@ -428,3 +428,72 @@ var pricingSwiperswiper = new Swiper(".pricingSwiper", {
         },
     },
 });
+
+/*
+=================================================================
+12 - Blog Page: LOAD MORE BUTTON JS
+=================================================================
+*/ 
+$('.hidden').css('display', 'none');
+
+$('#load-more').on('click', function(e) {
+    e.preventDefault();
+
+    let count = 0;
+
+    $('.hidden').filter(function() {
+        return $(this).css('display') === 'none'; 
+    }).each(function(index) {
+        if (count < 3) {
+            $(this).css('display', 'block');
+            count++;
+        }
+    });
+
+    if ($('.hidden').filter(function() {
+        return $(this).css('display') === 'none'; 
+    }).length === 0) {
+        $('#load-more').hide();
+    }
+});
+/*
+=================================================================
+12 - Blog Page: LOAD MORE BUTTON JS
+=================================================================
+*/ 
+
+/*
+=================================================================
+13 - Gallery Page: LOAD MORE BUTTON JS
+=================================================================
+*/ 
+
+$('.gallery-hidden').css('display', 'none');
+
+$('#gallery-load-more').on('click', function(e) {
+    e.preventDefault();
+
+    let count = 0;
+
+    $('.gallery-hidden').filter(function() {
+        return $(this).css('display') === 'none'; 
+    }).each(function(index) {
+        if (count < 3) {
+            $(this).css('display', 'block');
+            count++;
+        }
+    });
+
+    if ($('.gallery-hidden').filter(function() {
+        return $(this).css('display') === 'none'; 
+    }).length === 0) {
+        $('#gallery-load-more').hide();
+    }
+});
+
+/*
+=================================================================
+13 - Gallery Page: LOAD MORE BUTTON JS
+=================================================================
+*/
+

@@ -132,9 +132,9 @@ p.blog-title {
 
     &.big {
         font-size: 38px;
-
-        @media screen and (max-width:1399px) {
-            font-size: 34px;
+        
+        @media screen and (max-width:1440px) {
+            font-size: 30px;
         }
 
         @media screen and (max-width:1199px) {
@@ -256,6 +256,8 @@ BREADCRUMBS BUTTON CSS
         }
     }
 }
+
+
 /*
 ============================================
 BREADCRUMBS BUTTON CSS
@@ -268,6 +270,7 @@ BREADCRUMBS BUTTON CSS
 BLOG SECTION READ CSS
 ============================================
 */     
+
 .read {
     a {
         font-family: $Secondary-font;
@@ -303,6 +306,11 @@ BLOG SECTION READ CSS
         @media screen and (max-width:1199px) {
             font-size: 14px;
         }
+    }
+}
+@media screen and (max-width:768px) {
+    .blog-post{
+        gap:20px
     }
 }
 /*
@@ -1037,3 +1045,4 @@ Author Page
 Author Page
 ============================================
 */
+

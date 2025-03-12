@@ -175,7 +175,7 @@ if ( ! is_admin() ) {
 		.cta-section {
 			<?php if ( isset( $theme_option['endurance_smart_app_line_background_image']['url'] ) && ! empty( $theme_option['endurance_smart_app_line_background_image']['url'] ) ) { ?>
 				background: url(<?php echo esc_url( $theme_option['endurance_smart_app_line_background_image']['url'] ); ?>) no-repeat;
-				background-size: contain;
+				background-size: cover;
 				background-position: top center;
 			<?php } ?>
 		}
@@ -373,7 +373,7 @@ if ( ! is_admin() ) {
 			<?php if ( isset( $theme_option['endurance_general_smart_app_line_background_image']['url'] ) && ! empty( $theme_option['endurance_general_smart_app_line_background_image']['url'] ) ) { ?>
 				background: url(<?php echo esc_url( $theme_option['endurance_general_smart_app_line_background_image']['url'] ); ?>) no-repeat;
 			<?php } ?>
-			background-size: contain;
+			background-size: cover;
 			background-position: top center;
 		}
 		<?php
