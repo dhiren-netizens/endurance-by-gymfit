@@ -118,7 +118,7 @@ h1.title {
 
 p.blog-title {
     font-weight: 600;
-    color: rgba($Secondary-color , 0.80);
+    color: rgba($Secondary-color, 0.8);
     font-size: 22px;
     margin-bottom: 20px;
 
@@ -247,6 +247,7 @@ BREADCRUMBS BUTTON CSS
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 border: none;
+                cursor: default;
             }
         }
 
@@ -457,7 +458,7 @@ COMMON FORM CSS
         color: #2D2D2D;
         font-size: 16px;
         line-height: 1;
-        padding: 15px 24px;
+        padding: 15px 45px 15px 24px;
         outline: none;
         resize: none;
     }

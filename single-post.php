@@ -26,7 +26,7 @@ get_header();
 									if ( isset( $theme_option['endurance_display_date'] ) && ! empty( $theme_option['endurance_display_date'] ) ) {
 										if ( 1 === (int) $theme_option['endurance_display_date'] ) {
 											?>
-											<a href="<?php echo esc_url( get_day_link( get_post_time( 'Y' ), get_post_time( 'm' ), get_post_time( 'j' ) ) ); ?>" class="entry-date"><?php the_time( 'F j, Y' ); ?></a>
+											<a href="<?php echo esc_url( get_day_link( get_post_time( 'Y' ), get_post_time( 'm' ), get_post_time( 'j' ) ) ); ?>" class="entry-date"><?php the_time( 'jS F, Y' ); ?></a>
 											<?php
 										}
 									}
@@ -55,6 +55,21 @@ get_header();
 									?>
 								</div>
 									
+							</div>
+							<div class="image-wrapper pb-4">
+								<?php if ( has_post_thumbnail() ) :
+									the_post_thumbnail(
+										'medium',
+										array(
+											'loading' => 'lazy',
+											'class' => 'w-100',
+											'alt' => get_the_title(),
+										)
+									);
+									?>
+								<?php else : ?>
+									<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/background/post-img.webp' ); ?>" alt="post-img">
+								<?php endif; ?>
 							</div>
 							<?php echo wp_kses( get_post_field( 'post_content', $post_id ), endurance_allowed_tags() ); ?>
 								<div class="social wow fadeInUp">
@@ -135,14 +150,6 @@ get_header();
 															<div class="text">
 																<span><?php echo esc_html( $comment->comment_author ); ?></span>
 																<p><?php echo esc_html( gmdate( 'jS F, Y', strtotime( $comment->comment_date ) ) ); ?></p>
-															</div>
-															<div class="forward">
-																<a href="#!" class="image-wrapper">
-																	<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/forward-icon.svg" alt="forward-icon">
-																</a>
-																<a href="#!" class="image-wrapper">
-																	<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/icon/more-icon.svg" alt="more-icon">
-																</a>
 															</div>
 														</div>
 													</div>
@@ -231,6 +238,7 @@ get_header();
 								</div>
 							</div>
 							<div class="block wow fadeInUp">
+								<div class="titles">Related Posts</div>
 								<div class="box postBlock">
 									<?php
 									$current_post_id = get_the_ID();

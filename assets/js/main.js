@@ -309,30 +309,42 @@ if ($(".myTeam").length == "1") {
 /*=====================================================================
 08 - COMING SOON COUNT-DOWN JS
 =====================================================================*/
-if ($(".comming-wrapper").length > "0") {
-	var cmsdate = $('#coming_soon_date').val();
-	var endTime = new Date(cmsdate);
-	endTime = (Date.parse(endTime) / 1000);
+if ($(".comming-wrapper").length > 0) {
+    function updateTimer() {
+        var cmsdate = $('#coming_soon_date').val();
+        var endTime = new Date(cmsdate);
+        endTime = (Date.parse(endTime) / 1000);
 
-	var now = new Date();
-	now = (Date.parse(now) / 1000);
+        var now = new Date();
+        now = (Date.parse(now) / 1000);
 
-	var timeLeft = endTime - now;
+        var timeLeft = endTime - now;
 
-	var days = Math.floor(timeLeft / 86400); 
-	var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
-	var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
-	var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+        if (timeLeft <= 0) {
+            $("#days, #hours, #minutes, #seconds").html("00");
+            return; // Stop the timer when the countdown ends
+        }
 
-	if (hours < "10") { hours = "0" + hours; }
-	if (minutes < "10") { minutes = "0" + minutes; }
-	if (seconds < "10") { seconds = "0" + seconds; }
+        var days = Math.floor(timeLeft / 86400);
+        var hours = Math.floor((timeLeft % 86400) / 3600);
+        var minutes = Math.floor((timeLeft % 3600) / 60);
+        var seconds = Math.floor(timeLeft % 60);
 
-	$("#days").html(days);
-	$("#hours").html(hours);
-	$("#minutes").html(minutes);
-	$("#seconds").html(seconds);
-};
+        // Add leading zero if needed
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        $("#days").html(days);
+        $("#hours").html(hours);
+        $("#minutes").html(minutes);
+        $("#seconds").html(seconds);
+    }
+
+    // Update timer every second
+    updateTimer();
+    setInterval(updateTimer, 1000);
+}
 
 /*
 =================================================================

@@ -102,7 +102,7 @@ $count      = 1;
 						</div>
 					<?php else : ?>
 						<p class="no-blog-posts">
-							<?php esc_html_e( 'Sorry, no posts matched your criteria.', 'endurance' ); ?> 
+							<?php esc_html_e( 'We couldn\'t find any posts that match your criteria.', 'endurance' ); ?> 
 						</p>
 						<?php
 					endif;

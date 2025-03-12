@@ -28,7 +28,7 @@ $theme_option = get_option( 'redux_demo' );
 							?>
 							<div class="col-lg-4 col-sm-6 wow fadeInUp">
 								<div class="image-wrapper">
-									<img loading="lazy" src="<?php echo esc_url( $img[0] ); ?>" alt="<?php echo esc_attr( $alt ); ?>">
+									<img loading="lazy" src="<?php echo esc_url( $img[0] ); ?>" alt="<?php echo esc_attr( $alt ); ?>" width="424" height="424">
 								</div>
 							</div>
 						<?php } ?>

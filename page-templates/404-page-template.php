@@ -25,9 +25,13 @@ get_header();
 									<?php echo esc_html( $theme_option['endurance_404_description'] ); ?>
 								</p>
 							<?php } ?>
-							<?php if ( isset( $theme_option['endurance_back_home'] ) && ! empty( $theme_option['endurance_back_home'] ) ) { ?>
-								<a href=" <?php echo esc_html( $theme_option['endurance_back_to_home_link'] ); ?>" class="btn_wrapper mx-auto">
+							<?php if ( ( isset( $theme_option['endurance_back_home'] ) && ! empty( $theme_option['endurance_back_home'] ) ) && ( isset( $theme_option['endurance_back_to_home_link'] ) && ! empty( $theme_option['endurance_back_to_home_link'] ) ) ) { ?>
+								<a href=" <?php echo esc_attr( $theme_option['endurance_back_to_home_link'] ); ?>" class="btn_wrapper mx-auto">
 									<?php echo esc_html( $theme_option['endurance_back_home'] ); ?>
+								</a>
+							<?php } else { ?>
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn_wrapper mx-auto">
+									<?php esc_html_e( 'Back to Home', 'endurance' ); ?>
 								</a>
 							<?php } ?>
 						</div>

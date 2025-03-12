@@ -747,7 +747,7 @@ $theme_option = get_option( 'redux_demo' );
 											?>
 											<div class="swiper-slide">
 												<div class="blog-block">
-													<div class="image-wrapper pb-4">
+													<div class="image-wrapper mb-4">
 														<?php
 														if ( has_post_thumbnail() ) {
 															the_post_thumbnail( get_the_ID(), 'full' );

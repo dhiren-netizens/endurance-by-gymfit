@@ -31,7 +31,7 @@ get_header();
 
 		else :
 			?>
-		<p>Sorry, no posts matched your criteria.</p>
+		<p>We couldn't find any posts that match your criteria.</p>
 		
 		<?php endif; ?>
 		</div>

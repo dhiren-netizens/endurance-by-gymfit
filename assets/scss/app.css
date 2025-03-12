@@ -388,7 +388,7 @@ h1.title {
 
 p.blog-title {
   font-weight: 600;
-  color: rgba(45, 45, 45, 0.8);
+  color: rgb(45, 45, 45);
   font-size: 22px;
   margin-bottom: 20px;
 }

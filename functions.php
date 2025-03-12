@@ -749,6 +749,8 @@ function my_after_switch_theme() {
 			// Remove unwanted sizes.
 			unset( $attach_data['sizes']['thumbnail'] );
 			unset( $attach_data['sizes']['medium'] );
+			unset( $attach_data['sizes']['large'] );
+			unset( $attach_data['sizes']['medium_large'] );
 
 			wp_update_attachment_metadata( $attachment_id, $attach_data );
 			$attachment_ids[] = $attachment_id;

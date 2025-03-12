@@ -180,16 +180,16 @@ if ( ! is_admin() ) {
 			<?php } ?>
 		}
 		.cta-section .cta-wrapper .cta-text {
-			<?php if ( isset( $theme_option['endurance_smart_app_background_color'] ) && ! empty( $theme_option['endurance_smart_app_background_color'] ) && is_array( $theme_option['endurance_smart_app_background_color'] ) ) { ?>
+			<?php if ( isset( $theme_option['endurance_general_smart_app_background_color'] ) && ! empty( $theme_option['endurance_general_smart_app_background_color'] ) && is_array( $theme_option['endurance_general_smart_app_background_color'] ) ) { ?>
 				background: radial-gradient(119.23% 119.23% at 50% -19.23%, 
 				<?php
-				echo esc_attr( $theme_option['endurance_smart_app_background_color']['from'] ) . ' ';
-				echo esc_attr( $theme_option['endurance_smart_app_background_color']['gradient-reach']['from'] ) . '%';
+				echo esc_attr( $theme_option['endurance_general_smart_app_background_color']['from'] ) . ' ';
+				echo esc_attr( $theme_option['endurance_general_smart_app_background_color']['gradient-reach']['from'] ) . '%';
 				?>
 				, 
 				<?php
-				echo esc_attr( $theme_option['endurance_smart_app_background_color']['to'] ) . ' ';
-				echo esc_attr( $theme_option['endurance_smart_app_background_color']['gradient-reach']['to'] ) . '%';
+				echo esc_attr( $theme_option['endurance_general_smart_app_background_color']['to'] ) . ' ';
+				echo esc_attr( $theme_option['endurance_general_smart_app_background_color']['gradient-reach']['to'] ) . '%';
 				?>
 ) , #d9d9d9;
 			<?php } ?>
@@ -308,7 +308,9 @@ if ( ! is_admin() ) {
 		}
 		.error-wrapper .wrapper{
 			<?php if ( isset( $theme_option['endurance_general_background_image'] ) && ! empty( $theme_option['endurance_general_background_image'] ) ) { ?>
-				background-image: url(<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>), url(<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>);
+				background: url(<?php echo esc_url( $theme_option['endurance_general_background_image']['url'] ); ?>);
+				background-size: cover;
+				background-repeat: no-repeat;
 			<?php } ?>
 		}
 		.error-wrapper::before{

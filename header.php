@@ -151,13 +151,17 @@ $theme_option = get_option( 'redux_demo' );
 						?>
 						<span class="item active">
 							<?php
-							if ( is_category() ) {
-								echo esc_html( single_cat_title() );
-							} elseif ( is_single() && 'post' === get_post_type() ) {
-									echo esc_html( get_the_title() );
+							$searched_value = isset( $_REQUEST['s'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['s'] ) ) : '';
+							if ( is_search() ) {
+								echo esc_html( 'Search Results for: ' . $searched_value );
 							} else {
-								echo esc_html( get_the_title() );
-
+								if ( is_category() ) {
+									echo esc_html( single_cat_title() );
+								} elseif ( is_single() && 'post' === get_post_type() ) {
+										echo esc_html( wp_trim_words( get_the_title(), 10 ) );
+								} else {
+									echo esc_html( wp_trim_words( get_the_title(), 10 ) );
+								}
 							}
 							?>
 						</span>
