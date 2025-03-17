@@ -61,7 +61,14 @@ get_header();
 								</div>
 								<?php } ?>						
 								<div class="fill-up-form">
-								<?php echo do_shortcode( '[contact-form-7 id="6186708" title="Join Form - Coming Soon Page"]' ); ?>
+								<?php 
+										if ( isset( $theme_option['sc-comin-soon-form'] ) && ! empty( $theme_option['sc-comin-soon-form'] ) ) { 
+											$contact_form_shortcode = $theme_option['sc-comin-soon-form'];
+											echo do_shortcode( $contact_form_shortcode );
+										} else {
+											echo do_shortcode('[contact-form-7 id="48039da" title="Join Waiting List"]');
+										}
+									?>
 								</div>
 								<?php if ( isset( $theme_option['endurance_coming_soon_waiting_description'] ) && ! empty( $theme_option['endurance_coming_soon_waiting_description'] ) ) { ?>
 									<p>

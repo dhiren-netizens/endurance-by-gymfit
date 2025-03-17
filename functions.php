@@ -124,8 +124,169 @@ function endurance_by_gymfit_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_widget( 'Custom_sidebar' );
 }
 add_action( 'widgets_init', 'endurance_by_gymfit_widgets_init' );
+
+class Custom_sidebar extends WP_Widget {
+	function __construct() {
+		parent::__construct(
+			'custom_sidebar',
+			__( 'Custom Sidebar', 'endurance-by-gymfit' ),
+			array( 'description' => __( 'A Custom Widget to display Categories, Tags, Search, and Related Posts', 'endurance-by-gymfit' ) ) // Args
+		);
+	}
+
+	// Widget output.
+	public function widget( $args, $instance ) {
+		echo $args['before_widget'];
+
+		// Display Categories.
+		if ( ! empty( $instance['categories'] ) ) {
+			$categories = $instance['categories'];
+			echo '<div class="block mb-4 wow fadeInUp"><div class="titles"> Categories </div>';
+			echo '<div class="box categorieBlock">';
+			foreach ( $categories as $category_id ) {
+				$category = get_category( $category_id );
+				echo '<li><a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a></li>	';
+			}
+			echo '</div></div>';
+		}
+
+		// Display Tags.
+		if ( ! empty( $instance['tags'] ) ) {
+			$tags = $instance['tags'];
+			echo '<div class="block mb-4 wow fadeInUp"><div class="titles"> Tags </div>';
+			echo '<div class="box tagsBlock">';
+			foreach ( $tags as $tag_id ) {
+				$tag = get_term( $tag_id, 'post_tag' );
+				echo '<li><a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a></li>';
+			}
+			echo '</div></div>';
+		}
+
+		// Search Form.
+
+		echo '<div class="block mb-4 wow fadeInUp"><div class="titles">Search</div>
+		<div class="box searchBlock"><div class="fill-up-form">
+        <div class="form-group mb-0 post-search">
+		<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
+                <label>
+                    <span class="screen-reader-text">' . _x( 'Search for:', 'label', 'text_domain' ) . '</span>
+                    <input type="search" class="search-field" placeholder="Search …" value="' . get_search_query() . '" name="s" />
+                </label>
+                <input type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'text_domain' ) . '" />
+        </form></div></div></div></div>';
+
+		// Related Posts based on selected Categories.
+		if ( ! empty( $instance['categories'] ) ) {
+			$args          = array(
+				'category__in'   => $instance['categories'],
+				'posts_per_page' => 3,
+				'post__not_in'   => array( get_the_ID() ),
+			);
+			$related_posts = new WP_Query( $args );
+
+			if ( $related_posts->have_posts() ) {
+				echo '<div class="block wow fadeInUp">';
+				echo '<div class="titles">Related Posts</div>';
+				echo '<div class="box postBlock">';
+				while ( $related_posts->have_posts() ) {
+					$related_posts->the_post();
+					echo '<div class="post"><div class="image-wrapper">';
+
+					// Display the thumbnail if available.
+					if ( has_post_thumbnail() ) {
+						echo '<div class="related-post-thumbnail">';
+						echo '<a href="' . get_the_permalink() . '">';
+						echo get_the_post_thumbnail( get_the_ID(), 'thumbnail' );
+						echo '</a>';
+						echo '</div>';
+					}
+					echo '</div>';
+
+					// Display the post title.
+					echo '<div class="text"><span><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></span><p> ' . get_the_date() . '</p></div>';
+					echo '</div>';
+				}
+				echo '</div></div>';
+				wp_reset_postdata();
+			}
+		}
+
+		echo $args['after_widget'];
+	}
+
+	// Widget form in the admin dashboard.
+	public function form( $instance ) {
+
+		$title               = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Sidebar', 'text_domain' );
+		$selected_categories = ! empty( $instance['categories'] ) ? $instance['categories'] : array();
+		$selected_tags       = ! empty( $instance['tags'] ) ? $instance['tags'] : array();
+
+		// Get all categories and tags.
+		$categories = get_categories( array( 'hide_empty' => false ) );
+		$tags       = get_terms(
+			array(
+				'taxonomy'   => 'post_tag',
+				'hide_empty' => false,
+			)
+		);
+
+		?>
+		<div class="block mb-4 wow fadeInUp">
+		<p class="titles">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+		</p>
+	</div>
+	<div class="block mb-4 wow fadeInUp">
+		<p class="titles">Select Categories:</p>
+		<?php foreach ( $categories as $category ) : ?>
+			<p class="box tagsBlock">
+				<input class="checkbox" type="checkbox" <?php echo in_array( $category->term_id, $selected_categories ) ? 'checked="checked"' : ''; ?> id="<?php echo esc_attr( $this->get_field_id( 'categories' ) . '_' . $category->term_id ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'categories[]' ) ); ?>" value="<?php echo esc_attr( $category->term_id ); ?>" />
+				<label for="<?php echo esc_attr( $this->get_field_id( 'categories' ) . '_' . $category->term_id ); ?>"><?php echo esc_html( $category->name ); ?></label>
+			</p>
+		<?php endforeach; ?>
+		</div>
+		<div class="block mb-4 wow fadeInUp">
+		<p class="titles">Select Tags:</p>
+		<?php foreach ( $tags as $tag ) : ?>
+			<p class="box tagsBlock">
+				<input class="checkbox" type="checkbox" <?php echo in_array( $tag->term_id, $selected_tags ) ? 'checked="checked"' : ''; ?> id="<?php echo esc_attr( $this->get_field_id( 'tags' ) . '_' . $tag->term_id ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'tags[]' ) ); ?>" value="<?php echo esc_attr( $tag->term_id ); ?>" />
+				<label for="<?php echo esc_attr( $this->get_field_id( 'tags' ) . '_' . $tag->term_id ); ?>"><?php echo esc_html( $tag->name ); ?></label>
+			</p>
+		<?php endforeach; ?>
+		<?php
+	}
+
+	// Update widget settings.
+	public function update( $new_instance, $old_instance ) {
+		$instance = array();
+		// Sanitize and save the title.
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
+
+		// Save selected categories.
+		if ( ! empty( $new_instance['categories'] ) ) {
+			$instance['categories'] = array_map( 'intval', $new_instance['categories'] );
+		} else {
+			$instance['categories'] = array();
+		}
+
+		// Save selected tags.
+		if ( ! empty( $new_instance['tags'] ) ) {
+			$instance['tags'] = array_map( 'intval', $new_instance['tags'] );
+		} else {
+			$instance['tags'] = array();
+		}
+
+		return $instance;
+	}
+}
+
+
+
+
 /**
  * Enqueue scripts and styles.
  */
@@ -231,7 +392,7 @@ function generate_site_nav_menu_item( $term_id, $title, $url, $parent_id = 0 ) {
 			$term_id,
 			0,
 			array(
-				/* translators: %s: search term */
+
 				'menu-item-title'     => sprintf( __( '%s', 'endurance' ), $title ),
 				'menu-item-url'       => home_url( '/' . $url ),
 				'menu-item-status'    => 'publish',
@@ -687,12 +848,12 @@ function my_after_switch_theme() {
 		 * Footer
 		 */
 		$secondary_menu_items = array(
-			'Home'        => 'home',
-			'About Us'    => 'about-us',
-			'Contact Us'  => 'contact-us',
-			'Blogs'       => 'blogs',
-			'Gallery'     => 'gallery',
-			'Sitemap'     => 'sitemap',
+			'Home'       => 'home',
+			'About Us'   => 'about-us',
+			'Contact Us' => 'contact-us',
+			'Blogs'      => 'blogs',
+			'Gallery'    => 'gallery',
+			'Sitemap'    => 'sitemap',
 		);
 		generate_site_nav_menu( 'Secondary', $secondary_menu_items, 'secondary' );
 
@@ -1099,40 +1260,40 @@ function save_pricing_plan_meta_box_data( $post_id ) {
 			);
 		}
 
-		foreach ($endurance_pricing_plan_features as $plan => $data) {
+		foreach ( $endurance_pricing_plan_features as $plan => $data ) {
 			// Start with the default features.
 			$features_data = $default_features;
-		
-			// Fetch existing features from post meta
-			$existing_features = get_post_meta($post_id, 'endurance_pricing_plan_features', true);
-			if (!empty($existing_features) && is_array($existing_features)) {
-				$features_data = array_merge($features_data, $existing_features); // Preserve previous features
+
+			// Fetch existing features from post meta.
+			$existing_features = get_post_meta( $post_id, 'endurance_pricing_plan_features', true );
+			if ( ! empty( $existing_features ) && is_array( $existing_features ) ) {
+				$features_data = array_merge( $features_data, $existing_features ); // Preserve previous features.
 			}
-		
+
 			// Add new checked features from the submitted data.
-			if (isset($data['features']) && is_array($data['features'])) {
-				foreach ($data['features'] as $feature => $checked) {
-					if ($checked) {
-						$features_data[$feature] = 1; // Ensure checked features are set
+			if ( isset( $data['features'] ) && is_array( $data['features'] ) ) {
+				foreach ( $data['features'] as $feature => $checked ) {
+					if ( $checked ) {
+						$features_data[ $feature ] = 1; // Ensure checked features are set.
 					}
 				}
 			}
-		
+
 			// Remove features explicitly marked as removed.
-			if (isset($data['removed_features'])) {
-				$removed_features = json_decode(stripslashes($data['removed_features']), true);
-				if (is_array($removed_features)) {
-					foreach ($removed_features as $removed_feature) {
-						unset($features_data[$removed_feature]); // Remove feature
+			if ( isset( $data['removed_features'] ) ) {
+				$removed_features = json_decode( stripslashes( $data['removed_features'] ), true );
+				if ( is_array( $removed_features ) ) {
+					foreach ( $removed_features as $removed_feature ) {
+						unset( $features_data[ $removed_feature ] ); // Remove feature.
 					}
 				}
 			}
-		
-			// Save the updated features data
-			update_post_meta($post_id, 'endurance_pricing_plan_features', $features_data);
-		
-			// Prepare data for pricing plan storage
-			$pricing_plan_features_data[strtolower(get_the_title($post_id))] = array(
+
+			// Save the updated features data.
+			update_post_meta( $post_id, 'endurance_pricing_plan_features', $features_data );
+
+			// Prepare data for pricing plan storage.
+			$pricing_plan_features_data[ strtolower( get_the_title( $post_id ) ) ] = array(
 				'features' => $features_data,
 			);
 		}
@@ -1212,8 +1373,8 @@ function endurance_allowed_tags() {
 		),
 		'strike'     => array(),
 		'strong'     => array(),
-		'em'     	 => array(),
-		'ins'     	 => array(),
+		'em'         => array(),
+		'ins'        => array(),
 		'ul'         => array(
 			'class' => array(),
 		),
@@ -1221,3 +1382,4 @@ function endurance_allowed_tags() {
 
 	return $allowed_tags;
 }
+

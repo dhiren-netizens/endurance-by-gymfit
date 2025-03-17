@@ -1774,6 +1774,13 @@ Redux::set_section(
 				'default' => 'Call Us',
 			),
 			array(
+				'id'         => 'sc-contct-form',
+				'title'      => esc_html__( 'Add Shortcode Contact Form 7', 'endurance' ),
+				'type'       => 'text',
+				'full_width' => false,
+				'default'    => '[contact-form-7 id="dbd37a3" title="Contact form 1"]',  
+			),						
+			array(
 				'id'           => 'endurance_conatct_info_call_img',
 				'type'         => 'media',
 				'url'          => true,
@@ -1856,6 +1863,12 @@ Redux::set_section(
 				'title'   => esc_html__( 'Heading', 'endurance' ),
 				'default' => 'Coming Soon',
 			),
+			array(
+				'id'         => 'sc-comin-soon-form',
+				'title'      => esc_html__( 'Add Shortcode Contact Form 7', 'endurance' ),
+				'type'       => 'text',
+				'full_width' => false,
+				'default'    => '[contact-form-7 id="48039da" title="Join Waiting List"]',  
 			array(
 				'id'           => 'endurance_coming_soon_date_time',
 				'type'         => 'datetime',
@@ -2033,51 +2046,7 @@ Redux::set_section(
 	),
 );
 
-// Single Blog Sidebar section - Blog Settings.
-Redux::set_section(
-	$opt_name,
-	array(
-		'title'            => esc_html__( 'Sidebar', 'endurance' ),
-		'id'               => 'endurance_display_sidebar',
-		'customizer_width' => '400px',
-		'subsection'       => true,
-		'icon'             => 'el el-tags',
-		'fields'           => array(
-			array(
-				'id'      => 'endurance_sidebar_display_categories',
-				'type'    => 'switch',
-				'title'   => esc_html__( 'Want to display Categories?', 'endurance' ),
-				'default' => true,
-				'on'      => 'Yes',
-				'off'     => 'No',
-			),
-			array(
-				'id'      => 'endurance_sidebar_display_tags',
-				'type'    => 'switch',
-				'title'   => esc_html__( 'Want to display Tags?', 'endurance' ),
-				'default' => true,
-				'on'      => 'Yes',
-				'off'     => 'No',
-			),
-			array(
-				'id'      => 'endurance_sidebar_display_search_bar',
-				'type'    => 'switch',
-				'title'   => esc_html__( 'Want to display Search bar?', 'endurance' ),
-				'default' => true,
-				'on'      => 'Yes',
-				'off'     => 'No',
-			),
-			array(
-				'id'      => 'endurance_sidebar_display_related_posts',
-				'type'    => 'switch',
-				'title'   => esc_html__( 'Want to display Related posts?', 'endurance' ),
-				'default' => true,
-				'on'      => 'Yes',
-				'off'     => 'No',
-			),
-		),
-	),
-);
+
 
 // Single Blog section - Blog Settings.
 Redux::set_section(

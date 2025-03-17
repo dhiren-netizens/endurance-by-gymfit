@@ -416,6 +416,7 @@ CTA SECTION START FROM HERE
     background: url(../images/background/cta-line.svg) no-repeat;
     background-size: contain;
     background-position: top center;
+    padding: 175px 0;
 
     @media screen and (max-width:575px) {
         background-image: none;

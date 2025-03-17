@@ -177,6 +177,7 @@ if ( ! is_admin() ) {
 				background: url(<?php echo esc_url( $theme_option['endurance_smart_app_line_background_image']['url'] ); ?>) no-repeat;
 				background-size: cover;
 				background-position: top center;
+				padding: 175px 0;
 			<?php } ?>
 		}
 		.cta-section .cta-wrapper .cta-text {

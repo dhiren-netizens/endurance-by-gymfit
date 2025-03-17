@@ -57,13 +57,14 @@ get_header();
 									
 							</div>
 							<div class="image-wrapper pb-4">
-								<?php if ( has_post_thumbnail() ) :
+								<?php
+								if ( has_post_thumbnail() ) :
 									the_post_thumbnail(
 										'medium',
 										array(
 											'loading' => 'lazy',
-											'class' => 'w-100',
-											'alt' => get_the_title(),
+											'class'   => 'w-100',
+											'alt'     => get_the_title(),
 										)
 									);
 									?>
@@ -77,7 +78,8 @@ get_header();
 								if ( isset( $theme_option['endurance_display_categories'] ) && ! empty( $theme_option['endurance_display_categories'] ) ) {
 									if ( 1 === (int) $theme_option['endurance_display_categories'] ) {
 										$categories = get_the_category();
-										foreach ( $categories as $category ) : ?>
+										foreach ( $categories as $category ) :
+											?>
 										<span class="endurance_single_blog_categories">Categories: 
 											<a href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">
 												<?php echo esc_html( $category->name ); ?>
@@ -92,7 +94,8 @@ get_header();
 								if ( isset( $theme_option['endurance_display_tags'] ) && ! empty( $theme_option['endurance_display_tags'] ) ) {
 									if ( 1 === (int) $theme_option['endurance_display_tags'] ) {
 										$post_tags = get_the_tags();
-										foreach ( $post_tags as $tag ) : ?>
+										foreach ( $post_tags as $tag ) :
+											?>
 										<span class="endurance_single_blog_tags">Tags: 
 											<a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>">
 												<?php echo esc_html( $tag->name ); ?>
@@ -222,137 +225,7 @@ get_header();
 					</div>
 					<div class="col-xl-3 col-lg-4">
 						<div class="wrapper">
-							<?php
-							if ( isset( $theme_option['endurance_sidebar_display_categories'] ) && ! empty( $theme_option['endurance_sidebar_display_categories'] ) ) {
-								if ( 1 === (int) $theme_option['endurance_sidebar_display_categories'] ) { ?>
-									<div class="block mb-4 wow fadeInUp">
-										<div class="titles">Categories</div>
-										<div class="box categorieBlock">
-											<?php
-											$categories = get_the_category(); // Get categories for the post with the specified ID.
-											if ( ! empty( $categories ) ) :
-											?>
-												<ul>
-													<?php foreach ( $categories as $category ) : ?>
-														<li>
-															<a href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">
-																<?php echo esc_html( $category->name ); ?>
-															</a>
-														</li>
-													<?php endforeach; ?>
-												</ul>
-											<?php else : ?>
-												<p>No categories found</p> <!-- Optional: message if no categories -->
-											<?php endif; ?>
-										</div>
-									</div>
-								<?php 
-								}
-							}
-
-							if ( isset( $theme_option['endurance_sidebar_display_search_bar'] ) && ! empty( $theme_option['endurance_sidebar_display_search_bar'] ) ) {
-								if ( 1 === (int) $theme_option['endurance_sidebar_display_search_bar'] ) { ?>
-									<div class="block mb-4 wow fadeInUp">
-										<div class="titles">Search</div>
-										<div class="box searchBlock">
-											<div class="fill-up-form">
-												<div class="form-group mb-0 post-search">
-													<?php get_search_form(); ?>
-												</div>
-											</div>
-										</div>
-									</div>
-									<?php
-								}
-							}
-
-							if ( isset( $theme_option['endurance_sidebar_display_tags'] ) && ! empty( $theme_option['endurance_sidebar_display_tags'] ) ) {
-								if ( 1 === (int) $theme_option['endurance_sidebar_display_tags'] ) { ?>
-									<div class="block mb-4 wow fadeInUp">
-										<div class="titles">Tags</div>
-										<div class="box tagsBlock">
-											<?php
-											$post_tags = get_the_tags();
-
-											if ( $post_tags ) {
-												foreach ( $post_tags as $tag ) {
-													echo '<a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a>';
-												}
-											} else {
-												echo '<span>No tags found</span>';
-											}
-											?>
-										</div>
-									</div>
-									<?php
-								}
-							}
-
-							if ( isset( $theme_option['endurance_sidebar_display_related_posts'] ) && ! empty( $theme_option['endurance_sidebar_display_related_posts'] ) ) {
-								if ( 1 === (int) $theme_option['endurance_sidebar_display_related_posts'] ) { ?>
-								<div class="block wow fadeInUp">
-									<div class="titles">Related Posts</div>
-									<div class="box postBlock">
-										<?php
-										$current_post_id = get_the_ID();
-
-										$categories   = get_the_category( $current_post_id );
-										$category_ids = array();
-
-										if ( $categories ) {
-											foreach ( $categories as $category ) {
-												$category_ids[] = $category->term_id;
-											}
-										}
-
-										$args = array(
-											'category__in'   => $category_ids,
-											'post__not_in'   => array( $current_post_id ),
-											'posts_per_page' => 3,
-											'orderby'        => 'rand',
-										);
-
-										$related_posts = get_posts( $args );
-
-										if ( $related_posts ) {
-											foreach ( $related_posts as $post ) {
-												setup_postdata( $post );
-												?>
-												<div class="post">
-													<div class="image-wrapper">
-														<a href="<?php the_permalink(); ?>">
-															<?php if ( has_post_thumbnail() ) : ?>
-																<?php
-																the_post_thumbnail(
-																	'medium',
-																	array(
-																		'loading' => 'lazy',
-																		'alt' => get_the_title(),
-																	)
-																);
-																?>
-															<?php else : ?>
-																<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/background/post-img.webp' ); ?>" alt="post-img">
-															<?php endif; ?>
-														</a>
-													</div>
-													<div class="text">
-														<span><?php the_title(); ?></span>
-														<p><?php echo get_the_date(); ?></p>
-													</div>
-												</div>
-												<?php
-											}
-											wp_reset_postdata();
-										} else {
-											echo '<p>No related posts found.</p>';
-										}
-										?>
-									</div>
-								</div>
-								<?php
-								}
-							} ?>
+								<?php dynamic_sidebar( 'sidebar-1' ); ?>
 						</div>
 					</div>
 				</div>
