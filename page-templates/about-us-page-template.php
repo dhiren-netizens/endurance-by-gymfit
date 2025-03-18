@@ -48,11 +48,13 @@ get_header();
 								<div class="about_-ext text-lg-start text-center wow fadeInRight">
 									<?php if ( isset( $theme_option['endurance_general_about_us_title'] ) && ! empty( $theme_option['endurance_general_about_us_title'] ) ) { ?>
 										<div class="title"><?php echo esc_html( $theme_option['endurance_general_about_us_title'] ); ?></div>
-									<?php } else {
+										<?php
+									} else {
 										?>
 										<div class="title"><?php echo esc_html__( 'About Us', 'endurance' ); ?></div>
 										<?php
-									} ?>
+									}
+									?>
 									<?php if ( isset( $theme_option['endurance_general_about_us_description'] ) && ! empty( $theme_option['endurance_general_about_us_description'] ) ) { ?>
 										<p>
 										<?php echo esc_html( $theme_option['endurance_general_about_us_description'] ); ?>
@@ -77,7 +79,8 @@ get_header();
 								<h1 class="title p-0">
 									<?php echo esc_html( $theme_option['endurance_stand_out_with_title']['box1'] ); ?>
 								</h1>
-							<?php } else { 
+								<?php
+							} else {
 								?>
 								<h1 class="title p-0">
 									<?php echo esc_html__( 'Stand Out With Us', 'endurance' ); } ?>
@@ -133,13 +136,14 @@ get_header();
 							<div class="text-block text-lg-start text-center wow fadeInLeft">
 								<?php if ( isset( $theme_option['endurance_our_mission_heading'] ) && ! empty( $theme_option['endurance_our_mission_heading'] ) ) { ?>
 									<div class="title"><?php echo esc_html( $theme_option['endurance_our_mission_heading'] ); ?></div>
-								<?php } else 
-								{
+									<?php
+								} else {
 									?>
 									<div class="title"><?php echo esc_html__( 'Our Mission', 'endurance' ); ?></div>
 									<?php
-								} ?>  
-
+								}
+								?>
+								
 								<?php if ( isset( $theme_option['endurance_our_mission_description'] ) && ! empty( $theme_option['endurance_our_mission_description'] ) ) { ?>
 									<p class="mb-0"><?php echo esc_html( $theme_option['endurance_our_mission_description'] ); ?></p>
 								<?php } ?>  
@@ -170,12 +174,13 @@ get_header();
 								<div>
 									<?php if ( isset( $theme_option['endurance_general_smart_app_title'] ) && ! empty( $theme_option['endurance_general_smart_app_title'] ) ) { ?>
 										<div class="title pb-1"><?php echo esc_html( $theme_option['endurance_general_smart_app_title'] ); ?></div>
-									<?php } else {
+										<?php
+									} else {
 										?>
 										<div class="title pb-1"><?php echo esc_html__( 'Download Our Smart App', 'endurance' ); ?></div>
 										<?php
 									}
-									 ?>
+									?>
 									<?php if ( isset( $theme_option['endurance_general_smart_app_description'] ) && ! empty( $theme_option['endurance_general_smart_app_description'] ) ) { ?>
 										<p><?php echo esc_html( $theme_option['endurance_general_smart_app_description'] ); ?></p>
 									<?php } ?>    
@@ -240,11 +245,13 @@ get_header();
 						<div class="client-text wow fadeInRight">
 								<?php if ( isset( $theme_option['endurance_testimonial_heading'] ) && ! empty( $theme_option['endurance_testimonial_heading'] ) ) { ?>
 									<div class="title text-lg-start text-center"><?php echo esc_html( $theme_option['endurance_testimonial_heading'] ); ?></div>
-								<?php } else { 
+									<?php
+								} else {
 									?>
 									<div class="title text-lg-start text-center"><?php echo esc_html__( 'Our Happy Client', 'endurance' ); ?></div>
 									<?php
-								}?>
+								}
+								?>
 								<?php
 								$testimonials_posts = new WP_Query(
 									array(
@@ -335,11 +342,13 @@ get_header();
 				<div class="team-wrapper">
 					<?php if ( isset( $theme_option['endurance_general_team_title'] ) && ! empty( $theme_option['endurance_general_team_title'] ) ) { ?>
 						<div class="title text-center"><?php echo esc_html( $theme_option['endurance_general_team_title'] ); ?></div>
-					<?php } else {
+						<?php
+					} else {
 						?>
 						<div class="title text-center"><?php echo esc_html__( 'Meet Our Team', 'endurance' ); ?></div>
-						<?php	
-					} ?>
+						<?php
+					}
+					?>
 						<?php
 						$meet_our_team_posts = new WP_Query(
 							array(

@@ -1778,8 +1778,8 @@ Redux::set_section(
 				'title'      => esc_html__( 'Add Shortcode Contact Form 7', 'endurance' ),
 				'type'       => 'text',
 				'full_width' => false,
-				'default'    => '[contact-form-7 id="dbd37a3" title="Contact form 1"]',  
-			),						
+				'default'    => '[contact-form-7 id="dbd37a3" title="Contact form 1"]',
+			),
 			array(
 				'id'           => 'endurance_conatct_info_call_img',
 				'type'         => 'media',
@@ -1868,7 +1868,8 @@ Redux::set_section(
 				'title'      => esc_html__( 'Add Shortcode Contact Form 7', 'endurance' ),
 				'type'       => 'text',
 				'full_width' => false,
-				'default'    => '[contact-form-7 id="48039da" title="Join Waiting List"]',  
+				'default'    => '[contact-form-7 id="48039da" title="Join Waiting List"]',
+			),
 			array(
 				'id'           => 'endurance_coming_soon_date_time',
 				'type'         => 'datetime',

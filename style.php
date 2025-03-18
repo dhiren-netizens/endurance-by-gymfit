@@ -365,10 +365,30 @@ if ( ! is_admin() ) {
 			<?php } ?>
 		}
 		.pricing-section .pricingSwiper .btn_wrapper {
-			background: linear-gradient(180deg, <?php echo esc_attr( $theme_option['endurance_sign_up_background_color']['from'] ) . ' '; echo esc_attr( $theme_option['endurance_sign_up_background_color']['gradient-reach']['from'] ) . '%'; ?>, <?php echo esc_attr( $theme_option['endurance_sign_up_background_color']['to'] ) . ' '; echo esc_attr( $theme_option['endurance_sign_up_background_color']['gradient-reach']['to'] ) . '%'; ?>);
+			background: linear-gradient(180deg, 
+			<?php
+			echo esc_attr( $theme_option['endurance_sign_up_background_color']['from'] ) . ' ';
+			echo esc_attr( $theme_option['endurance_sign_up_background_color']['gradient-reach']['from'] ) . '%';
+			?>
+			, 
+	<?php
+	echo esc_attr( $theme_option['endurance_sign_up_background_color']['to'] ) . ' ';
+	echo esc_attr( $theme_option['endurance_sign_up_background_color']['gradient-reach']['to'] ) . '%';
+	?>
+);
 		}
 		.pricing-section .pricingSwiper .pricingtable-inner:hover .btn_wrapper {
-			background: linear-gradient(180deg, <?php echo esc_attr( $theme_option['endurance_sign_up_background_color']['to'] ) . ' '; echo esc_attr( $theme_option['endurance_sign_up_background_color']['gradient-reach']['from'] ) . '%'; ?>, <?php echo esc_attr( $theme_option['endurance_sign_up_background_color']['from'] ) . ' '; echo esc_attr( $theme_option['endurance_sign_up_background_color']['gradient-reach']['to'] ) . '%'; ?>);
+			background: linear-gradient(180deg, 
+			<?php
+			echo esc_attr( $theme_option['endurance_sign_up_background_color']['to'] ) . ' ';
+			echo esc_attr( $theme_option['endurance_sign_up_background_color']['gradient-reach']['from'] ) . '%';
+			?>
+			, 
+	<?php
+	echo esc_attr( $theme_option['endurance_sign_up_background_color']['from'] ) . ' ';
+	echo esc_attr( $theme_option['endurance_sign_up_background_color']['gradient-reach']['to'] ) . '%';
+	?>
+);
 		}
 		.cta-section {
 			<?php if ( isset( $theme_option['endurance_general_smart_app_line_background_image']['url'] ) && ! empty( $theme_option['endurance_general_smart_app_line_background_image']['url'] ) ) { ?>

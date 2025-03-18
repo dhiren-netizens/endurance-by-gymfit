@@ -52,7 +52,16 @@ BLOG DETAILS SECTION CSS
                 margin-top: 20px;
             }
             .endurance_single_blog_categories, .endurance_single_blog_tags {
-                display: block;
+                display: flex;
+                gap:10px;
+                color: #000;
+                font-weight: 500;
+            }
+            .endurance_single_blog_categories a, .endurance_single_blog_tags a{
+                text-decoration: none;
+            }
+            .endurance_single_blog_categories a:hover, .endurance_single_blog_tags a:hover{
+                  color: #b847fc;
             }
             .social {
                 display: flex;
@@ -404,6 +413,14 @@ BLOG DETAILS SECTION CSS
                             
                             p {
                                 color: rgba($Secondary-color , 0.35);
+                            }
+                        }
+                    }
+
+                    &.categorieBlock{
+                        li{
+                            a:hover{
+                                color: #F907FC;
                             }
                         }
                     }

@@ -128,6 +128,8 @@ function endurance_by_gymfit_widgets_init() {
 }
 add_action( 'widgets_init', 'endurance_by_gymfit_widgets_init' );
 
+/** Custom Sidebar on single Blog Page */
+
 class Custom_sidebar extends WP_Widget {
 	function __construct() {
 		parent::__construct(

@@ -23,13 +23,13 @@ get_header();
 									<?php if ( isset( $theme_option['endurance_contact_us_heading'] ) && ! empty( $theme_option['endurance_contact_us_heading'] ) ) { ?>
 										<div class="title text-center"> <?php echo esc_html( $theme_option['endurance_contact_us_heading'] ); ?></div>
 									<?php } ?>
-									<?php 
-										if ( isset( $theme_option['sc-contct-form'] ) && ! empty( $theme_option['sc-contct-form'] ) ) { 
-											$contact_form_shortcode = $theme_option['sc-contct-form'];
-											echo do_shortcode( $contact_form_shortcode );
-										} else {
-											echo do_shortcode('[contact-form-7 id="dbd37a3" title="Contact form 1"]');
-										}
+									<?php
+									if ( isset( $theme_option['sc-contct-form'] ) && ! empty( $theme_option['sc-contct-form'] ) ) {
+										$contact_form_shortcode = $theme_option['sc-contct-form'];
+										echo do_shortcode( $contact_form_shortcode );
+									} else {
+										echo do_shortcode( '[contact-form-7 id="dbd37a3" title="Contact form 1"]' );
+									}
 									?>
 								</div>
 							</div>						

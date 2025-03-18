@@ -154,14 +154,12 @@ $theme_option = get_option( 'redux_demo' );
 							$searched_value = isset( $_REQUEST['s'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['s'] ) ) : '';
 							if ( is_search() ) {
 								echo esc_html( 'Search Results for: ' . $searched_value );
-							} else {
-								if ( is_category() ) {
+							} elseif ( is_category() ) {
 									echo esc_html( single_cat_title() );
-								} elseif ( is_single() && 'post' === get_post_type() ) {
-										echo esc_html( wp_trim_words( get_the_title(), 10 ) );
-								} else {
+							} elseif ( is_single() && 'post' === get_post_type() ) {
 									echo esc_html( wp_trim_words( get_the_title(), 10 ) );
-								}
+							} else {
+								echo esc_html( wp_trim_words( get_the_title(), 10 ) );
 							}
 							?>
 						</span>

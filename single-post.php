@@ -74,38 +74,42 @@ get_header();
 							</div>
 							<?php echo wp_kses( get_post_field( 'post_content', $post_id ), endurance_allowed_tags() ); ?>
 							<div class="endurance_display_categories_tags">
+							<span class="endurance_single_blog_categories">Categories: 
 								<?php
 								if ( isset( $theme_option['endurance_display_categories'] ) && ! empty( $theme_option['endurance_display_categories'] ) ) {
 									if ( 1 === (int) $theme_option['endurance_display_categories'] ) {
 										$categories = get_the_category();
 										foreach ( $categories as $category ) :
 											?>
-										<span class="endurance_single_blog_categories">Categories: 
+										<li>
 											<a href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">
 												<?php echo esc_html( $category->name ); ?>
 											</a>
-										</span>
+										</li>
 										<?php endforeach; ?>
 										<?php
 									}
 								}
 								?>
+								</span>
+								<span class="endurance_single_blog_tags">Tags: 
 								<?php
 								if ( isset( $theme_option['endurance_display_tags'] ) && ! empty( $theme_option['endurance_display_tags'] ) ) {
 									if ( 1 === (int) $theme_option['endurance_display_tags'] ) {
 										$post_tags = get_the_tags();
 										foreach ( $post_tags as $tag ) :
 											?>
-										<span class="endurance_single_blog_tags">Tags: 
+										<li>
 											<a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>">
 												<?php echo esc_html( $tag->name ); ?>
 											</a>
-										</span>
+										</li>
 										<?php endforeach; ?>
 										<?php
 									}
 								}
 								?>
+									</span>
 							</div>
 							<div class="social wow fadeInUp">
 								<?php if ( isset( $theme_option['endurance_social_profile'] ) && ! empty( $theme_option['endurance_social_profile'] ) ) { ?>

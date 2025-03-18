@@ -229,8 +229,7 @@ $theme_option = get_option( 'redux_demo' );
 									<?php if ( isset( $theme_option['endurance_general_about_us_title'] ) && ! empty( $theme_option['endurance_general_about_us_title'] ) ) { ?>
 										<div class="title"><?php echo esc_html( $theme_option['endurance_general_about_us_title'] ); ?></div>
 										<?php
-									} else 
-									{
+									} else {
 										?>
 										<div class="title">About Us</div>
 										<?php
@@ -246,11 +245,13 @@ $theme_option = get_option( 'redux_demo' );
 									if ( isset( $theme_option['endurance_general_gt_text'] ) && ! empty( $theme_option['endurance_general_gt_text'] ) ) {
 										?>
 										<a href="<?php echo esc_attr( $endurance_general_gt_link ); ?>" class="btn_wrapper mx-lg-0 mx-auto"><?php echo esc_html( $theme_option['endurance_general_gt_text'] ); ?></a>
-									<?php } else {
+										<?php
+									} else {
 										?>
 										<a href="<?php echo esc_url( site_url() . '/about-us/' ); ?>" class="btn_wrapper mx-lg-0 mx-auto">Get Started</a>
 										<?php
-									} ?>
+									}
+									?>
 								</div>
 							</div>
 						</div>
@@ -499,10 +500,10 @@ $theme_option = get_option( 'redux_demo' );
 														} else {
 															$features_not_available_img = get_template_directory_uri() . '/assets/images/icon/pricing-icon-2.svg';
 														}
-														$flag               = in_array( $display_features, $plan_features_keys ) ? $features_available_img : $features_not_available_img;
+														$flag = in_array( $display_features, $plan_features_keys ) ? $features_available_img : $features_not_available_img;
 														?>
 														
-														<li><img loading="lazy" src="<?php echo esc_url( $flag ); ?>" width="30px" height="30px" alt="pricing-icon"><?php echo esc_html( ucwords( str_replace('_', ' ', $display_features ) ) ); ?></li>
+														<li><img loading="lazy" src="<?php echo esc_url( $flag ); ?>" width="30px" height="30px" alt="pricing-icon"><?php echo esc_html( ucwords( str_replace( '_', ' ', $display_features ) ) ); ?></li>
 													<?php } ?>
 												</ul>
 												<?php if ( isset( $theme_option['endurance_sign_up_text'] ) && ! empty( $theme_option['endurance_sign_up_text'] ) && ( isset( $theme_option['endurance_sign_up_link'] ) && ! empty( $theme_option['endurance_sign_up_link'] ) ) ) { ?>
@@ -623,11 +624,13 @@ $theme_option = get_option( 'redux_demo' );
 						<div class="client-text wow fadeInRight">
 								<?php if ( isset( $theme_option['endurance_testimonial_heading'] ) && ! empty( $theme_option['endurance_testimonial_heading'] ) ) { ?>
 									<div class="title text-lg-start text-center"><?php echo esc_html( $theme_option['endurance_testimonial_heading'] ); ?></div>
-								<?php } else { 
+									<?php
+								} else {
 									?>
 									<div class="title text-lg-start text-center"><?php echo esc_html__( 'Our Happy Client', 'endurance' ); ?></div>
 									<?php
-								}?>
+								}
+								?>
 								<?php
 								$testimonials_posts = new WP_Query(
 									array(
@@ -873,8 +876,8 @@ $theme_option = get_option( 'redux_demo' );
 			const mouseX = e.clientX;
 			const mouseY = e.clientY;
 
-			// Calculate percentage offsets
-			const offsetX = (mouseX / window.innerWidth - 0.5) * 2; // Normalize to [-1, 1]
+			// Calculate percentage offsets.
+			const offsetX = (mouseX / window.innerWidth - 0.5) * 2;
 			const offsetY = (mouseY / window.innerHeight - 0.5) * 2;
 
 			// Apply the transform
@@ -887,11 +890,11 @@ $theme_option = get_option( 'redux_demo' );
 			const mouseX = e.clientX;
 			const mouseY = e.clientY;
 
-			// Calculate percentage offsets
-			const offsetX = (mouseX / window.innerWidth - 0.5) * 2; // Normalize to [-1, 1]
+			// Calculate percentage offsets.
+			const offsetX = (mouseX / window.innerWidth - 0.5) * 2; 
 			const offsetY = (mouseY / window.innerHeight - 0.5) * 2;
 
-			// Apply the transform
+			// Apply the transform.
 			about_img2.style.transform = `translate(calc(-50% + ${offsetX * -10}px), calc(-50% + ${offsetY * -10}px))`;
 		});
 		/* ========= ABOUT US FLOATING IMAGES ========= */
@@ -905,11 +908,11 @@ $theme_option = get_option( 'redux_demo' );
 			const mouseX = e.clientX;
 			const mouseY = e.clientY;
 
-			// Calculate percentage offsets
-			const offsetX = (mouseX / window.innerWidth - 0.5) * 2; // Normalize to [-1, 1]
+			// Calculate percentage offsets.
+			const offsetX = (mouseX / window.innerWidth - 0.5) * 2;
 			const offsetY = (mouseY / window.innerHeight - 0.5) * 2;
 
-			// Apply the transform
+			// Apply the transform.
 			floatingImage1.style.transform = `translate(${offsetX * 10}px, ${offsetY * 10}px)`;
 		});
 
@@ -920,11 +923,11 @@ $theme_option = get_option( 'redux_demo' );
 			const mouseX = e.clientX;
 			const mouseY = e.clientY;
 
-			// Calculate percentage offsets
-			const offsetX = (mouseX / window.innerWidth - 0.5) * 2; // Normalize to [-1, 1]
+			// Calculate percentage offsets.
+			const offsetX = (mouseX / window.innerWidth - 0.5) * 2;
 			const offsetY = (mouseY / window.innerHeight - 0.5) * 2;
 
-			// Apply the transform
+			// Apply the transform.
 			floatingImage2.style.transform = `translate(${offsetX * -10}px, ${offsetY * -10}px)`;
 		});
 
@@ -935,11 +938,11 @@ $theme_option = get_option( 'redux_demo' );
 			const mouseX = e.clientX;
 			const mouseY = e.clientY;
 
-			// Calculate percentage offsets
-			const offsetX = (mouseX / window.innerWidth - 0.5) * 2; // Normalize to [-1, 1]
+			// Calculate percentage offsets.
+			const offsetX = (mouseX / window.innerWidth - 0.5) * 2;
 			const offsetY = (mouseY / window.innerHeight - 0.5) * 2;
 
-			// Apply the transform
+			// Apply the transform.
 			floatingImage3.style.transform = `translate(${offsetX * -10}px, ${offsetY * -10}px)`;
 		});
 
@@ -950,11 +953,11 @@ $theme_option = get_option( 'redux_demo' );
 			const mouseX = e.clientX;
 			const mouseY = e.clientY;
 
-			// Calculate percentage offsets
-			const offsetX = (mouseX / window.innerWidth - 0.5) * 2; // Normalize to [-1, 1]
+			// Calculate percentage offsets.
+			const offsetX = (mouseX / window.innerWidth - 0.5) * 2;
 			const offsetY = (mouseY / window.innerHeight - 0.5) * 2;
 
-			// Apply the transform
+			// Apply the transform.
 			floatingImage4.style.transform = `translate(${offsetX * 5}px, ${offsetY * 5}px)`;
 		});
 
@@ -965,11 +968,11 @@ $theme_option = get_option( 'redux_demo' );
 			const mouseX = e.clientX;
 			const mouseY = e.clientY;
 
-			// Calculate percentage offsets
-			const offsetX = (mouseX / window.innerWidth - 0.5) * 2; // Normalize to [-1, 1]
+			// Calculate percentage offsets.
+			const offsetX = (mouseX / window.innerWidth - 0.5) * 2;
 			const offsetY = (mouseY / window.innerHeight - 0.5) * 2;
 
-			// Apply the transform
+			// Apply the transform.
 			floatingImage5.style.transform = `translate(${offsetX * 5}px, ${offsetY * 5}px)`;
 		});
 
@@ -980,11 +983,11 @@ $theme_option = get_option( 'redux_demo' );
 			const mouseX = e.clientX;
 			const mouseY = e.clientY;
 
-			// Calculate percentage offsets
-			const offsetX = (mouseX / window.innerWidth - 0.5) * 2; // Normalize to [-1, 1]
+			// Calculate percentage offsets.
+			const offsetX = (mouseX / window.innerWidth - 0.5) * 2;
 			const offsetY = (mouseY / window.innerHeight - 0.5) * 2;
 
-			// Apply the transform
+			// Apply the transform.
 			floatingImage6.style.transform = `translate(${offsetX * -5}px, ${offsetY * -5}px)`;
 		});
 
@@ -995,11 +998,11 @@ $theme_option = get_option( 'redux_demo' );
 			const mouseX = e.clientX;
 			const mouseY = e.clientY;
 
-			// Calculate percentage offsets
-			const offsetX = (mouseX / window.innerWidth - 0.5) * 2; // Normalize to [-1, 1]
+			// Calculate percentage offsets.
+			const offsetX = (mouseX / window.innerWidth - 0.5) * 2;
 			const offsetY = (mouseY / window.innerHeight - 0.5) * 2;
 
-			// Apply the transform
+			// Apply the transform.
 			floatingImage7.style.transform = `translate(${offsetX * 20}px, ${offsetY * 20}px)`;
 		});
 
@@ -1010,11 +1013,11 @@ $theme_option = get_option( 'redux_demo' );
 			const mouseX = e.clientX;
 			const mouseY = e.clientY;
 
-			// Calculate percentage offsets
-			const offsetX = (mouseX / window.innerWidth - 0.5) * 2; // Normalize to [-1, 1]
+			// Calculate percentage offsets.
+			const offsetX = (mouseX / window.innerWidth - 0.5) * 2;
 			const offsetY = (mouseY / window.innerHeight - 0.5) * 2;
 
-			// Apply the transform
+			// Apply the transform.
 			floatingImage8.style.transform = `translate(${offsetX * 15}px, ${offsetY * 15}px)`;
 		});
 
@@ -1025,11 +1028,11 @@ $theme_option = get_option( 'redux_demo' );
 			const mouseX = e.clientX;
 			const mouseY = e.clientY;
 
-			// Calculate percentage offsets
-			const offsetX = (mouseX / window.innerWidth - 0.5) * 2; // Normalize to [-1, 1]
+			// Calculate percentage offsets.
+			const offsetX = (mouseX / window.innerWidth - 0.5) * 2;
 			const offsetY = (mouseY / window.innerHeight - 0.5) * 2;
 
-			// Apply the transform
+			// Apply the transform.
 			floatingImage9.style.transform = `translate(${offsetX * -20}px, ${offsetY * -20}px)`;
 		});
 		/* ========= INSTAGRAM FLOATING IMAGES ========= */
