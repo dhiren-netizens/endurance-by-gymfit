@@ -25,7 +25,7 @@
 
 .redux-container .redux-sidebar .redux-group-menu li.active a:hover { background-color: #c7a589; color: #fff !important; }
 
-.redux-container .redux-sidebar .redux-group-menu li a { font-weight: 400 !important; color: #fff !important; opacity: 0.9 !important; border-style: hidden !important; -webkit-transition: all 0.2s ease-in-out !important; transition: all 0.2s ease-in-out !important; }
+.redux-container .redux-sidebar .redux-group-menu li a { font-weight: 400 !important; color:#fff !important; opacity: 0.9 !important; border-style: hidden !important; -webkit-transition: all 0.2s ease-in-out !important; transition: all 0.2s ease-in-out !important; }
 
 .redux-container .redux-sidebar .redux-group-menu li a:hover { color: #fff !important; background-color: #c7a589 !important; }
 

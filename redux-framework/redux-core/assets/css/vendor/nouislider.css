@@ -16,9 +16,9 @@
 .noUi-state-drag * { cursor: inherit !important; }
 
 /* Slider size and handle placement; */
-.noUi-horizontal { height: 18px; }
+.noUi-horizontal { height: 15px; }
 
-.noUi-horizontal .noUi-handle { width: 34px; height: 28px; left: -17px; top: -6px; }
+.noUi-horizontal .noUi-handle { width: 34px;height: 23px;left: -17px;top: -5px;}
 
 .noUi-horizontal.noUi-extended { padding: 0 15px; }
 
@@ -61,7 +61,7 @@
  0 3px 6px -3px #bbb; }
 
 /* Handle stripes; */
-.noUi-handle::before, .noUi-handle::after { content: ""; display: block; position: absolute; height: 14px; width: 1px; background: #e8e7e6; left: 14px; top: 6px; }
+.noUi-handle::before, .noUi-handle::after { content: ""; display: block; position: absolute; height: 9px; width: 1px; background: #e8e7e6; left: 14px; top: 6px; }
 
 .noUi-handle::after { left: 17px; }
 

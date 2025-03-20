@@ -3,7 +3,7 @@
 
 .redux-main fieldset.disabled::before, .redux-main .redux-group-tab.disabled::before { color: #e14d43; }
 
-#redux-header { border-color: #69a8bb !important; background: #363b3f !important; }
+#redux-header { border-color: #69a8bb !important; background: #11116d !important; }
 
 #redux-header .display_header h2 { color: #fff; }
 

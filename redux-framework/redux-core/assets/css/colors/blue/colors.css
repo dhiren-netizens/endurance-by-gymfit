@@ -37,7 +37,7 @@
 
 .redux-container .redux-sidebar .redux-group-menu li.hasSubSections.redux-section-hover > a { background-color: #096484; color: #fff !important; }
 
-.redux-container .redux-sidebar .redux-group-menu li.hasSubSections.redux-section-hover > a::after { border-right-color: #4796b3; }
+.redux-container .redux-sidebar .redux-group-menu li.hasSubSections.redux-section-hover > a::after { border-right-color: #164d8f2e; }
 
 .redux-container .redux-sidebar .redux-group-menu li.hasSubSections.redux-section-hover .redux-group-tab-link-a:hover { color: #fff !important; }
 
@@ -83,7 +83,7 @@
 
 .noUi-connect { background-color: #0a6f92 !important; background-image: -khtml-gradient(linear, left top, left bottom, from(#0c88b4), to(#0a6f92)) !important; background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0c88b4), color-stop(100%, #0a6f92)) !important; background-image: -webkit-linear-gradient(top, #0c88b4, #0a6f92) !important; background-image: -linear-gradient(top, #0c88b4, #0a6f92) !important; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0c88b4", endColorstr="#0a6f92", GradientType=0) !important; }
 
-#redux-footer #redux-share a { color: #096484; }
+#redux-footer #redux-share a { color: #164d8f; }
 
 #redux-footer #redux-share a:hover { color: #021c25; }
 

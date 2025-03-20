@@ -85,6 +85,7 @@
 }
 .redux-main .redux-container-google_maps .field {
   width: 99%;
+  border: 1px solid #164d8f2e;
 }
 .redux-main .redux-container-google_maps .slimField {
   width: 80px;
