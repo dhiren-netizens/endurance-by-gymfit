@@ -1013,6 +1013,7 @@ Redux::set_section(
 					),
 				),
 			),
+
 			array(
 				'id'             => 'endurance_gear_up_track_title_color',
 				'type'           => 'color_gradient',
@@ -1030,6 +1031,7 @@ Redux::set_section(
 					),
 				),
 			),
+			
 			array(
 				'id'     => 'endurance_gear_up_track_data_end',
 				'type'   => 'section',

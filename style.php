@@ -42,7 +42,7 @@ if ( ! is_admin() ) {
 		}
 		.success-section .success-wrapper .success-box.first-box {
 			<?php if ( isset( $theme_option['endurance_gear_up_learn_color'] ) && ! empty( $theme_option['endurance_gear_up_learn_color'] ) && is_array( $theme_option['endurance_gear_up_learn_color'] ) ) { ?>
-				background: linear-gradient(180deg, 
+				background: linear-gradient(<?php echo esc_attr( $theme_option['endurance_endurance_gear_up_learn_colormarquee_notice_color']['gradient-angle'] ) . 'deg'; ?>, 
 				<?php
 				echo esc_attr( $theme_option['endurance_gear_up_learn_color']['from'] ) . ' ';
 				echo esc_attr( $theme_option['endurance_gear_up_learn_color']['gradient-reach']['from'] ) . '%';
@@ -57,7 +57,7 @@ if ( ! is_admin() ) {
 		}
 		.success-section .success-wrapper .success-box.first-box:after {
 			<?php if ( isset( $theme_option['endurance_gear_up_learn_color'] ) && ! empty( $theme_option['endurance_gear_up_learn_color'] ) && is_array( $theme_option['endurance_gear_up_learn_color'] ) ) { ?>
-				background: linear-gradient(180deg, 
+				background: linear-gradient(<?php echo esc_attr( $theme_option['endurance_gear_up_learn_color']['gradient-angle'] ) . 'deg'; ?>, 
 				<?php
 				echo esc_attr( $theme_option['endurance_gear_up_learn_color']['from'] ) . '3d ';
 				echo esc_attr( $theme_option['endurance_gear_up_learn_color']['gradient-reach']['from'] ) . '%';
@@ -72,7 +72,7 @@ if ( ! is_admin() ) {
 		}
 		.success-section .success-wrapper .success-box.last-box.opacity-box {
 			<?php if ( isset( $theme_option['endurance_gear_up_track_color'] ) && ! empty( $theme_option['endurance_gear_up_track_color'] ) && is_array( $theme_option['endurance_gear_up_track_color'] ) ) { ?>
-				background: linear-gradient(180deg, 
+				background: linear-gradient(<?php echo esc_attr( $theme_option['endurance_gear_up_track_color']['gradient-angle'] ) . 'deg'; ?>, 
 				<?php
 				echo esc_attr( $theme_option['endurance_gear_up_track_color']['from'] ) . ' ';
 				echo esc_attr( $theme_option['endurance_gear_up_track_color']['gradient-reach']['from'] ) . '%';
@@ -87,7 +87,7 @@ if ( ! is_admin() ) {
 		}
 		.success-section .success-wrapper .success-box .box-text span.gradient {
 			<?php if ( isset( $theme_option['endurance_gear_up_track_title_color'] ) && ! empty( $theme_option['endurance_gear_up_track_title_color'] ) && is_array( $theme_option['endurance_gear_up_track_title_color'] ) ) { ?>
-				background: linear-gradient(180deg, 
+				background: linear-gradient(<?php echo esc_attr( $theme_option['endurance_gear_up_track_title_color']['gradient-angle'] ) . 'deg'; ?>, 
 				<?php
 				echo esc_attr( $theme_option['endurance_gear_up_track_title_color']['from'] ) . ' ';
 				echo esc_attr( $theme_option['endurance_gear_up_track_title_color']['gradient-reach']['from'] ) . '%';
@@ -103,7 +103,7 @@ if ( ! is_admin() ) {
 		}
 		.success-section .success-wrapper .success-box.first-box.opacity-box {
 			<?php if ( isset( $theme_option['endurance_gear_up_improve_color'] ) && ! empty( $theme_option['endurance_gear_up_improve_color'] ) && is_array( $theme_option['endurance_gear_up_improve_color'] ) ) { ?>
-				background: linear-gradient(180deg, 
+				background: linear-gradient(<?php echo esc_attr( $theme_option['endurance_gear_up_improve_color']['gradient-angle'] ) . 'deg'; ?>, 
 				<?php
 				echo esc_attr( $theme_option['endurance_gear_up_improve_color']['from'] ) . ' ';
 				echo esc_attr( $theme_option['endurance_gear_up_improve_color']['gradient-reach']['from'] ) . '%';
@@ -118,7 +118,7 @@ if ( ! is_admin() ) {
 		}
 		.success-section .success-wrapper .success-box .box-text span.gradient-2 {
 			<?php if ( isset( $theme_option['endurance_gear_up_improve_title_color'] ) && ! empty( $theme_option['endurance_gear_up_improve_title_color'] ) && is_array( $theme_option['endurance_gear_up_improve_title_color'] ) ) { ?>
-				background: linear-gradient(180deg, 
+				background: linear-gradient(<?php echo esc_attr( $theme_option['endurance_gear_up_improve_title_color']['gradient-angle'] ) . 'deg'; ?>, 
 				<?php
 				echo esc_attr( $theme_option['endurance_gear_up_improve_title_color']['from'] ) . ' ';
 				echo esc_attr( $theme_option['endurance_gear_up_improve_title_color']['gradient-reach']['from'] ) . '%';
@@ -134,7 +134,7 @@ if ( ! is_admin() ) {
 		}
 		.success-section .success-wrapper .success-box.last-box {
 			<?php if ( isset( $theme_option['endurance_gear_up_motivated_color'] ) && ! empty( $theme_option['endurance_gear_up_motivated_color'] ) && is_array( $theme_option['endurance_gear_up_motivated_color'] ) ) { ?>
-				background: linear-gradient(180deg, 
+				background: linear-gradient(<?php echo esc_attr( $theme_option['endurance_gear_up_motivated_color']['gradient-angle'] ) . 'deg'; ?>, 
 				<?php
 				echo esc_attr( $theme_option['endurance_gear_up_motivated_color']['from'] ) . ' ';
 				echo esc_attr( $theme_option['endurance_gear_up_motivated_color']['gradient-reach']['from'] ) . '%';
@@ -149,7 +149,7 @@ if ( ! is_admin() ) {
 		}
 		.success-section .success-wrapper .success-box.last-box:after {
 			<?php if ( isset( $theme_option['endurance_gear_up_learn_color'] ) && ! empty( $theme_option['endurance_gear_up_motivated_color'] ) && is_array( $theme_option['endurance_gear_up_motivated_color'] ) ) { ?>
-				background: linear-gradient(180deg, 
+				background: linear-gradient(<?php echo esc_attr( $theme_option['endurance_gear_up_learn_color']['gradient-angle'] ) . 'deg'; ?>, 
 				<?php
 				echo esc_attr( $theme_option['endurance_gear_up_motivated_color']['from'] ) . '3d ';
 				echo esc_attr( $theme_option['endurance_gear_up_motivated_color']['gradient-reach']['from'] ) . '%';
@@ -212,7 +212,7 @@ if ( ! is_admin() ) {
 		}
 		.notice-section .notice .notice-slide:last-child {
 			<?php if ( isset( $theme_option['endurance_marquee_notice_color'] ) && ! empty( $theme_option['endurance_marquee_notice_color'] ) && is_array( $theme_option['endurance_marquee_notice_color'] ) ) { ?>
-				background: linear-gradient(270deg, 
+				background: linear-gradient(<?php echo esc_attr( $theme_option['endurance_marquee_notice_color']['gradient-angle'] ) . 'deg'; ?>, 
 				<?php
 				echo esc_attr( $theme_option['endurance_marquee_notice_color']['from'] ) . ' ';
 				echo esc_attr( $theme_option['endurance_marquee_notice_color']['gradient-reach']['from'] ) . '%';
@@ -417,6 +417,8 @@ if ( ! is_admin() ) {
 				}
 			}
 		}
+
+		
 		?>
 	</style>
 	<?php

@@ -182,7 +182,22 @@ footer {
     .copyright {
         padding: 10px;
         background: $Secondary-color;
-
+        blockquote{
+            color: rgba(255,255,255,.5) !important;
+            margin: 0 !important;
+        }
+        ul li{
+            color: rgba(255,255,255,.5) !important;
+            margin: 0 !important;
+        }
+        ol li{
+            color: rgba(255,255,255,.5) !important;
+            margin: 0 !important;
+        }
+        a{
+            color: rgba(255,255,255,.5) !important;
+            margin: 0 !important;
+        }
         @media screen and (max-width:991px) {
             padding: 15px 0;
         }
