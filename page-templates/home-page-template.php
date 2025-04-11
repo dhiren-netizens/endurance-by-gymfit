@@ -229,12 +229,7 @@ $theme_option = get_option( 'redux_demo' );
 									<?php if ( isset( $theme_option['endurance_general_about_us_title'] ) && ! empty( $theme_option['endurance_general_about_us_title'] ) ) { ?>
 										<div class="title"><?php echo esc_html( $theme_option['endurance_general_about_us_title'] ); ?></div>
 										<?php
-<<<<<<< Updated upstream
 									} else {
-=======
-									} else 
-									{
->>>>>>> Stashed changes
 										?>
 										<div class="title">About Us</div>
 										<?php
@@ -250,7 +245,6 @@ $theme_option = get_option( 'redux_demo' );
 									if ( isset( $theme_option['endurance_general_gt_text'] ) && ! empty( $theme_option['endurance_general_gt_text'] ) ) {
 										?>
 										<a href="<?php echo esc_attr( $endurance_general_gt_link ); ?>" class="btn_wrapper mx-lg-0 mx-auto"><?php echo esc_html( $theme_option['endurance_general_gt_text'] ); ?></a>
-<<<<<<< Updated upstream
 										<?php
 									} else {
 										?>
@@ -258,13 +252,6 @@ $theme_option = get_option( 'redux_demo' );
 										<?php
 									}
 									?>
-=======
-									<?php } else {
-										?>
-										<a href="<?php echo esc_url( site_url() . '/about-us/' ); ?>" class="btn_wrapper mx-lg-0 mx-auto">Get Started</a>
-										<?php
-									} ?>
->>>>>>> Stashed changes
 								</div>
 							</div>
 						</div>
@@ -637,7 +624,6 @@ $theme_option = get_option( 'redux_demo' );
 						<div class="client-text wow fadeInRight">
 								<?php if ( isset( $theme_option['endurance_testimonial_heading'] ) && ! empty( $theme_option['endurance_testimonial_heading'] ) ) { ?>
 									<div class="title text-lg-start text-center"><?php echo esc_html( $theme_option['endurance_testimonial_heading'] ); ?></div>
-<<<<<<< Updated upstream
 									<?php
 								} else {
 									?>
@@ -645,13 +631,6 @@ $theme_option = get_option( 'redux_demo' );
 									<?php
 								}
 								?>
-=======
-								<?php } else { 
-									?>
-									<div class="title text-lg-start text-center"><?php echo esc_html__( 'Our Happy Client', 'endurance' ); ?></div>
-									<?php
-								}?>
->>>>>>> Stashed changes
 								<?php
 								$testimonials_posts = new WP_Query(
 									array(
