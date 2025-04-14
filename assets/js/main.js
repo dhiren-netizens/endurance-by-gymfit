@@ -496,4 +496,3 @@ $('#gallery-load-more').on('click', function(e) {
 13 - Gallery Page: LOAD MORE BUTTON JS
 =================================================================
 */
-

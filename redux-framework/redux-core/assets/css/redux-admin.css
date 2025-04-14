@@ -99,7 +99,7 @@
 
 .redux-container #redux-header .icon32 { float: right; margin: 16px 16px 0; }
 
-.redux-container #redux-footer { border-top: 1px solid #164d8f2e; z-index: 999; background-color:#164d8f2e !important;}
+.redux-container #redux-footer { border-top: 1px solid #164d8f2e; z-index: 999; background-color:#fff !important;}
 
 .redux-container #redux-footer #redux-share { float: left; line-height: 28px; font-size: 15px; }
 

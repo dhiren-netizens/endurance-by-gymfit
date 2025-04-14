@@ -123,3 +123,77 @@ jQuery(document).ready(function () {
     jQuery('#endurance_conatct_info_email_details-text-box2').attr('type', 'email');
     jQuery('#endurance_conatct_info_email_details-text-box4').attr('type', 'email');
 });
+
+
+
+
+function isValidURL(url) {
+    var pattern = new RegExp(
+        '^(https?:\\/\\/)?' + // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])?)\\.)+[a-z]{2,}|' + // domain name
+        'localhost|' + // localhost
+        '\\d{1,3}(\\.\\d{1,3}){3}|' + // IPv4
+        '\\[?[a-fA-F0-9]*:[a-fA-F0-9:]+\\]?)' + // IPv6
+        '(\\:\\d+)?' + // port
+        '(\\/[-a-z\\d%_.~+]*)*' + // path
+        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+        '(\\#[-a-z\\d_]*)?$', // fragment locator
+        'i'
+    );
+    return pattern.test(url);
+}
+
+function checkAllURLsAndToggleButton() {
+    var allValid = true;
+
+    jQuery('.redux-social-profiles-url-text').each(function () {
+        var url = jQuery(this).val();
+        if (url.trim() !== '' && !isValidURL(url)) {
+            allValid = false;
+            return false; // exit the loop
+        }
+    });
+
+    jQuery('#redux_bottom_save').prop('disabled', !allValid);
+}
+
+function validateSocialURLField(inputElement) {
+    var $input = jQuery(inputElement);
+    var url = $input.val().trim();
+    var $container = $input.closest('.redux-social-item-container');
+    var profileName = $container.find('.redux-social-profiles-item-name').text();
+
+    // Remove existing error message
+    $container.find('.error-message').remove();
+
+    // Basic URL validation
+    if (url !== '' && !isValidURL(url)) {
+        var errorMessage = `Please enter a valid URL for ${profileName}.`;
+        $input.after(
+            `<span class="error-message" style="color:red; font-size:12px; margin-left:10px;">${errorMessage}</span>`
+        );
+    }
+
+    // Update button state
+    checkAllURLsAndToggleButton();
+
+    // console.log("Validated:", profileName, url);
+}
+
+jQuery(document).ready(function () {
+    // Set input types if not already set
+    jQuery('.redux-social-profiles-url-text').attr('type', 'url');
+
+    // Initial validation on page load
+    jQuery('.redux-social-profiles-url-text').each(function () {
+        validateSocialURLField(this);
+    });
+
+    // Validate on input
+    jQuery('.redux-social-profiles-url-text').on('input', function () {
+        validateSocialURLField(this);
+    });
+
+    checkAllURLsAndToggleButton(); // Ensure button state is correct on load
+});
+

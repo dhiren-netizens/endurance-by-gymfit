@@ -192,3 +192,19 @@ input:-webkit-autofill {
     box-shadow: 0 0 0 1000px #f7f4f4 inset !important;
     -webkit-text-fill-color: $Secondary-color;
 }
+.page-template-404-page-template .page, .page-template-coming-soon-page-template .page{
+    height: 100vh;
+}
+.page-template-404-page-template .main_wrapper, .page-template-coming-soon-page-template .main_wrapper{
+    height: calc(100vh - 200px);
+}
+@media screen and (max-width: 1399px) {
+    .page-template-404-page-template .main_wrapper, .page-template-coming-soon-page-template .main_wrapper{
+        height: calc(100vh - 175px);
+    }
+}
+@media screen and (max-width: 575px) {
+    .page-template-404-page-template .main_wrapper, .page-template-coming-soon-page-template .main_wrapper{
+        height: calc(100vh - 147px);
+    }
+}

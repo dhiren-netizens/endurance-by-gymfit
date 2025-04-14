@@ -408,6 +408,7 @@ Redux::set_section(
 					'url' => get_template_directory_uri() . '/assets/images/icon/visa-card.svg',
 				),
 			),
+
 			array(
 				'id'              => 'endurance_social_profiles',
 				'type'            => 'social_profiles',

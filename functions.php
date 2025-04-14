@@ -128,6 +128,15 @@ function endurance_by_gymfit_widgets_init() {
 }
 add_action( 'widgets_init', 'endurance_by_gymfit_widgets_init' );
 
+// Function to validate URLs
+function validate_url($url) {
+    // Check if the URL is valid
+    if (empty($url) || filter_var($url, FILTER_VALIDATE_URL) === false) {
+        return esc_html__('Please enter a valid URL.', 'endurance');
+    }
+    return true; // Return true if the URL is valid
+}
+
 /** Custom Sidebar on single Blog Page */
 
 class Custom_sidebar extends WP_Widget {

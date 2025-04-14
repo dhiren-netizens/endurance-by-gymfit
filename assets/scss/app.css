@@ -2801,6 +2801,14 @@ CLIENT SECTION END'S FROM HERE
 BLOG SECTION END'S FROM HERE
 ============================================
 */
+@media screen and (max-width: 768px) {
+  .blog-section .blog-post .col-md-8 {
+   width: 100% !important;
+  }
+  .blog-section .blog-post .col-md-4{
+    width: 100% !important;
+  }
+}
 @media screen and (max-width: 575px) {
   .blog-section .blog-wrapper .blog-block {
     display: block;
