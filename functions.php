@@ -741,7 +741,7 @@ function my_after_switch_theme() {
 					'Annually'  => array( 'price' => 99.99 ),
 				);
 				$features_data_arr = array(
-					'ultimate' => array(
+					$post_id => array(
 						'features' => array(
 							'Workouts'                    => 1,
 							'Progress Tracking'           => 1,
@@ -762,7 +762,7 @@ function my_after_switch_theme() {
 					'Annually'  => array( 'price' => 49.99 ),
 				);
 				$features_data_arr = array(
-					'pro' => array(
+					$post_id => array(
 						'features' => array(
 							'Workouts'                    => 1,
 							'Progress Tracking'           => 1,
@@ -781,7 +781,7 @@ function my_after_switch_theme() {
 					'Annually'  => array( 'price' => '-' ),
 				);
 				$features_data_arr = array(
-					'free' => array(
+					$post_id => array(
 						'features' => array(
 							'Workouts' => 1,
 						),
@@ -796,7 +796,7 @@ function my_after_switch_theme() {
 					'Annually'  => array( 'price' => 39.99 ),
 				);
 				$features_data_arr = array(
-					'basic' => array(
+					$post_id => array(
 						'features' => array(
 							'Workouts'             => 1,
 							'Progress Tracking'    => 1,
@@ -1188,12 +1188,12 @@ function display_pricing_plan_meta_box( $post ) {
 				'Bonus Workshops/Seminars'    => 1,
 				'Personalized Support'        => 1,
 			);
-			$features         = $pricing_plan_features_data[ $post->post_name ]['features'] ?? $default_features;
+			$features         = $pricing_plan_features_data[ $post->ID ]['features'] ?? $default_features;
 			foreach ( $features as $feature => $checked ) :
 				?>
 				<div class="feature-item">
 					<label>
-						<input type="checkbox" name="endurance_pricing_plan_features[<?php echo esc_attr( $post->post_name ); ?>][features][<?php echo esc_attr( $feature ); ?>]" <?php checked( $checked, true ); ?>>
+						<input type="checkbox" name="endurance_pricing_plan_features[<?php echo esc_attr( $post->ID ); ?>][features][<?php echo esc_attr( $feature ); ?>]" <?php checked( $checked, true ); ?>>
 						<?php echo esc_html( ucwords( str_replace( '_', ' ', $feature ) ) ); ?>
 					</label>
 				</div>
@@ -1201,8 +1201,8 @@ function display_pricing_plan_meta_box( $post ) {
 		</div>
 		<br>
 		<label>Add New Feature:</label>
-		<input type="text" class="add-new-feature-input" data-plan="<?php echo esc_attr( $post->post_name ); ?>" placeholder="Enter feature name">
-		<button type="button" class="add-feature-btn" data-plan="<?php echo esc_attr( $post->post_name ); ?>">Add</button>
+		<input type="text" class="add-new-feature-input" data-plan="<?php echo esc_attr( $post->ID ); ?>" placeholder="Enter feature name">
+		<button type="button" class="button add-feature-btn" data-plan="<?php echo esc_attr( $post->ID ); ?>">Add</button>
 	</div>
 
 	<div class="accordion">
@@ -1276,7 +1276,7 @@ function save_pricing_plan_meta_box_data( $post_id ) {
 			$features_data = $default_features;
 
 			// Fetch existing features from post meta.
-			$existing_features = get_post_meta( $post_id, 'endurance_pricing_plan_features', true );
+			$existing_features = $pricing_plan_features_data[ $post_id ]['features'] ?? array();
 			if ( ! empty( $existing_features ) && is_array( $existing_features ) ) {
 				$features_data = array_merge( $features_data, $existing_features ); // Preserve previous features.
 			}
@@ -1300,11 +1300,13 @@ function save_pricing_plan_meta_box_data( $post_id ) {
 				}
 			}
 
-			// Save the updated features data.
-			update_post_meta( $post_id, 'endurance_pricing_plan_features', $features_data );
+			// Avoid nested 'features' key in the array.
+			if ( isset( $features_data['features'] ) && is_array( $features_data['features'] ) ) {
+				unset( $features_data['features'] );
+			}
 
-			// Prepare data for pricing plan storage.
-			$pricing_plan_features_data[ strtolower( get_the_title( $post_id ) ) ] = array(
+			// Save the updated features data.
+			$pricing_plan_features_data[ $post_id ] = array(
 				'features' => $features_data,
 			);
 		}

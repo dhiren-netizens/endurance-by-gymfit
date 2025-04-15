@@ -431,9 +431,10 @@ $theme_option = get_option( 'redux_demo' );
 										$pricing_plans->the_post();
 										$get_plan_periods = get_post_meta( get_the_ID(), 'endurance_pricing_plan_period', true );
 										$post_title_arr[] = get_the_title();
+										$post_id_arr[] = get_the_ID();
 
 										$get_plan_prices                   = get_post_meta( get_the_ID(), 'endurance_pricing_plan_price', true );
-										$get_plan_price[ get_the_title() ] = $get_plan_prices;
+										$get_plan_price[ get_the_ID() ] = $get_plan_prices;
 
 										foreach ( $get_plan_periods as $get_plan_period ) {
 											if ( ! in_array( $get_plan_period, $display_plan_period ) ) {
@@ -469,15 +470,15 @@ $theme_option = get_option( 'redux_demo' );
 							<div class="tab-pane fade" id="pills-<?php echo esc_html( $display_period ); ?>" role="tabpanel" aria-labelledby="pills-<?php echo esc_html( $display_period ); ?>-tab" tabindex="0">
 								<div class="swiper pricingSwiper">
 									<div class="swiper-wrapper">
-										<?php foreach ( $post_title_arr as $display_title ) { ?>
+										<?php foreach ( $post_id_arr as $display_id ) { ?>
 										<div class="swiper-slide">
 											<div class="pricingtable-inner">
-												<div class="pricingtable-title"><?php echo esc_html( $display_title ); ?></div>
+												<div class="pricingtable-title"><?php echo esc_html( get_the_title( $display_id ) ); ?></div>
 												<div class="pricingtable-price">
-													<?php if ( 'Free' == $display_title ) { ?>
+													<?php if ( 'Free' == get_the_title( $display_id ) ) { ?>
 														<h2>$0 <small></small></h2>
 													<?php } else { ?>
-														<h2>$<?php echo esc_html( $get_plan_price[ $display_title ][ ucwords( $display_period ) ]['price'] ); ?><small>/ <?php echo esc_html( $display_period ); ?></small></h2>
+														<h2>$<?php echo esc_html( $get_plan_price[ $display_id ][ ucwords( $display_period ) ]['price'] ); ?><small>/ <?php echo esc_html( $display_period ); ?></small></h2>
 													<?php } ?>
 												</div>
 												<ul class="pricingtable-features">
@@ -489,7 +490,7 @@ $theme_option = get_option( 'redux_demo' );
 														}
 													}
 													foreach ( $display_plan_features as $display_features ) {
-														$plan_features_keys = array_keys( $plan_features_arr[ strtolower( $display_title ) ] );
+														$plan_features_keys = array_keys( $plan_features_arr[ $display_id ] );
 														if ( isset( $theme_option['endurance_pricing_plan_features_available_image']['url'] ) && ! empty( $theme_option['endurance_pricing_plan_features_available_image']['url'] ) ) {
 															$features_available_img = $theme_option['endurance_pricing_plan_features_available_image']['url'];
 														} else {

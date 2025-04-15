@@ -42,7 +42,7 @@ if ( ! is_admin() ) {
 		}
 		.success-section .success-wrapper .success-box.first-box {
 			<?php if ( isset( $theme_option['endurance_gear_up_learn_color'] ) && ! empty( $theme_option['endurance_gear_up_learn_color'] ) && is_array( $theme_option['endurance_gear_up_learn_color'] ) ) { ?>
-				background: linear-gradient(<?php echo esc_attr( $theme_option['endurance_endurance_gear_up_learn_colormarquee_notice_color']['gradient-angle'] ) . 'deg'; ?>, 
+				background: linear-gradient(<?php echo esc_attr( $theme_option['endurance_gear_up_learn_color']['gradient-angle'] ) . 'deg'; ?>, 
 				<?php
 				echo esc_attr( $theme_option['endurance_gear_up_learn_color']['from'] ) . ' ';
 				echo esc_attr( $theme_option['endurance_gear_up_learn_color']['gradient-reach']['from'] ) . '%';
