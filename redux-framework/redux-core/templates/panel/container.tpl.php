@@ -51,5 +51,5 @@ $this->parent->options['last_tab'] = ( isset( $_GET['tab'] ) && ! isset( $this->
 	</div>
 
 <?php if ( isset( $this->parent->args['footer_text'] ) ) { ?>
-	<div id="redux-sub-footer"><?php echo wp_kses_post( $this->parent->args['footer_text'] ); ?></div>
+	<div id="redux-sub-footer"><?php //echo wp_kses_post( $this->parent->args['footer_text'] ); ?></div>
 <?php } ?>

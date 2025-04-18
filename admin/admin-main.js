@@ -23,7 +23,7 @@ jQuery(document).ready(function () {
                             <div class="accordion-item-body-content">
                                 <div class="endurance_pricing_plan_price">
                                     <label>Price: </label>
-                                    <input type="number" name="endurance_pricing_plan_price[${data}][price]" class="endurance_pricing_plan_price_input" required>
+                                    <input type="number" name="endurance_pricing_plan_price[${data}][price]" class="endurance_pricing_plan_price_input" required step="0.01">
                                     / ${data} <br><br>
                                 </div>
                             </div>

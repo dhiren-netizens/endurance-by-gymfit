@@ -30,6 +30,10 @@ if ( ! class_exists( 'Redux_Gallery', false ) ) {
 		public function render() {
 			echo '<div class="screenshot">';
 
+			if( empty( $this->value ) ) {
+				$this->value = $this->field['default'];
+			}
+
 			if ( ! empty( $this->value ) ) {
 				$ids = explode( ',', $this->value );
 

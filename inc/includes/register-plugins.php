@@ -51,16 +51,12 @@ function endurance_register_required_plugins() {
 			'name'               => __( 'Contact Form 7', 'endurance' ),
 			'slug'               => 'contact-form-7',
 			'required'           => true,
-			'force_activation'   => true,
-			'force_deactivation' => true,
 			'image_url'          => get_template_directory_uri() . '/admin/images/contactform7.png',
 		),
 		array(
 			'name'               => __( 'Wordfence Security', 'endurance' ),
-			'slug'               => 'wordfence-security',
+			'slug'               => 'wordfence',
 			'required'           => true,
-			'force_activation'   => true,
-			'force_deactivation' => true,
 			'image_url'          => get_template_directory_uri() . '/admin/images/wordfence security.png',
 		),
 	);

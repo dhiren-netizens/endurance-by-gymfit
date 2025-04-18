@@ -104,13 +104,14 @@ $count = 1;
 								<?php ++$count; ?>
 							<?php endwhile; ?>
 						</div>
+						<?php if( isset( $blog_posts->found_posts ) && $blog_posts->found_posts > 3 ) { ?>
+							<a href="#" class="btn_wrapper mt-sm-5 mt-4 mx-auto" id="load-more">Load more</a>
+						<?php } ?>
 					<?php else : ?>
 						<p class="no-blog-posts">
 							<?php esc_html_e( 'We couldn\'t find any posts that match your criteria.', 'endurance' ); ?> 
 						</p>
-					<?php endif; wp_reset_postdata(); ?>
-					
-					<a href="#" class="btn_wrapper mt-sm-5 mt-4 mx-auto" id="load-more">Load more</a>
+						<?php endif; wp_reset_postdata(); ?>
 				</div>
 			</div>
 		</div>

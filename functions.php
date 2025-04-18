@@ -124,27 +124,27 @@ function endurance_by_gymfit_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
-	register_widget( 'Custom_sidebar' );
+	register_widget( 'Blog_Widget' );
 }
 add_action( 'widgets_init', 'endurance_by_gymfit_widgets_init' );
 
-// Function to validate URLs
-function validate_url($url) {
-    // Check if the URL is valid
-    if (empty($url) || filter_var($url, FILTER_VALIDATE_URL) === false) {
-        return esc_html__('Please enter a valid URL.', 'endurance');
-    }
-    return true; // Return true if the URL is valid
+/**
+ * Function to validate URLs.
+ * @param string $url The URL to validate.
+ */
+function validate_url( $url ) {
+	if ( empty( $url ) || filter_var( $url, FILTER_VALIDATE_URL ) === false ) {
+		return esc_html__( 'Please enter a valid URL.', 'endurance' );
+	}
+	return true;
 }
 
-/** Custom Sidebar on single Blog Page */
-
-class Custom_sidebar extends WP_Widget {
+class Blog_Widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
-			'custom_sidebar',
-			__( 'Custom Sidebar', 'endurance-by-gymfit' ),
-			array( 'description' => __( 'A Custom Widget to display Categories, Tags, Search, and Related Posts', 'endurance-by-gymfit' ) ) // Args
+			'blog_widget',
+			__( 'Blog Widget', 'endurance-by-gymfit' ),
+			array( 'description' => __( 'A Blog Widget to display Categories, Tags, Search, and Related Posts', 'endurance-by-gymfit' ) ) // Args
 		);
 	}
 
@@ -183,10 +183,10 @@ class Custom_sidebar extends WP_Widget {
         <div class="form-group mb-0 post-search">
 		<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
                 <label>
-                    <span class="screen-reader-text">' . _x( 'Search for:', 'label', 'text_domain' ) . '</span>
+                    <span class="screen-reader-text">' . _x( 'Search for:', 'label', 'endurance-by-gymfit' ) . '</span>
                     <input type="search" class="search-field" placeholder="Search …" value="' . get_search_query() . '" name="s" />
                 </label>
-                <input type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'text_domain' ) . '" />
+                <input type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'endurance-by-gymfit' ) . '" />
         </form></div></div></div></div>';
 
 		// Related Posts based on selected Categories.
@@ -231,7 +231,7 @@ class Custom_sidebar extends WP_Widget {
 	// Widget form in the admin dashboard.
 	public function form( $instance ) {
 
-		$title               = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Sidebar', 'text_domain' );
+		$title               = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Sidebar', 'endurance-by-gymfit' );
 		$selected_categories = ! empty( $instance['categories'] ) ? $instance['categories'] : array();
 		$selected_tags       = ! empty( $instance['tags'] ) ? $instance['tags'] : array();
 
@@ -505,7 +505,7 @@ function my_after_switch_theme() {
 			'template' => 'page-templates/contact-us-page-template.php',
 		),
 		array(
-			'slug'     => '404',
+			'slug'     => '404-page',
 			'title'    => '404',
 			'template' => 'page-templates/404-page-template.php',
 		),
@@ -830,7 +830,7 @@ function my_after_switch_theme() {
 			'Pages'      => '#',
 		);
 		$primary_menu_items['Pages'] = array(
-			'404'         => '404',
+			'404'         => '404-page',
 			'Coming Soon' => 'coming-soon',
 			'Sitemap'     => 'sitemap',
 		);
@@ -849,7 +849,7 @@ function my_after_switch_theme() {
 			'Pages'      => '#',
 		);
 		$sitemap_menu_items['Pages'] = array(
-			'404'         => '404',
+			'404'         => '404-page',
 			'Coming Soon' => 'coming-soon',
 			'Sitemap'     => 'sitemap',
 		);
@@ -926,11 +926,240 @@ function my_after_switch_theme() {
 
 			wp_update_attachment_metadata( $attachment_id, $attach_data );
 			$attachment_ids[] = $attachment_id;
-			update_option( 'endurance_gallery_images', $attachment_ids );
 		}
+	}
+	update_option( 'endurance_gallery_images', implode( ',', $attachment_ids ) );
+
+	global $wp_registered_sidebars;
+
+	if ( ! empty( $wp_registered_sidebars ) ) {
+		foreach ( $wp_registered_sidebars as $sidebar_id => $sidebar ) {
+			$widgets = get_option( 'sidebars_widgets' );
+
+			if ( isset( $widgets[ $sidebar_id ] ) && is_array( $widgets[ $sidebar_id ] ) ) {
+				$widgets[ $sidebar_id ] = array();
+			}
+
+			update_option( 'sidebars_widgets', $widgets );
+		}
+	}
+
+	$sidebar_to_add_to = 'sidebar-1';
+
+	if ( isset( $wp_registered_sidebars[ $sidebar_to_add_to ] ) ) {
+		$widgets = get_option( 'sidebars_widgets' );
+
+		$widget_id_base  = 'blog_widget';
+		$widget_id       = next_widget_id_base( $widget_id_base );
+		$widget_settings = array(
+			'title' => 'Blog Widget',
+		);
+
+		$widget_instances               = get_option( 'widget_' . $widget_id_base, array() );
+		$widget_instances[ $widget_id ] = $widget_settings;
+		update_option( 'widget_' . $widget_id_base, $widget_instances );
+		$widgets[ $sidebar_to_add_to ][] = $widget_id_base . '-' . $widget_id;
+		update_option( 'sidebars_widgets', $widgets );
+	}
+
+	/**
+	 * Contact Us Page Form
+	 */
+	$new_form_id  = 0;
+	$form_title   = 'Contact Us Page';
+	$form_content = '<div class="row">
+	<div class="col-lg-6">
+	<div class="form-group">
+	[text* firstname class:user-input placeholder "FIRST NAME"]
+	</div>
+	</div>
+	<div class="col-lg-6">
+	<div class="form-group">
+	[text* lastname class:user-input placeholder "LAST NAME"]
+	</div>
+	</div>
+	<div class="col-12">
+	<div class="form-group">
+	[email* email class:user-input placeholder "E-MAIL"]
+	</div>
+	</div>
+	<div class="col-12">
+	<div class="form-group">
+	[tel* telno class:user-input minlength:8 maxlength:12 placeholder "PHONE NO."]
+	</div>
+	</div>
+	<div class="col-12">
+	<div class="form-group">
+	[select* select class:nice-select class:user-input "SELECT SUBJECT" "AEROBIC EXERCISE" "BODYBUILDING" "PHYSICAL EXERCISE"]
+	</select>
+	</div>
+	</div>
+	<div class="col-12">
+	<div class="form-group">
+	[textarea message class:user-input placeholder "WRITE YOUR CONCERN"][/textarea]
+	</div>
+	</div>
+	[submit class:btn_wrapper class:w-100 class:justify-content-center "CONTACT US"]';
+
+	$form = get_posts(
+		array(
+			'post_type'   => 'wpcf7_contact_form',
+			'title'       => $form_title,
+			'post_status' => 'publish',
+			'numberposts' => 1,
+			'orderby'     => 'date',
+			'order'       => 'ASC',
+			'fields'      => 'ids',
+		)
+	);
+
+	if ( empty( $form ) ) {
+		$new_form_id = wp_insert_post(
+			array(
+				'post_type'    => 'wpcf7_contact_form',
+				'post_title'   => $form_title,
+				'post_content' => $form_content,
+				'post_status'  => 'publish',
+				'post_author'  => 1,
+			)
+		);
+	}
+
+	if ( ! is_wp_error( $new_form_id ) ) {
+		update_post_meta( $new_form_id, '_form', $form_content );
+		// You can optionally add mail settings as well.
+	} else {
+		error_log( 'Error creating Contact Form 7 form: ' . $new_form_id->get_error_message() );
+	}
+
+	if ( ! is_wp_error( $new_form_id ) ) {
+		update_post_meta( $new_form_id, '_form', $form_content );
+
+		$default_admin_mail = array(
+			'subject'            => 'New Contact Inquiry',
+			'sender'             => get_option( 'admin_email' ),
+			'body'               => "Contact Details:\n\n Full Name: [firstname] [lastname]\n Email: [email]\n Contact No.:[telno]\n Subject:[select]\n Message:[message]\n",
+			'recipient'          => get_option( 'admin_email' ),
+			'additional_headers' => '',
+			'attachments'        => '',
+			'use_html'           => false,
+			'exclude_blank'      => true,
+		);
+
+		update_post_meta( $new_form_id, '_mail', $default_admin_mail );
+
+		$default_user_mail = array(
+			'subject'            => 'Thank You for Contacting Us',
+			'sender'             => get_option( 'admin_email' ),
+			'body'               => "We have received your inquiry and will get back to you shortly.\n\n Thank you for reaching out to us!",
+			'recipient'          => '[email]',
+			'additional_headers' => '',
+			'attachments'        => '',
+			'use_html'           => false,
+			'exclude_blank'      => true,
+		);
+
+		update_post_meta( $new_form_id, '_mail_2', $default_user_mail );
+
+	}
+
+	/**
+	 * Join Waiting List Form
+	 */
+	$form_title   = 'Join Waiting List';
+	$form_content = '<div class="form-group">
+	[email* your-email autocomplete:email class:user-input placeholder "Enter E-Mail"]	
+	[submit class:image-wrapper]
+	</div>';
+
+	$form = get_posts(
+		array(
+			'post_type'   => 'wpcf7_contact_form',
+			'title'       => $form_title,
+			'post_status' => 'publish',
+			'numberposts' => 1,
+			'orderby'     => 'date',
+			'order'       => 'ASC',
+			'fields'      => 'ids',
+		)
+	);
+
+	if ( empty( $form ) ) {
+		$new_form_id = wp_insert_post(
+			array(
+				'post_type'    => 'wpcf7_contact_form',
+				'post_title'   => $form_title,
+				'post_content' => $form_content,
+				'post_status'  => 'publish',
+				'post_author'  => 1,
+			)
+		);
+	}
+
+	if ( ! is_wp_error( $new_form_id ) ) {
+		update_post_meta( $new_form_id, '_form', $form_content );
+	} else {
+		error_log( 'Error creating Contact Form 7 form: ' . $new_form_id->get_error_message() );
+	}
+
+	if ( ! is_wp_error( $new_form_id ) ) {
+		update_post_meta( $new_form_id, '_form', $form_content );
+
+		$default_admin_mail = array(
+			'subject'            => 'New Inquiry',
+			'sender'             => get_option( 'admin_email' ),
+			'body'               => "A new user has joined the waiting list:\n\n Email: [your-email]\n\n Please take appropriate action.",
+			'recipient'          => '[your-email]',
+			'additional_headers' => '',
+			'attachments'        => '',
+			'use_html'           => false,
+			'exclude_blank'      => true,
+		);
+
+		update_post_meta( $new_form_id, '_mail', $default_admin_mail );
+
+		$default_user_mail = array(
+			'subject'            => 'Thank you for joining our waiting list.',
+			'sender'             => get_option( 'admin_email' ),
+			'body'               => "We’ve received your request & notify you as soon as a spot becomes available or when we have updates. \n\nIf you have any questions in the meantime, feel free to reply to this email.",
+			'recipient'          => '[your-email]',
+			'additional_headers' => '',
+			'attachments'        => '',
+			'use_html'           => false,
+			'exclude_blank'      => true,
+		);
+
+		update_post_meta( $new_form_id, '_mail_2', $default_user_mail );
+		update_post_meta( $new_form_id, '_mail_active_2', $default_user_mail );
 	}
 }
 add_action( 'after_switch_theme', 'my_after_switch_theme' );
+
+if ( ! function_exists( 'next_widget_id_base' ) ) {
+	/**
+	 * Helper function to generate the next available widget ID.
+	 * @param string $id_base The base ID of the widget.
+	 * 
+	 */
+	function next_widget_id_base( $id_base ) {
+		global $wp_registered_widgets;
+
+		if ( ! is_array( $wp_registered_widgets ) ) {
+			$wp_registered_widgets = array();
+		}
+
+		$i     = 1;
+		$found = false;
+		while ( ! $found ) {
+			$id = $id_base . '-' . $i;
+			if ( ! isset( $wp_registered_widgets[ $id ] ) ) {
+				$found = true;
+			}
+			++$i;
+		}
+		return $i - 1;
+	}
+}
 
 /**
  * Add Menu.
@@ -1039,7 +1268,7 @@ function endurance_custom_post_types() {
 		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
 		'menu_icon'           => 'dashicons-groups',
 		'hierarchical'        => true,
-		'public'              => true,
+		'public'              => false,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
@@ -1048,7 +1277,7 @@ function endurance_custom_post_types() {
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => false,
-		'publicly_queryable'  => true,
+		'publicly_queryable'  => false,
 		'capability_type'     => 'post',
 		'show_in_rest'        => true,
 
@@ -1080,7 +1309,7 @@ function endurance_custom_post_types() {
 		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
 		'menu_icon'           => 'dashicons-money-alt',
 		'hierarchical'        => true,
-		'public'              => true,
+		'public'              => false,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
@@ -1089,7 +1318,7 @@ function endurance_custom_post_types() {
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => false,
-		'publicly_queryable'  => true,
+		'publicly_queryable'  => false,
 		'capability_type'     => 'post',
 		'show_in_rest'        => true,
 
@@ -1121,7 +1350,7 @@ function endurance_custom_post_types() {
 		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
 		'menu_icon'           => 'dashicons-testimonial',
 		'hierarchical'        => true,
-		'public'              => true,
+		'public'              => false,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
@@ -1130,7 +1359,7 @@ function endurance_custom_post_types() {
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => false,
-		'publicly_queryable'  => true,
+		'publicly_queryable'  => false,
 		'capability_type'     => 'post',
 		'show_in_rest'        => true,
 
@@ -1157,9 +1386,9 @@ add_action( 'add_meta_boxes', 'pricing_plan_meta_box' );
 function display_pricing_plan_meta_box( $post ) {
 	wp_nonce_field( 'pricing_plan_nonce_action', 'pricing_plan_nonce' );
 
-	$selected_plans             = get_post_meta( $post->ID, 'endurance_pricing_plan_period', true ) ?: array();
-	$pricing_plan_data          = get_post_meta( $post->ID, 'endurance_pricing_plan_price', true ) ?: array();
-	$pricing_plan_features_data = get_post_meta( $post->ID, 'endurance_pricing_plan_features', true ) ?: array();
+	$selected_plans             = get_post_meta( $post->ID, 'endurance_pricing_plan_period', true ) ? get_post_meta( $post->ID, 'endurance_pricing_plan_period', true ) : array();
+	$pricing_plan_data          = get_post_meta( $post->ID, 'endurance_pricing_plan_price', true ) ? get_post_meta( $post->ID, 'endurance_pricing_plan_price', true ) : array();
+	$pricing_plan_features_data = get_post_meta( $post->ID, 'endurance_pricing_plan_features', true ) ? get_post_meta( $post->ID, 'endurance_pricing_plan_features', true ) : array();
 
 	?>
 	<div class="endurance_pricing_plan_period_div">
@@ -1215,7 +1444,7 @@ function display_pricing_plan_meta_box( $post ) {
 				<div class="accordion-item-body">
 					<div class="accordion-item-body-content">
 						<label>Price:</label>
-						<input type="number" name="endurance_pricing_plan_price[<?php echo esc_attr( $plan ); ?>][price]" value="<?php echo esc_attr( $pricing_plan_data[ $plan ]['price'] ?? '' ); ?>" min="0" required> / <?php echo esc_attr( $plan ); ?>
+						<input type="number" name="endurance_pricing_plan_price[<?php echo esc_attr( $plan ); ?>][price]" value="<?php echo esc_attr( $pricing_plan_data[ $plan ]['price'] ?? '' ); ?>" min="0" required step="0.01"> / <?php echo esc_attr( $plan ); ?>
 					</div>
 				</div>
 			</div>
@@ -1272,20 +1501,15 @@ function save_pricing_plan_meta_box_data( $post_id ) {
 		}
 
 		foreach ( $endurance_pricing_plan_features as $plan => $data ) {
-			// Start with the default features.
-			$features_data = $default_features;
-
-			// Fetch existing features from post meta.
-			$existing_features = $pricing_plan_features_data[ $post_id ]['features'] ?? array();
-			if ( ! empty( $existing_features ) && is_array( $existing_features ) ) {
-				$features_data = array_merge( $features_data, $existing_features ); // Preserve previous features.
-			}
+			// Start with saved features, fallback to defaults.
+			$features_data = get_post_meta( $post_id, 'endurance_pricing_plan_features', true );
+			$features_data = isset( $features_data[ $post_id ]['features'] ) ? $features_data[ $post_id ]['features'] : $default_features;
 
 			// Add new checked features from the submitted data.
 			if ( isset( $data['features'] ) && is_array( $data['features'] ) ) {
 				foreach ( $data['features'] as $feature => $checked ) {
 					if ( $checked ) {
-						$features_data[ $feature ] = 1; // Ensure checked features are set.
+						$features_data[ $feature ] = 1;
 					}
 				}
 			}
@@ -1295,17 +1519,13 @@ function save_pricing_plan_meta_box_data( $post_id ) {
 				$removed_features = json_decode( stripslashes( $data['removed_features'] ), true );
 				if ( is_array( $removed_features ) ) {
 					foreach ( $removed_features as $removed_feature ) {
-						unset( $features_data[ $removed_feature ] ); // Remove feature.
+						unset( $features_data[ $removed_feature ] );
 					}
 				}
 			}
 
-			// Avoid nested 'features' key in the array.
-			if ( isset( $features_data['features'] ) && is_array( $features_data['features'] ) ) {
-				unset( $features_data['features'] );
-			}
+			unset( $features_data['features'] ); // Cleanup if exists.
 
-			// Save the updated features data.
 			$pricing_plan_features_data[ $post_id ] = array(
 				'features' => $features_data,
 			);
@@ -1386,7 +1606,6 @@ function endurance_allowed_tags() {
 		),
 		'strike'     => array(),
 		'strong'     => array(),
-		'em'         => array(),
 		'ins'        => array(),
 		'ul'         => array(
 			'class' => array(),
@@ -1396,3 +1615,13 @@ function endurance_allowed_tags() {
 	return $allowed_tags;
 }
 
+add_filter(
+	'admin_footer_text',
+	function ( $footer_text ) {
+		$current_page = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
+		if ( 'redux_demo' == $current_page ) {
+			$footer_text = 'Enjoyed <strong>Endurance Theme</strong>? Please leave us a <a href="https://netizenstechnologies.com" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. We really appreciate your support!';
+		}
+		echo '<span id="footer-thankyou">' . wp_kses( $footer_text, endurance_allowed_tags() ) . '</span>';
+	}
+);

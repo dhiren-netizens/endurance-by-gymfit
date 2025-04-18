@@ -117,7 +117,7 @@ if ( ! class_exists( 'Redux_Panel', false ) ) {
 			echo '</div>';
 
 			if ( true === $this->parent->args['dev_mode'] ) {
-				echo '<br /><div class="redux-timer">' . esc_html( get_num_queries() ) . ' queries in ' . esc_html( timer_stop() ) . ' seconds<br/>Redux is currently set to developer mode.</div>';
+				//echo '<br /><div class="redux-timer">' . esc_html( get_num_queries() ) . ' queries in ' . esc_html( timer_stop() ) . ' seconds<br/>Redux is currently set to developer mode.</div>';
 			}
 
 			/**

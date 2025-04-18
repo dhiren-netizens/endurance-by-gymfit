@@ -55,3 +55,6 @@ div#endurance_coming_soon_date_time label.redux-datetime-input-label {
 div#endurance_coming_soon_date_time .redux-datetime-input.single_wrapper {
     height: auto;
 }
+.redux-main .redux_field_search {
+    display: none;
+}

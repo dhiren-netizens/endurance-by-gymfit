@@ -266,7 +266,7 @@ if ( ! class_exists( 'Redux_Args', false ) ) {
 					'<strong>' . __( 'Redux', 'redux-framework' ) . '</strong>',
 					'<a href="https://wordpress.org/support/plugin/redux-framework/reviews/?filter=5/#new-post" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
 				);
-				$args['footer_credit'] = '<span id="footer-thankyou">' . $footer_text . '</span>';
+				$args['footer_credit'] = '<span id="footer-thankyou"></span>';
 			}
 
 			if ( empty( $args['menu_title'] ) ) {

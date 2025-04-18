@@ -960,6 +960,7 @@ Redux::set_section(
 				'default'        => array(
 					'from'           => '#16cc3e',
 					'to'             => '#049023',
+					'gradient-angle' => '180',
 					'gradient-reach' => array(
 						'to'   => 100,
 						'from' => 0,
@@ -1008,9 +1009,10 @@ Redux::set_section(
 				'default'        => array(
 					'from'           => '#05f6f933',
 					'to'             => '#f907fc33',
+					'gradient-angle' => '180',
 					'gradient-reach' => array(
 						'to'   => 100,
-						'from' => 0,
+						'from' => -80,
 					),
 				),
 			),
@@ -1026,6 +1028,7 @@ Redux::set_section(
 				'default'        => array(
 					'from'           => '#05f6f9',
 					'to'             => '#f907fc',
+					'gradient-angle' => '180',
 					'gradient-reach' => array(
 						'to'   => 100,
 						'from' => -80,
@@ -1075,6 +1078,7 @@ Redux::set_section(
 				'default'        => array(
 					'from'           => '#16cc3e33',
 					'to'             => '#04902333',
+					'gradient-angle' => '180',
 					'gradient-reach' => array(
 						'to'   => 100,
 						'from' => 0,
@@ -1092,6 +1096,7 @@ Redux::set_section(
 				'default'        => array(
 					'from'           => '#16cc3e',
 					'to'             => '#049023',
+					'gradient-angle' => '180',
 					'gradient-reach' => array(
 						'to'   => 100,
 						'from' => -80,
@@ -1147,6 +1152,7 @@ Redux::set_section(
 				'default'        => array(
 					'from'           => '#05f6f9',
 					'to'             => '#f907fc',
+					'gradient-angle' => '180',
 					'gradient-reach' => array(
 						'to'   => 100,
 						'from' => -80,
@@ -1689,13 +1695,7 @@ Redux::set_section(
 );
 
 // Gallery Page Settings.
-$gallery_images_ids = get_option( 'endurance_gallery_images' );
-if ( is_array( $gallery_images_ids ) && ! empty( $gallery_images_ids ) ) {
-	$gallery_images_ids = implode( ',', $gallery_images_ids );
-} else {
-	$gallery_images_ids = '';
-}
-$gallery_images = $gallery_images_ids;
+$gallery_images  = trim( get_option( 'endurance_gallery_images' ) );
 Redux::set_section(
 	$opt_name,
 	array(
@@ -1708,7 +1708,6 @@ Redux::set_section(
 				'id'      => 'endurance_gallery_images',
 				'type'    => 'gallery',
 				'title'   => esc_html__( 'Add/Edit Gallery Images', 'endurance' ),
-				'desc'    => esc_html__( 'Upload Images', 'endurance' ),
 				'desc'    => wp_kses( '<strong>Recommended Size: 424 x 424 px</strong>', endurance_allowed_tags() ),
 				'default' => $gallery_images,
 			),
@@ -1777,11 +1776,11 @@ Redux::set_section(
 				'default' => 'Call Us',
 			),
 			array(
-				'id'         => 'sc-contct-form',
+				'id'         => 'sc-contact-form',
 				'title'      => esc_html__( 'Add Shortcode Contact Form 7', 'endurance' ),
 				'type'       => 'text',
 				'full_width' => false,
-				'default'    => '[contact-form-7 id="dbd37a3" title="Contact form 1"]',
+				'default'    => '[contact-form-7 title="Contact Us Page"]',
 			),
 			array(
 				'id'           => 'endurance_conatct_info_call_img',

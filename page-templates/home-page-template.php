@@ -490,7 +490,7 @@ $theme_option = get_option( 'redux_demo' );
 														}
 													}
 													foreach ( $display_plan_features as $display_features ) {
-														$plan_features_keys = array_keys( $plan_features_arr[ $display_id ] );
+														$plan_features_keys = isset( $plan_features_arr[ $display_id ] ) ? array_keys( $plan_features_arr[ $display_id ] ) : array();
 														if ( isset( $theme_option['endurance_pricing_plan_features_available_image']['url'] ) && ! empty( $theme_option['endurance_pricing_plan_features_available_image']['url'] ) ) {
 															$features_available_img = $theme_option['endurance_pricing_plan_features_available_image']['url'];
 														} else {
