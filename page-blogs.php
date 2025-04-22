@@ -18,10 +18,10 @@ $blog_posts = new WP_Query(
 	array(
 		'post_type'      => 'post',
 		'post_status'    => 'publish',
-		'posts_per_page' => -1, // Get all posts, no limit
+		'posts_per_page' => -1,
 	)
 );
-$count = 1;
+$count      = 1;
 ?>
 
 	<!-- MAIN SECTIONS START FROM HERE -->
@@ -104,14 +104,17 @@ $count = 1;
 								<?php ++$count; ?>
 							<?php endwhile; ?>
 						</div>
-						<?php if( isset( $blog_posts->found_posts ) && $blog_posts->found_posts > 3 ) { ?>
+						<?php if ( isset( $blog_posts->found_posts ) && $blog_posts->found_posts > 3 ) { ?>
 							<a href="#" class="btn_wrapper mt-sm-5 mt-4 mx-auto" id="load-more">Load more</a>
 						<?php } ?>
 					<?php else : ?>
 						<p class="no-blog-posts">
 							<?php esc_html_e( 'We couldn\'t find any posts that match your criteria.', 'endurance' ); ?> 
 						</p>
-						<?php endif; wp_reset_postdata(); ?>
+						<?php
+						endif;
+					wp_reset_postdata();
+					?>
 				</div>
 			</div>
 		</div>

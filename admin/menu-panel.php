@@ -1035,7 +1035,7 @@ Redux::set_section(
 					),
 				),
 			),
-			
+
 			array(
 				'id'     => 'endurance_gear_up_track_data_end',
 				'type'   => 'section',
@@ -1695,7 +1695,7 @@ Redux::set_section(
 );
 
 // Gallery Page Settings.
-$gallery_images  = trim( get_option( 'endurance_gallery_images' ) );
+$gallery_images = trim( get_option( 'endurance_gallery_images' ) );
 Redux::set_section(
 	$opt_name,
 	array(

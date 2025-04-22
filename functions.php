@@ -108,28 +108,8 @@ function endurance_by_gymfit_content_width() {
 add_action( 'after_setup_theme', 'endurance_by_gymfit_content_width', 0 );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function endurance_by_gymfit_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'endurance-by-gymfit' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'endurance-by-gymfit' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-	register_widget( 'Blog_Widget' );
-}
-add_action( 'widgets_init', 'endurance_by_gymfit_widgets_init' );
-
-/**
  * Function to validate URLs.
+ *
  * @param string $url The URL to validate.
  */
 function validate_url( $url ) {
@@ -138,165 +118,6 @@ function validate_url( $url ) {
 	}
 	return true;
 }
-
-class Blog_Widget extends WP_Widget {
-	function __construct() {
-		parent::__construct(
-			'blog_widget',
-			__( 'Blog Widget', 'endurance-by-gymfit' ),
-			array( 'description' => __( 'A Blog Widget to display Categories, Tags, Search, and Related Posts', 'endurance-by-gymfit' ) ) // Args
-		);
-	}
-
-	// Widget output.
-	public function widget( $args, $instance ) {
-		echo $args['before_widget'];
-
-		// Display Categories.
-		if ( ! empty( $instance['categories'] ) ) {
-			$categories = $instance['categories'];
-			echo '<div class="block mb-4 wow fadeInUp"><div class="titles"> Categories </div>';
-			echo '<div class="box categorieBlock">';
-			foreach ( $categories as $category_id ) {
-				$category = get_category( $category_id );
-				echo '<li><a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a></li>	';
-			}
-			echo '</div></div>';
-		}
-
-		// Display Tags.
-		if ( ! empty( $instance['tags'] ) ) {
-			$tags = $instance['tags'];
-			echo '<div class="block mb-4 wow fadeInUp"><div class="titles"> Tags </div>';
-			echo '<div class="box tagsBlock">';
-			foreach ( $tags as $tag_id ) {
-				$tag = get_term( $tag_id, 'post_tag' );
-				echo '<li><a href="' . esc_url( get_tag_link( $tag->term_id ) ) . '">' . esc_html( $tag->name ) . '</a></li>';
-			}
-			echo '</div></div>';
-		}
-
-		// Search Form.
-
-		echo '<div class="block mb-4 wow fadeInUp"><div class="titles">Search</div>
-		<div class="box searchBlock"><div class="fill-up-form">
-        <div class="form-group mb-0 post-search">
-		<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
-                <label>
-                    <span class="screen-reader-text">' . _x( 'Search for:', 'label', 'endurance-by-gymfit' ) . '</span>
-                    <input type="search" class="search-field" placeholder="Search …" value="' . get_search_query() . '" name="s" />
-                </label>
-                <input type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'endurance-by-gymfit' ) . '" />
-        </form></div></div></div></div>';
-
-		// Related Posts based on selected Categories.
-		if ( ! empty( $instance['categories'] ) ) {
-			$args          = array(
-				'category__in'   => $instance['categories'],
-				'posts_per_page' => 3,
-				'post__not_in'   => array( get_the_ID() ),
-			);
-			$related_posts = new WP_Query( $args );
-
-			if ( $related_posts->have_posts() ) {
-				echo '<div class="block wow fadeInUp">';
-				echo '<div class="titles">Related Posts</div>';
-				echo '<div class="box postBlock">';
-				while ( $related_posts->have_posts() ) {
-					$related_posts->the_post();
-					echo '<div class="post"><div class="image-wrapper">';
-
-					// Display the thumbnail if available.
-					if ( has_post_thumbnail() ) {
-						echo '<div class="related-post-thumbnail">';
-						echo '<a href="' . get_the_permalink() . '">';
-						echo get_the_post_thumbnail( get_the_ID(), 'thumbnail' );
-						echo '</a>';
-						echo '</div>';
-					}
-					echo '</div>';
-
-					// Display the post title.
-					echo '<div class="text"><span><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></span><p> ' . get_the_date() . '</p></div>';
-					echo '</div>';
-				}
-				echo '</div></div>';
-				wp_reset_postdata();
-			}
-		}
-
-		echo $args['after_widget'];
-	}
-
-	// Widget form in the admin dashboard.
-	public function form( $instance ) {
-
-		$title               = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Sidebar', 'endurance-by-gymfit' );
-		$selected_categories = ! empty( $instance['categories'] ) ? $instance['categories'] : array();
-		$selected_tags       = ! empty( $instance['tags'] ) ? $instance['tags'] : array();
-
-		// Get all categories and tags.
-		$categories = get_categories( array( 'hide_empty' => false ) );
-		$tags       = get_terms(
-			array(
-				'taxonomy'   => 'post_tag',
-				'hide_empty' => false,
-			)
-		);
-
-		?>
-		<div class="block mb-4 wow fadeInUp">
-		<p class="titles">
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Title:' ); ?></label>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
-		</p>
-	</div>
-	<div class="block mb-4 wow fadeInUp">
-		<p class="titles">Select Categories:</p>
-		<?php foreach ( $categories as $category ) : ?>
-			<p class="box tagsBlock">
-				<input class="checkbox" type="checkbox" <?php echo in_array( $category->term_id, $selected_categories ) ? 'checked="checked"' : ''; ?> id="<?php echo esc_attr( $this->get_field_id( 'categories' ) . '_' . $category->term_id ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'categories[]' ) ); ?>" value="<?php echo esc_attr( $category->term_id ); ?>" />
-				<label for="<?php echo esc_attr( $this->get_field_id( 'categories' ) . '_' . $category->term_id ); ?>"><?php echo esc_html( $category->name ); ?></label>
-			</p>
-		<?php endforeach; ?>
-		</div>
-		<div class="block mb-4 wow fadeInUp">
-		<p class="titles">Select Tags:</p>
-		<?php foreach ( $tags as $tag ) : ?>
-			<p class="box tagsBlock">
-				<input class="checkbox" type="checkbox" <?php echo in_array( $tag->term_id, $selected_tags ) ? 'checked="checked"' : ''; ?> id="<?php echo esc_attr( $this->get_field_id( 'tags' ) . '_' . $tag->term_id ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'tags[]' ) ); ?>" value="<?php echo esc_attr( $tag->term_id ); ?>" />
-				<label for="<?php echo esc_attr( $this->get_field_id( 'tags' ) . '_' . $tag->term_id ); ?>"><?php echo esc_html( $tag->name ); ?></label>
-			</p>
-		<?php endforeach; ?>
-		<?php
-	}
-
-	// Update widget settings.
-	public function update( $new_instance, $old_instance ) {
-		$instance = array();
-		// Sanitize and save the title.
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
-
-		// Save selected categories.
-		if ( ! empty( $new_instance['categories'] ) ) {
-			$instance['categories'] = array_map( 'intval', $new_instance['categories'] );
-		} else {
-			$instance['categories'] = array();
-		}
-
-		// Save selected tags.
-		if ( ! empty( $new_instance['tags'] ) ) {
-			$instance['tags'] = array_map( 'intval', $new_instance['tags'] );
-		} else {
-			$instance['tags'] = array();
-		}
-
-		return $instance;
-	}
-}
-
-
-
 
 /**
  * Enqueue scripts and styles.
@@ -365,6 +186,8 @@ require get_template_directory() . '/inc/customizer.php';
 
 require get_template_directory() . '/redux-framework/redux-framework.php';
 
+require get_template_directory() . '/class-blog-widget.php';
+
 /**
  * Load Jetpack compatibility file.
  */
@@ -403,8 +226,7 @@ function generate_site_nav_menu_item( $term_id, $title, $url, $parent_id = 0 ) {
 			$term_id,
 			0,
 			array(
-
-				'menu-item-title'     => sprintf( __( '%s', 'endurance' ), $title ),
+				'menu-item-title'     => $title,
 				'menu-item-url'       => home_url( '/' . $url ),
 				'menu-item-status'    => 'publish',
 				'menu-item-parent-id' => $parent_id,
@@ -473,6 +295,25 @@ function my_after_setup_theme() {
 add_action( 'after_setup_theme', 'my_after_setup_theme' );
 
 
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function endurance_by_gymfit_widgets_init() {
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar', 'endurance-by-gymfit' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add widgets here.', 'endurance-by-gymfit' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
+}
+add_action( 'widgets_init', 'endurance_by_gymfit_widgets_init' );
 
 
 /**
@@ -1027,9 +868,6 @@ function my_after_switch_theme() {
 
 	if ( ! is_wp_error( $new_form_id ) ) {
 		update_post_meta( $new_form_id, '_form', $form_content );
-		// You can optionally add mail settings as well.
-	} else {
-		error_log( 'Error creating Contact Form 7 form: ' . $new_form_id->get_error_message() );
 	}
 
 	if ( ! is_wp_error( $new_form_id ) ) {
@@ -1098,8 +936,6 @@ function my_after_switch_theme() {
 
 	if ( ! is_wp_error( $new_form_id ) ) {
 		update_post_meta( $new_form_id, '_form', $form_content );
-	} else {
-		error_log( 'Error creating Contact Form 7 form: ' . $new_form_id->get_error_message() );
 	}
 
 	if ( ! is_wp_error( $new_form_id ) ) {
@@ -1138,8 +974,8 @@ add_action( 'after_switch_theme', 'my_after_switch_theme' );
 if ( ! function_exists( 'next_widget_id_base' ) ) {
 	/**
 	 * Helper function to generate the next available widget ID.
+	 *
 	 * @param string $id_base The base ID of the widget.
-	 * 
 	 */
 	function next_widget_id_base( $id_base ) {
 		global $wp_registered_widgets;

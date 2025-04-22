@@ -418,7 +418,7 @@ if ( ! is_admin() ) {
 			}
 		}
 
-		
+
 		?>
 	</style>
 	<?php

@@ -20,7 +20,7 @@ $theme_option = get_option( 'redux_demo' );
 				<div class="gallery-wrapper">
 					<div class="row gy-4" id="gallery-items">
 						<?php
-						$gallery_images_ids = $theme_option['endurance_gallery_images'];
+						$gallery_images_ids = isset( $theme_option['endurance_gallery_images'] ) && ! empty( $theme_option['endurance_gallery_images'] ) ? $theme_option['endurance_gallery_images'] : get_option( 'endurance_gallery_images' );
 						$ids                = explode( ',', $gallery_images_ids );
 						$initial_display    = 6;
 						$additional_display = 3;
@@ -32,7 +32,7 @@ $theme_option = get_option( 'redux_demo' );
 
 							$hidden_class = $index >= $initial_display ? 'gallery-hidden' : '';
 							?>
-							<div class="col-lg-4 col-sm-6 <?php echo $hidden_class; ?>">
+							<div class="col-lg-4 col-sm-6 <?php echo esc_attr( $hidden_class ); ?>">
 								<div class="image-wrapper wow fadeInUp">
 									<img loading="lazy" src="<?php echo isset( $img[0] ) ? esc_url( $img[0] ) : ''; ?>" alt="<?php echo esc_attr( $alt ); ?>">
 								</div>

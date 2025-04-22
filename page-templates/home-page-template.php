@@ -431,9 +431,9 @@ $theme_option = get_option( 'redux_demo' );
 										$pricing_plans->the_post();
 										$get_plan_periods = get_post_meta( get_the_ID(), 'endurance_pricing_plan_period', true );
 										$post_title_arr[] = get_the_title();
-										$post_id_arr[] = get_the_ID();
+										$post_id_arr[]    = get_the_ID();
 
-										$get_plan_prices                   = get_post_meta( get_the_ID(), 'endurance_pricing_plan_price', true );
+										$get_plan_prices                = get_post_meta( get_the_ID(), 'endurance_pricing_plan_price', true );
 										$get_plan_price[ get_the_ID() ] = $get_plan_prices;
 
 										foreach ( $get_plan_periods as $get_plan_period ) {

@@ -97,11 +97,11 @@ get_header();
 								if ( isset( $theme_option['endurance_display_tags'] ) && ! empty( $theme_option['endurance_display_tags'] ) ) {
 									if ( 1 === (int) $theme_option['endurance_display_tags'] ) {
 										$post_tags = get_the_tags();
-										foreach ( $post_tags as $tag ) :
+										foreach ( $post_tags as $ptag ) :
 											?>
 										<li>
-											<a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>">
-												<?php echo esc_html( $tag->name ); ?>
+											<a href="<?php echo esc_url( get_tag_link( $ptag->term_id ) ); ?>">
+												<?php echo esc_html( $ptag->name ); ?>
 											</a>
 										</li>
 										<?php endforeach; ?>
@@ -169,7 +169,7 @@ get_header();
 										
 										<?php
 										// Get the comments for the current post.
-										$comments = get_comments(
+										$post_comments = get_comments(
 											array(
 												'post_id' => get_the_ID(),
 												'status'  => 'approve', // Only get approved comments.
@@ -177,22 +177,22 @@ get_header();
 										);
 
 										// Check if there are comments.
-										if ( $comments ) {
-											foreach ( $comments as $comment ) {
+										if ( $post_comments ) {
+											foreach ( $post_comments as $pcomment ) {
 												?>
 												<div class="comment">
 													<div class="person-dtls">
 														<div class="icon image-wrapper">
-															<?php echo get_avatar( $comment->comment_author_email, 64 ); // Display avatar. ?>
+															<?php echo get_avatar( $pcomment->comment_author_email, 64 ); // Display avatar. ?>
 														</div>
 														<div class="dtls">
 															<div class="text">
-																<span><?php echo esc_html( $comment->comment_author ); ?></span>
-																<p><?php echo esc_html( gmdate( 'jS F, Y', strtotime( $comment->comment_date ) ) ); ?></p>
+																<span><?php echo esc_html( $pcomment->comment_author ); ?></span>
+																<p><?php echo esc_html( gmdate( 'jS F, Y', strtotime( $pcomment->comment_date ) ) ); ?></p>
 															</div>
 														</div>
 													</div>
-													<p><?php echo esc_html( $comment->comment_content ); ?></p>
+													<p><?php echo esc_html( $pcomment->comment_content ); ?></p>
 												</div>
 												<?php
 											}
