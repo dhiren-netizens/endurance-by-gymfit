@@ -117,11 +117,11 @@ jQuery(document).ready(function () {
     updateAccordion();
 
 
-    jQuery('#endurance_conatct_info_call_details-text-box2').attr('type', 'number');
-    jQuery('#endurance_conatct_info_call_details-text-box4').attr('type', 'number');
+    jQuery('#endurance_contact_info_call_details-text-box2').attr('type', 'number');
+    jQuery('#endurance_contact_info_call_details-text-box4').attr('type', 'number');
 
-    jQuery('#endurance_conatct_info_email_details-text-box2').attr('type', 'email');
-    jQuery('#endurance_conatct_info_email_details-text-box4').attr('type', 'email');
+    jQuery('#endurance_contact_info_email_details-text-box2').attr('type', 'email');
+    jQuery('#endurance_contact_info_email_details-text-box4').attr('type', 'email');
 });
 
 

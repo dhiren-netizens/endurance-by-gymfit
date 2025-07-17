@@ -1763,14 +1763,14 @@ Redux::set_section(
 Redux::set_section(
 	$opt_name,
 	array(
-		'title'            => esc_html__( 'Conatct Information Section', 'endurance' ),
-		'id'               => 'endurance_conatct_info_settings',
+		'title'            => esc_html__( 'Contact Information Section', 'endurance' ),
+		'id'               => 'endurance_contact_info_settings',
 		'customizer_width' => '400px',
 		'subsection'       => true,
 		'icon'             => 'el el-info-circle',
 		'fields'           => array(
 			array(
-				'id'      => 'endurance_conatct_info_call_us_heading',
+				'id'      => 'endurance_contact_info_call_us_heading',
 				'type'    => 'text',
 				'title'   => esc_html__( 'Call Us Heading', 'endurance' ),
 				'default' => 'Call Us',
@@ -1783,7 +1783,7 @@ Redux::set_section(
 				'default'    => '[contact-form-7 title="Contact Us Page"]',
 			),
 			array(
-				'id'           => 'endurance_conatct_info_call_img',
+				'id'           => 'endurance_contact_info_call_img',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'Call Us Icon', 'endurance' ),
@@ -1795,13 +1795,13 @@ Redux::set_section(
 				),
 			),
 			array(
-				'id'      => 'endurance_conatct_info_mail_heading',
+				'id'      => 'endurance_contact_info_mail_heading',
 				'type'    => 'text',
 				'title'   => esc_html__( 'E-mail Heading', 'endurance' ),
 				'default' => 'Email',
 			),
 			array(
-				'id'           => 'endurance_conatct_info_mail_img',
+				'id'           => 'endurance_contact_info_mail_img',
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'E-mail Icon', 'endurance' ),
@@ -1813,7 +1813,7 @@ Redux::set_section(
 				),
 			),
 			array(
-				'id'      => 'endurance_conatct_info_call_details',
+				'id'      => 'endurance_contact_info_call_details',
 				'type'    => 'text',
 				'title'   => esc_html__( 'Call Details', 'endurance' ),
 				'data'    => array(
@@ -1830,7 +1830,7 @@ Redux::set_section(
 				),
 			),
 			array(
-				'id'      => 'endurance_conatct_info_email_details',
+				'id'      => 'endurance_contact_info_email_details',
 				'type'    => 'text',
 				'title'   => esc_html__( 'Email Details', 'endurance' ),
 				'data'    => array(
