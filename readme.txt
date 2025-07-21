@@ -1,11 +1,11 @@
 === Endurance By GymFit ===
 
 Contributors: netizenstech
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Tags: custom-background, custom-logo, custom-menu, translation-ready, fitness, gym, health, personal-trainer, workout, bodybuilding, crossfit, fitness-center, gym-website, trainer-portfolio, team, pricing-plan, testimonial
 
-Requires at least: 4.5
-Tested up to: 5.4
-Requires PHP: 5.6
+Requires at least: 6.8
+Tested up to: 6.8.2
+Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -26,7 +26,7 @@ Gymfit's "Endurance" theme is a custom WordPress template designed for fitness c
 
 = Does this theme support any plugins? =
 
-Endurance By GymFit includes support for WooCommerce and for Infinite Scroll in Jetpack.
+Endurance By GymFit includes support for Contact Form 7 & Wordfence Security.
 
 == Changelog ==
 
