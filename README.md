@@ -1,4 +1,4 @@
-=== Endurance By GymFit ===
+<h1>Endurance By GymFit</h1>
 
 Contributors: netizenstech
 Tags: custom-background, custom-logo, custom-menu, translation-ready, fitness, gym, health, personal-trainer, workout, bodybuilding, crossfit, fitness-center, gym-website, trainer-portfolio, team, pricing-plan, testimonial
