@@ -26,7 +26,7 @@ Gymfit's "Endurance" theme is a custom WordPress template designed for fitness c
 
 = Does this theme support any plugins? =
 
-Endurance By GymFit includes support for Contact Form 7 & Wordfence Security.
+Endurance By GymFit includes support for Contact Form 7, Smash Balloon Instagram Feed & Wordfence Security.
 
 == Changelog ==
 

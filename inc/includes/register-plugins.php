@@ -48,16 +48,22 @@ function endurance_register_required_plugins() {
 	 */
 	$plugins = array(
 		array(
-			'name'               => __( 'Contact Form 7', 'endurance' ),
-			'slug'               => 'contact-form-7',
-			'required'           => true,
-			'image_url'          => get_template_directory_uri() . '/admin/images/contactform7.png',
+			'name'      => __( 'Contact Form 7', 'endurance' ),
+			'slug'      => 'contact-form-7',
+			'required'  => true,
+			'image_url' => get_template_directory_uri() . '/admin/images/contactform7.png',
 		),
 		array(
-			'name'               => __( 'Wordfence Security', 'endurance' ),
-			'slug'               => 'wordfence',
-			'required'           => true,
-			'image_url'          => get_template_directory_uri() . '/admin/images/wordfence security.png',
+			'name'      => __( 'Wordfence Security', 'endurance' ),
+			'slug'      => 'wordfence',
+			'required'  => true,
+			'image_url' => get_template_directory_uri() . '/admin/images/wordfence_security.png',
+		),
+		array(
+			'name'      => __( 'Smash Balloon Instagram Feed', 'endurance' ),
+			'slug'      => 'instagram-feed',
+			'required'  => true,
+			'image_url' => get_template_directory_uri() . '/admin/images/instagram_feed.png',
 		),
 	);
 

@@ -794,29 +794,51 @@ $theme_option = get_option( 'redux_demo' );
 		<!-- BLOG SECTION END'S FROM HERE -->
 
 		<!-- INSTAGRAM SECTION START FROM HERE -->
+		<div id="hidden-instagram-feed" style="display:none;">
+			<?php
+			if ( isset( $theme_option['endurance_instagram_section_shortcode'] ) && ! empty( $theme_option['endurance_instagram_section_shortcode'] ) ) {
+				echo do_shortcode( $theme_option['endurance_instagram_section_shortcode'] );
+			}
+			?>
+		</div>
+
 		<div class="instagram-section default-padding wow fadeIn" data-wow-duration="1.2s">
 			<div class="instagram-wrapper">
 				<div class="image-wrapper">
-					<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/paper-texture.webp" alt="papper-texture">
+					<?php if ( isset( $theme_option['endurance_instagram_background_image']['url'] ) && ! empty( $theme_option['endurance_instagram_background_image']['url'] ) ) { ?>
+						<img loading="lazy" src="<?php echo esc_url( $theme_option['endurance_instagram_background_image']['url'] ); ?>" alt="paper-texture">
+					<?php } else { ?> 
+						<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/background/paper-texture.webp" alt="paper-texture">
+					<?php } ?>
 					<div class="img-block">
 						<div class="row g-0 h-100 justify-content-between">
 							<div class="col-6">
 								<div class="row g-0 h-100">
 									<div class="col-4">
 										<div class="image-wrapper h-100 d-flex flex-column justify-content-between">
-											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-1.webp" alt="img-1" class="img-1 z-1" id="floatingImage1">
-											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-2.webp" alt="img-2" class="img-2" id="floatingImage2">
+											<a href="#" class="insta-link img-1">
+												<img class="insta-img img-1 z-1" id="floatingImage1" />
+											</a>
+											<a href="#" class="insta-link img-2">
+												<img class="insta-img img-2" id="floatingImage2" />
+											</a>
 										</div>
 									</div>
 									<div class="col-4">
 										<div class="image-wrapper h-100 d-flex flex-column justify-content-center">
-											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-3.webp" alt="img-3" class="img-3" id="floatingImage3">
-											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-4.webp" alt="img-4" class="img-4" id="floatingImage4">
+											<a href="#" class="insta-link img-3">
+												<img class="insta-img img-3" id="floatingImage3" />
+											</a>
+											<a href="#" class="insta-link img-4">
+												<img class="insta-img img-4" id="floatingImage4" />
+											</a>
 										</div>
 									</div>
 									<div class="col-2">
 										<div class="image-wrapper h-100">
-											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-5.webp" alt="img-5" class="img-5" id="floatingImage5">
+											<a href="#" class="insta-link img-5">
+												<img class="insta-img img-5" id="floatingImage5" />
+											</a>
 										</div>
 									</div>
 								</div>
@@ -825,14 +847,22 @@ $theme_option = get_option( 'redux_demo' );
 								<div class="row g-0 h-100">
 									<div class="col-6">
 										<div class="image-wrapper h-100 d-flex flex-column justify-content-center">
-											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-6.webp" alt="img-6" class="img-6" id="floatingImage6">
-											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-7.webp" alt="img-7" class="img-7" id="floatingImage7">
+											<a href="#" class="insta-link img-6">
+												<img class="insta-img img-6" id="floatingImage6" />
+											</a>
+											<a href="#" class="insta-link img-7">
+												<img class="insta-img img-7" id="floatingImage7" />
+											</a>
 										</div>
 									</div>
 									<div class="col-6">
 										<div class="image-wrapper h-100">
-											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-8.webp" alt="img-8" class="img-8" id="floatingImage8">
-											<img loading="lazy" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/instagram/instagram-img-9.webp" alt="img-9" class="img-9" id="floatingImage9">
+											<a href="#" class="insta-link img-8">
+												<img class="insta-img img-8" id="floatingImage8" />
+											</a>
+											<a href="#" class="insta-link img-9">
+												<img class="insta-img img-9" id="floatingImage9" />
+											</a>
 										</div>
 									</div>
 								</div>
@@ -841,8 +871,15 @@ $theme_option = get_option( 'redux_demo' );
 					</div>
 				</div>
 				<div class="text-block text-center">
-					<p>Follow Us on Instagram</p>
-					<a href="#!">@Gymfit</a>
+					<?php if ( isset( $theme_option['endurance_instagram_section_follow_text'] ) && ! empty( $theme_option['endurance_instagram_section_follow_text'] ) ) { ?>
+						<p><?php echo esc_html( $theme_option['endurance_instagram_section_follow_text'] ); ?></p>
+						<?php
+					}
+					$endurance_instagram_section_username_link = isset( $theme_option['endurance_instagram_section_username_link'] ) ? $theme_option['endurance_instagram_section_username_link'] : '#';
+					if ( isset( $theme_option['endurance_instagram_section_username'] ) && ! empty( $theme_option['endurance_instagram_section_username'] ) ) {
+						?>
+						<a href="<?php echo esc_attr( $endurance_instagram_section_username_link ); ?>"><?php echo esc_html( $theme_option['endurance_instagram_section_username'] ); ?></a>
+					<?php } ?>
 				</div>
 			</div>
 		</div>

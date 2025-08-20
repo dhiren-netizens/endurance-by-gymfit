@@ -283,6 +283,56 @@ if ($(".myTeam").length == "1") {
 	});
 }
 
+setTimeout(function () {
+    let instaItems = $('#hidden-instagram-feed .sbi_photo_wrap');
+
+    instaItems.each(function(i){
+        if(i < 9){
+            let imgEl   = $(this).find('img').last().get(0);
+            let link    = $(this).find('a').attr('href');
+            let src     = '';
+
+            if(imgEl){
+                // Prefer data-lazy-src / data-src first
+                src = $(imgEl).attr('src');
+				src = src.replace('_nthumb', '_nfull');
+            }
+
+            // If still empty, fallback to background-image
+            if(!src){
+                let bg = $(this).find('.sbi_photo').css('background-image');
+                if(bg && bg !== 'none'){
+                    src = bg.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+                }
+            }
+
+			if(src && (
+                src.includes('placeholder.png') ||  // plugin placeholder
+                src.includes('s.w.org/images/core/emoji') // WP emojis
+            )){
+                src = '';
+            }
+
+            // Fallback alt text
+            let alt = (imgEl && $(imgEl).attr('alt')) || 'Instagram image';
+
+            // Replace custom block img
+            if(src){
+                $('.insta-img').eq(i).attr({
+                    'src': src,
+                    'alt': alt,
+                    'loading': 'lazy'
+                });
+            }
+
+            // Replace link
+            if(link){
+                $('.insta-link').eq(i).attr('href', link);
+            }
+        }
+    });
+}, 5000);
+
 
 /*=====================================================================
 07 - FORM VALIDATION JS

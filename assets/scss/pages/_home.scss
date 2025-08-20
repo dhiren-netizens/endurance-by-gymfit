@@ -1265,6 +1265,14 @@ INSTAGRAM SECTION END'S FROM HERE
             img {
                 display: block;
                 width: 100%;
+                border-radius: 25px;
+
+                @media screen and (max-width:1024px) {
+                    border-radius: 15px;
+                }
+                @media screen and (max-width:767px) {
+                    border-radius: 10px;
+                }
             }
 
             .img-block {
@@ -1275,11 +1283,20 @@ INSTAGRAM SECTION END'S FROM HERE
                 left: 0;
 
                 img {
+                    max-width: 220px;
+
+                    @media screen and (max-width:1024px) {
+                        max-width: 160px;
+                    }
+                    @media screen and (max-width:767px) {
+                        max-width: 60px;
+                    }
+
                     &.img-3 {
                         margin-left: -150px;
 
                         @media screen and (max-width:1399px) {
-                            margin-left: -100px;
+                            margin-left: -40px;
                         }
 
                         @media screen and (max-width:991px) {
@@ -1291,19 +1308,33 @@ INSTAGRAM SECTION END'S FROM HERE
                         }
                     }
                     &.img-6 {
-                        margin-left: 150px;
+                        margin-left: 60px;
                         animation-direction: unset;
 
+                        @media screen and (max-width:1450px) {
+                            margin-left: -60px;
+                        }
+
                         @media screen and (max-width:1399px) {
-                            margin-left: 100px;
+                            margin-left: 0px;
                         }
 
                         @media screen and (max-width:991px) {
-                            margin-left: 50px;
+                            margin-left: 30px;
                         }
 
                         @media screen and (max-width:480px) {
                             margin-left: 20px;
+                        }
+                    }
+                    &.img-7 {
+                        @media screen and (max-width:1399px) {
+                            margin-top: 20px;
+                        }
+                    }
+                    &.img-9 {
+                        @media screen and (max-width:1399px) {
+                            margin-top: 20px;
                         }
                     }
                 }

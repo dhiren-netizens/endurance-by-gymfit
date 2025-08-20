@@ -417,9 +417,23 @@ if ( ! is_admin() ) {
 				}
 			}
 		}
-
-
 		?>
+		.instagram-section .instagram-wrapper .text-block a {
+			<?php if ( isset( $theme_option['endurance_instagram_section_username_link_color'] ) && ! empty( $theme_option['endurance_instagram_section_username_link_color'] ) && is_array( $theme_option['endurance_instagram_section_username_link_color'] ) ) { ?>
+				background: linear-gradient(<?php echo isset( $theme_option['endurance_instagram_section_username_link_color']['gradient-angle'] ) ? esc_attr( $theme_option['endurance_instagram_section_username_link_color']['gradient-angle'] ) . 'deg' : ''; ?>, 
+				<?php
+				echo esc_attr( $theme_option['endurance_instagram_section_username_link_color']['from'] ) . ' ';
+				echo esc_attr( $theme_option['endurance_instagram_section_username_link_color']['gradient-reach']['from'] ) . '%';
+				?>
+				, 
+				<?php
+				echo esc_attr( $theme_option['endurance_instagram_section_username_link_color']['to'] ) . ' ';
+				echo esc_attr( $theme_option['endurance_instagram_section_username_link_color']['gradient-reach']['to'] ) . '%';
+				?>
+				);
+			<?php } ?>
+			-webkit-background-clip: text;
+		}
 	</style>
 	<?php
 }

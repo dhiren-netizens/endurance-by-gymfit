@@ -220,6 +220,7 @@ HEADER CSS START FROM HERE
                         &:hover,
                         &.active {
                             color: #F907FC !important;
+                            background-color: #f8f9fa;
     
                             &::before {
                                 right: -100px;
