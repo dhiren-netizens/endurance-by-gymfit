@@ -1455,7 +1455,7 @@ add_filter(
 	'admin_footer_text',
 	function ( $footer_text ) {
 		$current_page = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
-		if ( 'redux_demo' == $current_page ) {
+		if ( 'endurance_theme' == $current_page ) {
 			$footer_text = 'Enjoyed <strong>Endurance Theme</strong>? Please leave us a <a href="https://netizenstechnologies.com" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. We really appreciate your support!';
 		}
 		echo '<span id="footer-thankyou">' . wp_kses( $footer_text, endurance_allowed_tags() ) . '</span>';

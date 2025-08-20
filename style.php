@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! is_admin() ) {
-	$theme_option = get_option( 'redux_demo' );
+	$theme_option = get_option( 'endurance_theme' );
 	?>
 	<style>
 		.banner-wrapper .imgBlock{

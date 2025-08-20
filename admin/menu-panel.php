@@ -13,7 +13,7 @@ if ( ! class_exists( 'Redux' ) ) {
 }
 
 // This is your option name where all the Redux data is stored.
-$opt_name = 'redux_demo';  // YOU MUST CHANGE THIS.  DO NOT USE 'redux_demo' IN YOUR PROJECT!!!
+$opt_name = 'endurance_theme';  // YOU MUST CHANGE THIS.  DO NOT USE 'redux_demo' IN YOUR PROJECT!!!
 
 // Uncomment to disable demo mode.
 /* Redux::disable_demo(); */  // phpcs:ignore Squiz.PHP.CommentedOutCode
@@ -278,7 +278,7 @@ $args['footer_text'] = '<p>' . esc_html__( 'This text is displayed below the opt
 
 Redux::set_args( $opt_name, $args );
 
-$opt_name = 'redux_demo';
+$opt_name = 'endurance_theme';
 
 // Header Settings.
 Redux::set_section(

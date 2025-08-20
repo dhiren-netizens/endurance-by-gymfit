@@ -9,7 +9,7 @@
  * @package Endurance_By_GymFit
  */
 
-$theme_option = get_option( 'redux_demo' );
+$theme_option = get_option( 'endurance_theme' );
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>

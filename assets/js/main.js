@@ -293,12 +293,10 @@ setTimeout(function () {
             let src     = '';
 
             if(imgEl){
-                // Prefer data-lazy-src / data-src first
                 src = $(imgEl).attr('src');
 				src = src.replace('_nthumb', '_nfull');
             }
 
-            // If still empty, fallback to background-image
             if(!src){
                 let bg = $(this).find('.sbi_photo').css('background-image');
                 if(bg && bg !== 'none'){
@@ -306,17 +304,11 @@ setTimeout(function () {
                 }
             }
 
-			if(src && (
-                src.includes('placeholder.png') ||  // plugin placeholder
-                src.includes('s.w.org/images/core/emoji') // WP emojis
-            )){
+			if(src && ( src.includes('placeholder.png') || src.includes('s.w.org/images/core/emoji'))){
                 src = '';
             }
 
-            // Fallback alt text
             let alt = (imgEl && $(imgEl).attr('alt')) || 'Instagram image';
-
-            // Replace custom block img
             if(src){
                 $('.insta-img').eq(i).attr({
                     'src': src,
@@ -325,7 +317,6 @@ setTimeout(function () {
                 });
             }
 
-            // Replace link
             if(link){
                 $('.insta-link').eq(i).attr('href', link);
             }

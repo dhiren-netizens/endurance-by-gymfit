@@ -5,7 +5,7 @@
  */
 
 get_header();
-$theme_option = get_option( 'redux_demo' );
+$theme_option = get_option( 'endurance_theme' );
 ?>
 	<body>
 
